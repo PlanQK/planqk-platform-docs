@@ -1,3 +1,2 @@
 myst-parser
-mistune==0.8.4
-m2r
+m2r2
