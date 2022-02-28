@@ -1,8 +1,8 @@
-Title
-=====
 
-Section
--------
+Contents
+--------
 
-Subsection
-~~~~~~~~~~
+.. toctree::
+
+   test
+
