@@ -1,5 +1,5 @@
 @import '../bizstyle.css';  
 
-h3 {
+div.sphinxsidebar h3 {
     background-color: green;
 }
