@@ -1,11 +1,11 @@
 @import '../bizstyle.css';
 
 .wy-side-nav-search, .wy-nav-top {
-    background: red;
+    background: red !important;
   }
   /* Sidebar */
   .wy-nav-side {
-    background: orange;
+    background: orange  !important;
   }
 
   .wy-nav-content {
