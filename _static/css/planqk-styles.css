@@ -14,7 +14,7 @@ h1, h2, h3 {
 
 
 .related {
-
+    height: 46px;
     display: flex;
     background: #3D78B5FF;
     background: -moz-linear-gradient(45deg, #3D78B5FF 0%, #E12D32FF 100%);
@@ -49,7 +49,7 @@ div.related ul {
 
 li.nav-item.nav-item-0::before {
     background-image: url('planqk_beta.png');
-    background-size: 20px 40px;
+    background-size: contain;
     display: inline-block;
     width: 20px; 
     height: 40px;
