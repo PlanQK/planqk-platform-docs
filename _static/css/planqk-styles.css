@@ -7,8 +7,6 @@
     --planqk-background-grey: #f3f3f3;
 }
 
-
-
 body {
     margin: 0px;
 }
@@ -26,13 +24,15 @@ div.related:nth-child(2) {
 }
 
 div.related ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--planqk-blue);
 }
 
 h1, h2, h3 {
     color: var(--planqk-blue);
 }
-
 
 .related {
     height: 46px;
