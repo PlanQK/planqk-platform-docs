@@ -48,6 +48,6 @@ def setup(app):
 # Retrieve markup content from external sources - if the content changes in external sources, rebuild the PlanQK docs
 urlretrieve (
     "https://raw.githubusercontent.com/PlanQK/expert-platform-docker/planqk/README.md",
-    "external/nisq_analyzer.md"
+    "docs/external/nisq_analyzer.md"
 )
 
