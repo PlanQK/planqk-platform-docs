@@ -39,3 +39,8 @@ h1, h2, h3 {
   .related * {
     padding: 0.5em;
 }
+
+div.related ul {
+    background-color: transparent;
+    border: none;
+}
