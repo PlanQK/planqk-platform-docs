@@ -24,18 +24,17 @@ h1, h2, h3 {
             GradientType=1);
   }
 
-  .related ul {
+  .related  .ul {
     flex-grow: 1;
     flex-direction: row;
-    border: none;
-  }
+}
 
-  .related  ul li {
+  .related  .ul li {
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-  }
+}
 
   .related * {
     padding: 0.5em;
