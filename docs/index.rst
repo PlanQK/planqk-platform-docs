@@ -83,6 +83,7 @@ The markdown fields support the following functions:
 #. Quantikz code for rendering quantum circuits: ``\begin{quantikz} code \end{quantikz}``
 #. Uploaded sketches (images) can be referenced an loaded by their ID: ``![](sketchId)`` The sketchId can be copied from the list of uploaded sketches.
 
+=============
 NISQ Analyzer
 =============
 The NISQ Analyzer is a research prototype based on the work by Salm et. al. It automatically analyzes implementations of quantum algorithms. The results indicate if a quantum algorithm can be executed on a Quantum Processing Unit (QPU) or simulator. If you want to find out more details, click here.
