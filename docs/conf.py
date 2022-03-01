@@ -44,6 +44,15 @@ html_style = 'css/planqk-styles.css'
 def setup(app):
     app.add_css_file('css/planqk-styles.css')
 
+    
+    
+import os
+
+# Get the current working directory
+cwd = os.getcwd()
+
+# Print the current working directory
+print("Current working directory: {0}".format(cwd))
 
 # Retrieve markup content from external sources - if the content changes in external sources, rebuild the PlanQK docs
 urlretrieve (
