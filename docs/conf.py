@@ -31,7 +31,7 @@ templates_path = ['_templates']
 
 # -- Options for HTML output
 # ToDo: delete this line
-html_theme = 'bizstyle'
+# html_theme = 'bizstyle'
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
