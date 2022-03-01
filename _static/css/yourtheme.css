@@ -1,21 +1,13 @@
 @import '../bizstyle.css';
 
-.wy-side-nav-search, .wy-nav-top {
-    background: red !important;
-  }
-  /* Sidebar */
-  .wy-nav-side {
-    background: orange  !important;
-  }
-
-  .wy-nav-content {
-      color: brown !important;
-  }
-
-  .wy-nav-content {
-    background-color: red !important;
+div.sphinxsidebar h3, div.sphinxsidebar h4 {
+    background-color: #3D78B5FF;
 }
 
 div.related ul {
-    background-color: aqua;
+    background-color: #3D78B5FF;
+}
+
+h1, h2, h3 {
+    background-color: #3D78B5FF;
 }
