@@ -1,3 +1,4 @@
+from urllib.request import urlretrieve
 # Configuration file for the Sphinx documentation builder.
 
 # -- Project information
@@ -42,3 +43,11 @@ html_style = 'css/planqk-styles.css'
 
 def setup(app):
     app.add_css_file('css/planqk-styles.css')
+
+
+# Retrieve markup content from external sources - if the content changes in external sources, rebuild the PlanQK docs
+urlretrieve (
+    "https://raw.githubusercontent.com/PlanQK/expert-platform-docker/planqk/README.md",
+    "external/nisq_analyzer.md"
+)
+
