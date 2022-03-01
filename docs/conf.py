@@ -37,6 +37,6 @@ html_theme = 'bizstyle'
 epub_show_urls = 'footnote'
 
 
-html_static_path = ['_static']
+html_static_path = ['../_static']
 
 html_style = 'css/yourtheme.css'
