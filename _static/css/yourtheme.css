@@ -1,4 +1,4 @@
-@import '../bizstyle.css';
+/* @import '../bizstyle.css'; */
 
 div.sphinxsidebar h3, div.sphinxsidebar h4 {
     background-color: #3D78B5FF;
@@ -43,4 +43,8 @@ h1, h2, h3 {
 div.related ul {
     background-color: transparent;
     border: none;
+}
+
+.nav-item .nav-item-0::before {
+    content:url('planqk_beta.png')
 }
