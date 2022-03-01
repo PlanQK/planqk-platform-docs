@@ -51,8 +51,11 @@ import os
 # Get the current working directory
 cwd = os.getcwd()
 
+
 # Print the current working directory
 print("Current working directory: {0}".format(cwd))
+arr = os.listdir('.')
+print(arr)
 
 # Retrieve markup content from external sources - if the content changes in external sources, rebuild the PlanQK docs
 urlretrieve (
