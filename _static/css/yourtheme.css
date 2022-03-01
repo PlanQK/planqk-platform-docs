@@ -15,3 +15,7 @@
   .wy-nav-content {
     background-color: red !important;
 }
+
+div.related ul {
+    background-color: aqua;
+}
