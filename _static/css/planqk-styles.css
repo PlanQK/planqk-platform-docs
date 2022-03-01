@@ -48,5 +48,10 @@ div.related ul {
 
 
 li.nav-item.nav-item-0::before {
-    content:url('planqk_beta.png')
+    background-image: url('planqk_beta.png');
+    background-size: 10px 20px;
+    display: inline-block;
+    width: 10px; 
+    height: 20px;
+    content:"";
 }
