@@ -21,9 +21,9 @@ body {
     background-color: white;
 }
 
-/* div.sphinxsidebar h3, div.sphinxsidebar h4 {
-    background-color: var(--planqk-blue);
-} */
+div.related:nth-child(2) {
+    display: none;
+}
 
 div.related ul {
     background-color: var(--planqk-blue);
