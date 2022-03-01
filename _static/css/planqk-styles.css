@@ -4,12 +4,21 @@
 :root {
     --planqk-blue: #3D78B5FF;
     --planqk--red: #E12D32FF;
+    --planqk-background-grey: #f3f3f3;
 }
-  
+
 
 
 body {
     margin: 0px;
+}
+
+.documentwrapper {
+   background-color: var(--planqk-background-grey);
+}
+
+.bodywrapper {
+    background-color: white;
 }
 
 /* div.sphinxsidebar h3, div.sphinxsidebar h4 {
