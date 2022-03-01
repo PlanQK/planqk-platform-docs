@@ -28,6 +28,8 @@ intersphinx_disabled_domains = ['std']
 
 templates_path = ['_templates']
 
+extra_css = ['extra.css']
+
 # -- Options for HTML output
 
 html_theme = 'bizstyle'
