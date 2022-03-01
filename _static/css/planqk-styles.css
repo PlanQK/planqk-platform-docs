@@ -1,26 +1,38 @@
 @import '../bizstyle.css';
 
-div.sphinxsidebar h3, div.sphinxsidebar h4 {
-    background-color: #3D78B5FF;
+
+:root {
+    --planqk-blue: #3D78B5FF;
+    --planqk--red: #E12D32FF;
+  }
+  
+
+
+body {
+    margin: 0px;
 }
 
+/* div.sphinxsidebar h3, div.sphinxsidebar h4 {
+    background-color: var(--planqk-blue);
+} */
+
 div.related ul {
-    background-color: #3D78B5FF;
+    background-color: var(--planqk-blue);
 }
 
 h1, h2, h3 {
-    color: #3D78B5FF;
+    color: var(--planqk-blue);
 }
 
 
 .related {
     height: 46px;
     display: flex;
-    background: #3D78B5FF;
-    background: -moz-linear-gradient(45deg, #3D78B5FF 0%, #E12D32FF 100%);
-    background: -webkit-linear-gradient(45deg, #3D78B5FF 0%, #E12D32FF 100%);
-    background: linear-gradient(45deg, #3D78B5FF 0%, #E12D32FF 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$#3D78B5FF', endColorstr='#E12D32FF',
+    background: var(--planqk-blue);
+    background: -moz-linear-gradient(45deg, var(--planqk-blue) 0%, var(--planqk--red) 100%);
+    background: -webkit-linear-gradient(45deg, var(--planqk-blue) 0%, var(--planqk--red) 100%);
+    background: linear-gradient(45deg, var(--planqk-blue) 0%, var(--planqk--red) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$var(--planqk-blue)', endColorstr='var(--planqk--red)',
             GradientType=1);
   }
 
