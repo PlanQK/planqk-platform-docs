@@ -38,7 +38,7 @@ epub_show_urls = 'footnote'
 
 html_static_path = ['../_static']
 
-html_style = 'css/yourtheme.css'
+html_style = 'css/planqk-styles.css'
 
 def setup(app):
-    app.add_css_file('css/yourtheme.css')
+    app.add_css_file('css/planqk-styles.css')

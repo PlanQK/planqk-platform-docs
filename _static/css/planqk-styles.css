@@ -45,6 +45,8 @@ div.related ul {
     border: none;
 }
 
-.nav-item .nav-item-0::before {
+
+
+li.nav-item.nav-item-0::before {
     content:url('planqk_beta.png')
 }
