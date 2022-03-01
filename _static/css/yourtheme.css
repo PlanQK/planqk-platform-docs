@@ -7,3 +7,11 @@
   .wy-nav-side {
     background: orange;
   }
+
+  .wy-nav-content {
+      color: brown !important;
+  }
+
+  .wy-nav-content {
+    background-color: red !important;
+}
