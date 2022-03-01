@@ -67,8 +67,8 @@ div.related ul {
 }
 
 
-
-li.nav-item.nav-item-0::before {
+/* TODO: display planqk logo */
+/* li.nav-item.nav-item-0::before {
     background-image: url('planqk_beta.png');
     background-size: contain;
     display: inline-block;
@@ -76,4 +76,4 @@ li.nav-item.nav-item-0::before {
     height: 40px;
     background-repeat: no-repeat;
     content:"";
-}
+} */
