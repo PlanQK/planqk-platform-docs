@@ -1,5 +1,9 @@
 @import '../bizstyle.css';  
 
-div.sphinxsidebar h3 {
-    background-color: green;
-}
+.wy-side-nav-search, .wy-nav-top {
+    background: red;
+  }
+  /* Sidebar */
+  .wy-nav-side {
+    background: orange;
+  }
