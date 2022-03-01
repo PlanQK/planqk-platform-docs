@@ -87,4 +87,5 @@ NISQ Analyzer
 =============
 The NISQ Analyzer is a research prototype based on the work by Salm et. al. It automatically analyzes implementations of quantum algorithms. The results indicate if a quantum algorithm can be executed on a Quantum Processing Unit (QPU) or simulator. If you want to find out more details, click here.
 
-.. mdinclude:: test.md
+.. mdinclude:: nisq_analyzer.md
+

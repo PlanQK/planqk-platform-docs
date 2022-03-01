@@ -1,3 +1,4 @@
+from urllib.request import urlretrieve
 # Configuration file for the Sphinx documentation builder.
 
 # -- Project information
@@ -42,3 +43,23 @@ html_style = 'css/planqk-styles.css'
 
 def setup(app):
     app.add_css_file('css/planqk-styles.css')
+
+    
+    
+import os
+
+# Get the current working directory
+cwd = os.getcwd()
+
+
+# Print the current working directory
+print("Current working directory: {0}".format(cwd))
+arr = os.listdir('.')
+print(arr)
+
+# Retrieve markup content from external sources - if the content changes in external sources, rebuild the PlanQK docs
+urlretrieve (
+    "https://raw.githubusercontent.com/PlanQK/expert-platform-docker/planqk/README.md",
+    "nisq_analyzer.md"
+)
+
