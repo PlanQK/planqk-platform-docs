@@ -11,3 +11,27 @@ div.related ul {
 h1, h2, h3 {
     color: #3D78B5FF;
 }
+
+
+.related {
+
+    display: flex;
+    background: #3D78B5FF;
+    background: -moz-linear-gradient(45deg, #3D78B5FF 0%, #E12D32FF 100%);
+    background: -webkit-linear-gradient(45deg, #3D78B5FF 0%, #E12D32FF 100%);
+    background: linear-gradient(45deg, #3D78B5FF 0%, #E12D32FF 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$#3D78B5FF', endColorstr='#E12D32FF',
+            GradientType=1);
+  }
+
+  .related  .ul {
+    flex-grow: 1;
+    flex-direction: row;
+  }
+
+  .related  .ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
