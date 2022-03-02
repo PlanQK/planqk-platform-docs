@@ -65,7 +65,7 @@ div.related ul {
 
 
 /* TODO: display planqk logo */
-div.related h3::before {
+/* div.related h3::before {
     background-image: url('planqk_beta.png');
     background-size: contain;
     display: inline-block;
@@ -73,4 +73,4 @@ div.related h3::before {
     height: 40px;
     background-repeat: no-repeat;
     content:"";
-}
+} */
