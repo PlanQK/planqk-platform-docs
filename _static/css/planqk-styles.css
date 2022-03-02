@@ -20,6 +20,10 @@ body {
     background-color: white;
 }
 
+.bodywrapper .body {
+    max-width: 2000px;
+}
+
 div.related ul {
     background-color: var(--planqk-blue);
 }

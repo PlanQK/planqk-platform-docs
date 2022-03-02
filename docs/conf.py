@@ -3,7 +3,7 @@ from urllib.request import urlretrieve
 
 # -- Project information
 
-project = 'PlaQK'
+project = 'PlanQK'
 copyright = '2022, StoneOne'
 author = 'StoneOne'
 
