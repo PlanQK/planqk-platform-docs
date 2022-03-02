@@ -3,5 +3,5 @@
 .. mdinclude:: platform_instructions/knowledge_platform.md
 .. mdinclude:: platform_instructions/service_platform.md
 .. mdinclude:: platform_instructions/quantum_service_store.md
-.. include:: nisq_analyzer.md
+.. mdinclude:: nisq_analyzer.md
 .. mdinclude:: platform_instructions/additional_information.md
