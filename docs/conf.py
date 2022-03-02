@@ -4,7 +4,7 @@ from urllib.request import urlretrieve
 # -- Project information
 
 project = 'PlanQK'
-copyright = '2022, StoneOne'
+copyright = '2022 PlanQK'
 author = 'StoneOne'
 
 # -- General configuration
