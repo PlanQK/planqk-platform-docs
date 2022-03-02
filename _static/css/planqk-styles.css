@@ -21,9 +21,6 @@ body {
 }
 
 div.related ul {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     background-color: var(--planqk-blue);
 }
 
@@ -32,7 +29,6 @@ h1, h2, h3 {
 }
 
 .related {
-    /* height: 46px; */
     display: flex;
     background: var(--planqk-blue);
     background: -moz-linear-gradient(45deg, var(--planqk-blue) 0%, var(--planqk--red) 100%);
@@ -61,8 +57,11 @@ h1, h2, h3 {
 div.related ul {
     background-color: transparent;
     border: none;
-    padding-left: 140px;
     height: 50px;
+}
+
+div.related ul:first-of-type {
+    padding-left: 140px;
 }
 
 div.related ul li {
@@ -77,15 +76,3 @@ div.related ul li {
     left: 1em;
     width: 100px;
 }
-
-
-/* TODO: display planqk logo */
-/* div.related h3::before {
-    background-image: url('planqk_beta.png');
-    background-size: contain;
-    display: inline-block;
-    width: 20px; 
-    height: 40px;
-    background-repeat: no-repeat;
-    content:"";
-} */
