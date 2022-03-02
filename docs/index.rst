@@ -4,5 +4,5 @@
 .. mdinclude:: platform_instructions/service_platform.md
 .. mdinclude:: platform_instructions/quantum_service_store.md
 .. include:: nisq_analyzer.md
-          end-before : ## Acknowledgements
+          end-before : Acknowledgements
 .. mdinclude:: platform_instructions/additional_information.md
