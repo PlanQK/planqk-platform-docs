@@ -7,14 +7,15 @@ Here you find a variety of algorithms for different problems. Either scroll arou
 
 ### Create and/or edit an algorithm
 You can create an algorithm by clicking the "Add Algorithm" button right next to the search bar. After choosing the name and its type, you get to the details view, where you can (and should!) add any information you have.  
-If you want to edit an *existing* algorithm, you need the permission to do so from someone with the correct role (see [Permissions](####permissions)).
-
+If you want to edit an *existing* algorithm, you need the permission to do so from someone with the correct role (see [Permissions](####permissions)).  
+This is a rst test:
+:ref:`Permissions<Permissions>`
 ### Permissions
 One of the tabs at the top of an algorithm is "Members". There you can see people and their roles for the current algorithm. Possible roles are "Maintainer", "Owner" and "Viewer". As their names suggest, "Maintainer" and "Owner" of an algorithm can edit it, whereas "Viewer".. well.. can see it, but not edit it. The difference between "Maintainer" and "Owner", however, is that only an "Owner" of an algorithm can actually delete it.
 
 
 ### Markdown & LaTeX
-Since a lot of people love math and many algorithms require formulae for a better understanding, we support Markdown combined with Latex for most of the textboxes on our platform. Just use :code:`$ latex $` for inline or :code:`$ latex $` for centered equations. You can see other supported Markdown options whenever you are editing a textbox by clicking on the ?-symbol in the top right corner of the box.
+Since a lot of people love math and many algorithms require formulae for a better understanding, we support Markdown combined with Latex for most of the textboxes on our platform. Just use :code:`$ latex $` for inline or :code:`$$ latex $$` for centered equations. You can see other supported Markdown options whenever you are editing a textbox by clicking on the ?-symbol in the top right corner of the box.
 
 ### QuanTikz
 Sometimes math is just not enough to express certain parts of quantum algorithms which is why we also support [quantikz](https://ctan.org/pkg/quantikz) within latex math mode. So in order to draw circuits just type  
