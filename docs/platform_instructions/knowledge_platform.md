@@ -1,5 +1,5 @@
 # Knowledge Platform
-Here, the quantum community comes together and can exchange their knowledge and experience. Whether you are interested in the key concepts of certain algorithms or want to see implementations (for various SDKs), this is your place to be.  
+Here, the quantum community comes together and are able to exchange their knowledge and experience. Whether you are interested in the key concepts of certain algorithms or want to see implementations (for various SDKs), this is your place to be.  
 This part of the PlanQK Platform is driven by various experts from industry and academia to ensure a high quality standard and up-to-date information for this dynamically developing field.
 
 ## Algorithms
@@ -7,14 +7,15 @@ Here you find a variety of algorithms for different problems. Either scroll arou
 
 ### Create and/or edit an algorithm
 You can create an algorithm by clicking the "Add Algorithm" button right next to the search bar. After choosing the name and its type, you get to the details view, where you can (and should!) add any information you have.  
-If you want to edit an *existing* algorithm, you need the permission to do so from someone with the correct role (see [Permissions](####permissions).
-
+If you want to edit an *existing* algorithm, you need the permission to do so from someone with the correct role (see [Permissions](####permissions)).  
+This is a rst test:
+:ref:`Permissions<Permissions>`
 ### Permissions
-One of the tabs at the top of an algorithm is "Members". There you can see people and their roles for the current algorithm. Possible roles are "Maintainer", "Owner" and "Viewer". As their names suggest, "Maintainer" and "Owner" of an algorithm can edit it, whereas "Viewer".. well.. can see it, but not edit it. The difference between "Maintainer" and "Owner", however, is that only "Owner" of an algorithm can actually delete it.
+One of the tabs at the top of an algorithm is "Members". There you can see people and their roles for the current algorithm. Possible roles are "Maintainer", "Owner" and "Viewer". As their names suggest, "Maintainer" and "Owner" of an algorithm can edit it, whereas "Viewer".. well.. can see it, but not edit it. The difference between "Maintainer" and "Owner", however, is that only an "Owner" of an algorithm can actually delete it.
 
 
 ### Markdown & LaTeX
-Since a lot of people love math and many algorithms require formulae for a better understanding, we support Markdown combined with $\LaTeX$ for most of the textboxes on our platform. Just use `$ latex $` for inline or `$$ latex $$` for centered equations. You can see other supported Markdown options whenever you are editing a textbox by clicking on the ?-symbol in the top right corner of the box.
+Since a lot of people love math and many algorithms require formulae for a better understanding, we support Markdown combined with Latex for most of the textboxes on our platform. Just use :code:`$ latex $` for inline or :code:`$$ latex $$` for centered equations. You can see other supported Markdown options whenever you are editing a textbox by clicking on the ?-symbol in the top right corner of the box.
 
 ### QuanTikz
 Sometimes math is just not enough to express certain parts of quantum algorithms which is why we also support [quantikz](https://ctan.org/pkg/quantikz) within latex math mode. So in order to draw circuits just type  
@@ -27,7 +28,7 @@ $$
 ```
 
 ### Sketches
-When formulae and circuits fail to convey information there is another: Images! You can include any standard picture format (such as .png or .jpg) as a sketch by scrolling down to the bottom of the page within the details view of the algorithm and click on the green + sign at the top right corner in the **Sketches** section. After uploading it, you should see your picture within this section, as well as an ID below it. You can use this ID to include it within your description of the algorithm by the common Markdown syntax (the title does not affect the display of the image at all)
+When formulae and circuits fail to convey information there is another: Images! You can include any standard picture format (such as .png or .jpg) as a sketch by scrolling down to the bottom of the page within the details view of the algorithm and click on the green + sign at the top right corner in the "Sketches" section. After uploading it, you should see your picture within this section, as well as an ID below it. You can use this ID to include it within your description of the algorithm by the common Markdown syntax (the title does not affect the display of the image at all)
 ```
 ![title](*image-id*)
 ```
