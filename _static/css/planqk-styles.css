@@ -60,7 +60,7 @@ div.related ul {
     height: 50px;
 }
 
-div.related ul:first-of-type {
+div.related:first-of-type ul {
     padding-left: 140px;
 }
 
