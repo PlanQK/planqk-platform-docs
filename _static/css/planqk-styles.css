@@ -61,6 +61,14 @@ h1, h2, h3 {
 div.related ul {
     background-color: transparent;
     border: none;
+    padding-left: 120px;
+    height: 50px;
+}
+
+div.related li {
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .logo {
