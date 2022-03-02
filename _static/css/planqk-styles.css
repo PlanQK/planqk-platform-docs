@@ -20,10 +20,6 @@ body {
     background-color: white;
 }
 
-div.related:nth-child(2) {
-    display: none;
-}
-
 div.related ul {
     /* display: flex;
     justify-content: center;
@@ -69,7 +65,7 @@ div.related ul {
 
 
 /* TODO: display planqk logo */
-/* li.nav-item.nav-item-0::before {
+div.related h3::before {
     background-image: url('planqk_beta.png');
     background-size: contain;
     display: inline-block;
@@ -77,4 +73,4 @@ div.related ul {
     height: 40px;
     background-repeat: no-repeat;
     content:"";
-} */
+}
