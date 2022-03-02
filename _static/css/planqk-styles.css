@@ -42,30 +42,30 @@ h1, h2, h3 {
             GradientType=1);
   }
 
-  .related  .ul {
+.related  .ul {
     flex-grow: 1;
     flex-direction: row;
 }
 
-  .related  .ul li {
+.related  .ul li {
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
 }
 
-  .related * {
+.related * {
     padding: 0.5em;
 }
 
 div.related ul {
     background-color: transparent;
     border: none;
-    padding-left: 120px;
+    padding-left: 140px;
     height: 50px;
 }
 
-div.related li {
+div.related ul li {
     height: 100%;
     display: flex;
     align-items: center;
@@ -74,7 +74,7 @@ div.related li {
 .logo {
     position: absolute;
     top: 0px;
-    left: 0px;
+    left: 1em;
     width: 100px;
 }
 

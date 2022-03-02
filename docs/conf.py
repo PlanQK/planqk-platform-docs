@@ -3,12 +3,9 @@ from urllib.request import urlretrieve
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
-
-release = '0.1'
-version = '0.1.0'
+project = 'PlaQK'
+copyright = '2022, StoneOne'
+author = 'StoneOne'
 
 # -- General configuration
 
@@ -49,27 +46,6 @@ html_theme_options = {
 
 def setup(app):
     app.add_css_file('css/planqk-styles.css')
-
-    
-# html_theme_options = {
-#    "favicons": [
-#       {
-#          "rel": "icon",
-#          "sizes": "16x16",
-#          "href": "https://secure.example.com/favicon/favicon-16x16.png",
-#       },
-#       {
-#          "rel": "icon",
-#          "sizes": "32x32",
-#          "href": "favicon-32x32.png",
-#       },
-#       {
-#          "rel": "apple-touch-icon",
-#          "sizes": "180x180",
-#          "href": "apple-touch-icon-180x180.png"
-#       },
-#    ]
-# }
     
 import os
 
