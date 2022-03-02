@@ -1,5 +1,5 @@
 
-.. mdinclude:: platform_instructions/introduction.md
+.. include:: platform_instructions/introduction.md
 .. mdinclude:: platform_instructions/knowledge_platform.md
 .. mdinclude:: platform_instructions/service_platform.md
 .. mdinclude:: platform_instructions/quantum_service_store.md
