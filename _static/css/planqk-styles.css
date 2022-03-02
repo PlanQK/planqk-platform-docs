@@ -63,6 +63,10 @@ div.related ul {
     border: none;
 }
 
+.logo {
+    width: 20px;
+}
+
 
 /* TODO: display planqk logo */
 /* div.related h3::before {
