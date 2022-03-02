@@ -41,7 +41,7 @@ html_static_path = ['../_static']
 
 html_style = 'css/planqk-styles.css'
 
-html_logo = 'css/planqk_beta.png'
+html_logo = '../_static/css/planqk_beta.png'
 html_theme_options = {
     'logo_only': True,
     'display_version': False,
