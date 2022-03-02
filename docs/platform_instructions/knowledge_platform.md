@@ -7,7 +7,7 @@ Here you find a variety of algorithms for different problems. Either scroll arou
 
 ### Create and/or edit an algorithm
 You can create an algorithm by clicking the "Add Algorithm" button right next to the search bar. After choosing the name and its type, you get to the details view, where you can (and should!) add any information you have.  
-If you want to edit an *existing* algorithm, you need the permission to do so from someone with the correct role (see [Permissions](###permissions)).
+If you want to edit an *existing* algorithm, you need the permission to do so from someone with the correct role (see [Permissions](#permissions)).
 ### Permissions
 One of the tabs at the top of an algorithm is "Members". There you can see people and their roles for the current algorithm. Possible roles are "Maintainer", "Owner" and "Viewer". As their names suggest, "Maintainer" and "Owner" of an algorithm can edit it, whereas "Viewer".. well.. can see it, but not edit it. The difference between "Maintainer" and "Owner", however, is that only an "Owner" of an algorithm can actually delete it.
 
@@ -31,7 +31,7 @@ When formulae and circuits fail to convey information there is another: Images! 
 ```
 
 ## Implementations
-For any algorithm you can also add an implementation for other users to see and download, which in principle can be any format (such as a plain .py python file or a .ipynb jupyter notebook). However, these implementations can also be used and executed as [jobs](##Jobs-(Prototype-Feature)).  
+For any algorithm you can also add an implementation for other users to see and download, which in principle can be any format (such as a plain .py python file or a .ipynb jupyter notebook). However, these implementations can also be used and executed as [jobs](#jobs-prototype-feature).  
 
 In future updates of the platform, it will also be possible to provide implementations in different ways, such as a remote git repository.
 
