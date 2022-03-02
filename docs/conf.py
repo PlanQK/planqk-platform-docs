@@ -59,8 +59,8 @@ arr = os.listdir('.')
 print(arr)
 
 # Retrieve markup content from external sources - if the content changes in external sources, rebuild the PlanQK docs
-urlretrieve (
-    "https://raw.githubusercontent.com/PlanQK/expert-platform-docker/planqk/README.md",
-    "nisq_analyzer.md"
-)
+#urlretrieve (
+#    "https://raw.githubusercontent.com/PlanQK/expert-platform-docker/planqk/README.md",
+#    "nisq_analyzer.md"
+#)
 
