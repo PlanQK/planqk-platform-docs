@@ -37,7 +37,7 @@ The most important method, which takes the user input and generates the output o
 
 The goal is to be able to run :code:`src` as a module, namely execute :code:`python -m src` when inside the user_code folder. This will execute the :code:`__main__`-method. Here you can test your program with a JSON-conform input format, that has the properties :code:`"data"` and :code:`"params"` . Remember, that within JSON-format any property of an object must be of type string.  
 
-Any required python package (like numpy, pandas, ...) must be mentioned within the, you guessed it, :code:`requriements.txt` with their version number in the pip-installation format (e.g. :code:`numpy==1.19.0`). These packages can than be imported within any pyhton file needed.  
+Any required python package (like numpy, pandas, ...) must be mentioned within the, you guessed it, :code:`requirements.txt` with their version number in the pip-installation format (e.g. :code:`numpy==1.19.0`). These packages can than be imported within any pyhton file needed.  
 
 If you have written packages yourself, which are required for your service, you can simply put them into the :code:`libs` folder and import them via relative imports into your program.  
 
@@ -49,7 +49,7 @@ At last, you must zip (at minimum) the :code:`src` folder and :code:`requirement
 **Note:** You must not zip the :code:`user_code` folder itself but its content.
 
 ### Create Services
-When you have your zipped user code ready, creating a service via the platform is easy: From the landing page, go to ["Service Platform>My Services"](https://platform.planqk.de/services). Here you need to click on :code:`Create Service` in the top right corner.  
+When you have your zipped user code ready, creating a service via the platform is easy: From the landing page, go to [Service Platform/My Services](https://www.platform.planqk.de/services). Here you need to click on :code:`Create Service` in the top right corner.  
 **Note**: You need to create a valid credit card before being able to create services. A step-by-step tutorial is described in this [video](https://www.loom.com/share/1ddf3b919bbc4219883f576931a14a12).
 
 #### Name
