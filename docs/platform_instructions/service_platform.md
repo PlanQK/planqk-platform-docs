@@ -49,7 +49,7 @@ At last, you must zip (at minimum) the :code:`src` folder and :code:`requirement
 **Note:** You must not zip the :code:`user_code` folder itself but its content.
 
 ### Create Services
-When you have your zipped user code ready, creating a service via the platform is easy: From the landing page, go to [Service Platform/My Services](https://www.platform.planqk.de/services). Here you need to click on :code:`Create Service` in the top right corner.  
+When you have your zipped user code ready, creating a service via the platform is easy: From the landing page, go to [My Services](https://www.platform.planqk.de/services). Here you need to click on :code:`Create Service` in the top right corner.  
 **Note**: You need to create a valid credit card before being able to create services. A step-by-step tutorial is described in this [video](https://www.loom.com/share/1ddf3b919bbc4219883f576931a14a12).
 
 #### Name
