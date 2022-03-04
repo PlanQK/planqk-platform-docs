@@ -1,9 +1,13 @@
-# PlanQK Patform Documentation
+# PlanQK Platform Documentation
 
 ## Build
 
-```
+```bash
 pip install -r requirements.txt
-make.bat html (Windows)
-make html (Linux/MacOS)
+
+# Linux/MacOS
+make html
+
+# Windows
+make.bat html
 ```
