@@ -1,4 +1,3 @@
-# Configuration file for the Sphinx documentation builder.
 from _datetime import datetime
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
@@ -30,19 +29,17 @@ source_parsers = {
     '.md': CommonMarkParser,
 }
 
-
 # -- Options for HTML output
 html_theme = 'bizstyle'
 
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
 
-
 html_static_path = ['_static']
 
 html_style = '_static/css/planqk-styles.css'
 
-html_logo = '_static/css/planqk_beta.png'
+html_logo = '_static/css/planqk-beta.png'
 html_theme_options = {
     'logo_only': True,
     'display_version': False,
@@ -57,4 +54,3 @@ def setup(app):
         'enable_inline_math': True,
     }, True)
     app.add_transform(AutoStructify)
-

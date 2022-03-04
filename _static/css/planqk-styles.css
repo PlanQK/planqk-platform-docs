@@ -1,78 +1,76 @@
 @import '../bizstyle.css';
 
-
 :root {
-    --planqk-blue: #3D78B5FF;
-    --planqk--red: #E12D32FF;
-    --planqk-background-grey: #f3f3f3;
+  --planqk-blue: #3D78B5FF;
+  --planqk--red: #E12D32FF;
+  --planqk-background-grey: #f3f3f3;
 }
 
 body {
-    margin: 0px;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,Liberation Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color emoji;
+  margin: 0px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color emoji;
 }
 
 .documentwrapper {
-   background-color: var(--planqk-background-grey);
+  background-color: var(--planqk-background-grey);
 }
 
 .bodywrapper {
-    background-color: white;
+  background-color: white;
 }
 
 div.related ul {
-    background-color: var(--planqk-blue);
+  background-color: var(--planqk-blue);
 }
 
 h1, h2, h3 {
-    color: var(--planqk-blue);
+  color: var(--planqk-blue);
 }
 
 .related {
-    display: flex;
-    background: var(--planqk-blue);
-    background: -moz-linear-gradient(45deg, var(--planqk-blue) 0%, var(--planqk--red) 100%);
-    background: -webkit-linear-gradient(45deg, var(--planqk-blue) 0%, var(--planqk--red) 100%);
-    background: linear-gradient(45deg, var(--planqk-blue) 0%, var(--planqk--red) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$var(--planqk-blue)', endColorstr='var(--planqk--red)',
-            GradientType=1);
-  }
-
-.related  .ul {
-    flex-grow: 1;
-    flex-direction: row;
+  display: flex;
+  background: var(--planqk-blue);
+  background: -moz-linear-gradient(45deg, var(--planqk-blue) 0%, var(--planqk--red) 100%);
+  background: -webkit-linear-gradient(45deg, var(--planqk-blue) 0%, var(--planqk--red) 100%);
+  background: linear-gradient(45deg, var(--planqk-blue) 0%, var(--planqk--red) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$var(--planqk-blue)', endColorstr='var(--planqk--red)', GradientType=1);
 }
 
-.related  .ul li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+.related .ul {
+  flex-grow: 1;
+  flex-direction: row;
+}
+
+.related .ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 .related * {
-    padding: 0.5em;
+  padding: 0.5em;
 }
 
 div.related ul {
-    background-color: transparent;
-    border: none;
-    height: 50px;
+  background-color: transparent;
+  border: none;
+  height: 50px;
 }
 
 div.related:first-of-type ul {
-    padding-left: 140px;
+  padding-left: 140px;
 }
 
 div.related ul li {
-    height: 100%;
-    display: flex;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-    position: absolute;
-    top: 0px;
-    left: 1em;
-    width: 100px;
+  position: absolute;
+  top: 0px;
+  left: 1em;
+  width: 100px;
 }
