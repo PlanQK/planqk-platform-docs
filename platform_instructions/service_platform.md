@@ -8,10 +8,13 @@ Here you find your already deployed and published services and can add new ones,
 
 ### User code template
 Your code must be structured in a (not too) specific way. But first you must download or generate the template.  
-In order to generate it, follow these two steps
-1. Execute :code:`npm install -g yo https://github.com/PlanQK/yo-generator-planqk-service.git`
+In order to generate it, follow these steps:
+```bash
+npm install -g yo
+npm install -g @stoneone/generator-planqk-service
 
-2. Execute :code:`yo planqk-service {name}`
+yo @stoneone/planqk-service <name>
+```
 
 Alternatively, download the general template as a zip file via these links: ([zip](https://storage.googleapis.com/yeoman-templates/latest/template.zip) | [tar.gz](https://storage.googleapis.com/yeoman-templates/latest/template.tar.gz)) 
   
