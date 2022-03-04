@@ -1,2 +1,2 @@
-myst-parser
-m2r2
+recommonmark==0.7.1
+Sphinx==4.4.0

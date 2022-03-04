@@ -29,7 +29,7 @@ circuits that do not require input parameters, can be executed. The Shor impleme
 
 #### 1. Add Qiskit Credentials to docker-compose.override.yml
 
-1. Copy [docker-compose.nisq.analyzer.override.yml](docker-compose.nisq.analyzer.override.yml) file
+1. Copy [docker-compose.nisq.analyzer.override.yml](https://docs.platform.planqk.de/en/latest/docker-compose.nisq.analyzer.override.yml) file
    to `docker-compose.override.yml`.
 2. Insert your Qiskit token at `QPROV_IBMQ_TOKEN: 'your-qiskit-token-here'` in the new `docker-compose.override.yml`.
 
