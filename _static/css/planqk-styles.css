@@ -70,7 +70,6 @@ div.related ul li {
 
 .logo {
   position: absolute;
-  top: 0px;
-  left: 1em;
+  top: 0;
   width: 100px;
 }
