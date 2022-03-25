@@ -53,8 +53,9 @@ At last, you must zip (at minimum) the :code:`src` folder and :code:`requirement
 
 ### Create Services
 When you have your zipped user code ready, creating a service via the platform is easy: From the landing page, go to 
-[My Services](https://platform.planqk.de/services). Here you need to click on :code:`Create Service` in the top right corner.  
-**Note**: You need to create a valid credit card before being able to create services. A step-by-step tutorial is described in this [video](https://www.loom.com/share/1ddf3b919bbc4219883f576931a14a12).
+[My Services](https://platform.planqk.de/services). Here you need to click on :code:`Create Service` in the top right corner. 
+ 
+**Note**: You need to add a valid credit card before being able to create services. This card is used to charge you for the costs that emerge from hosting the service on the platform. To add the card go to [Payments](https://platform.planqk.de/settings/payments). Since the platform is still under development, the payments are just simulated. Therefore, you can provide a [test credit card number](https://stripe.com/docs/testing#europe-and-middle-east). A detailed step-by-step tutorial is described in this [video](https://www.loom.com/share/1ddf3b919bbc4219883f576931a14a12).
 
 #### Name
 Choose a meaningful name for your service. If you publish your service later on, this >name will be displayed to other users.
