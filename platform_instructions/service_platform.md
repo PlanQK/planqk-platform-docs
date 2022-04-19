@@ -1,24 +1,23 @@
 # Service Platform
 
-You have your quantum code ready in a Python file and want to provide it to others as a service via the PlanQK platform? Great! Only a few more steps until your service is ready and can be deployed! Any questions regarding this process are answered here.  
-Also, if you want to subscribe to services from the quantum service store or run jobs you find some information on that here as well.
+You have your quantum code ready in a Python file and want to provide it to others as a service via the PlanQK platform?
+Great!
+Only a few more steps until your service is ready and can be deployed for customers to subscribe to them.
+Any questions regarding this process, as well as subscribing to services and job executions will be answered here.
 
-To deploy your algorithm as service and to advertise it in the platform's marketplace, you need to perform the following steps:
-
-1. Develop your quantum algorithm with Python.
-2. Embed the python code in our user code template to generate a service out of it.
-3. Test the service on your local development machine with Docker.
-4. Deploy the service on the PlanQK platform.
-5. Let your customers subscribe to your service through applications.
-
-## Service Development and Testing
+## Service Provisioning
 
 You should solely focus on the development of great quantum algorithms. 
-Our platform helps you transform them to services that can be called by your customers through standardized HTTP interfaces. 
-Therefore, you need to embed your algorithm code in our *user code template*. 
-After you did that you can test the service on your local development machine.  
+Our platform helps you transforming them into services that can be called by external customers via standardized HTTP interfaces. 
+In order to deploy your algorithm as a service and to provide them in the platform's marketplace, you need to follow these steps:
 
-### Embedding the Algorithm Code into the User Code Template
+1. Embed your python code into our user code template.
+2. Test your service locally with Docker.
+3. Deploy the service on the PlanQK platform.
+
+Each of these points will be discussed in detail in the upcoming sections.
+
+### 1. Embedding the Python Code into the User Code Template
 
 First, you need to download or generate the template.  
 In order to generate it, follow these steps:
@@ -30,13 +29,16 @@ npm install -g @stoneone/generator-planqk-service
 yo @stoneone/planqk-service <name>
 ```
 
-Alternatively, download the general template as a zip file via these links: ([zip](https://storage.googleapis.com/yeoman-templates/latest/template.zip) | [tar.gz](https://storage.googleapis.com/yeoman-templates/latest/template.tar.gz)) 
+Alternatively, the template can be downloaded as a zip file via these links: ([zip](https://storage.googleapis.com/yeoman-templates/latest/template.zip) | [tar.gz](https://storage.googleapis.com/yeoman-templates/latest/template.tar.gz)) 
   
 After generating/extracting it, you should find the following structure:
 ```
 user_code
+├── Dockerfile
 ├── openapi-spec.yml
 ├── requirements.txt
+├── input
+│   └── ...
 └── src
     ├── __init__.py
     ├── __main__.py
@@ -46,90 +48,100 @@ user_code
     │   └── ...
     └── program.py
 ```
-From the start, you should be able to run :code:`python -m src` from within the :code:`user_code` folder, which is our goal when replacing the dummy addition code with your own.  
 
 The most important method, which takes the user input and generates the output of interest is the :code:`run` method inside :code:`program.py`.
 
-**Important:** Do not rename either the :code:`src` folder, the :code:`program.py` package, as well as the :code:`run` method inside program.py. These are fixed entry points for the service. Changing their names will result in a malfunctioning service.
+>**Important:** Do not rename either the :code:`src` folder, the :code:`program.py` package, as well as the :code:`run` method inside program.py. These are fixed entry points for the service. Changing their names will result in a malfunctioning service.
 
-The goal is to be able to run :code:`src` as a module, namely execute :code:`python -m src` when inside the user_code folder. This will execute the :code:`__main__`-method. Here you can test your program with a JSON-conform input format, that has the properties :code:`"data"` and :code:`"params"` . Remember, that within JSON-format any property of an object must be of type string.  
+From the start, you should be able to run :code:`python -m src` from within the :code:`user_code` folder, which is our goal when replacing the provided dummy code with your own. 
+Running this line will execute the :code:`__main__`-method.
+Here you can test your program with a JSON-conform input format, that has the properties :code:`"data"` and :code:`"params"`.
+Remember, that within JSON-format any property of an object must be of type string.  
 
-Any required python package (like numpy, pandas, ...) must be mentioned within the, you guessed it, :code:`requirements.txt` with their version number in the pip-installation format (e.g. :code:`numpy==1.19.0`). These packages can than be imported within any pyhton file needed.  
+Any required python package (like numpy, pandas, ...) must be mentioned within the - you guessed it - :code:`requirements.txt` with its corresponding version number in the pip-installation format (e.g. :code:`numpy==1.19.0`). These packages can than be imported within any python file.  
 
 If you have written packages yourself, which are required for your service, you can simply put them into the :code:`libs` folder and import them via relative imports into your program.  
 
-**Important:** If you plan to run your program on real quantum hardware or cloud simulators, your program should expect some valid :code:`"backend"` string within the :code:`"params"` object (e.g. :code:`"backend": 'ibmq_qasm_simulator'` or :code:`"backend": 'ibmq_manila`).
+>**Important:** If you plan to run your program on real quantum hardware or cloud simulators, your program should expect some valid :code:`"backend"` string within the :code:`"params"` object (e.g. :code:`"backend": 'ibmq_qasm_simulator'` or :code:`"backend": 'ibmq_manila`). 
 
-**Recommended:** After being able to run your code as a module and if you're interested in offering your service via an API to others, you should also take the time to adapt the :code:`openapi-spec.yml` file, in order to describe your API.
+>**Recommended:** After being able to run your code as a module and if you're interested in offering your service via an API to others, you should also take the time to adapt the :code:`openapi-spec.yml` file, in order to describe your API.
 
 At last, you must zip (at minimum) the :code:`src` folder and :code:`requirements.txt`, which will be the file you upload in order to create a service.  
 **Note:** You must not zip the :code:`user_code` folder itself but its content.
 
-### Test your Service using Docker
+### 2. Test your Service using Docker
 
-You should test your service on you local machine before deploying it on the PlanQK platform. This saves time as you don't need to go through the deployment steps and simplifies debugging.  
+You should test your service on your local machine before deploying it on the PlanQK platform.
+This will help you identifying and correcting potential errors before the actual deployment process.
 
-To test your service you can utilize Docker. In general, by following the next steps which basically simulate the 
-steps done by the PlanQK platform.
+You may utilize Docker to test your current implementation. In general, by following the described procedure you replicate the steps performed by the PlanQK platform, which is a way to verify your service in an early stage.
 
-### Build the Docker Image
+#### Build the Docker Image
 
-In your command line tool go to your user code directory and perform the following command that creates a Docker image containing the service.
+In your command line tool go to your user code directory and perform the following command that creates a Docker image with the tag `planqk-service`, which contains your service.
 
 ```bash
 docker build -t planqk-service .
 ```
 
-### Execute the container
+#### Start the Docker container
 
-To execute your service and to pass input parameters and data to it perform the command below.
+In this case, you need to pass the input (`"data"` and `"params"` separately) as environment variables (base64 encoded) into the container.
+You can either use command line tools like `base64` or [Base64 Encoder](https://www.base64encode.org) for encoding the input.
+
+For example, to create a base64 encoded string of the `"data"` part of the `input.json` file, execute the following:
 
 ```bash
-docker run -it \
-  -e INPUT_PARAMS=ewogICAgInJvdW5kX29mZiI6IGZhbHNlCiAgfQ== \
-  -e INPUT_DATA=ewogICAgInZhbHVlcyI6IFsKICAgICAgMTAwLAogICAgICA1MCwKICAgICAgMjAwLAogICAgICA3MCwKICAgICAgMC42OQogICAgXQogIH0= \
-  planqk-service
+base64 -w 0 <<EOF
+{"values": [100, 50, 200, 70, 0.69]}
+EOF
+
+>> eyJ2YWx1ZXMiOiBbMTAwLCA1MCwgMjAwLCA3MCwgMC42OV19
 ```
 
-**Note**: You need to provide the parameters and data BASE64 encoded. You can use the `base64` command line tool or online tools like the [Base64 Encoder](https://www.base64encode.org). For instance, the encoding of the JSON `{
-"round_off": false }` results in the BASE64 string `ewogICAgInJvdW5kX29mZiI6IGZhbHNlCiAgfQ==`
+To create a base64 encoded string of the `"params"` part, execute the following:
 
-## Deploy Services on the PlanQK Platform
+```bash
+base64 -w 0 <<EOF
+{"round_off": false}
+EOF
 
-When you have your zipped user code ready, creating a service via the platform is easy: From the landing page, go to 
+>> eyJyb3VuZF9vZmYiOiBmYWxzZX0=
+```
+Afterwards, start the container with the environment variables `INPUT_DATA` and `INPUT_PARAMS` as follows:
+```bash
+docker run -it \
+  -e INPUT_PARAMS=eyJyb3VuZF9vZmYiOiBmYWxzZX0= \
+  -e INPUT_DATA=eyJ2YWx1ZXMiOiBbMTAwLCA1MCwgMjAwLCA3MCwgMC42OV19 \
+  planqk-service
+```
+If the services executed seccessfully, you should see something like `Job:ResulsResponse:` followed by the output you defined for your service.
+
+### 3. Deploy Services on the PlanQK Platform
+
+When you have your zipped your code and successfully tested it via Docker, creating a service via the platform is easy: From the landing page, go to 
 [My Services](https://platform.planqk.de/services). Here you need to click on :code:`Create Service` in the top right corner. 
  
-**Note**: You need to add a valid credit card before being able to create services. This card is used to charge you for the costs that emerge from hosting the service on the platform. To add the card go to [Payments](https://platform.planqk.de/settings/payments). Since the platform is still under development, the payments are just simulated. Therefore, you can provide a [test credit card number](https://stripe.com/docs/testing#europe-and-middle-east). A detailed step-by-step tutorial is described in this [video](https://www.loom.com/share/1ddf3b919bbc4219883f576931a14a12).
+>**Note**: You need to add a valid credit card before being able to create services. This card is used to charge you for the costs that emerge from hosting the service on the platform. To add the card go to [Payments](https://platform.planqk.de/settings/payments). Since the platform is still under development, the payments are just simulated. Therefore, you can provide a [test credit card number](https://stripe.com/docs/testing#europe-and-middle-east). A detailed step-by-step tutorial is described in this [video](https://www.loom.com/share/1ddf3b919bbc4219883f576931a14a12).
 
-#### Name
 
-Choose a meaningful name for your service. If you publish your service later on, this >name will be displayed to other users.
+You will be directed to an interface, which requires several information in order to deploy your service.
 
-#### Service import  
+**Service Properties:**
 
-Click on "Import from file" and upload your zipped service.
-The option "Import from URL" can be used if your service is running somewhere (e.g. on your own infrastructure) and you just want the PlanQK platform to manage access to it.  
+| Property          | Description|
+|-------------------|------------|
+| Name              | Choose a meaningful name for your service. If you publish your service later on, this name will be displayed to other users. |
+| Service Import    | Click on "Import from file" and upload your zipped service. The option "Import from URL" can be used if your service is running somewhere (e.g., on your own infrastructure) and you just want the PlanQK platform to manage the access to it. |
+| API Specification | Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. If you did not prepare one, but you want to test the communication with you service (via a GET), you may upload the default OpenAPI file that was provided with this template.|
+| Description       | Other users will see this description of the service, if its name sparked some interest, and they clicked on it in the marketplace. So any additional information you want to provide goes in here.|
+| Quantum Backend   | As of February 2022, only IBM and DWave are supported quantum backends and only one can be picked. These options are only available, if you have stored a token for the corresponding provider within your account (see [Add tokens to your account](#add-tokens-to-your-account)). If you are working with local simulators only (e.g., when using the `AerBackend` from qiskit or the `SimulatedAnnealingSampler` from the DWave anneal package) you can choose any backend or the option "None", since locally running code does not get affected by the choice (e.g. it is perfectly fine to run local qiskit code and having qiskit in the requirements-file when clicking on the DWave option). |
+| Pricing Plans     | Will be important for when you want to offer your service via the marketplace and charge your customers for using them. If you just want to test your service, you should select "Free".|
 
-#### API Specification  
+And there you go. As soon as you click on "Create Service", the containerization and deployment starts. As soon as it's finished (as indicated in the "My Services" section with a green checkmark) you will be able to publish and test your service thoroughly.
 
-Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. If you did not prepare one but you  want to test the communication with you service (via a GET), upload the default OpenAPI-File that was provided in the template.
 
-#### Description
-
-Other users will see this description of the service, if its name sparked some interest and they clicked on it in the marketplace. So any additional information you want to provide goes in here.
-
-#### Quantum Backend  
-
-As of February 2022, only IBM and DWave are supported quantum backends and only one can be picked. These options are only available, if you have stored a token for the corresponding provider within your account (see [Add tokens to your account](#add-tokens-to-your-account)).  
-If you are working with local simulators only (e.g. when using the :code:`AerBackend` from qiskit or the :code:`SimulatedAnnealingSampler` from the dwave neal package) you can choose any backend or the option "None", since locally running code does not get affected by the choice (e.g. it is perfectly fine to run local qiskit code and having qiskit in the requirements-file when clicking on the Dwave option).
-
-#### Pricing Plans
-Will be important for when you want to offer your service via the marketplace and charge your customers for using them.
-If you just want to test your service, you should select "Free".  
-
-And there you go. As soon as you click on "Create Service", the containerization and deployment starts. As soon as it's finished (as indicated in the "My services" section) you will be able to publish and test your service thoroughly.
-
-## My Applications
+## Subscribing and using Services
 Whenever you want to communicate with services from the [Quantum Service Store](#quantum-service-store), you must be subscribed to them within an application. Applications hold all necessary information for communication with the service from an external source. This includes a public and secret key pair, as well as a token- and service endpoint. The former is used for generating a Bearer token, which is required for sending requests to the latter.  
 **Note:** Different applications can subscribe to the same service without additional cost (as long as the service is not subscribed as pay per use).
 
