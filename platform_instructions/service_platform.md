@@ -1,14 +1,28 @@
 # Service Platform
 
-You have your quantum code ready in a Python file and want to provide it to others via the PlanQK platform? Great! Only a few more steps until your service is ready and can be deployed! Any questions regarding this process are answered here.  
+You have your quantum code ready in a Python file and want to provide it to others as a service via the PlanQK platform? Great! Only a few more steps until your service is ready and can be deployed! Any questions regarding this process are answered here.  
 Also, if you want to subscribe to services from the quantum service store or run jobs you find some information on that here as well.
 
-## My Services
-Here you find your already deployed and published services and can add new ones, as long as they are present in the format specified by the [user code template](###user-code-template).
+To deploy your algorithm as service and to advertise it in the platform's marketplace, you need to perform the following steps:
 
-### User code template
-Your code must be structured in a (not too) specific way. But first you must download or generate the template.  
+1. Develop your quantum algorithm with Python.
+2. Embed the python code in our user code template to generate a service out of it.
+3. Test the service on your local development machine with Docker.
+4. Deploy the service on the PlanQK platform.
+5. Let your customers subscribe to your service through applications.
+
+## Service Development and Testing
+
+You should solely focus on the development of great quantum algorithms. 
+Our platform helps you transform them to services that can be called by your customers through standardized HTTP interfaces. 
+Therefore, you need to embed your algorithm code in our *user code template*. 
+After you did that you can test the service on your local development machine.  
+
+### Embedding the Algorithm Code into the User Code Template
+
+First, you need to download or generate the template.  
 In order to generate it, follow these steps:
+
 ```bash
 npm install -g yo
 npm install -g @stoneone/generator-planqk-service
@@ -51,26 +65,61 @@ If you have written packages yourself, which are required for your service, you 
 At last, you must zip (at minimum) the :code:`src` folder and :code:`requirements.txt`, which will be the file you upload in order to create a service.  
 **Note:** You must not zip the :code:`user_code` folder itself but its content.
 
-### Create Services
+### Test your Service using Docker
+
+You should test your service on you local machine before deploying it on the PlanQK platform. This saves time as you don't need to go through the deployment steps and simplifies debugging.  
+
+To test your service you can utilize Docker. In general, by following the next steps which basically simulate the 
+steps done by the PlanQK platform.
+
+### Build the Docker Image
+
+In your command line tool go to your user code directory and perform the following command that creates a Docker image containing the service.
+
+```bash
+docker build -t planqk-service .
+```
+
+### Execute the container
+
+To execute your service and to pass input parameters and data to it perform the command below.
+
+```bash
+docker run -it \
+  -e INPUT_PARAMS=ewogICAgInJvdW5kX29mZiI6IGZhbHNlCiAgfQ== \
+  -e INPUT_DATA=ewogICAgInZhbHVlcyI6IFsKICAgICAgMTAwLAogICAgICA1MCwKICAgICAgMjAwLAogICAgICA3MCwKICAgICAgMC42OQogICAgXQogIH0= \
+  planqk-service
+```
+
+**Note**: You need to provide the parameters and data BASE64 encoded. You can use the `base64` command line tool or online tools like the [Base64 Encoder](https://www.base64encode.org). For instance, the encoding of the JSON `{
+"round_off": false }` results in the BASE64 string `ewogICAgInJvdW5kX29mZiI6IGZhbHNlCiAgfQ==`
+
+## Deploy Services on the PlanQK Platform
+
 When you have your zipped user code ready, creating a service via the platform is easy: From the landing page, go to 
 [My Services](https://platform.planqk.de/services). Here you need to click on :code:`Create Service` in the top right corner. 
  
 **Note**: You need to add a valid credit card before being able to create services. This card is used to charge you for the costs that emerge from hosting the service on the platform. To add the card go to [Payments](https://platform.planqk.de/settings/payments). Since the platform is still under development, the payments are just simulated. Therefore, you can provide a [test credit card number](https://stripe.com/docs/testing#europe-and-middle-east). A detailed step-by-step tutorial is described in this [video](https://www.loom.com/share/1ddf3b919bbc4219883f576931a14a12).
 
 #### Name
+
 Choose a meaningful name for your service. If you publish your service later on, this >name will be displayed to other users.
 
 #### Service import  
+
 Click on "Import from file" and upload your zipped service.
 The option "Import from URL" can be used if your service is running somewhere (e.g. on your own infrastructure) and you just want the PlanQK platform to manage access to it.  
 
 #### API Specification  
+
 Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. If you did not prepare one but you  want to test the communication with you service (via a GET), upload the default OpenAPI-File that was provided in the template.
 
 #### Description
+
 Other users will see this description of the service, if its name sparked some interest and they clicked on it in the marketplace. So any additional information you want to provide goes in here.
 
 #### Quantum Backend  
+
 As of February 2022, only IBM and DWave are supported quantum backends and only one can be picked. These options are only available, if you have stored a token for the corresponding provider within your account (see [Add tokens to your account](#add-tokens-to-your-account)).  
 If you are working with local simulators only (e.g. when using the :code:`AerBackend` from qiskit or the :code:`SimulatedAnnealingSampler` from the dwave neal package) you can choose any backend or the option "None", since locally running code does not get affected by the choice (e.g. it is perfectly fine to run local qiskit code and having qiskit in the requirements-file when clicking on the Dwave option).
 
