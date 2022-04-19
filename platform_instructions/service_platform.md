@@ -54,31 +54,33 @@ The most important method, which takes the user input and generates the output o
 >**Important:** Do not rename either the :code:`src` folder, the :code:`program.py` package, as well as the :code:`run` method inside program.py. These are fixed entry points for the service. Changing their names will result in a malfunctioning service.
 
 From the start, you should be able to run :code:`python -m src` from within the :code:`user_code` folder, which is our goal when replacing the provided dummy code with your own. 
-Running this line will execute the :code:`__main__`-method.
-Here you can test your program with a JSON-conform input format, that has the properties :code:`"data"` and :code:`"params"`.
-Remember, that within JSON-format any property of an object must be of type string.  
+Running this line will execute the :code:`__main__`-method, which in turn reads in files from the :code:`input` folder to be used as input for the :code:`run` method.
+Inputs should be in a JSON-conform format with the properties :code:`"data"` and :code:`"params"`.
+Remember, that within JSON-format the property of an object must be of type string.  
 
-Any required python package (like numpy, pandas, ...) must be mentioned within the - you guessed it - :code:`requirements.txt` with its corresponding version number in the pip-installation format (e.g. :code:`numpy==1.19.0`). These packages can than be imported within any python file.  
+Any required python package (like numpy, pandas, ...) must be mentioned within the - you guessed it - :code:`requirements.txt` with its corresponding version number in the pip-installation format (e.g. :code:`numpy==1.19.0`).
+If no version number is provided the latest stable version of the package will be installed.
+These packages can than be imported within any python file.  
 
-If you have written packages yourself, which are required for your service, you can simply put them into the :code:`libs` folder and import them via relative imports into your program.  
+If you have your own python files, which are necessary for executing your code, you can simply put them into the :code:`libs` folder and import them via relative imports into your program (e.g. additional functions can be stored in :code:`libs/helpers.py` and can be imported within :code:`program.py` with the syntax :code:`from .libs/helpers import *`).
 
 >**Important:** If you plan to run your program on real quantum hardware or cloud simulators, your program should expect some valid :code:`"backend"` string within the :code:`"params"` object (e.g. :code:`"backend": 'ibmq_qasm_simulator'` or :code:`"backend": 'ibmq_manila`). 
 
+
+At last, you must zip (at minimum) the :code:`src` folder and :code:`requirements.txt`, which will be the file you upload in order to create a service. 
+Note, that you must not zip the :code:`user_code` folder itself but its content.
 >**Recommended:** After being able to run your code as a module and if you're interested in offering your service via an API to others, you should also take the time to adapt the :code:`openapi-spec.yml` file, in order to describe your API.
-
-At last, you must zip (at minimum) the :code:`src` folder and :code:`requirements.txt`, which will be the file you upload in order to create a service.  
-**Note:** You must not zip the :code:`user_code` folder itself but its content.
-
 ### 2. Test your Service using Docker
 
-You should test your service on your local machine before deploying it on the PlanQK platform.
+Before deploying it on the PlanQK platform, you should test the correct behaviour of your service on your local machine.
 This will help you identifying and correcting potential errors before the actual deployment process.
 
-You may utilize Docker to test your current implementation. In general, by following the described procedure you replicate the steps performed by the PlanQK platform, which is a way to verify your service in an early stage.
+You may utilize Docker to test your implementation.
+In general, by following the described procedure you replicate the steps performed by the PlanQK platform, which is a way to verify your service in an early stage.
 
 #### Build the Docker Image
 
-In your command line tool go to your user code directory and perform the following command that creates a Docker image with the tag `planqk-service`, which contains your service.
+In your command line tool go to your user code directory and perform the following command that creates a Docker image with the tag :code:`planqk-service`:
 
 ```bash
 docker build -t planqk-service .
@@ -86,10 +88,10 @@ docker build -t planqk-service .
 
 #### Start the Docker container
 
-In this case, you need to pass the input (`"data"` and `"params"` separately) as environment variables (base64 encoded) into the container.
-You can either use command line tools like `base64` or [Base64 Encoder](https://www.base64encode.org) for encoding the input.
+You need to pass the objects :code:`"data"` and :code:`"params"` as environment variables (base64 encoded) into the container.
+You can either use command line tools like :code:`base64` or [Base64 Encoder](https://www.base64encode.org) for encoding the input.
 
-For example, to create a base64 encoded string of the `"data"` part of the `input.json` file, execute the following:
+For example, to create a base64 encoded string of the :code:`"data"` part of the :code:`input.json` file, execute the following:
 
 ```bash
 base64 -w 0 <<EOF
@@ -99,7 +101,7 @@ EOF
 >> eyJ2YWx1ZXMiOiBbMTAwLCA1MCwgMjAwLCA3MCwgMC42OV19
 ```
 
-To create a base64 encoded string of the `"params"` part, execute the following:
+To create a base64 encoded string of the :code:`"params"` part, execute the following:
 
 ```bash
 base64 -w 0 <<EOF
@@ -108,24 +110,28 @@ EOF
 
 >> eyJyb3VuZF9vZmYiOiBmYWxzZX0=
 ```
-Afterwards, start the container with the environment variables `INPUT_DATA` and `INPUT_PARAMS` as follows:
+Afterwards, start the container with the environment variables :code:`INPUT_DATA` and :code:`INPUT_PARAMS` as follows:
 ```bash
 docker run -it \
   -e INPUT_PARAMS=eyJyb3VuZF9vZmYiOiBmYWxzZX0= \
   -e INPUT_DATA=eyJ2YWx1ZXMiOiBbMTAwLCA1MCwgMjAwLCA3MCwgMC42OV19 \
   planqk-service
 ```
-If the services executed seccessfully, you should see something like `Job:ResulsResponse:` followed by the output you defined for your service.
+If the service executed successfully, you should see something like :code:`Job:ResulsResponse:` followed by the output you defined for your service.
+Otherwise, if you see :code:`Job:ErrorResponse`: Bad news, something went wrong.
+However, the details of the response hopefully give you a clue as to what the problem was. 
 
 ### 3. Deploy Services on the PlanQK Platform
 
-When you have your zipped your code and successfully tested it via Docker, creating a service via the platform is easy: From the landing page, go to 
-[My Services](https://platform.planqk.de/services). Here you need to click on :code:`Create Service` in the top right corner. 
+When you have zipped your code and successfully tested it via Docker, creating a service via the platform is easy:
+From the landing page, go to 
+[My Services](https://platform.planqk.de/services).
+Here you need to click on :code:`Create Service` in the top right corner. 
  
->**Note**: You need to add a valid credit card before being able to create services. This card is used to charge you for the costs that emerge from hosting the service on the platform. To add the card go to [Payments](https://platform.planqk.de/settings/payments). Since the platform is still under development, the payments are just simulated. Therefore, you can provide a [test credit card number](https://stripe.com/docs/testing#europe-and-middle-east). A detailed step-by-step tutorial is described in this [video](https://www.loom.com/share/1ddf3b919bbc4219883f576931a14a12).
+>**Important**: You need to add a valid credit card before being able to create services. This card is used to charge you for the costs that emerge from hosting the service on the platform. To add the card go to [Payments](https://platform.planqk.de/settings/payments). Since the platform is still under development, the payments are just simulated. Therefore, you can provide a [test credit card number](https://stripe.com/docs/testing#europe-and-middle-east). A detailed step-by-step tutorial is described in this [video](https://www.loom.com/share/1ddf3b919bbc4219883f576931a14a12).
 
 
-You will be directed to an interface, which requires several information in order to deploy your service.
+You will be directed to an interface, where you can provide information, as well as the actual user code.
 
 **Service Properties:**
 
@@ -138,13 +144,15 @@ You will be directed to an interface, which requires several information in orde
 | Quantum Backend   | As of February 2022, only IBM and DWave are supported quantum backends and only one can be picked. These options are only available, if you have stored a token for the corresponding provider within your account (see [Add tokens to your account](#add-tokens-to-your-account)). If you are working with local simulators only (e.g., when using the `AerBackend` from qiskit or the `SimulatedAnnealingSampler` from the DWave anneal package) you can choose any backend or the option "None", since locally running code does not get affected by the choice (e.g. it is perfectly fine to run local qiskit code and having qiskit in the requirements-file when clicking on the DWave option). |
 | Pricing Plans     | Will be important for when you want to offer your service via the marketplace and charge your customers for using them. If you just want to test your service, you should select "Free".|
 
-And there you go. As soon as you click on "Create Service", the containerization and deployment starts. As soon as it's finished (as indicated in the "My Services" section with a green checkmark) you will be able to publish and test your service thoroughly.
+And there you go. As soon as you click on "Create Service", the containerization and deployment starts. As soon as it's finished (as indicated in the "My Services" section with a green checkmark) you will be able to publish your service to the marketplace or for interal use and test your service thoroughly.
 
 
-## Subscribing and using Services
-Whenever you want to communicate with services from the [Quantum Service Store](#quantum-service-store), you must be subscribed to them within an application. Applications hold all necessary information for communication with the service from an external source. This includes a public and secret key pair, as well as a token- and service endpoint. The former is used for generating a Bearer token, which is required for sending requests to the latter.  
-**Note:** Different applications can subscribe to the same service without additional cost (as long as the service is not subscribed as pay per use).
-
+## Subscribing to Services using Applications
+Whenever you want to interact with services from the [Quantum Service Store](https://platform.planqk.de/marketplace/apis#), you must be subscribed to them from within an application.
+Applications hold all necessary information for a secure communicaton with the service from an external source. This includes a public and secret key pair, as well as a token- and service endpoint.
+The former is used for generating a Bearer token, which is required for sending requests to the latter.  
+Note, that different applications can subscribe to the same service without additional cost (as long as the service is not subscribed as pay per use).
+> **Important**: To test the correct behaviour of *your own services* you should publish it "for intal use". In order to test it, you can use any of your applications to subscribe to this service. 
 ## Jobs (Prototype Feature)
 Besides ongoing and potentially long-lasting services, the PlanQK platform also provides a prototype functionality for executing jobs. Theses jobs are pretty similar to services except that jobs can *only* be executed via the platform and only once.
 
