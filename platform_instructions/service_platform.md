@@ -9,7 +9,7 @@ Any questions regarding this process, as well as subscribing to service and job 
 
 You should solely focus on the development of great quantum algorithms.
 Our platform helps you to transforming them into services that can be called by external customers via standardized HTTP interfaces.
-In order to deploy your algorithm as a service and to provide them in the platform's marketplace, you need to follow these steps:
+In order to deploy your algorithm as a service and to provide them in the quantum service store, you need to follow these steps:
 
 1. Embed your python code into our user code template.
 2. Test your service locally with Docker.
@@ -182,10 +182,10 @@ You will be directed to an interface, where you can provide information, as well
 | API Specification | Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. If you did not prepare one, but you want to test the communication with you service (via a GET), you may upload the default OpenAPI file that was provided with this template. |
 | Description       | Other users will see this description of the service, if its name sparked some interest, and they clicked on it in the marketplace. So any additional information you want to provide goes in here. |
 | Quantum Backend   | As of February 2022, only IBM and DWave are supported quantum backends and only one can be picked. These options are only available, if you have stored a token for the corresponding provider within your account (see [Add tokens to your account](additional_information.html#add-tokens-to-your-account)). If you are working with local simulators only (e.g., when using the `AerBackend` from qiskit or the `SimulatedAnnealingSampler` from the DWave anneal package) you can choose any backend or the option "None", since locally running code does not get affected by the choice (e.g. it is perfectly fine to run local qiskit code and having qiskit in the requirements-file when clicking on the DWave option). |
-| Pricing Plans     | Will be important for when you want to offer your service via the marketplace and charge your customers for using them. If you just want to test your service, you should select "Free".|
+| Pricing Plans     | Will be important for when you want to offer your service via the quantum service store and charge your customers for using them. If you just want to test your service, you should select "Free".|
 
 And there you go. As soon as you click on "Create Service", the containerization and deployment starts. 
-As soon as it's finished (as indicated in the "My Services" section with a green checkmark) you will be able to publish your service to the marketplace or for internal use and test your service thoroughly.
+As soon as it's finished (as indicated in the "My Services" section with a green checkmark) you will be able to publish your service to the quantum service store or for internal use and test your service thoroughly.
 
 ## Communicating with a Service
 
