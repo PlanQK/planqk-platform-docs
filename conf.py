@@ -1,4 +1,5 @@
 from _datetime import datetime
+
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
 
@@ -6,7 +7,7 @@ from recommonmark.transform import AutoStructify
 
 project = 'PlanQK'
 copyright = '{} PlanQK'.format(datetime.now().year)
-author = 'StoneOne'
+author = 'StoneOne AG'
 
 # -- General configuration
 
