@@ -50,7 +50,7 @@ In future updates of the platform, it will also be possible to provide implement
 
 If you want to allow other users to not only download but also use your implementation and execute it as a job: Awesome! That's the spirit! You now just have to take two things into consideration:
 
-1. Your implementation **must** be a zipped python module according to the [User Code Template](###User-Code-Template)
+1. Your implementation **must** be a zipped python module according to the [User Code Template](service_platform.html#embedding-the-python-code-into-the-user-code-template)
 2. Change the format of your `user_code.zip` into `user_code.planqk`. This shows the platform, that the provided zip file is in the right format for the platform to deploy it as a service, indicated by the "Create Service" button next to the uploaded implementation.  
 
 **Note:** Similar to algorithms, you have to give users permission to see and use/download your implementation. For that, click on the "Members" tab at the top of a given implementation.  

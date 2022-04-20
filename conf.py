@@ -14,6 +14,7 @@ author = 'StoneOne AG'
 extensions = [
     'recommonmark',
     'sphinx.ext.autosectionlabel',
+    'sphinx_markdown_tables',
 ]
 
 intersphinx_mapping = {
