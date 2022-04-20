@@ -8,10 +8,8 @@ Any questions regarding this process, as well as subscribing to service and job 
 ## Service Provisioning
 
 You should solely focus on the development of great quantum algorithms.
-Our platform helps you to transforming them into services that can be called by external customers via standardized HTTP
-interfaces.
-In order to deploy your algorithm as a service and to provide them in the platform's marketplace, you need to follow
-these steps:
+Our platform helps you to transforming them into services that can be called by external customers via standardized HTTP interfaces.
+In order to deploy your algorithm as a service and to provide them in the platform's marketplace, you need to follow these steps:
 
 1. Embed your python code into our user code template.
 2. Test your service locally with Docker.
@@ -34,6 +32,7 @@ yo @stoneone/planqk-service <name>
 Alternatively, the template can be downloaded as a zip file via these links: ([zip](https://storage.googleapis.com/yeoman-templates/latest/template.zip) | [tar.gz](https://storage.googleapis.com/yeoman-templates/latest/template.tar.gz)) 
   
 After generating/extracting it, you should find the following structure:
+
 ```
 .
 ├── Dockerfile
@@ -51,38 +50,31 @@ After generating/extracting it, you should find the following structure:
     └── program.py
 ```
 
-The most important method, which takes the user input and generates the output of interest is the `run` method
-inside `program.py`.
+The most important method, which takes the user input and generates the output of interest is the `run` method inside `program.py`.
 
-> **Important:** Do not rename either the `src` folder, the `program.py` package, as well as the `run` method inside
-> program.py. These are fixed entry points for the service. Changing their names will result in a malfunctioning service.
+> **Important:** 
+> Do not rename either the `src` folder, the `program.py` package, as well as the `run` method inside program.py.
+> These are fixed entry points for the service. Changing their names will result in a malfunctioning service.
 
-From the start, you should be able to run `python -m src` from within the `user_code` folder, which is our goal when
-replacing the provided dummy code with your own.
-Running this line will execute the `__main__`-method, which in turn reads in files from the `input` folder to be used as
-input for the `run` method.
+From the start, you should be able to run `python -m src` from within the `user_code` folder, which is our goal when replacing the provided dummy code with your own.
+Running this line will execute the `__main__`-method, which in turn reads in files from the `input` folder to be used as input for the `run` method.
 Inputs should be in a JSON-conform format with the properties `"data"` and `"params"`.
 Remember, that within JSON-format the property of an object must be of type string.
 
-Any required python package (like numpy, pandas, ...) must be mentioned within the - you guessed it - `requirements.txt`
-with its corresponding version number in the pip-installation format (e.g. `numpy==1.19.0`).
+Any required python package (like numpy, pandas, ...) must be mentioned within the - you guessed it - `requirements.txt` with its corresponding version number in the pip-installation format (e.g. `numpy==1.19.0`).
 If no version number is provided the latest stable version of the package will be installed.
 These packages can than be imported within any python file.
 
-If you have your own python files, which are necessary for executing your code, you can simply put them into the `libs`
-folder and import them via relative imports into your program (e.g. additional functions can be stored
-in `libs/helpers.py` and can be imported within `program.py` with the syntax `from .libs/helpers import *`).
+If you have your own python files, which are necessary for executing your code, you can simply put them into the `libs` folder and import them via relative imports into your program (e.g. additional functions can be stored in `libs/helpers.py` and can be imported within `program.py` with the syntax `from .libs/helpers import *`).
 
-> **Important:** If you plan to run your program on real quantum hardware or cloud simulators, your program should
-> expect some valid `"backend"` string within the `"params"` object (e.g. `"backend": "ibmq_qasm_simulator"`
-> or `"backend": "ibmq_manila"`).
+> **Important:**
+> If you plan to run your program on real quantum hardware or cloud simulators, your program should expect some valid `"backend"` string within the `"params"` object (e.g. `"backend": "ibmq_qasm_simulator"` or `"backend": "ibmq_manila"`).
 
-
-At last, you must zip (at minimum) the `src` folder and `requirements.txt`, which will be the file you upload in order
-to create a service.
+At last, you must zip (at minimum) the `src` folder and `requirements.txt`, which will be the file you upload in order to create a service.
 Note, that you must not zip the `user_code` folder itself but its content.
-> **Recommended:** After being able to run your code as a module and if you're interested in offering your service via
-> an API to others, you should also take the time to adapt the `openapi-spec.yml` file, in order to describe your API.
+
+> **Recommended:**
+> After being able to run your code as a module and if you're interested in offering your service via an API to others, you should also take the time to adapt the `openapi-spec.yml` file, in order to describe your API.
 
 ### 2. Test your Service using Docker
 
@@ -90,8 +82,7 @@ Before deploying it on the PlanQK platform, you should test the correct behaviou
 This will help you to identify and correct potential errors before the actual deployment process.
 
 You may utilize Docker to test your implementation.
-In general, by following the described procedure you replicate the steps performed by the PlanQK platform, which is a
-way to verify your service in an early stage.
+In general, by following the described procedure you replicate the steps performed by the PlanQK platform, which is a way to verify your service in an early stage.
 
 #### Build the Docker Image
 
@@ -135,8 +126,7 @@ docker run -it \
   planqk-service
 ```
 
-If the service executed successfully, you should see something like `Job:ResulsResponse:` followed by the output you
-defined for your service.
+If the service executed successfully, you should see something like `Job:ResulsResponse:` followed by the output you defined for your service.
 Otherwise, if you see `Job:ErrorResponse`: Bad news, something went wrong.
 However, the details of the response hopefully give you a clue as to what the problem was.
 
@@ -146,7 +136,8 @@ When you have zipped your code and successfully tested it via Docker, creating a
 From the landing page, go to [My Services](https://platform.planqk.de/services).
 Here you need to click on `Create Service` in the top right corner.
 
-> **Important**: You need to add a valid credit card before being able to create services. 
+> **Important**:
+> You need to add a valid credit card before being able to create services. 
 > This card is used to charge you for the costs that emerge from hosting the service on the platform.
 > To add the card go to [Payments](https://platform.planqk.de/settings/payments).
 > Since the platform is still under development, the payments are just simulated.
@@ -177,7 +168,8 @@ This includes a public and secret key pair, as well as a token- and service endp
 The former is used for generating a Bearer token, which is required for sending requests to the latter.  
 Note, that different applications can subscribe to the same service without additional cost (as long as the service is not subscribed as pay per use).
 
-> **Important**: To test the correct behaviour of *your own services* you should publish it "for initial use".
+> **Important**:
+> To test the correct behaviour of *your own services* you should publish it "for initial use".
 > In order to test it, you can use any of your applications to subscribe to this service.
 
 ## Jobs (Prototype Feature)
@@ -205,7 +197,8 @@ These fields are `"data"` and  `"params"` (if you have worked with the user code
 The field `"data"` should include all the necessary.. well.. data, that is necessary for the problem at hand, e.g. a QUBO, a dictionary of coefficients from a Hamiltonian or a number to be factorized (think big!).
 The `params` field should contain additional (meta-)information such as the number of qubits, the number of variational layers for a circuit or the name of the backend.
 
-**Important:** The input of this step are the components of the `"data"` field of the implementation.
+**Important:**
+The input of this step are the components of the `"data"` field of the implementation.
 
 You have the option to hand over the input as a single JSON object, such as
 
