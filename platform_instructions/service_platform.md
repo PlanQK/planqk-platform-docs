@@ -130,7 +130,7 @@ If the service executed successfully, you should see something like `Job:ResulsR
 Otherwise, if you see `Job:ErrorResponse`: Bad news, something went wrong.
 However, the details of the response hopefully give you a clue as to what the problem was.
 
-### 2.5 Create an API file for your service
+### 2.5 Create an API Spec File for your Service
 
 Although not absolutely necessary for providing a service, we do strongly recommend to write an API description for your service.
 This API description gives potential users of the service a manual on how they are able to communicate with the service, namely how they can send the input for problems and receive the solutions.  
