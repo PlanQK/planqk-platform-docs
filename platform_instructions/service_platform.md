@@ -148,13 +148,13 @@ When you have zipped your code and successfully tested it via Docker, creating a
 From the landing page, go to [My Services](https://platform.planqk.de/services).
 Here you need to click on `Create Service` in the top right corner.
 
-> **Important**: You need to add a valid credit card before being able to create services. This card is used to charge
-> you for the costs that emerge from hosting the service on the platform. To add the card go
-> to [Payments](https://platform.planqk.de/settings/payments). Since the platform is still under development, the payments
-> are just simulated. Therefore, you can provide
-> a [test credit card number](https://stripe.com/docs/testing#europe-and-middle-east). A detailed step-by-step tutorial is
-> described in this [video](https://www.loom.com/share/1ddf3b919bbc4219883f576931a14a12).
-
+> **Important**: You need to add a valid credit card before being able to create services.
+> This card is used to charge you for the costs that emerge from hosting the service on the platform.
+> To add the card go to [Payments](https://platform.planqk.de/settings/payments).
+> Since the platform is still under development, the payments are just simulated.
+> Therefore, you can provide a [test credit card number](https://stripe.com/docs/testing#europe-and-middle-east).
+> A detailed step-by-step tutorial is described in
+> this [video](https://www.loom.com/share/1ddf3b919bbc4219883f576931a14a12).
 
 You will be directed to an interface, where you can provide information, as well as the actual user code.
 
@@ -169,50 +169,52 @@ You will be directed to an interface, where you can provide information, as well
 | Quantum Backend   | As of February 2022, only IBM and DWave are supported quantum backends and only one can be picked. These options are only available, if you have stored a token for the corresponding provider within your account (see [Add tokens to your account](#add-tokens-to-your-account)). If you are working with local simulators only (e.g., when using the `AerBackend` from qiskit or the `SimulatedAnnealingSampler` from the DWave anneal package) you can choose any backend or the option "None", since locally running code does not get affected by the choice (e.g. it is perfectly fine to run local qiskit code and having qiskit in the requirements-file when clicking on the DWave option). |
 | Pricing Plans     | Will be important for when you want to offer your service via the marketplace and charge your customers for using them. If you just want to test your service, you should select "Free".|
 
-And there you go. As soon as you click on "Create Service", the containerization and deployment starts. As soon as it's
-finished (as indicated in the "My Services" section with a green checkmark) you will be able to publish your service to
-the marketplace or for interal use and test your service thoroughly.
+And there you go. As soon as you click on "Create Service", the containerization and deployment starts.
+As soon as it's finished (as indicated in the "My Services" section with a green checkmark) you will be able to publish
+your service to the marketplace or for internal use and test your service thoroughly.
 
 ## Subscribing to Services using Applications
 
 Whenever you want to interact with services from
 the [Quantum Service Store](https://platform.planqk.de/marketplace/apis#), you must be subscribed to them from within an
 application.
-Applications hold all necessary information for a secure communicaton with the service from an external source. This
-includes a public and secret key pair, as well as a token- and service endpoint.
+Applications hold all necessary information for a secure communicaton with the service from an external source.
+This includes a public and secret key pair, as well as a token- and service endpoint.
 The former is used for generating a Bearer token, which is required for sending requests to the latter.  
 Note, that different applications can subscribe to the same service without additional cost (as long as the service is
 not subscribed as pay per use).
 
-> **Important**: To test the correct behaviour of *your own services* you should publish it "for initial use". In order
-> to test it, you can use any of your applications to subscribe to this service.
+> **Important**: To test the correct behaviour of *your own services* you should publish it "for initial use".
+> In order to test it, you can use any of your applications to subscribe to this service.
 
 ## Jobs (Prototype Feature)
 
 Besides ongoing and potentially long-lasting services, the PlanQK platform also provides a prototype functionality for
-executing jobs. These jobs are pretty similar to services except that jobs can *only* be executed via the platform and
-only once.
+executing jobs.
+These jobs are pretty similar to services except that jobs can *only* be executed via the platform and only once.
 
 ### Create Jobs
 
-When being in the "Jobs" tab you should see a (possibly empty) list of finished jobs. If you did not execute any jobs
-yet, it's time to change that. So click on "Create Job" in the top right corner and we will guide you through the
-necessary steps to do so!
+When being in the "Jobs" tab you should see a (possibly empty) list of finished jobs.
+If you did not execute any jobs yet, it's time to change that.
+So click on "Create Job" in the top right corner and we will guide you through the necessary steps to do so!
 
 #### 1. Service
 
-You have to select a service that should be run as a job. This can either be one of your own services or (and that is
-the neat part of this feature) an implementation provided for any of the algorithms. Just choose an available and
-suitable implementation out of the list (in that context, suitable means an implementation according to the description
-in the [Implementations](###provide-an-implementation-for-job-execution) section). If an API file was provided within
-the implementation, you should see it at the bottom of the page.
+You have to select a service that should be run as a job.
+This can either be one of your own services or (and that is the neat part of this feature) an implementation provided
+for any of the algorithms.
+Just choose an available and suitable implementation out of the list (in that context, suitable means an implementation
+according to the description in the [Implementations](###provide-an-implementation-for-job-execution) section).
+If an API file was provided within the implementation, you should see it at the bottom of the page.
 
 #### 2. Input
 
-In general, services that run via the PlanQK platform, require two, possibly empty, fields as input. These fields
-are `"data"` and  `"params"` (if you have worked with the user code template, you should have seen these already (
-hopefully!)). The field `"data"` should include all the necessary.. well.. data, that is necessary for the problem at
-hand, e.g. a QUBO, a dictionary of coefficients from a Hamiltonian or a number to be factorized (think big!).
+In general, services that run via the PlanQK platform, require two, possibly empty, fields as input.
+These fields are `"data"` and  `"params"` (if you have worked with the user code template, you should have seen these
+already (hopefully!)).
+The field `"data"` should include all the necessary.. well.. data, that is necessary for the problem at hand, e.g. a
+QUBO, a dictionary of coefficients from a Hamiltonian or a number to be factorized (think big!).
 The `params` field should contain additional (meta-)information such as the number of qubits, the number of variational
 layers for a circuit or the name of the backend.
 
@@ -232,5 +234,5 @@ or load an existing input from the Data Pools.
 
 #### 3. Algorithm Parameters
 
-Similar to the section above, the algorithm parameters refer to the corresponding `"params"` field of the service. You
-have the option to include them via key value pairs or directly via a JSON object, similar to the input data.
+Similar to the section above, the algorithm parameters refer to the corresponding `"params"` field of the service.
+You have the option to include them via key value pairs or directly via a JSON object, similar to the input data.
