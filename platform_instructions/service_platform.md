@@ -84,19 +84,33 @@ This will help you to identify and correct potential errors before the actual de
 You may utilize Docker to test your implementation.
 In general, by following the described procedure you replicate the steps performed by the PlanQK platform, which is a way to verify your service in an early stage.
 
-#### Build the Docker Image
-
-In your command line tool go to your user code directory and perform the following command that creates a Docker image with the tag `planqk-service`:
+### Build the Docker Image
 
 ```bash
+docker pull ghcr.io/planqk/job-template:latest-base-1.0.0
 docker build -t planqk-service .
 ```
 
-#### Start the Docker container
+### Start the Docker Container
 
-You need to pass the objects `"data"` and `"params"` as environment variables (base64 encoded) into the container.
+You need to pass the `"data"` and `"params"` attributes as JSON-serialized objects into the container, either in the form of separate files or as environment variables (base64 encoded).
+
+To start you container, you can mount any JSON-serialized input data to the file `/var/input/data/data.json` and any file containing params to `/var/input/params/params.json`.
+
+```bash
+docker run -it \
+  -e BASE64_ENCODED=false \
+  -v <path>/data.json:/var/input/data/data.json \
+  -v <path>/params.json:/var/input/params/params.json \
+  planqk-service
+```
+
+If the service executed successfully, you should see something like `Job:ResulsResponse:` followed by the output you defined for your service.
+Otherwise, if you see `Job:ErrorResponse`: Bad news, something went wrong.
+However, the details of the response hopefully give you a clue as to what the problem was.
+
+Alternatively, you could also pass any input by environment variables.
 You can either use command line tools like `base64` or [Base64 Encoder](https://www.base64encode.org) for encoding the input.
-
 For example, to create a base64 encoded string of the `"data"` part of the `input.json` file, execute the following:
 
 ```bash
@@ -106,6 +120,10 @@ EOF
 
 >> eyJ2YWx1ZXMiOiBbMTAwLCA1MCwgMjAwLCA3MCwgMC42OV19
 ```
+
+> **Note**:
+> In general, the maximum default length of environment variables in Linux-based systems is at 128KiB.
+> On Windows, the maximum default length is at 32KiB.
 
 To create a base64 encoded string of the `"params"` part, execute the following:
 
@@ -117,18 +135,14 @@ EOF
 >> eyJyb3VuZF9vZmYiOiBmYWxzZX0=
 ```
 
-Afterwards, start the container with the environment variables `INPUT_DATA` and `INPUT_PARAMS` as follows:
+Afterwards, start the container with the environment variables `DATA_VALUE` and `PARAMS_VALUE` as follows:
 
 ```bash
 docker run -it \
-  -e INPUT_PARAMS=eyJyb3VuZF9vZmYiOiBmYWxzZX0= \
-  -e INPUT_DATA=eyJ2YWx1ZXMiOiBbMTAwLCA1MCwgMjAwLCA3MCwgMC42OV19 \
+  -e DATA_VALUE=eyJ2YWx1ZXMiOiBbMTAwLCA1MCwgMjAwLCA3MCwgMC42OV19 \
+  -e PARAMS_VALUE=eyJyb3VuZF9vZmYiOiBmYWxzZX0= \
   planqk-service
 ```
-
-If the service executed successfully, you should see something like `Job:ResulsResponse:` followed by the output you defined for your service.
-Otherwise, if you see `Job:ErrorResponse`: Bad news, something went wrong.
-However, the details of the response hopefully give you a clue as to what the problem was.
 
 ### 2.5 Create an API Spec File for your Service
 
@@ -182,14 +196,14 @@ You will be directed to an interface, where you can provide information, as well
 
 **Service Properties:**
 
-| Property          | Description |
-|-------------------|-------------|
-| Name              | Choose a meaningful name for your service. If you publish your service later on, this name will be displayed to other users.|
-| Service Import    | Click on "Import from file" and upload your zipped service. The option "Import from URL" can be used if your service is running somewhere (e.g., on your own infrastructure) and you just want the PlanQK platform to manage the access to it. |
-| API Specification | Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. If you did not prepare one, but you want to test the communication with you service (via a GET), you may upload the default OpenAPI file that was provided with this template. |
-| Description       | Other users will see this description of the service, if its name sparked some interest, and they clicked on it in the marketplace. So any additional information you want to provide goes in here. |
+| Property          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name              | Choose a meaningful name for your service. If you publish your service later on, this name will be displayed to other users.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Service Import    | Click on "Import from file" and upload your zipped service. The option "Import from URL" can be used if your service is running somewhere (e.g., on your own infrastructure) and you just want the PlanQK platform to manage the access to it.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| API Specification | Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. If you did not prepare one, but you want to test the communication with you service (via a GET), you may upload the default OpenAPI file that was provided with this template.                                                                                                                                                                                                                                                                                                                                                                                              |
+| Description       | Other users will see this description of the service, if its name sparked some interest, and they clicked on it in the marketplace. So any additional information you want to provide goes in here.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Quantum Backend   | As of February 2022, only IBM and DWave are supported quantum backends and only one can be picked. These options are only available, if you have stored a token for the corresponding provider within your account (see [Add tokens to your account](additional_information.html#add-tokens-to-your-account)). If you are working with local simulators only (e.g., when using the `AerBackend` from qiskit or the `SimulatedAnnealingSampler` from the DWave anneal package) you can choose any backend or the option "None", since locally running code does not get affected by the choice (e.g. it is perfectly fine to run local qiskit code and having qiskit in the requirements-file when clicking on the DWave option). |
-| Pricing Plans     | Will be important for when you want to offer your service via the quantum service store and charge your customers for using them. If you just want to test your service, you should select "Free".|
+| Pricing Plans     | Will be important for when you want to offer your service via the quantum service store and charge your customers for using them. If you just want to test your service, you should select "Free".                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 And there you go. As soon as you click on "Create Service", the containerization and deployment starts. 
 As soon as it's finished (as indicated in the "My Services" section with a green checkmark) you will be able to publish your service to the quantum service store or for internal use and test your service thoroughly.
