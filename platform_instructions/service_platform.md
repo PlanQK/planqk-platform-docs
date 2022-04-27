@@ -205,7 +205,7 @@ The former is used for generating a Bearer token, which is required for sending 
 Note, that different applications can subscribe to the same service without additional cost (as long as the service is not subscribed as pay per use).
 
 > **Important**:
-> To test the correct behaviour of *your own services* you should publish it "for initial use".
+> To test the correct behaviour of *your own services* you should publish it "for internal use".
 > In order to test it, you can use any of your applications to subscribe to this service.
 
 ## Jobs (Prototype Feature)
