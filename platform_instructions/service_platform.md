@@ -244,8 +244,11 @@ If an API file was provided within the implementation, you should see it at the 
 
 In general, services that run via the PlanQK platform, require two, possibly empty, fields as input.
 These fields are `"data"` and  `"params"` (if you have worked with the user code template, you should have seen these already (hopefully!)).
-The field `"data"` should include all the necessary.. well.. data, that is necessary for the problem at hand, e.g. a QUBO, a dictionary of coefficients from a Hamiltonian or a number to be factorized (think big!).
+The field `"data"` should include all the data required for the problem at hand, e.g. a QUBO, a dictionary of coefficients from a Hamiltonian or a number to be factorized (think big!).
 The `params` field should contain additional (meta-)information such as the number of qubits, the number of variational layers for a circuit or the name of the backend.
+Note, the data or param size must not exceed 1 MB.
+
+
 
 **Important:**
 The input of this step are the components of the `"data"` field of the implementation.
