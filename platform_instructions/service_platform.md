@@ -209,7 +209,7 @@ And there you go. As soon as you click on "Create Service", the containerization
 As soon as it's finished (as indicated in the "My Services" section with a green checkmark) you will be able to publish your service to the quantum service store or for internal use and test your service thoroughly.
 
 ## Communicating with a Service
-
+Examples showing how to utilize results from services (e.g. via Jupyter notebooks) can be found in [this](https://github.com/PlanQK/service-usage-examples) repository.
 ## Subscribing to Services using Applications
 
 Whenever you want to interact with services from the [Quantum Service Store](https://platform.planqk.de/marketplace/apis), you must be subscribed to them from within an application.
