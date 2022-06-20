@@ -9,5 +9,5 @@ pip install -r requirements.txt
 make html
 
 # Windows
-make.bat html
+./make.bat html
 ```
