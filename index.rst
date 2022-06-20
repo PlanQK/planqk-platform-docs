@@ -23,6 +23,7 @@ The platform features are described in detail under the following sections:
    platform_instructions/service_platform.md
    platform_instructions/quantum_service_store.md
    platform_instructions/additional_information.md
+   platform_instructions/feedback.md
    third_party/nisq_analyzer.md
 
 News & Support
