@@ -53,6 +53,6 @@ def setup(app):
         'auto_toc_tree': False,
         'enable_eval_rst': True,
         'enable_math': True,
-        'enable_inline_math': True,
+        'enable_inline_math': False,
     }, True)
     app.add_transform(AutoStructify)
