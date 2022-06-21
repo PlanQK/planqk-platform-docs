@@ -23,15 +23,31 @@ The platform features are described in detail under the following sections:
    platform_instructions/service_platform.md
    platform_instructions/quantum_service_store.md
    platform_instructions/additional_information.md
-   platform_instructions/feedback.md
    third_party/nisq_analyzer.md
 
-News & Support
---------------
+Stay Up-to-Date
+---------------
 
-To receive updates about new exciting platform features subscribe to our `Slack platform news channel <https://planqk-platform.slack.com/archives/C03J84N4A4Q>`_.
+To receive updates about new exciting platform features subscribe to our `Slack News Channel <https://planqk-platform.slack.com/archives/C03J84N4A4Q>`_.
+Simply join our `Slack Workspace <https://join.slack.com/t/planqk-platform/shared_invite/zt-1b4899wqr-xqOYLSCr8KqYkREi251NxQ>`_ to get access.
 
-If you need help or if you want to provide feedback, please contact us through our `Slack support channel  <https://planqk-platform.slack.com/archives/C03HLMQBSSG>`_.
+Got a Question or Problem?
+--------------------------
 
-Issues that cannot be addressed in the community channel can be directly reported to the internal issue board (https://github.com/PlanQK/platform/issues).
-**Note**: You have to be logged in at GitHub to get access!
+Do not open issues for general support questions as we want to keep GitHub issues for bug reports and feature requests.
+Instead, we recommend using our `Slack Support Channel <https://planqk-platform.slack.com/archives/C03HLMQBSSG>`_ to ask support-related questions.
+Just join our `Slack Workspace <https://join.slack.com/t/planqk-platform/shared_invite/zt-1b4899wqr-xqOYLSCr8KqYkREi251NxQ>`_ to get access.
+
+Found an Bug?
+-------------
+
+If you find an bug in our system, you can help us by `submitting an issue <https://github.com/PlanQK/platform/issues>`_ to our public `GitHub Repository <https://github.com/PlanQK/platform>`_.
+Please check whether there is already an open issue. If not, just click the "New issue" button and select "Bug report".
+
+Missing a Feature?
+------------------
+
+You can request a new feature by `submitting an issue <https://github.com/PlanQK/platform/issues>`_ to our public `GitHub Repository <https://github.com/PlanQK/platform>`_.
+
+Please check whether there is already an open issue. If not, just click the "New issue" button, select "Feature request" and outline your proposal so that it can be discussed.
+This allows us to better coordinate our efforts and to prevent duplication of work so that it can be successfully added to our roadmap.
