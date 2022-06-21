@@ -53,7 +53,7 @@ After generating/extracting it, you should find the following structure:
 The most important method, which takes the user input and generates the output of interest is the `run` method inside `program.py`.
 
 > **Important:** 
-> Do not rename either the `src` folder, the `program.py` package, as well as the `run` method inside `program.py`.
+> Do not rename either the `src` folder, the `program.py` package, as well as the `run`-method inside `program.py`.
 > These are fixed entry points for the service. Changing their names will result in a malfunctioning service.
 
 From the start, you should be able to run `python -m src` from within the `user_code` folder, which is our goal when replacing the provided dummy code with your own.
@@ -63,15 +63,20 @@ Remember, that within JSON-format the property of an object must be of type stri
 
 Any required python package (like numpy, pandas, ...) must be mentioned within the - you guessed it - `requirements.txt` with its corresponding version number in the pip-installation format (e.g. `numpy==1.19.0`).
 If no version number is provided the latest stable version of the package will be installed.
-These packages can than be imported within any python file.
+These packages can than be imported within any python file associated to the service.
 
-If you have your own python files, which are necessary for executing your code, you can simply put them into the `libs` folder and import them via relative imports into your program (e.g. additional functions can be stored in `libs/helpers.py` and can be imported within `program.py` with the syntax `from .libs/helpers import *`).
+If you have additional python files, which are necessary for executing your code, you can simply put them into the `libs` folder and import them via relative imports into your program (e.g. additional functions can be stored in `libs/helpers.py` and can be imported within `program.py` with the syntax `from .libs/helpers import *`).
 
 > **Important:**
 > If you plan to run your program on real quantum hardware or cloud simulators, your program should expect some valid `"backend"` string within the `"params"` object (e.g. `"backend": "ibmq_qasm_simulator"` or `"backend": "ibmq_manila"`).
 
 At last, you must zip (at minimum) the `src` folder and `requirements.txt`, which will be the file you upload in order to create a service.
 Note, that you must not zip the `user_code` folder itself but its content.
+To do this, use the following command while being in the folder:
+```
+zip user_code src/* requirements.txt openapi-spec.yml
+```
+This creates a `user_code.zip` file that you can upload to the PlanQK platform in order to create a service.
 
 > **Recommended:**
 > After being able to run your code as a module and if you're interested in offering your service via an API to others, you should also take the time to adapt the `openapi-spec.yml` file, in order to describe your API.
