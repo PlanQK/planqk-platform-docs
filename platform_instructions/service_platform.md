@@ -7,6 +7,36 @@ Any questions regarding this process, as well as subscribing to service and job 
 
 ## Service Provisioning
 
+### TL;DR
+1. Download the user code template [here](https://storage.googleapis.com/yeoman-templates/latest/template.zip).  
+2. ```bash
+   unzip template.zip planqk_service
+   cd planqk_service
+   ```
+3. Adapt `program.py`, `requirements.txt` and `openapi-spec.yml` for your service.
+4. ```bash
+   zip -r user_code.zip src requirements.txt openapi-spec.yml
+   ```
+5. Testing via docker:
+    - Build image:
+      ```bash
+      docker pull ghcr.io/planqk/job-template:latest-base-1.0.0
+      docker build -t planqk-service .
+      ```
+    - Run container with data from `input` folder in working directory:
+      ```bash
+      PROJECT_ROOT=(`pwd`) 
+      docker run -it \
+        -e BASE64_ENCODED=false \
+        -e LOG_LEVEL=DEBUG \
+        -v $PROJECT_ROOT/data.json:/var/input/data/data.json \
+        -v $PROJECT_ROOT/params.json:/var/input/params/params.json \
+        planqk-service
+      ```
+6. Create your service on the [PlanQK](https://platform.planqk.de) platform with the `user_code.zip` file.
+
+### Detailed Version
+
 You should solely focus on the development of great quantum algorithms.
 Our platform helps you to transforming them into services that can be called by external customers via standardized HTTP interfaces.
 In order to deploy your algorithm as a service and to provide them in the quantum service store, you need to follow these steps:
@@ -14,6 +44,7 @@ In order to deploy your algorithm as a service and to provide them in the quantu
 1. Embed your python code into our user code template.
 2. Test your service locally with Docker.
 3. Deploy the service on the PlanQK platform.
+
 
 Each of these points will be discussed in detail in the upcoming sections.
 
@@ -37,6 +68,7 @@ After generating/extracting it, you should find the following structure:
 .
 ├── Dockerfile
 ├── openapi-spec.yml
+├── environment.yml
 ├── requirements.txt
 ├── input
 │   └── ...
@@ -74,7 +106,7 @@ At last, you must zip (at minimum) the `src` folder and `requirements.txt`, whic
 Note, that you must not zip the `user_code` folder itself but its content.
 To do this, use the following command while being in the folder:
 ```
-zip user_code src/* requirements.txt openapi-spec.yml
+zip -r user_code.zip src requirements.txt openapi-spec.yml
 ```
 This creates a `user_code.zip` file that you can upload to the PlanQK platform in order to create a service.
 
@@ -100,15 +132,38 @@ docker build -t planqk-service .
 
 You need to pass the `"data"` and `"params"` attributes as JSON-serialized objects into the container, either in the form of separate files or as environment variables (base64 encoded).
 
-To start you container, you can mount any JSON-serialized input data to the file `/var/input/data/data.json` and any file containing params to `/var/input/params/params.json`.
+When mounting separate files, use the destination paths `/var/input/data/data.json` for the input data and `/var/input/params/params.json` for additional execution parameters.  
+Assuming you stored them in the according input folder as `data.json` and `params.json` the container can be started via the following command:
 
 ```bash
+PROJECT_ROOT=(`pwd`) 
 docker run -it \
   -e BASE64_ENCODED=false \
-  -v <path>/data.json:/var/input/data/data.json \
-  -v <path>/params.json:/var/input/params/params.json \
+  -e LOG_LEVEL=DEBUG \
+  -v $PROJECT_ROOT/data.json:/var/input/data/data.json \
+  -v $PROJECT_ROOT/params.json:/var/input/params/params.json \
   planqk-service
 ```
+> **Note**:
+> For GitBash users on Windows, replace 
+> ```bash
+> PROJECT_ROOT=(`pwd`)
+> ```
+> with
+> ```bash
+> PROJECT_ROOT=(/`pwd`)
+> ```
+> 
+> For Windows command-prompt users, you can use the following command:
+> ```bash
+> docker run -it \
+>   -e BASE64_ENCODED=false \
+>   -e LOG_LEVEL=DEBUG \
+>   -v %cd%/input/data.json:/var/input/data/data.json \
+>   -v %cd%/input/params.json:/var/input/params/params.json \
+>   planqk-service
+> ```
+
 
 If the service executed successfully, you should see something like `Job:ResulsResponse:` followed by the output you defined for your service.
 Otherwise, if you see `Job:ErrorResponse`: Bad news, something went wrong.
