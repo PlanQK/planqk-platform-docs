@@ -17,7 +17,7 @@ The services provide standardized interfaces making it easy to integrate them in
 The platform features are described in detail under the following sections:
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    platform_instructions/knowledge_platform.md
    platform_instructions/service_platform.md
