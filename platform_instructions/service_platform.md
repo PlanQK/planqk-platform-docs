@@ -9,28 +9,32 @@ Any questions regarding this process, as well as subscribing to service and job 
 
 ## TL;DR
 1. Download the user code template [here](https://storage.googleapis.com/yeoman-templates/latest/template.zip).  
-2. Extract files and switch into directory:
+2. Extract files and switch directory:
    ```bash
    unzip template.zip planqk_service
    cd planqk_service
    ```
-4. Adapt `program.py`, `requirements.txt` and `openapi-spec.yml` for your service.
-5. Test functionality locally
+    **Recommended**: Develop and test in a dedicated conda environment:
+    ```bash 
+    conda env create -f environment.yml
+    conda activate planqk-service
+    ```
+3. Include your quantum code in `program.py`, add required packages in `requirements.txt` and (optionally) describe the API for your service in `openapi-spec.yml`.
+4. Test functionality locally:
     ```bash
     python -m src
     ```
-    Recommended: Test in a dedicated environment with the packages from `requirements.txt`.
-6. Compress files important for the service creation:
+5. Compress files important for the service creation:
    ```bash
    zip -r user_code.zip src requirements.txt openapi-spec.yml
    ```
-7. Test functionality via docker:
+6. Test functionality via docker:
     - Build image:
       ```bash
       docker pull ghcr.io/planqk/job-template:latest-base-1.0.0
       docker build -t planqk-service .
       ```
-    - Run container with data from `input` folder in working directory:
+    - Run container with data and parameters from `input` folder in working directory:
       ```bash
       PROJECT_ROOT=(`pwd`) 
       docker run -it \
@@ -40,7 +44,7 @@ Any questions regarding this process, as well as subscribing to service and job 
         -v $PROJECT_ROOT/params.json:/var/input/params/params.json \
         planqk-service
       ```
-8. Create your service on the [PlanQK](https://platform.planqk.de) platform with the `user_code.zip` file.
+7. Create your service on the [PlanQK](https://platform.planqk.de) platform with the `user_code.zip` file.
 
 ## Detailed Version
 
