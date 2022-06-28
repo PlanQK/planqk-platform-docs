@@ -7,7 +7,7 @@ Any questions regarding this process, as well as subscribing to service and job 
 
 ## Service Provisioning
 
-### TL;DR
+## TL;DR
 1. Download the user code template [here](https://storage.googleapis.com/yeoman-templates/latest/template.zip).  
 2. Extract files and switch into directory:
    ```bash
@@ -42,16 +42,15 @@ Any questions regarding this process, as well as subscribing to service and job 
       ```
 8. Create your service on the [PlanQK](https://platform.planqk.de) platform with the `user_code.zip` file.
 
-### Detailed Version
+## Detailed Version
 
 You should solely focus on the development of great quantum algorithms.
 Our platform helps you to transforming them into services that can be called by external customers via standardized HTTP interfaces.
 In order to deploy your algorithm as a service and to provide them in the quantum service store, you need to follow these steps:
 
 1. Embed your python code into our user code template.
-2. Test your service locally with Docker.
+2. Test your service locally and with Docker.
 3. Deploy the service on the PlanQK platform.
-
 
 Each of these points will be discussed in detail in the upcoming sections.
 
@@ -88,6 +87,13 @@ After generating/extracting it, you should find the following structure:
     │   └── ...
     └── program.py
 ```
+We recommend building your service from within a dedicated and fresh conda environment, s.t. you can simply install and track all required packages and see possible dependency issues early on.  
+For this reason, the template already contains an `environment.yml` file from which a fresh environment can be created and activated by running
+```bash
+conda create -f environment.yml
+conda activate planqk-service
+```
+from within the template folder. And now, this is where the fun (a.k.a the service creation) begins.  
 
 The most important method, which takes the user input and generates the output of interest is the `run` method inside `program.py`.
 
@@ -102,7 +108,7 @@ Remember, that within JSON-format the property of an object must be of type stri
 
 Any required python package (like numpy, pandas, ...) must be mentioned within the - you guessed it - `requirements.txt` with its corresponding version number in the pip-installation format (e.g. `numpy==1.19.0`).
 If no version number is provided the latest stable version of the package will be installed.
-These packages can than be imported within any python file associated to the service.
+These packages can then be imported within any python file associated to the service.
 
 If you have additional python files, which are necessary for executing your code, you can simply put them into the `libs` folder and import them via relative imports into your program (e.g. additional functions can be stored in `libs/helpers.py` and can be imported within `program.py` with the syntax `from .libs/helpers import *`).
 
@@ -120,22 +126,35 @@ This creates a `user_code.zip` file that you can upload to the PlanQK platform i
 > **Recommended:**
 > After being able to run your code as a module and if you're interested in offering your service via an API to others, you should also take the time to adapt the `openapi-spec.yml` file, in order to describe your API.
 
-### 2. Test your Service using Docker
+### 2. Test your Service locally and with Docker
 
 Before deploying it on the PlanQK platform, you should test the correct behaviour of your service on your local machine.
 This will help you to identify and correct potential errors before the actual deployment process.
 
-You may utilize Docker to test your implementation.
+#### Local testing
+
+At first, as described in the beginning of the previous section, execute your service locally by running
+```bash 
+python -m src
+```
+> **Note**: Please ensure that `requirements.txt` contains *all* necessary packages for executing your program. You can easily check this by testing the local execution in a fresh conda environment with the packages from the file according to
+> ```bash 
+> conda env create -f environment.yml -n service_test
+> conda activate service_test
+> pip install -r requirements.txt
+> python -m src
+> ```
+If this runs smoothly and as expected, you should also test your implementation by utilizing Docker.
 In general, by following the described procedure you replicate the steps performed by the PlanQK platform, which is a way to verify your service in an early stage.
 
-### Build the Docker Image
+#### Build the Docker Image
 
 ```bash
 docker pull ghcr.io/planqk/job-template:latest-base-1.0.0
 docker build -t planqk-service .
 ```
 
-### Start the Docker Container
+#### Start the Docker Container
 
 You need to pass the `"data"` and `"params"` attributes as JSON-serialized objects into the container, either in the form of separate files or as environment variables (base64 encoded).
 
