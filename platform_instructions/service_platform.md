@@ -9,15 +9,22 @@ Any questions regarding this process, as well as subscribing to service and job 
 
 ### TL;DR
 1. Download the user code template [here](https://storage.googleapis.com/yeoman-templates/latest/template.zip).  
-2. ```bash
+2. Extract files and switch into directory:
+   ```bash
    unzip template.zip planqk_service
    cd planqk_service
    ```
-3. Adapt `program.py`, `requirements.txt` and `openapi-spec.yml` for your service.
-4. ```bash
+4. Adapt `program.py`, `requirements.txt` and `openapi-spec.yml` for your service.
+5. Test functionality locally
+    ```bash
+    python -m src
+    ```
+    Recommended: Test in a dedicated environment with the packages from `requirements.txt`.
+6. Compress files important for the service creation:
+   ```bash
    zip -r user_code.zip src requirements.txt openapi-spec.yml
    ```
-5. Testing via docker:
+7. Test functionality via docker:
     - Build image:
       ```bash
       docker pull ghcr.io/planqk/job-template:latest-base-1.0.0
@@ -33,7 +40,7 @@ Any questions regarding this process, as well as subscribing to service and job 
         -v $PROJECT_ROOT/params.json:/var/input/params/params.json \
         planqk-service
       ```
-6. Create your service on the [PlanQK](https://platform.planqk.de) platform with the `user_code.zip` file.
+8. Create your service on the [PlanQK](https://platform.planqk.de) platform with the `user_code.zip` file.
 
 ### Detailed Version
 
@@ -263,7 +270,7 @@ You will be directed to an interface, where you can provide information, as well
 | API Specification | Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. If you did not prepare one, but you want to test the communication with you service (via a GET), you may upload the default OpenAPI file that was provided with this template.                                                                                                                                                                                                                                                                                                                                                                                              |
 | Description       | Other users will see this description of the service, if its name sparked some interest, and they clicked on it in the marketplace. So any additional information you want to provide goes in here.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Quantum Backend   | As of February 2022, only IBM and DWave are supported quantum backends and only one can be picked. These options are only available, if you have stored a token for the corresponding provider within your account (see [Add tokens to your account](additional_information.html#add-tokens-to-your-account)). If you are working with local simulators only (e.g., when using the `AerBackend` from qiskit or the `SimulatedAnnealingSampler` from the DWave anneal package) you can choose any backend or the option "None", since locally running code does not get affected by the choice (e.g. it is perfectly fine to run local qiskit code and having qiskit in the requirements-file when clicking on the DWave option). |
-| Pricing Plans     | Will be important for when you want to offer your service via the quantum service store and charge your customers for using them. If you just want to test your service, you should select "Free".                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Pricing Plans     | Will be important for when you want to offer your service via the quantum service store and charge your customers for using them. If you just want to test your service, you should select "Free".|
 
 And there you go. As soon as you click on "Create Service", the containerization and deployment starts. 
 As soon as it's finished (as indicated in the "My Services" section with a green checkmark) you will be able to publish your service to the quantum service store or for internal use and test your service thoroughly.
