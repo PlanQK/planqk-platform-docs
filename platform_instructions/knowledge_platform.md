@@ -42,7 +42,7 @@ When formulae and circuits fail to convey information there is another: Images! 
 
 ## Implementations
 
-For any algorithm you can also add an implementation for other users to see and download, which in principle can be any format (such as a plain .py python file or a .ipynb jupyter notebook). However, these implementations can also be used and executed as [jobs](#jobs-prototype-feature).  
+For any algorithm you can also add an implementation for other users to see and download, which in principle can be any format (such as a plain .py python file or a .ipynb jupyter notebook). However, these implementations can also be used and executed as [jobs](service_platform.html#jobs).  
 
 In future updates of the platform, it will also be possible to provide implementations in different ways, such as a remote git repository.
 
@@ -82,14 +82,15 @@ If somebody is interested in the use case and read through your description, he 
 
 Similar to members from an algorithm, any person that should be able to see/edit/maintain the use case and its contents should be added here.
 
-## Datapools
+## Data Pools
 The PlanQK platform also provides functionality to store, share and discuss different kinds of data with other users of the platform in a centralized fashion.
-We refer to this aspect of the platform as datapools and it is especially useful when running different kinds of jobs.
+We refer to this aspect of the platform as "Data Pools" and it is especially useful when running different kinds of [jobs](service_platform.html#jobs).
 This is because the input for, and the results of jobs can be read from and stored in such datapools, respecticely.
 Take e.g. long running jobs: After completion, the results can automatically be stored inside a data pool and be shared with selected people/organizations who can further process them e.g. in their own jobs.
 
 You also don't have to worry about different cloud providers and the hurdles which come up when trying to exchange data between organizations.
 Anything you can do on the PlanQK platform you can do in a collaborative way across the borders of your companies.
+
 ### Details
 Any information describing the type of data at hand can be formulated here.
 Whether describing the type of dataset at hand or some metainformation about it - You should denote anything that may be relevant to other users. 
