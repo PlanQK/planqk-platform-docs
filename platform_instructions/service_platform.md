@@ -286,12 +286,12 @@ You will be directed to an interface, where you can provide information, as well
 
 **Service Properties:**
 
-| Property          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name              | Choose a meaningful name for your service. If you publish your service later on, this name will be displayed to other users.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Service Import    | Click on "Import from file" and upload your zipped service. The option "Import from URL" can be used if your service is running somewhere (e.g., on your own infrastructure) and you just want the PlanQK platform to manage the access to it.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| API Specification | Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. If you did not prepare one, but you want to test the communication with you service (via a GET), you may upload the default OpenAPI file that was provided with this template.                                                                                                                                                                                                                                                                                                                                                                                              |
-| Description       | Other users will see this description of the service, if its name sparked some interest, and they clicked on it in the marketplace. So any additional information you want to provide goes in here.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Property          | Description |
+|--|--|
+| Name | Choose a meaningful name for your service. If you publish your service later on, this name will be displayed to other users.|
+| Service Import    | Click on "Import from file" and upload your zipped service. The option "Import from URL" can be used if your service is running somewhere (e.g., on your own infrastructure) and you just want the PlanQK platform to manage the access to it.|
+| API Specification | Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. If you did not prepare one, but you want to test the communication with you service (via a GET), you may upload the default OpenAPI file that was provided with this template.|
+| Description       | Other users will see this description of the service, if its name sparked some interest, and they clicked on it in the marketplace. So any additional information you want to provide goes in here.|
 | Quantum Backend   | As of February 2022, only IBM and DWave are supported quantum backends and only one can be picked. These options are only available, if you have stored a token for the corresponding provider within your account (see [Add tokens to your account](additional_information.html#add-tokens-to-your-account)). If you are working with local simulators only (e.g., when using the `AerBackend` from qiskit or the `SimulatedAnnealingSampler` from the DWave anneal package) you can choose any backend or the option "None", since locally running code does not get affected by the choice (e.g. it is perfectly fine to run local qiskit code and having qiskit in the requirements-file when clicking on the DWave option). |
 | Pricing Plans     | Will be important for when you want to offer your service via the quantum service store and charge your customers for using them. If you just want to test your service, you should select "Free".|
 
@@ -312,10 +312,11 @@ Note, that different applications can subscribe to the same service without addi
 > To test the correct behaviour of *your own services* you should publish it "for internal use".
 > In order to test it, you can use any of your applications to subscribe to this service.
 
-## Jobs (Prototype Feature)
+## Jobs
 
-Besides ongoing and potentially long-lasting services, the PlanQK platform also provides a prototype functionality for executing jobs.
-These jobs are pretty similar to services except that jobs can *only* be executed via the platform and only once.
+The PlanQK platform also provides the functionality for one-time service executions which we refer to as *jobs*.
+These jobs are based on either your own services or on suitable implementations provided by the community.
+Jobs can be especially useful when experimenting with implementations for quantum hardware and when intending to share results with other users of the platform in the form of a [data pool](knowledge_platform.html#data-pools).
 
 ### Create Jobs
 
@@ -335,13 +336,11 @@ If an API file was provided within the implementation, you should see it at the 
 In general, services that run via the PlanQK platform, require two, possibly empty, fields as input.
 These fields are `"data"` and  `"params"` (if you have worked with the user code template, you should have seen these already (hopefully!)).
 The field `"data"` should include all the data required for the problem at hand, e.g. a QUBO, a dictionary of coefficients from a Hamiltonian or a number to be factorized (think big!).
-The `params` field should contain additional (meta-)information such as the number of qubits, the number of variational layers for a circuit or the name of the backend.
+The `"params"` field should contain additional (meta-)information for the execution such as the number of iterations, the number of variational layers for a circuit or the name of the backend.
 Note, the data or param size must not exceed 1 MB.
 
-
-
-**Important:**
-The input of this step are the components of the `"data"` field of the implementation.
+>**Important:**
+>The input of this step are the components of the `"data"` field of the implementation.
 
 You have the option to hand over the input as a single JSON object, such as
 
@@ -353,7 +352,7 @@ You have the option to hand over the input as a single JSON object, such as
 }
 ```
 
-or load an existing input from the Data Pools.
+or load an existing input object from the [Data Pools](knowledge_platform.html#data-pools).
 
 #### 3. Algorithm Parameters
 
