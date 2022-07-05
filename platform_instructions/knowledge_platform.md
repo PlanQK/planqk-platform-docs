@@ -5,7 +5,7 @@ This part of the PlanQK Platform is driven by various experts from industry and 
 
 ## Algorithms
 
-Here you find a variety of algorithms for different problems. Either scroll around or, if you are interested in a special (qu-) bit of information, use the search bar at the top right corner to filter the titles.  
+Here you find a variety of algorithms for different problems. Either scroll around or, if you are interested in a special (qu-)bit of information, use the search bar at the top right corner to filter the titles.  
 
 ### Create and/or edit an algorithm
 
@@ -82,4 +82,20 @@ If somebody is interested in the use case and read through your description, he 
 
 Similar to members from an algorithm, any person that should be able to see/edit/maintain the use case and its contents should be added here.
 
-## Datapools (Soon-to-come)
+## Datapools
+The PlanQK platform also provides functionality to store, share and discuss different kinds of data with other users of the platform in a centralized fashion.
+We refer to this aspect of the platform as datapools and it is especially useful when running different kinds of jobs.
+This is because the input for, and the results of jobs can be read from and stored in such datapools, respecticely.
+Take e.g. long running jobs: After completion, the results can automatically be stored inside a data pool and be shared with selected people/organizations who can further process them e.g. in their own jobs.
+
+You also don't have to worry about different cloud providers and the hurdles which come up when trying to exchange data between organizations.
+Anything you can do on the PlanQK platform you can do in a collaborative way across the borders of your companies.
+### Details
+Any information describing the type of data at hand can be formulated here.
+Whether describing the type of dataset at hand or some metainformation about it - You should denote anything that may be relevant to other users. 
+
+### Discussions & Members
+Similar to Algorithms the content of datapools can be discussed and shared with other users in the corresponding tab.
+Whether the information about a datapool is misleading or the attached file has some error in it: These points should be adressed in the Discussion Tab.
+To provide access to the datapool itself, you need to invite users in the members tab and assign a fitting role (for reference, look at the corresponding section for algorithms [here](#permissions)).
+
