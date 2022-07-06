@@ -5,9 +5,7 @@ Great!
 Only a few more steps until your service is ready and can be deployed for customers to subscribe to them.
 Any questions regarding this process, as well as subscribing to service and job executions will be answered here.
 
-## Service Provisioning
-
-## TL;DR
+## Service Provisioning - TL;DR
 1. Download the user code template [here](https://storage.googleapis.com/yeoman-templates/latest/template.zip).  
 2. Extract files and switch directory:
    ```bash
@@ -46,7 +44,7 @@ Any questions regarding this process, as well as subscribing to service and job 
       ```
 7. Create your service on the [PlanQK](https://platform.planqk.de) platform with the `user_code.zip` file.
 
-## Detailed Version
+## Service Provisioning - Detailed Version
 
 You should solely focus on the development of great quantum algorithms.
 Our platform helps you to transforming them into services that can be called by external customers via standardized HTTP interfaces.
