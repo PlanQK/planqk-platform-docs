@@ -3,6 +3,10 @@
 Here, the quantum community comes together and are able to exchange their knowledge and experience. Whether you are interested in the key concepts of certain algorithms or want to see implementations (for various SDKs), this is your place to be.  
 This part of the PlanQK Platform is driven by various experts from industry and academia to ensure a high quality standard and up-to-date information for this dynamically developing field.
 
+We invite all users to ask questions or start discussions about algorithms/implementations or something else.
+You can do so at the "Discussions"-tab of the content at hand, which shows past and ongoing threads regarding aspects of e.g. the algorithm.
+After opening a new Discussion in the top right corner, the authors will notified and hopefully are able to help you. :)
+
 ## Algorithms
 
 Here you find a variety of algorithms for different problems. Either scroll around or, if you are interested in a special (qu-)bit of information, use the search bar at the top right corner to filter the titles.  
