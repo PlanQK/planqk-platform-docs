@@ -5,7 +5,7 @@ This part of the PlanQK Platform is driven by various experts from industry and 
 
 We invite all users to ask questions or start discussions about algorithms/implementations or something else.
 You can do so at the "Discussions"-tab of the content at hand, which shows past and ongoing threads regarding aspects of e.g. the algorithm.
-After opening a new Discussion in the top right corner, the authors will notified and hopefully are able to help you. :)
+After opening a new discussion in the top right corner, the authors will be notified and hopefully are able to help you. :)
 
 ## Algorithms
 
