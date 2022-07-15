@@ -312,8 +312,8 @@ Note, that different applications can subscribe to the same service without addi
 
 ## Jobs
 
-The PlanQK platform also provides the functionality for one-time service executions which we refer to as *jobs*.
-These jobs are based on either your own services or on suitable implementations provided by the community.
+The PlanQK platform also provides the functionality to execute services directly via the platform without the need of dealing with the underyling REST methods when communicating with exisiting services.
+We refer to this feature as *Jobs* and they are either based your own services or on suitable implementations provided by the community.
 Jobs can be especially useful when experimenting with implementations for quantum hardware and when intending to share results with other users of the platform in the form of a [data pool](knowledge_platform.html#data-pools).
 
 ### Create Jobs
@@ -322,14 +322,16 @@ When being in the "Jobs" tab you should see a (possibly empty) list of finished 
 If you did not execute any jobs yet, it's time to change that. 
 So click on "Create Job" in the top right corner and we will guide you through the necessary steps to do so!
 
-#### 1. Service
+#### 1. Service (from Implementation)
 
 You have to select a service that should be run as a job.
 This can either be one of your own services or (and that is the neat part of this feature) an implementation provided for any of the algorithms.
-Just choose an available and suitable implementation out of the list (in that context, suitable means an implementation according to the description in the [Implementations](knowledge_platform.html#provide-an-implementation-for-job-execution) section).
-If an API file was provided within the implementation, you should see it at the bottom of the page.
+Any implementation provided according to the steps described [here](knowledge_platform.html#provide-an-implementation-for-job-execution) and to which you have access can be used for jobs.
+In order to do so, click on "Create Service" button next to the file for the implementation of your choice.
+After the service has been created it should appear in the list of available services for your job.  
+Also, if an API file was provided for your selected service, you should see it at the bottom of the page.
 
-#### 2. Input
+#### 2. Input Data
 
 In general, services that run via the PlanQK platform, require two, possibly empty, fields as input.
 These fields are `"data"` and  `"params"` (if you have worked with the user code template, you should have seen them already).
@@ -352,7 +354,17 @@ You have the option to hand over the input as a single JSON object, such as
 
 or load an existing input object from the [Data Pools](knowledge_platform.html#data-pools).
 
-#### 3. Algorithm Parameters
+#### 3. Job Parameters
 
-Similar to the section above, the algorithm parameters refer to the corresponding `"params"` field of the service.
-You have the option to include them via key value pairs or directly via a JSON object, similar to the input data.
+Similar to the section above, the job parameters refer to the corresponding `"params"` field of a service.
+You have the option to include them via key-value pairs or directly as a JSON object, similar to the input data.
+
+#### 4. Advanced Settings
+
+Right now, there's not much for this point except for the option to save the results of your job in a data pool to e.g. share them with other users.
+### Job Results
+
+Now, after you clicked on "Run" you will be direct to the page dedicated to the result and details of your job.
+Directly after starting it, you will probably just see "Input Data" and "Job Parameters" fields containing the information you just provided the step prior.  
+After the job has (hopefully successfully) finished, the status icon switches to one of two things: It being a green checkmark says - Hooray! Your job has been executed without any errors and you see your result either direclty on that page or, if you chose that option, in a specifically created data pool.  
+On the other hand, if the status switches to a red cross, something went wrong. For that reason we included the **Logs** of the job in the top right corner for your convience. The information you find there hopefully helps in identifying if something in the provided data was missing or whether the service itself is malfunctioning.
