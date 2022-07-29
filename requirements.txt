@@ -1,4 +1,4 @@
 Sphinx==4.4.0
 recommonmark==0.7.1
-sphinx-markdown-tables==0.0.15
-markdown<3.4.0  # there is currently a bug in newer versions
+sphinx-markdown-tables==0.0.16
+markdown>3.4.0  # to prevent a problem with older versions: https://github.com/ryanfox/sphinx-markdown-tables/issues/36
