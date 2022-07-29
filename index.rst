@@ -24,6 +24,7 @@ The platform features are described in detail under the following sections:
    platform_instructions/quantum_service_store.md
    platform_instructions/additional_information.md
    third_party/nisq_analyzer.md
+   third_party/tosca.md
 
 Stay Up-to-Date
 ---------------
