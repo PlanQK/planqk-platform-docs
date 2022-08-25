@@ -101,3 +101,6 @@ Similar to Algorithms the content of data pools can be discussed and shared with
 Whether the information about a data pool is misleading or the attached file has some error in it: These points should be addressed in the Discussion Tab.
 To provide access to the data pool itself, you need to invite users in the members tab and assign a corresponding role to them (for reference, look at the corresponding section for algorithms [here](#permissions)).
 
+## qAI Apps
+When you implemented an algorithm, e.g., for a certain use case, you can provide it as an qAI App to the community. You may wonder what is the difference between ["Implementations"](#implementations) and qAI apps? While implementations are ment to be the source code of an implemented algorithm which could be executed as a job on the platform, qAI Apps comprise 
+
