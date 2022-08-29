@@ -101,3 +101,28 @@ Similar to Algorithms the content of data pools can be discussed and shared with
 Whether the information about a data pool is misleading or the attached file has some error in it: These points should be addressed in the Discussion Tab.
 To provide access to the data pool itself, you need to invite users in the members tab and assign a corresponding role to them (for reference, look at the corresponding section for algorithms [here](#permissions)).
 
+## qAI Apps
+Once you have implemented an algorithm, e.g., for a certain use case, you can share it with the community as qAI app.
+You may wonder what is the difference between ["implementations"](#implementations) and qAI apps?
+While implementations are the source code of an implemented algorithm that can be run as a job on the platform, qAI apps comprise the implementation of the algorithm and all other required software components such as databases, graphical user interfaces, communication middleware, and more.
+QAI apps are provided as "qAI App Packages" (QAAs) that contain the application component artifacts as well as a [TOSCA](third_party/tosca.html) deployment model.
+This self-contained archive can be processed by any standard-compliant TOSCA engine to deploy the entire application locally or in the cloud.
+This allows qAI applications to be deployed independently of the PlanQK platform.
+
+### Create a QAA
+The third-party tool OpenTOSCA can be used to create and process QAAs.
+More details about how to use OpenTOSCA can be found [here](third_party/tosca.html).
+
+## Pattern Atlas
+A common concept for documenting proven solutions and best practices for recurring problems are "patterns".
+Patterns provide a textual description with a defined structure that supports the design process of complex systems. Patterns that capture knowledge from a certain domain are organized in a "pattern language".
+This also makes it possible to document relationships between patterns, e.g., when certain patterns are frequently used together.
+
+The Pattern Atlas is a pattern repository where different pattern languages can be stored and accessed.
+Explore the pattern atlas and find out which proven solutions and best practices have already been collected!
+
+**Note:** For detailed information about the pattern atlas features and their use, please visit the [Pattern Atlas website]("https://pattern-atlas-readthedocs.readthedocs.io"). 
+Depending on your rights on the platform, not all described features may be available.
+
+
+
