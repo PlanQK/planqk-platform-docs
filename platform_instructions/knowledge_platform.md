@@ -105,11 +105,11 @@ To provide access to the data pool itself, you need to invite users in the membe
 Once you have implemented an algorithm, e.g., for a certain use case, you can share it with the community as qAI app.
 You may wonder what is the difference between ["implementations"](#implementations) and qAI apps?
 While implementations are the source code of an implemented algorithm that can be run as a job on the platform, qAI apps comprise the implementation of the algorithm and all other required software components such as databases, graphical user interfaces, communication middleware, and more.
-QAI apps are provided as "qAI App Packages" (QAAs) that contain the application component artifacts as well as a [TOSCA](third_party/tosca.html) deployment model.
+QAI apps are provided as "qAI App Packages" (QAAs) that contain the application component artifacts as well as a [TOSCA](../third_party/tosca.html) deployment model.
 This self-contained archive can be processed by any standard-compliant TOSCA engine to deploy the entire application locally or in the cloud.
 This allows qAI applications to be deployed independently of the PlanQK platform.
 
-### Create a QAA
+### Create a Qunatum Application Archive (QAA)
 The third-party tool OpenTOSCA can be used to create and process QAAs.
 More details about how to use OpenTOSCA can be found [here](third_party/tosca.html).
 
