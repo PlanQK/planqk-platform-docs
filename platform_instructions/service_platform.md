@@ -313,12 +313,12 @@ As an alternative to section 3, you could also use the PlanQK CLI to deploy your
 2. Extract the archive and the full path to the `./planqk/bin` directory to your `PATH` variable, extend either `$PATH` for Linux of MacOs or `%PATH%` for Windows.
 3. Open a command prompt and type: `planqk`
 4. First of all, you have to log-in:
-   1. Open [platform.planqk.de](https://platform.planqk.de), go to  `Settings` and create a new `Personal Access Token` with at least `api` scope.
+   1. Open [platform.planqk.de](https://platform.planqk.de), go to `Settings` and create a new `Personal Access Token` with at least `api` scope.
    2. Copy your new token and execute `planqk login -t <value>`
 5. Finally, navigate to your user code project and, for example, execute the following:
    1. `planqk up --file=user_code.zip --api-spec=openapi-spec.yml`
    2. Complete the prompts to finally create your service on the PlanQK Platform
-6. Open [platform.planqk.de](https://platform.planqk.de), go to `Services` and either publish it to the marketplace or for internal use.
+6. Open [platform.planqk.de](https://platform.planqk.de), go to `My Services` and either publish it to the marketplace or for internal use.
 
 The next sections guide you through how to use the newly created service.
 
