@@ -284,20 +284,116 @@ You will be directed to an interface, where you can provide information, as well
 
 **Service Properties:**
 
-| Property          | Description |
-|--|--|
-| Name | Choose a meaningful name for your service. If you publish your service later on, this name will be displayed to other users.|
-| Service Import    | Click on "Import from file" and upload your zipped service. The option "Import from URL" can be used if your service is running somewhere (e.g., on your own infrastructure) and you just want the PlanQK platform to manage the access to it.|
-| API Specification | Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. If you did not prepare one, but you want to test the communication with you service (via a GET), you may upload the default OpenAPI file that was provided with this template.|
-| Description       | Other users will see this description of the service, if its name sparked some interest, and they clicked on it in the marketplace. So any additional information you want to provide goes in here.|
+| Property          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name              | Choose a meaningful name for your service. If you publish your service later on, this name will be displayed to other users.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Service Import    | Click on "Import from file" and upload your zipped service. The option "Import from URL" can be used if your service is running somewhere (e.g., on your own infrastructure) and you just want the PlanQK platform to manage the access to it.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| API Specification | Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. If you did not prepare one, but you want to test the communication with you service (via a GET), you may upload the default OpenAPI file that was provided with this template.                                                                                                                                                                                                                                                                                                                                                                                              |
+| Description       | Other users will see this description of the service, if its name sparked some interest, and they clicked on it in the marketplace. So any additional information you want to provide goes in here.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Quantum Backend   | As of February 2022, only IBM and DWave are supported quantum backends and only one can be picked. These options are only available, if you have stored a token for the corresponding provider within your account (see [Add tokens to your account](additional_information.html#add-tokens-to-your-account)). If you are working with local simulators only (e.g., when using the `AerBackend` from qiskit or the `SimulatedAnnealingSampler` from the DWave anneal package) you can choose any backend or the option "None", since locally running code does not get affected by the choice (e.g. it is perfectly fine to run local qiskit code and having qiskit in the requirements-file when clicking on the DWave option). |
-| Pricing Plans     | Will be important for when you want to offer your service via the quantum service store and charge your customers for using them. If you just want to test your service, you should select "Free".|
+| Pricing Plans     | Will be important for when you want to offer your service via the quantum service store and charge your customers for using them. If you just want to test your service, you should select "Free".                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 And there you go. As soon as you click on "Create Service", the containerization and deployment starts. 
 As soon as it's finished (as indicated in the "My Services" section with a green checkmark) you will be able to publish your service to the quantum service store or for internal use and test your service thoroughly.
 
+## 3.1 Using the PlanQK CLI
+
+As an alternative to section 3, you could also use the PlanQK CLI to deploy your service on the PlanQK Platform.
+
+1. Download the CLI:
+
+   | Platform              | Download                                                                                               |
+   |--------------------------------------------------------------------------------------------------------|-----------------------|
+   | MacOs (Apple Silicon) | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-darwin-arm64.tar.gz) |
+   | MacOS (Intel)         | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-darwin-x64.tar.gz)   |
+   | Linux ARM             | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-linux-arm.tar.gz)    |
+   | Linux x64             | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-linux-x64.tar.gz)    |
+   | Windows x64           | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-win32-x64.tar.gz)    |
+   | Windows x86           | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-win32-x86.tar.gz)    |
+
+2. Extract the archive and the full path to the `./planqk/bin` directory to your `PATH` variable, extend either `$PATH` for Linux of MacOs or `%PATH%` for Windows.
+
+3. Open a command prompt and type: `planqk`
+
+4. First of all, you have to log-in:
+   1. Open [platform.planqk.de](https://platform.planqk.de), go to  `Settings` and create a new `Personal Access Token` with at least `api` scope.
+   2. Copy your new token and execute `planqk login -t <value>`
+
+5. Finally, navigate to your user code project and, for example, execute the following:
+   1. `planqk up --file=user_code.zip --api-spec=openapi-spec.yml`
+   2. Complete the prompts to finally create your service on the PlanQK Platform
+
+6. Open [platform.planqk.de](https://platform.planqk.de), go to `Services` and either publish it to the marketplace or for internal use.
+
+The next sections guide you through how to use the newly created service.
+
+> **Note:** At the moment you can only create "free" services.
+
+Full help pages of the available commands:
+
+**`planqk login`**
+
+Login with your PlanQK Platform credentials
+
+```
+USAGE
+  $ planqk login [-t <value>]
+
+FLAGS
+  -t, --token=<value>  Your personal access token
+
+DESCRIPTION
+  Login with your PlanQK Platform credentials
+
+EXAMPLES
+  $ planqk login -t <personal access token>
+```
+
+**`planqk logout`**
+
+Logout of the PlanQK Platform
+
+```
+USAGE
+  $ planqk logout
+
+DESCRIPTION
+  Logout of the PlanQK Platform
+
+EXAMPLES
+  $ planqk logout
+```
+
+**`planqk up`**
+
+Creates a PlanQK Service
+
+```
+USAGE
+  $ planqk up [-n <value>] [-d <value>] [-q NONE|IBM|DWAVE] [--file <value>] [--api-spec <value>]
+
+FLAGS
+  -d, --description=<value>       The description of your PlanQK Service
+  -n, --name=<value>              The name of your PlanQK Service
+  -q, --quantum-backend=<option>  The quantum backend used by your PlanQK Service
+                                  <options: NONE|IBM|DWAVE>
+  --api-spec=<value>              The OpenAPI definition file describing your service API
+  --file=<value>                  The ZIP archive containing your service source that follows the PlanQK user code
+                                  template
+
+DESCRIPTION
+  Creates and updates a PlanQK Service
+
+EXAMPLES
+  $ planqk up --file=user_code.zip --api-spec=openapi-spec.yml
+```
+
+
 ## Communicating with a Service
+
 Examples showing how to utilize results from services (e.g. via Jupyter notebooks) can be found in [this](https://github.com/PlanQK/service-usage-examples) repository.
+
+
 ## Subscribing to Services using Applications
 
 Whenever you want to interact with services from the [Quantum Service Store](https://platform.planqk.de/marketplace/apis), you must be subscribed to them from within an application.
@@ -309,6 +405,7 @@ Note, that different applications can subscribe to the same service without addi
 > **Important**:
 > To test the correct behaviour of *your own services* you should publish it "for internal use".
 > In order to test it, you can use any of your applications to subscribe to this service.
+
 
 ## Jobs
 
