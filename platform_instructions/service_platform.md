@@ -296,33 +296,28 @@ You will be directed to an interface, where you can provide information, as well
 And there you go. As soon as you click on "Create Service", the containerization and deployment starts. 
 As soon as it's finished (as indicated in the "My Services" section with a green checkmark) you will be able to publish your service to the quantum service store or for internal use and test your service thoroughly.
 
-## 3.1 Using the PlanQK CLI
+### 3.1 Using the PlanQK CLI
 
 As an alternative to section 3, you could also use the PlanQK CLI to deploy your service on the PlanQK Platform.
 
-1. Download the CLI:
+| Platform              | Download                                                                                               |
+|-----------------------|--------------------------------------------------------------------------------------------------------|
+| MacOs (Apple Silicon) | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-darwin-arm64.tar.gz) |
+| MacOS (Intel)         | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-darwin-x64.tar.gz)   |
+| Linux ARM             | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-linux-arm.tar.gz)    |
+| Linux x64             | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-linux-x64.tar.gz)    |
+| Windows x64           | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-win32-x64.tar.gz)    |
+| Windows x86           | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-win32-x86.tar.gz)    |
 
-   | Platform              | Download                                                                                               |
-   |--------------------------------------------------------------------------------------------------------|-----------------------|
-   | MacOs (Apple Silicon) | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-darwin-arm64.tar.gz) |
-   | MacOS (Intel)         | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-darwin-x64.tar.gz)   |
-   | Linux ARM             | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-linux-arm.tar.gz)    |
-   | Linux x64             | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-linux-x64.tar.gz)    |
-   | Windows x64           | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-win32-x64.tar.gz)    |
-   | Windows x86           | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-win32-x86.tar.gz)    |
-
+1. Download the CLI
 2. Extract the archive and the full path to the `./planqk/bin` directory to your `PATH` variable, extend either `$PATH` for Linux of MacOs or `%PATH%` for Windows.
-
 3. Open a command prompt and type: `planqk`
-
 4. First of all, you have to log-in:
    1. Open [platform.planqk.de](https://platform.planqk.de), go to  `Settings` and create a new `Personal Access Token` with at least `api` scope.
    2. Copy your new token and execute `planqk login -t <value>`
-
 5. Finally, navigate to your user code project and, for example, execute the following:
    1. `planqk up --file=user_code.zip --api-spec=openapi-spec.yml`
    2. Complete the prompts to finally create your service on the PlanQK Platform
-
 6. Open [platform.planqk.de](https://platform.planqk.de), go to `Services` and either publish it to the marketplace or for internal use.
 
 The next sections guide you through how to use the newly created service.
