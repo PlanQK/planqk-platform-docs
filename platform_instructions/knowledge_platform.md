@@ -26,7 +26,10 @@ Since a lot of people love math and many algorithms require formulae for a bette
 
 ### Scale Image
 
-If an image is referenced in Markdown, you have the option to scale it using the following syntax: ![](){width=<value><unit>, height=<value><unit>}. Any standard CSS unit for width is supported, but we recommend using one of the following: px, em, rem or %.
+If an image is referenced in Markdown, you have the option to scale it using the following syntax:
+ ```![](){width=<value><unit>, height=<value><unit>}```.
+
+Any standard CSS unit for width is supported, but we recommend using one of the following: ```px```, ```em```, ```rem``` or ```%```.
 
 ### QuanTikz
 
