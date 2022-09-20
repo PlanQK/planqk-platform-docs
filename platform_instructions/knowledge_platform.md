@@ -24,6 +24,10 @@ One of the tabs at the top of an algorithm is "Members". There you can see peopl
 
 Since a lot of people love math and many algorithms require formulae for a better understanding, we support Markdown combined with Latex for most of the textboxes on our platform. Just use `$ latex $` for inline or `$$ latex $$` for centered equations. You can see other supported Markdown options whenever you are editing a textbox by clicking on the ?-symbol in the top right corner of the box. We use KaTeX to display LaTeX. Click [here](https://katex.org/docs/supported.html) to see the supported KaTeX features.
 
+### Scale Image
+
+If an image is referenced in Markdown, you have the option to scale it using the following syntax: ![](){width=<value><unit>, height=<value><unit>}. Any standard CSS unit for width is supported, but we recommend using one of the following: px, em, rem or %.
+
 ### QuanTikz
 
 Sometimes math is just not enough to express certain parts of quantum algorithms which is why we also support [quantikz](https://ctan.org/pkg/quantikz) within latex math mode. So in order to draw circuits just type  
