@@ -324,7 +324,7 @@ The next sections guide you through how to use the newly created service.
 
 > **Note:** At the moment you can only create "free" services.
 
-Full help pages of the available commands:
+#### CLI Commands
 
 **`planqk login`**
 
@@ -381,6 +381,48 @@ DESCRIPTION
 
 EXAMPLES
   $ planqk up --file=user_code.zip --api-spec=openapi-spec.yml
+```
+
+**`planqk help [COMMAND]`**
+
+Display help for planqk.
+
+```
+USAGE
+  $ planqk help [COMMAND] [-n]
+
+ARGUMENTS
+  COMMAND  Command to show help for.
+
+FLAGS
+  -n, --nested-commands  Include all nested commands in the output.
+
+DESCRIPTION
+  Display help for planqk.
+```
+
+**`planqk autocomplete [SHELL]`**
+
+display autocomplete installation instructions
+
+```
+USAGE
+  $ planqk autocomplete [SHELL] [-r]
+
+ARGUMENTS
+  SHELL  shell type
+
+FLAGS
+  -r, --refresh-cache  Refresh cache (ignores displaying instructions)
+
+DESCRIPTION
+  display autocomplete installation instructions
+
+EXAMPLES
+  $ planqk autocomplete
+  $ planqk autocomplete bash
+  $ planqk autocomplete zsh
+  $ planqk autocomplete --refresh-cache
 ```
 
 
