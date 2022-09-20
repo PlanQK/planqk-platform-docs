@@ -47,6 +47,8 @@ html_theme_options = {
     'display_version': False,
 }
 
+html_favicon = 'https://platform.planqk.de/img/PlanQK_Logo.8b315f82.svg'
+
 def setup(app):
     app.add_css_file('css/planqk-styles.css')
     app.add_config_value('recommonmark_config', {
