@@ -425,24 +425,188 @@ EXAMPLES
   $ planqk autocomplete --refresh-cache
 ```
 
-
-## Communicating with a Service
+## Using a Service
+After a quantum service was published, you need to subscribe to it through _applications_ first. 
+Then you can interact with it in order to execute its business logic either through HTTP or directly from your own code through Java, Python oder JavaScript clients.
+You can download the clients from the platform's service page in the [Marketplace](https://platform.planqk.de/marketplace/apis).  
+To be language independent we will focus on HTTP examples in this section. 
 
 Examples showing how to utilize results from services (e.g. via Jupyter notebooks) can be found in [this](https://github.com/PlanQK/service-usage-examples) repository.
 
+### Subscribing to Services using Applications
 
-## Subscribing to Services using Applications
-
-Whenever you want to interact with services from the [Quantum Service Store](https://platform.planqk.de/marketplace/apis), you must be subscribed to them from within an application.
-Applications hold all necessary information for a secure communication with the service from an external source.
+Whenever you want to interact with services from the marketplace, you must be subscribed to them from within an application.
+[Applications](https://platform.planqk.de/applications) hold all necessary information for a secure communication with the service from an external source.
 This includes a public and secret key pair, as well as a token- and service endpoint.
-The former is used for generating a Bearer token, which is required for sending requests to the latter.  
-Note, that different applications can subscribe to the same service without additional cost (as long as the service is not subscribed as pay per use).
+The former is used for generating an Authorization token, which is required for sending requests to the latter.  
 
 > **Important**:
 > To test the correct behaviour of *your own services* you should publish it "for internal use".
 > In order to test it, you can use any of your applications to subscribe to this service.
 
+This token can be requested from the platform's token endpoint by providing the client credentials, i.e. the *Consumer Key* and *Consumer Secret* of your application.
+
+1. Go to your application in the [Applications](https://platform.planqk.de/applications) section
+2. Copy the curl command into your clipboard by clicking the "Copy Text" button. The command contains already the consumer key and secret encoded as Base64 string.
+3. Paste and execute the command in your favorite shell.
+4. The value of the property `"access_token"` contains the authorization token.
+
+An example curl command copied for retrieving the token is presented below:
+```
+curl -k -X POST https://gateway.am.platform.planqk.de/token -d "grant_type=client_credentials" -H "Authorization: Basic b2g3cWROZHBCZ0N1OGZ1dV8xMjlORkZBbnNZYTpSaGtVYndhamY4WEh6NktpOXdFZUVhVF9LdGth"
+```
+
+The response of the command reveals the authorization token:
+
+```
+{"access_token":"eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUX...","scope":"default","token_type":"Bearer","expires_in":3600}%
+```
+
+You need to add this token in each subsequent HTTP request to the `"Authorization: Bearer"` header field to authenticate yourself.
+Then token has an expiration time, i.e., after it expired you need to obtain a new one with the curl command above.
+
+### Starting Service Execution
+
+To start the execution of a service, you need to provide the following information: 
+
+1. _Service endpoint URL_ - which can be obtained from the subscriptions section of your application that subscribed to the service
+2. _Authorization Bearer token_ - that can be obtained from platform's token endpoint as described in the previous section
+3. _Header fields_ `content-type` and  `accept`, both set to `application/json`
+4. _Input data_ - either passed as [value or as data pool reference](#Input-data)
+5. _Parameters_ - either passed as [value or as data pool reference](#Input-parameters)
+
+An example curl call is shown below:
+
+```
+curl -X 'POST' \
+  'https://gateway.am.platform.planqk.de/70b6e720-dcec-4b9b-a462-a6fdaf400bfa/myservice/1.0.0/' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhcGltX3Jlc2VydmVkX3VzZXJAY2FyYm9uLnN1cGVyIiwiYXV0IjoiQVBQTElDQVRJT04iLCJhdWQiOiJFZkRJS0lDaHI0cUxaNnlUR1JyMWZvZUZyS29hIiwibmJmIjoxNjYyMDQwOTcwLCJhenAiOiJFZkRJS0lDaHI0cUxaNnlUR1JyMWZvZUZyS29hIiwic2NvcGUiOiJkZWZhdWx0IiwiaXNzIjoiaHR0cHM6XC9cL2FtLnBsYXRmb3JtLnBsYW5xay5kZTo0NDNcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2NjIwNDQ1NzAsImlhdCI6MTY2MjA0MDk3MCwianRpIjoiYmFmMjViMDAtODI5MS00NjY2LThiNWUtMjNmODYyMzAzMGZkIn0.avo2I8FakwhsoG2ckDlS8AU5AQ82QImgDkERiFmrERV-Ag1SIlUfjyTzbacp9gxjhSAiqyXHbgZGZY4aVWb0s8gqRioIgkeEDjDlTWmR6Sf_NFCv2GKKhRLTlCkpSnXpwhJ0Y5ZhLWPlMNHHMwPZeyT5LUqSkTFUSIkfOq0uXb_P5waF5ZhbjWYfSn8jcZKBSs-TyssF2t4H7_SLIRTSAL-spblSwOMQT9SefEBIYY5AKYY_gzu6lAUVnQEi2o_m8R7cknKVLlrKPuHeQqe1HKsG9EWKSTllQFk3SqJbgUltccWdCNHuL8jABXWlJYdW7K0nnPZt7-q_m2OgUKdvag' \
+  -d '{
+  "data": {
+    "values": [
+      100,
+      50,
+    ]
+  },
+  "params": {
+    "round_off": false
+  }
+ }'
+```
+
+For each call a new service execution is created. 
+The id of the service execution and its initial execution state is returned by the POST. 
+The POST above returns for instance the following result: 
+
+```
+{"id":"02e0d85a-5a95-4abe-a642-1ee9a94fdf14","status":"PENDING","createdAt":"2022-09-19 16:45:24"}%
+```
+
+The execution id can be used to query the state and the result of a service execution. 
+
+#### Service Execution State & Result
+
+Since a service execution is performed asynchronously, you need to query its state to know if its execution completed.
+After a service was completed you can retrieve the result.
+Therefore, a service provides a set of [REST enpoints](#Create-an-API-Spec-File-for-your-Service) to query the state of each of its executions.
+
+The state can be retrieved by calling the endpoint `GET /{id}`.
+The state of our example service execution with id `02e0d85a-5a95-4abe-a642-1ee9a94fdf14` can be for instance retrieved
+with the following query:
+
+```
+curl -X 'GET' \
+  'https://gateway.am.platform.planqk.de/70b6e720-dcec-4b9b-a462-a6fdaf400bfa/myservice/1.0.0/02e0d85a-5a95-4abe-a642-1ee9a94fdf14' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer ...'
+```
+If the execution is still running, you should get `"status": "RUNNING"` or `"status": "PENDING"`.
+When the execution finished successfully, you should see `"status": "SUCCEEDED"`.
+If you get either `"status": "FAILED"` or `"status": "UNKNOWN"` something went wrong.
+
+You can retrieve the result or the cause of an error through the endpoint `GET /{id}/result`:
+
+```
+curl -X 'GET' \
+  'https://gateway.am.platform.planqk.de/70b6e720-dcec-4b9b-a462-a6fdaf400bfa/myservice/1.0.0/02e0d85a-5a95-4abe-a642-1ee9a94fdf14/result' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer ...'
+```
+
+If the service execution succeeded, the response contains the `"result"` property containing the response as JSON object plus 
+an optional metadata field:
+
+```
+   {"metadata":null,"result":{"sum":420.69}}
+```
+
+In case of an error the message may contain an error `"code"` and an error `"detail"` property: 
+
+```
+   {"code":"CONNECTION_ERROR","detail":"Backend host could not be found."}
+```
+
+#### Input Data
+
+Input data, e.g. a QUBO, or a dictionary of coefficients from a Hamiltonian, can be either passed to the service as **value** or as **[data pool](knowledge_platform.html#data-pools)**.
+
+>**Important:**
+>Currently, only JSON is supported as service input. Binary and stream data support will be added in the future.
+
+To pass input data as value, provide the `"data"` object as payload of the POST request as shown in the example above.  
+You can pass as value for the `"data"` object an arbitrary key-value JSON map:
+
+```
+{
+    "key1": val1,
+    "key2": val2,
+    ...
+}
+```
+
+Input data passed by value are limited to a maximum size of 1MB. 
+To pass larger data sets to a service, you can use data pools instead.
+This also enables you to easily reuse data provided by other platform users.
+
+To pass the content of a data pool as input, specify the keyword `"dataRef"` instead of `"data"` followed by a colon and a JSON object referencing the file within the data pool.
+Therefore, the object specifies the id of the data pool `"dataPoolId"`, the id of the data source descriptor `"dataSourceDescriptorId"` and the id of the actual file `"fileId"`.
+
+Here the call of our example service with a data pool reference is shown:
+
+```
+curl -X 'POST' \
+  'https://gateway.am.platform.planqk.de/70b6e720-dcec-4b9b-a462-a6fdaf400bfa/myservice/1.0.0/' \
+  ...
+  -d '{
+     "dataRef": { "dataPoolId": "2a7d74a6-0bb5-400a-8a0c-7125aef5613e", "dataSourceDescriptorId": "040cdf8f-a2c8-449d-a534-498c597b124c", "fileId": "c52e7fa2-d971-4249-b4b4-aecedf8e3068" }
+     "params": {...}
+  }'
+```
+
+To obtain the data pool file reference object perform the following steps: 
+1. Go to your data pool in the [data pool](https://platform.planqk.de/datapools) section. 
+2. Click the "Copy Text" button of the respective file to copy the file reference object to your clipboard.
+
+#### Input Parameters
+
+Input parameters provide additional (meta-)information for the execution such as the number of iterations, the number of variational layers for a circuit or the name of the backend.
+Like input data, they can be either provided as value or as data pool.
+
+To provide them as value use the `"params"` key with an arbitrary key-value JSON map as value as shown in the example at the beginning of this section. 
+
+Use the key `"paramsRef"` to reference the parameter value data pool content. This you can reuse your parameter settings for different service executions. 
+
+```
+curl -X 'POST' \
+  'https://gateway.am.platform.planqk.de/70b6e720-dcec-4b9b-a462-a6fdaf400bfa/myservice/1.0.0/' \
+  ...
+  -d '{
+   "data": { ... }
+   "paramsRef": { "dataPoolId": "e06c3254-34d1-11ed-a261-0242ac120002", "dataSourceDescriptorId": "040cdf8f-a2c8-449d-a534-498c597b124c", "fileId": "c52e7fa2-d971-4249-b4b4-aecedf8e3068" }
+}'
+```
 
 ## Jobs
 
@@ -469,24 +633,14 @@ Also, if an API file was provided for your selected service, you should see it a
 
 In general, services that run via the PlanQK platform, require two, possibly empty, fields as input.
 These fields are `"data"` and  `"params"` (if you have worked with the user code template, you should have seen them already).
-The field `"data"` should provide all the data required for the problem at hand, e.g. a QUBO, a dictionary of coefficients from a Hamiltonian or a number to be factorized.
+The field `"data"` should provide all the data required for the problem at hand, e.g. a QUBO.
 The `"params"` field should provide additional (meta-)information for the execution such as the number of iterations, the number of variational layers for a circuit or the name of the backend.
 Note, the data or param size must not exceed 1 MB.
 
 >**Important:**
 >The input of this step are the components of the `"data"` field of the implementation.
 
-You have the option to hand over the input as a single JSON object, such as
-
-```
-{
-    "key1": val1,
-    "key2": val2,
-    ...
-}
-```
-
-or load an existing input object from the [Data Pools](knowledge_platform.html#data-pools).
+You have the option to hand over the input as a single JSON object or load an existing input object from the [Data Pools](knowledge_platform.html#data-pools).
 
 #### 3. Job Parameters
 
