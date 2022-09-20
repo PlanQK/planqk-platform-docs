@@ -435,7 +435,7 @@ Examples showing how to utilize results from services (e.g. via Jupyter notebook
 
 ### Subscribing to Services using Applications
 
-Whenever you want to interact with services from the marketplace, you must be subscribed to them from within an application.
+Whenever you want to interact with services from the marketplace, you must be subscribed to them with an application.
 [Applications](https://platform.planqk.de/applications) hold all necessary information for a secure communication with the service from an external source.
 This includes a public and secret key pair, as well as a token- and service endpoint.
 The former is used for generating an Authorization token, which is required for sending requests to the latter.  
@@ -444,7 +444,7 @@ The former is used for generating an Authorization token, which is required for 
 > To test the correct behaviour of *your own services* you should publish it "for internal use".
 > In order to test it, you can use any of your applications to subscribe to this service.
 
-This token can be requested from the platform's token endpoint by providing the client credentials, i.e. the *Consumer Key* and *Consumer Secret* of your application.
+The token can be requested from the platform's token endpoint by providing the client credentials, i.e. the *Consumer Key* and *Consumer Secret* of your application.
 
 1. Go to your application in the [Applications](https://platform.planqk.de/applications) section
 2. Copy the curl command into your clipboard by clicking the "Copy Text" button. The command contains already the consumer key and secret encoded as Base64 string.
@@ -472,8 +472,8 @@ To start the execution of a service, you need to provide the following informati
 1. _Service endpoint URL_ - which can be obtained from the subscriptions section of your application that subscribed to the service
 2. _Authorization Bearer token_ - that can be obtained from platform's token endpoint as described in the previous section
 3. _Header fields_ `content-type` and  `accept`, both set to `application/json`
-4. _Input data_ - either passed as [value or as data pool reference](#Input-data)
-5. _Parameters_ - either passed as [value or as data pool reference](#Input-parameters)
+4. _Input data_ - either passed as [value or as data pool reference](#input-data)
+5. _Parameters_ - either passed as [value or as data pool reference](#input-parameters)
 
 An example curl call is shown below:
 
@@ -510,7 +510,7 @@ The execution id can be used to query the state and the result of a service exec
 
 Since a service execution is performed asynchronously, you need to query its state to know if its execution completed.
 After a service was completed you can retrieve the result.
-Therefore, a service provides a set of [REST enpoints](#Create-an-API-Spec-File-for-your-Service) to query the state of each of its executions.
+Therefore, a service provides a set of [REST endpoints](#create-an-api-spec-file-for-your-service) to query the state of each of its executions.
 
 The state can be retrieved by calling the endpoint `GET /{id}`.
 The state of our example service execution with id `02e0d85a-5a95-4abe-a642-1ee9a94fdf14` can be for instance retrieved
