@@ -302,8 +302,8 @@ As an alternative to section 3, you could also use the PlanQK CLI to deploy your
 
 | Platform              | Download                                                                                               |
 |-----------------------|--------------------------------------------------------------------------------------------------------|
-| MacOs (Apple Silicon) | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-darwin-arm64.tar.gz) |
-| MacOS (Intel)         | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-darwin-x64.tar.gz)   |
+| macOS (Apple Silicon) | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-darwin-arm64.tar.gz) |
+| macOS (Intel)         | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-darwin-x64.tar.gz)   |
 | Linux ARM             | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-linux-arm.tar.gz)    |
 | Linux x64             | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-linux-x64.tar.gz)    |
 | Windows x64           | [Download](https://storage.googleapis.com/planqk-cli/v1.0.0/planqk-v1.0.0-41a91f3-win32-x64.tar.gz)    |
