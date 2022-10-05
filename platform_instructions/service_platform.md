@@ -92,7 +92,7 @@ After generating/extracting it, you should find the following structure:
 We recommend building your service from within a dedicated and fresh conda environment, s.t. you can simply install and track all required packages and see possible dependency issues early on.  
 For this reason, the template already contains an `environment.yml` file from which a fresh environment can be created and activated by running
 ```bash
-conda create -f environment.yml
+conda env create -f environment.yml
 conda activate planqk-service
 ```
 from within the template folder. And now, this is where the fun (a.k.a the service creation) begins.  
