@@ -56,6 +56,9 @@ In order to deploy your algorithm as a service and to provide them in the quantu
 
 Each of these points will be discussed in detail in the upcoming sections.
 
+> **Important:**
+> To follow this tutorial additional dependencies have to be installed. These are the [conda](https://docs.conda.io/projects/conda/en/latest/index.html) CLI (e.g. by installing [Anaconda](https://docs.anaconda.com/anaconda/install/)) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) CLI.
+
 ### 1. Embedding the Python Code into the User Code Template
 
 First, you need to download or generate the template.  
