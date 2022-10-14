@@ -316,7 +316,7 @@ public class Application {
 
 > **NOTE:**
 > The custom Feign decoder to monkey-patch the generated decoder class is required to support `byte[]` and `String` return types.
-> You can find the complete class [here](planqk-samples/app/src/main/java/de/stoneone/planqk/samples/feign/CustomDecoder.java).
+> You can find the complete class [here](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/feign/CustomDecoder.java).
 
 Next, you have to create a [personal access token](https://platform.planqk.de/settings/access-tokens).
 
