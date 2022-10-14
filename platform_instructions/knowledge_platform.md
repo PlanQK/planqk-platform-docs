@@ -201,5 +201,5 @@ You can also withdraw your confirmed review any time later.
 However, if you are withdrawing your review from an artefact that has a confirmed review from another reviewer,
 the artefact is still considered as being reviewed.
 
->We are happy to welcome new reviewers. If you are interested, please feel free to [contact us](support@planqk.de).
+>We are happy to welcome new reviewers. If you are interested, please feel free to [contact us](mailto:support@planqk.de).
 
