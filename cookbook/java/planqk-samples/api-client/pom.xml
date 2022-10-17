@@ -25,8 +25,7 @@
               <goal>generate</goal>
             </goals>
             <configuration>
-              <inputSpec>http://34.107.19.77.nip.io/qc-catalog/v3/api-docs</inputSpec>
-              <!--<inputSpec>http://localhost:8082/qc-catalog/v3/api-docs</inputSpec>-->
+              <inputSpec>https://platform.planqk.de/qc-catalog/v3/api-docs</inputSpec>
               <apiPackage>de.stoneone.planqk.api</apiPackage>
               <modelPackage>de.stoneone.planqk.api.model</modelPackage>
               <invokerPackage>de.stoneone.planqk.api.invoker</invokerPackage>
