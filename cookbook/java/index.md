@@ -3,6 +3,10 @@
 The PlanQK Cookbook for Java contains general instructions and recipes on how to programmatically perform certain tasks within the PlanQK Platform.
 The instructions are written as step-by-step guides on which you can follow like a usual tutorial.
 
+> **Note:**
+> The cookbook uses a Java code generator to create a [PlanQK Platform API](https://platform.planqk.de/qc-catalog/swagger-ui/index.html) client to perform certain operations.
+> A general API description of all supported operations can be found [here](https://platform.planqk.de/qc-catalog/swagger-ui/index.html).
+
 ## How to set up a PlanQK integration project?
 
 First of all, create the following folder structure and files:
