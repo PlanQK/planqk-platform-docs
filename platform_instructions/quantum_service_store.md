@@ -3,7 +3,7 @@
 
 ## Quantum Service Store
 Here, you will be able to not only subscribe to existing services, but also to offer your own services to everyone.
-Besides services, there will also be other types of offerings in the future, such as qAI apps or special algorithms.
+Besides services, there will also be other types of offerings in the future, such as Quantum apps or special algorithms.
 
 ## Use Cases
 As the name suggestes, this category includes an in-depth insight into industrial use cases and how they can harness the power of quantum algorithms.

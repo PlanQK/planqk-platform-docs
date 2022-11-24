@@ -89,7 +89,7 @@ For illustration purposes you can also add some pictures within "Sketches" and r
 
 ### Relations
 
-This section is probably the heart of any use case. Any algorithm or implementation, that is associated to the use case should be noted here. Linking this information helps interested readers to get a better understanding of use case at hand and the methods used by you and your collaborators. If available, possible data pools (which can be used for associated services), as well as qAI apps can be linked here as well.
+This section is probably the heart of any use case. Any algorithm or implementation, that is associated to the use case should be noted here. Linking this information helps interested readers to get a better understanding of use case at hand and the methods used by you and your collaborators. If available, possible data pools (which can be used for associated services), as well as Quantum apps can be linked here as well.
 
 ### Contacts
 
@@ -114,13 +114,13 @@ Similar to Algorithms the content of data pools can be discussed and shared with
 Whether the information about a data pool is misleading or the attached file has some error in it: These points should be addressed in the Discussion Tab.
 To provide access to the data pool itself, you need to invite users in the members tab and assign a corresponding role to them (for reference, look at the corresponding section for algorithms [here](#permissions)).
 
-## qAI Apps
-Once you have implemented an algorithm, e.g., for a certain use case, you can share it with the community as qAI app.
-You may wonder what is the difference between ["implementations"](#implementations) and qAI apps?
-While implementations are the source code of an implemented algorithm that can be run as a job on the platform, qAI apps comprise the implementation of the algorithm and all other required software components such as databases, graphical user interfaces, communication middleware, and more.
-QAI apps are provided as "qAI App Packages" (QAAs) that contain the application component artifacts as well as a [TOSCA](../third_party/tosca.html) deployment model.
+## Quantum apps
+Once you have implemented an algorithm, e.g., for a certain use case, you can share it with the community as Quantum app (formerly known as qAI app).
+You may wonder what is the difference between ["implementations"](#implementations) and Quantum apps?
+While implementations are the source code of an implemented algorithm that can be run as a job on the platform, Quantum apps comprise the implementation of the algorithm and all other required software components such as databases, graphical user interfaces, communication middleware, and more.
+Quantum apps are provided as "Quantum App Packages" (QAAs) that contain the application component artifacts as well as a [TOSCA](../third_party/tosca.html) deployment model.
 This self-contained archive can be processed by any standard-compliant TOSCA engine to deploy the entire application locally or in the cloud.
-This allows qAI applications to be deployed independently of the PlanQK platform.
+This allows Quantum apps to be deployed independently of the PlanQK platform.
 
 ### Create a Quantum Application Archive (QAA)
 The third-party tool OpenTOSCA can be used to create and process QAAs.
@@ -174,7 +174,7 @@ To share the content and to assign the access rights:
 
 
 ## Reviews
-Currently, the community content artefacts algorithms, implementations, data pools and qAI apps can be reviewed by one or more experts.
+Currently, the community content artefacts algorithms, implementations, data pools and Quantum apps can be reviewed by one or more experts.
 An artefact being marked as *Reviewed* implies that it meets high quality standards.
 It can be compared to a thumbs-up in social networks.
 Hence, if the reviewer does not accept a reviewed artefact, it is neither deleted from the platform nor marked as technically incorrect.
