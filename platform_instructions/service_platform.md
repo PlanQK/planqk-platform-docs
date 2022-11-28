@@ -514,16 +514,16 @@ curl -X 'POST' \
   -H 'Content-Type: application/json' \
   -H 'Authorization: Bearer eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXp...' \
   -d '{
-  "data": {
-    "values": [
-      100,
-      50,
-    ]
-  },
-  "params": {
-    "round_off": false
-  }
- }'
+    "data": {
+      "values": [
+        100,
+        50,
+      ]
+    },
+    "params": {
+      "round_off": false
+    }
+  }'
 ```
 
 For each call a new service execution is created.
