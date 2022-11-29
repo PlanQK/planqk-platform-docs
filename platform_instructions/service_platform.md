@@ -490,7 +490,7 @@ curl -k -X POST https://gateway.am.platform.planqk.de/token -d "grant_type=clien
 
 The response of the command reveals the authorization token:
 
-```
+```json
 {"access_token":"eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUX...","scope":"default","token_type":"Bearer","expires_in":3600}%
 ```
 
@@ -532,7 +532,7 @@ For each call a new service execution is created.
 The id of the service execution and its initial execution state is returned by the POST request.
 The POST above returns for instance the following result:
 
-```
+```json
 {"id":"02e0d85a-5a95-4abe-a642-1ee9a94fdf14","status":"PENDING","createdAt":"2022-09-19 16:45:24"}%
 ```
 
@@ -573,9 +573,9 @@ If the service execution succeeded, the response contains the `"result"` propert
 {"metadata":null,"result":{"sum":420.69}}
 ```
 
-In case of an error the message may contain an error `"code"` and an error `"detail"` property:
+In case of an error the message may contain an error `"code"` and an error `"detail"` property, for example:
 
-```
+```json
 {"code":"CONNECTION_ERROR","detail":"Backend host could not be found."}
 ```
 
