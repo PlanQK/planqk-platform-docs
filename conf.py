@@ -15,6 +15,7 @@ extensions = [
     'recommonmark',
     'sphinx.ext.autosectionlabel',
     'sphinx_markdown_tables',
+    'sphinx_toolbox.collapse',
 ]
 
 intersphinx_mapping = {
