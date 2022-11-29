@@ -209,3 +209,62 @@ The output should look similar to the following:
           }
 
           return ResultResponse(metadata=metadata, result=result)
+
+
+Containerize your Code
+======================
+
+The PlanQK Coding Template already contains a ``Dockerfile`` which can be used to locally build a Docker container.
+This replicates in your local environment what the PlanQK Platform does at runtime, which is very useful for local testing before creating a PlanQK Service on the PlanQK Platform.
+
+First, build the container:
+
+.. code-block:: bash
+
+   docker pull ghcr.io/planqk/job-template:latest-base-1.0.0
+   docker build -t planqk-service .
+
+The build command packages your ``src`` folder, installs respective third-party dependencies defined in the ``environment.yml`` file, and prepares your code for execution.
+
+This simple example does not utilize any input data nor input parameters.
+Therefore, run the container as follows (replace the value of ``PLATFORM_TOKEN`` with your PlanQK personal access token):
+
+.. code-block:: bash
+
+   docker run -it \
+     -e FRAMEWORK=DWAVE \
+     -e DWAVE_ENDPOINT=https://platform.planqk.de/dwave/sapi/v2 \
+     -e PLATFORM_TOKEN=<add your PlanQK personal access token> \
+     -e BASE64_ENCODED=false \
+     -e LOG_LEVEL=DEBUG \
+     planqk-service
+
+The output looks similar to the following:
+
+.. code-block::
+
+   2022-11-29 14:29:30.659 | DEBUG    | __main__:<module>:18 - Template Version: 1.31.2
+   2022-11-29 14:29:30.664 | DEBUG    | __main__:<module>:21 - Entry Point: app.user_code.src.program:run
+   2022-11-29 14:29:30.665 | DEBUG    | __main__:<module>:24 - Selected Framework: DWAVE
+   2022-11-29 14:29:30.665 | DEBUG    | __main__:<module>:39 - Token: ********63122
+   2022-11-29 14:29:30.666 | DEBUG    | app.helpers:get_input_data:14 - Base64 encoded data? False
+   2022-11-29 14:29:30.666 | INFO     | app.helpers:get_input_data:17 - Using input data from file '/var/input/data/data.json'
+   2022-11-29 14:29:30.669 | DEBUG    | __main__:<module>:50 - Data (encoded=False): {}
+   2022-11-29 14:29:30.669 | DEBUG    | app.helpers:get_input_params:33 - Base64 encoded params? False
+   2022-11-29 14:29:30.670 | INFO     | app.helpers:get_input_params:36 - Using input params from file '/var/input/params/params.json'
+   2022-11-29 14:29:30.671 | DEBUG    | __main__:<module>:53 - Parameter (encoded=False): {}
+   2022-11-29 14:29:30.673 | INFO     | app.interceptor_framework:run:47 - Loading interceptors for framework 'DWAVE'
+   2022-11-29 14:29:30.682 | INFO     | app.interceptor_framework.framework.dwave.dwave:load_interceptors:92 - D-Wave interceptors loaded
+   2022-11-29 14:29:33.128 | DEBUG    | app.interceptor_framework.framework.dwave.dwave_client_interceptor:intercept_execute:36 - Config: service_execution_id=None, endpoint=https://platform.planqk.de/dwave/sapi/v2, token=True
+   2022-11-29 14:29:33.129 | INFO     | app.interceptor_framework.framework.dwave.dwave_client_interceptor:intercept_execute:44 - D-Wave config injected into 'Client.from_config()'
+   2022-11-29 14:31:36.468 | INFO     | app.handler:run:36 - Execution Time (in sec): 125.7941
+
+   Job:ResultResponse: {"metadata": {"energy": -3844.0}, "result": {"solution": {"0": -1, "1": -1, "10": -1, "100": -1, ...}}}
+
+You are now prepared to create a PlanQK Service.
+
+
+Create a PlanQK Service
+=======================
+
+
