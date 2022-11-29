@@ -257,7 +257,7 @@ docker run -it \
   planqk-service
 ```
 
-### 2.5 Create an API Spec File for your Service
+### 3. Create an API Spec File for your Service
 
 Although not absolutely necessary for providing a service, we do strongly recommend to write an API description for your service.
 This API description gives users of the service a manual on how they are able to communicate with the service, namely how they can send the input for problems and receive the solutions.  
@@ -291,7 +291,7 @@ If you get either `"status": "FAILED"` or `"status": "UNKNOWN"`... Well, apparen
 If the service execution either failed or succeeded, you can get the results (or details on the occurred problems) via this method.
 Within the API description you should describe for this method what kind of output the user has to expect when successfully running the service.
 
-### 3. Deploy Services on the PlanQK Platform
+### 4. Deploy Services on the PlanQK Platform
 
 When you have zipped your code and successfully tested it via Docker, creating a service via the platform is easy:
 From the landing page, go to [My Services](https://platform.planqk.de/services).
@@ -321,7 +321,7 @@ You will be directed to an interface, where you can provide information, as well
 And there you go. As soon as you click on "Create Service", the containerization and deployment starts.
 As soon as it's finished (as indicated in the "My Services" section with a green checkmark) you will be able to publish your service to the quantum service store or for internal use and test your service thoroughly.
 
-### 3.1 Using the PlanQK CLI
+#### 4.1 Using the PlanQK CLI
 
 As an alternative to section 3, you could also use the PlanQK CLI to deploy your service on the PlanQK Platform.
 
