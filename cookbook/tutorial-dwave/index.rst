@@ -83,7 +83,7 @@ It must either be of type ``ResultResponse`` in case of a successful response or
 At this stage you can remove the whole template code from within the ``run()`` method.
 
 Next, you can add some D-Wave code.
-For example copy and paste the next code to the ``run()`` method:
+For example, copy and paste the following code to the ``run()`` method:
 
 .. code-block:: python
    :linenos:
@@ -101,7 +101,7 @@ For example copy and paste the next code to the ``run()`` method:
     sample_result = next(sample.data(fields={"sample", "energy"}))
 
 The code first instantiates a D-Wave sampler object (``LeapHybridSampler``) and creates a random QUBO (``dimod.generators.ran_r(1, 300)``).
-We execute the QUBO by calling the ``sample()`` of the sampler object.
+We execute the QUBO by calling the ``sample()`` method of the sampler object.
 For the sake of this demo, we select afterwards the solution with the lowest energy and extract the result data.
 
 As mentioned before, we have to return an object of type ``Response``.
