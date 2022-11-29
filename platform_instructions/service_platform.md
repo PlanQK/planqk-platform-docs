@@ -13,11 +13,11 @@ Any questions regarding this process, as well as subscribing to service and job 
    unzip template.zip planqk_service
    cd planqk_service
    ```
-   **RECOMMENDED:** Develop and test in a dedicated Conda environment:
-    ```bash 
-    conda env create -f environment.yml
-    conda activate planqk-service
-    ```
+   > **RECOMMENDED:** Develop and test in a dedicated Conda environment:
+   > ```bash 
+   > conda env create -f environment.yml
+   > conda activate planqk-service
+   > ```
 3. Include your quantum code in `program.py`, add required packages in `environment.yml` and (optionally) describe the API for your service in `openapi-spec.yml`.
 4. Test functionality locally:
     ```bash
