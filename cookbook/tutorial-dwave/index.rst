@@ -267,4 +267,26 @@ You are now prepared to create a PlanQK Service.
 Create a PlanQK Service
 =======================
 
+To create a PlanQK Service, you have to package your program code along with the ``environment.yml`` file into a ZIP file.
+Before creating the archive, modify the ``program.py`` and remove your personal access token.
+For example, change the value of the ``PLANQK_PERSONAL_ACCESS_TOKEN`` constant to ``noop``.
+The PlanQK Platform will instrument your code respectively such that your code runs successfully against the D-Wave Leap cloud.
 
+Execute the following command to package the program code and the required metadata files:
+
+.. code-block:: bash
+
+   zip -r user_code.zip src environment.yml openapi-spec.yml requirements.txt
+
+Afterwards, navigate to `<https://platform.planqk.de>`_ and create a new PlanQK Service
+(`more info <https://docs.platform.planqk.de/en/latest/platform_instructions/service_platform.html#deploy-services-on-the-planqk-platform>`_)
+or, if you have the
+`PlanQK CLI <https://docs.platform.planqk.de/en/latest/platform_instructions/service_platform.html#using-the-planqk-cli>`_
+installed, execute the following command:
+
+.. code-block:: bash
+
+   planqk login -t <your PlanQK personal access token>
+   planqk up --file=user_code.zip
+
+Congratulations. You have successfully created your own PlanQK Service.
