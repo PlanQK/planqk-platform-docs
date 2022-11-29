@@ -75,7 +75,7 @@ Extend the PlanQK Coding Template
 Open the ``program.py`` in your IDE.
 The ``run()`` method is the main handler function and the entry point for your program.
 The method takes two arguments:
-(1) a ``data`` dictionary holding any input data beeing processed by the service,
+(1) a ``data`` dictionary holding any input data being processed by the service,
 and (2) a ``params`` dictionary holding additional (meta-)information for the execution such as the number of shots or the number of variational layers for a circuit.
 It is also important that the ``run()`` method returns a ``Response`` object.
 It must either be of type ``ResultResponse`` in case of a successful response or of type ``ErrorResponse`` in case an error occurred.

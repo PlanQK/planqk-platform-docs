@@ -581,7 +581,7 @@ In case of an error the message may contain an error `"code"` and an error `"det
 
 #### Input Data
 
-Input data, e.g., a QUBO, or a dictionary of coefficients from a Hamiltonian, can be either passed to the service as **value** or as **[data pool](knowledge_platform.html#data-pools)**.
+Input data being processed by the service can be either passed as **value** or as **[data pool](knowledge_platform.html#data-pools)**.
 
 > **IMPORTANT:**
 > Currently, only JSON is supported as service input.
@@ -628,7 +628,7 @@ To obtain the data pool file reference object perform the following steps:
 
 #### Input Parameters
 
-Input parameters provide additional (meta-)information for the execution such as the number of iterations, the number of variational layers for a circuit or the name of the backend.
+Input parameters provide additional (meta-)information for the execution such as the number of shots, the number of variational layers for a circuit or the name of the backend.
 Like input data, they can be either provided as value or as data pool.
 
 To provide them as value use the `"params"` key with an arbitrary key-value JSON map as value as shown in the example at the beginning of this section.
