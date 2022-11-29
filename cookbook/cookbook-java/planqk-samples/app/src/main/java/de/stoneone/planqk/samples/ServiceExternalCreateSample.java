@@ -30,7 +30,19 @@ public class ServiceExternalCreateSample {
         // String quantumBackend = "IBM";
         // String quantumBackend = "DWAVE";
 
-        ServiceDto service = servicesApi.createService(name, type, quantumBackend, description, productionEndpoint, null, null, apiDefinition);
+        ServiceDto service = servicesApi.createService(
+            name,
+            type,
+            quantumBackend,
+            description,
+            productionEndpoint,
+            false,
+            null,
+            null,
+            null,
+            null,
+            apiDefinition
+        );
 
         // A PlanQK Service consists of a list of ServiceDefinitionDto objects. A service definition represents a certain version of a
         // PlanQK Service. At the moment, there will always be one service definition object in the list. In the future, you will be

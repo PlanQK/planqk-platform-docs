@@ -29,8 +29,23 @@ public class ServicePublishSample {
         String description = "Your service description";
         File userCode = new File("Absolute path to the user_code.zip file");
         File apiDefinition = new File("Absolute path to the OpenAPI definition");
+        Integer cpuConfiguration = null; // null to use default CPU configuration: 1 vCPU
+        Integer memoryConfiguration = null; // null to use default memory configuration: 2048 = 2GB
+        boolean usePlatformToken = false; // false to use own backend tokens in case 'quantumBackend' is 'DWAVE' or 'IBM'
 
-        ServiceDto service = servicesApi.createService(serviceName, type, quantumBackend, description, null, null, userCode, apiDefinition);
+        ServiceDto service = servicesApi.createService(
+            serviceName,
+            type,
+            quantumBackend,
+            description,
+            null,
+            usePlatformToken,
+            cpuConfiguration,
+            memoryConfiguration,
+            null,
+            userCode,
+            apiDefinition
+        );
 
         // A PlanQK Service consists of a list of ServiceDefinitionDto objects. A service definition represents a certain version of a
         // PlanQK Service. At the moment, there will always be one service definition object in the list. In the future, you will be

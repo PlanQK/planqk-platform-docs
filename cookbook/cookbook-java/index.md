@@ -382,6 +382,9 @@ String type = "MANAGED";
 String description = "Your service description";
 File userCode = new File("Absolute path to the user_code.zip file");
 File apiDefinition = new File("Absolute path to the OpenAPI definition");
+Integer cpuConfiguration = null; // null to use default CPU configuration: 1 vCPU
+Integer memoryConfiguration = null; // null to use default memory configuration: 2048 = 2GB
+boolean usePlatformToken = false; // false to use own backend tokens in case 'quantumBackend' is 'DWAVE' or 'IBM'
 
 /*
  * At the moment each managed PlanQK Service may communicate with exactly one quantum cloud provider,
@@ -392,7 +395,19 @@ String quantumBackend = "NONE";
 // String quantumBackend = "IBM";
 // String quantumBackend = "DWAVE";
 
-ServiceDto service = servicesApi.createService(serviceName, type, quantumBackend, description, null, null, userCode, apiDefinition);
+ServiceDto service = servicesApi.createService(
+    serviceName,
+    type,
+    quantumBackend,
+    description,
+    null,
+    usePlatformToken,
+    cpuConfiguration,
+    memoryConfiguration,
+    null,
+    userCode,
+    apiDefinition
+);
 ```
 
 > The service creation takes approx. one or two minutes to complete.
@@ -486,7 +501,7 @@ String quantumBackend = "NONE";
 // String quantumBackend = "IBM";
 // String quantumBackend = "DWAVE";
 
-ServiceDto service = servicesApi.createService(name, type, quantumBackend, description, productionEndpoint, null, null, apiDefinition);
+ServiceDto service = servicesApi.createService(name, type, quantumBackend, description, productionEndpoint, false, null, null, null, null, apiDefinition);
 ```
 
 In this case, it is not necessary to wait for the service to be created.
@@ -837,7 +852,19 @@ String organizationId = "<id of your organization>";
 ### Share a PlankQK Service in an Organization
 
 ```
-ServiceDto service = servicesApi.createService(serviceName, type, quantumBackend, description, null, organizationId, userCode, apiDefinition);
+ServiceDto service = servicesApi.createService(
+    serviceName,
+    type,
+    quantumBackend,
+    description,
+    null,
+    usePlatformToken,
+    cpuConfiguration,
+    memoryConfiguration,
+    organizationId,
+    userCode,
+    apiDefinition
+);
 ```
 
 [Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/OrganizationSample.java)

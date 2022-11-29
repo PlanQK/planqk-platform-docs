@@ -7,13 +7,14 @@ Any questions regarding this process, as well as subscribing to service and job 
 
 ## Service Provisioning - TL;DR
 
-1. Download the user code template [here](https://storage.googleapis.com/yeoman-templates/latest/template.zip).
+1. [Download the user code template](https://storage.googleapis.com/yeoman-templates/latest/template.zip).
 2. Extract files and switch directory:
    ```bash
    unzip template.zip planqk_service
    cd planqk_service
    ```
-   > **RECOMMENDED:** Develop and test in a dedicated Conda environment:
+   > **RECOMMENDED:**
+   > Develop and test in a dedicated Conda environment:
    > ```bash 
    > conda env create -f environment.yml
    > conda activate planqk-service
