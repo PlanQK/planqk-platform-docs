@@ -540,7 +540,7 @@ The execution id can be used to query the state and the result of a service exec
 
 Since a service execution is performed asynchronously, you need to query its state to know if its execution completed.
 After a service was completed you can retrieve the result.
-Therefore, a service provides a set of [REST endpoints](#25-create-an-api-spec-file-for-your-service) to query the state of each of its executions.
+Therefore, a service provides a set of [REST endpoints](#create-an-api-spec-file-for-your-service) to query the state of each of its executions.
 
 The state can be retrieved by calling the endpoint `GET /{id}`.
 The state of our example service execution with id `02e0d85a-5a95-4abe-a642-1ee9a94fdf14` can be for instance retrieved with the following request:
@@ -579,7 +579,7 @@ In case of an error the message may contain an error `"code"` and an error `"det
 
 #### Input Data
 
-Input data, e.g., a QUBO, or a dictionary of coefficients from a Hamiltonian, can be either passed to the service as **value** or as **[data pool](knowledge_platform.md#data-pools)**.
+Input data, e.g., a QUBO, or a dictionary of coefficients from a Hamiltonian, can be either passed to the service as **value** or as **[data pool](knowledge_platform.html#data-pools)**.
 
 > **IMPORTANT:**
 > Currently, only JSON is supported as service input.
@@ -652,7 +652,7 @@ curl -X 'POST' \
 
 The PlanQK Platform also provides the functionality to execute services directly via the platform without the need of dealing with the underlying REST methods when communicating with existing services.
 We refer to this feature as _Jobs_ and they are either based your own services or on suitable implementations provided by the community.
-Jobs can be especially useful when experimenting with implementations for quantum hardware and when intending to share results with other users of the platform in the form of a [data pool](knowledge_platform.md#data-pools).
+Jobs can be especially useful when experimenting with implementations for quantum hardware and when intending to share results with other users of the platform in the form of a [data pool](knowledge_platform.html#data-pools).
 
 ### Create Jobs
 
@@ -664,7 +664,7 @@ So click on "Create Job" in the top right corner, and the interface guides you t
 
 You have to select a service that should be run as a job.
 This can either be one of your own services or (and that is the neat part of this feature) an implementation provided for any of the algorithms.
-Any implementation provided according to the steps described [here](knowledge_platform.md#provide-an-implementation-for-job-execution) and to which you have access can be used for jobs.
+Any implementation provided according to the steps described [here](knowledge_platform.html#provide-an-implementation-for-job-execution) and to which you have access can be used for jobs.
 In order to do so, click on "Create Service" button next to the file for the implementation of your choice.
 After the service has been created it should appear in the list of available services for your job.  
 Also, if an API file was provided for your selected service, you should see it at the bottom of the page.
@@ -680,7 +680,7 @@ Note, the data or param size must not exceed 1 MB.
 > **IMPORTANT:**
 > The input of this step are the components of the `"data"` field of the implementation.
 
-You have the option to hand over the input as a single JSON object or load an existing input object from the [Data Pools](knowledge_platform.md#data-pools).
+You have the option to hand over the input as a single JSON object or load an existing input object from the [Data Pools](knowledge_platform.html#data-pools).
 
 #### 3. Job Parameters
 
