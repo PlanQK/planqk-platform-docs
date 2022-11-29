@@ -1,8 +1,8 @@
-================
-PlanQK Cookbooks
-================
+=======================
+Tutorials and Cookbooks
+=======================
 
 .. toctree::
    :maxdepth: 2
 
-   java/index.md
+   cookbook-java/index.md
