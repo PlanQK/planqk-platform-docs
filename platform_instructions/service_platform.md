@@ -272,7 +272,8 @@ Gives the user the information, whether the service is available at all.
 
 #### `POST /`
 
-The POST method is used to send input for the service execution. Using this method gives gives back an execution id, which is required for receiving results of the execution.
+The POST method is used to start a service execution while sending the appropriate input.
+This method returns an execution id, which is required for receiving results of the execution.
 
 #### `GET /{id}`
 
