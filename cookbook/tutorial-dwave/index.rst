@@ -289,4 +289,14 @@ installed, execute the following command:
    planqk login -t <your PlanQK personal access token>
    planqk up --file=user_code.zip
 
-Congratulations. You have successfully created your own PlanQK Service.
+Congratulations.
+You have successfully created your own PlanQK Service.
+
+**What next?**
+
+So, as a very fist step you may want to test your newly created service on PlanQK.
+You can now *publish your service for internal use* and read on how to use the service utilizing PlanQK Applications.
+Just follow the steps in the `Using a Service <https://docs.platform.planqk.de/en/latest/platform_instructions/service_platform.html#using-a-service>`_ section in our documentation.
+
+As an alternative, you could also try-out PlanQK Jobs with your new service.
+More information about PlanQK Jobs and how to use them can be found in our general `documentation <https://docs.platform.planqk.de/en/latest/platform_instructions/service_platform.html#jobs>`_.
