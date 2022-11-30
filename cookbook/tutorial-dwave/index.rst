@@ -292,7 +292,7 @@ installed, execute the following command:
 Congratulations.
 You have successfully created your own PlanQK Service.
 
-**What next?**
+**What's next?**
 
 So, as a very fist step you may want to test your newly created service on PlanQK.
 You can now *publish your service for internal use* and read on how to use the service utilizing PlanQK Applications.
