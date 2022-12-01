@@ -12,10 +12,10 @@ Preparation
 ===========
 
 #. `Download the user code template <https://storage.googleapis.com/yeoman-templates/latest/template.zip>`_.
-#. Extract the ZIP archive: ``unzip template.zip planqk-dwave``
+#. Extract the ZIP archive: ``unzip template.zip -d planqk-dwave``
 #. Open the ``planqk-dwave`` in your IDE of choice, e.g., VSCode.
 
-From here, we will work the ``src`` to folder to develop a very simple D-Wave program from scratch.
+From here, we will work inside the ``src`` to folder to develop a very simple D-Wave program from scratch.
 The final result will look like the two D-Wave examples inside the ``examples`` directory.
 First we will develop the project towards ``dwave-hello-ide`` to have a working example that can be run from within your IDE or console.
 Afterwards, we will develop the project towards ``dwave-hello-service`` to upload, deploy, and operate the prepared program on the PlanQK Platform.
@@ -24,7 +24,7 @@ Afterwards, we will develop the project towards ``dwave-hello-service`` to uploa
 Project Setup
 =============
 
-A D-Wave program, or a D-Wave PlanQK Service in the end, requires the D-Wave SDK.
+A D-Wave program, or a D-Wave PlanQK Service in the end, requires the D-Wave Ocean SDK.
 Therefore, open the ``environment.yml`` file and add ``dwave-ocean-sdk`` to the pip modules to be installed.
 Afterwards, the file should look like the following:
 
@@ -44,7 +44,7 @@ Afterwards, the file should look like the following:
    #variables:
    #  LOG_LEVEL: INFO
 
-Furthermore, you may want to add the D-Wave SDK also to the ``requirements.txt`` file.
+Furthermore, you may want to add the D-Wave Ocean SDK also to the ``requirements.txt`` file.
 Then, you are able to initialize a Python virtual environment.
 You could use the ``requirements.txt`` to create a virtual environment with the tooling of your choice or you use Conda:
 
@@ -83,7 +83,7 @@ It must either be of type ``ResultResponse`` in case of a successful response or
 At this stage you can remove the whole template code from within the ``run()`` method.
 
 Next, you can add some D-Wave code.
-For example, copy and paste the following code to the ``run()`` method:
+For example, copy and paste the following code to the ``run()`` method (as usual in python, copy the imports in line 1-3 to the top of the file):
 
 .. code-block:: python
    :linenos:
@@ -91,6 +91,8 @@ For example, copy and paste the following code to the ``run()`` method:
     import dimod
     import numpy as np
     from dwave.system import LeapHybridSampler
+
+    ...
 
     sampler = LeapHybridSampler(solver={"category": "hybrid"})
     bqm = dimod.generators.ran_r(1, 300)
@@ -100,8 +102,8 @@ For example, copy and paste the following code to the ``run()`` method:
     sample = sample_set.lowest()
     sample_result = next(sample.data(fields={"sample", "energy"}))
 
-The code first instantiates a D-Wave sampler object (``LeapHybridSampler``) and creates a random QUBO (``dimod.generators.ran_r(1, 300)``).
-We execute the QUBO by calling the ``sample()`` method of the sampler object.
+The code first instantiates a D-Wave sampler object (``LeapHybridSampler``) and creates a random QUBO problem (``dimod.generators.ran_r(1, 300)``).
+We execute the problem by calling the ``sample()`` method of the sampler object.
 For the sake of this demo, we select afterwards the solution with the lowest energy and extract the result data.
 
 As mentioned before, we have to return an object of type ``Response``.
@@ -119,7 +121,7 @@ We therefore can use the following code to create a json-serializable solution d
 
     return ResultResponse(metadata=metadata, result=result)
 
-If you now try to execute the code using ``python3 -m src`` the program will fail with the error ``API token not defined``.
+If you would now try to execute the code using ``python3 -m src`` the program will fail with the error ``API token not defined``.
 This means the program code does not contain any authentication credentials to successfully execute the program against the D-Wave Leap cloud backend.
 
 To overcome this issue you have to do several steps:
@@ -130,7 +132,7 @@ First, add the following constant somewhere between the global import statements
 
    PLANQK_PERSONAL_ACCESS_TOKEN = "your personal access token"
 
-Next, go to `<https://platform.planqk.de>`_, navigate to your user settings and create a "Personal Access Token" with ``api`` and ``quantum_tokens`` scope.
+Next, go to `<https://platform.planqk.de>`_, navigate to your user settings and create a "Personal Access Token" with ``api`` and ``quantum_tokens`` permission levels enabled.
 Respectively assign your personal access token to the ``PLANQK_PERSONAL_ACCESS_TOKEN`` constant.
 
 Further, in your PlanQK user settings, go to to "Quantum Backend Tokens" and add your personal D-Wave Leap access token.
@@ -215,9 +217,9 @@ Containerize your Code
 ======================
 
 The PlanQK Coding Template already contains a ``Dockerfile`` which can be used to locally build a Docker container.
-This replicates in your local environment what the PlanQK Platform does at runtime, which is very useful for local testing before creating a PlanQK Service on the PlanQK Platform.
+This replicates in your local environment what the PlanQK Platform does at runtime, which is quite useful for local testing before creating a PlanQK Service on the PlanQK Platform.
 
-First, build the container:
+First, from the within the `planqk-dwave` folder, build the container:
 
 .. code-block:: bash
 
@@ -267,8 +269,9 @@ You are now prepared to create a PlanQK Service.
 Create a PlanQK Service
 =======================
 
-To create a PlanQK Service, you have to package your program code along with the ``environment.yml`` file into a ZIP file.
-Before creating the archive, modify the ``program.py`` and remove your personal access token.
+To create a PlanQK Service, you have to package your program code along with the ``environment.yml`` file into a ZIP file. 
+
+**NOTE**: Before creating the archive, modify the ``program.py`` and **remove your personal access token**.
 For example, change the value of the ``PLANQK_PERSONAL_ACCESS_TOKEN`` constant to ``noop``.
 The PlanQK Platform will instrument your code respectively such that your code runs successfully against the D-Wave Leap cloud.
 
