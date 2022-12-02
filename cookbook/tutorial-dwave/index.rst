@@ -44,15 +44,17 @@ Afterwards, the file should look like the following:
    #variables:
    #  LOG_LEVEL: INFO
 
-Furthermore, you may want to add the D-Wave Ocean SDK also to the ``requirements.txt`` file.
-Then, you are able to initialize a Python virtual environment.
-You could use the ``requirements.txt`` to create a virtual environment with the tooling of your choice or you use Conda:
+You can now set up a fresh environment using Conda:
 
 .. code-block:: bash
    :linenos:
 
    conda env create -f environment.yml
    conda activate planqk-service
+
+Conda and the ``environment.yml`` file are used by the PlanQK Platform at runtime.
+However, if you do not have Conda installed on your local computer, you may add the D-Wave Ocean SDK to the ``requirements.txt`` file.
+Then, you are able to initialize a Python virtual environment using the tooling of your choice, e.g., ``pyenv`` or ``venv``.
 
 Once you activated your virtual environment, you could install any other third-party library using ``pip``:
 
