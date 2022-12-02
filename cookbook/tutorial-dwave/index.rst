@@ -83,7 +83,7 @@ It must either be of type ``ResultResponse`` in case of a successful response or
 At this stage you can remove the whole template code from within the ``run()`` method.
 
 Next, you can add some D-Wave code.
-For example, copy and paste the following code to the ``run()`` method (as usual in python, copy the imports in line 1-3 to the top of the file):
+For example, copy and paste the following code to the ``run()`` method (as usual in Python, you may copy the imports to the top of the file):
 
 .. code-block:: python
    :linenos:
@@ -91,8 +91,6 @@ For example, copy and paste the following code to the ``run()`` method (as usual
     import dimod
     import numpy as np
     from dwave.system import LeapHybridSampler
-
-    ...
 
     sampler = LeapHybridSampler(solver={"category": "hybrid"})
     bqm = dimod.generators.ran_r(1, 300)
@@ -132,7 +130,7 @@ First, add the following constant somewhere between the global import statements
 
    PLANQK_PERSONAL_ACCESS_TOKEN = "your personal access token"
 
-Next, go to `<https://platform.planqk.de>`_, navigate to your user settings and create a "Personal Access Token" with ``api`` and ``quantum_tokens`` permission levels enabled.
+Next, go to `<https://platform.planqk.de>`_, navigate to your user settings and create a "Personal Access Token" with ``api`` and ``quantum_tokens`` permission levels enabled (scope).
 Respectively assign your personal access token to the ``PLANQK_PERSONAL_ACCESS_TOKEN`` constant.
 
 Further, in your PlanQK user settings, go to to "Quantum Backend Tokens" and add your personal D-Wave Leap access token.
@@ -219,7 +217,7 @@ Containerize your Code
 The PlanQK Coding Template already contains a ``Dockerfile`` which can be used to locally build a Docker container.
 This replicates in your local environment what the PlanQK Platform does at runtime, which is quite useful for local testing before creating a PlanQK Service on the PlanQK Platform.
 
-First, from the within the `planqk-dwave` folder, build the container:
+First, from within the `planqk-dwave` folder, build the container:
 
 .. code-block:: bash
 
@@ -269,11 +267,12 @@ You are now prepared to create a PlanQK Service.
 Create a PlanQK Service
 =======================
 
-To create a PlanQK Service, you have to package your program code along with the ``environment.yml`` file into a ZIP file. 
+To create a PlanQK Service, you have to package your program code along with the ``environment.yml`` file into a ZIP file.
 
-**NOTE**: Before creating the archive, modify the ``program.py`` and **remove your personal access token**.
-For example, change the value of the ``PLANQK_PERSONAL_ACCESS_TOKEN`` constant to ``noop``.
-The PlanQK Platform will instrument your code respectively such that your code runs successfully against the D-Wave Leap cloud.
+   **NOTE:**
+   Before creating the archive, modify the ``program.py`` and **remove your personal access token**.
+   For example, change the value of the ``PLANQK_PERSONAL_ACCESS_TOKEN`` constant to ``noop``.
+   The PlanQK Platform will instrument your code respectively such that your code runs successfully against the D-Wave Leap cloud.
 
 Execute the following command to package the program code and the required metadata files:
 
