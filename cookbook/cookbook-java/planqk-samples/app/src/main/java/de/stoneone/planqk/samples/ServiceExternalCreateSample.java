@@ -17,7 +17,6 @@ public class ServiceExternalCreateSample {
         ServicePlatformServicesApi servicesApi = apiClient.buildClient(ServicePlatformServicesApi.class);
 
         String name = "Your service name";
-        String type = "EXTERNAL";
         String description = "Your service description";
         String productionEndpoint = "Your public endpoint URL";
         File apiDefinition = new File("Absolute path to your OpenAPI definition");
@@ -30,16 +29,14 @@ public class ServiceExternalCreateSample {
         // String quantumBackend = "IBM";
         // String quantumBackend = "DWAVE";
 
-        ServiceDto service = servicesApi.createService(
+        ServiceDto service = servicesApi.createExternalService(
             name,
-            type,
-            quantumBackend,
-            description,
             productionEndpoint,
-            false,
-            null,
-            null,
-            null,
+            description,
+            quantumBackend,
+            "NONE", // no security config
+            null, // username
+            null, // password
             null,
             apiDefinition
         );

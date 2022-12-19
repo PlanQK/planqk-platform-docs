@@ -24,21 +24,18 @@ public class ServicePublishInternalSample {
         ServicePlatformServicesApi servicesApi = apiClient.buildClient(ServicePlatformServicesApi.class);
 
         String serviceName = "Your service name";
-        String type = "MANAGED";
         String quantumBackend = "NONE";
         String description = "Your service description";
         File userCode = new File("Absolute path to the user_code.zip file");
         File apiDefinition = new File("Absolute path to the OpenAPI definition");
         Integer cpuConfiguration = null; // null to use default CPU configuration: 1 vCPU
         Integer memoryConfiguration = null; // null to use default memory configuration: 2048 = 2GB
-        boolean usePlatformToken = false; // false to use own backend tokens in case 'quantumBackend' is 'DWAVE' or 'IBM'
+        String usePlatformToken = "FALSE"; // FALSE to use own backend tokens in case 'quantumBackend' is 'DWAVE' or 'IBM'
 
-        ServiceDto service = servicesApi.createService(
+        ServiceDto service = servicesApi.createManagedService(
             serviceName,
-            type,
-            quantumBackend,
             description,
-            null,
+            quantumBackend,
             usePlatformToken,
             cpuConfiguration,
             memoryConfiguration,

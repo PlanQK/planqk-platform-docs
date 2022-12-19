@@ -294,7 +294,7 @@ After following the above steps, navigate to your project root folder and run:
 mvn clean package
 ```
 
-> A complete Maven project including a couple of example can be found [here](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples).
+> A complete Maven project including a couple of example can be found [here](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/cookbook-java/planqk-samples).
 
 ## How to authenticate with the PlanQK platform?
 
@@ -319,7 +319,7 @@ public class Application {
 
 > **NOTE:**
 > The custom Feign decoder to monkey-patch the generated decoder class is required to support `byte[]` and `String` return types.
-> You can find the complete class [here](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/feign/CustomDecoder.java).
+> You can find the complete class [here](https://github.com/PlanQK/planqk-platform-docs/blob/main/cookbook/cookbook-java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/feign/CustomDecoder.java).
 
 Next, you have to create a [personal access token](https://platform.planqk.de/settings/access-tokens).
 
@@ -344,7 +344,7 @@ ServicePlatformServicesApi servicesApi = apiClient.buildClient(ServicePlatformSe
 servicesApi.getServices("CREATED", "");
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/AuthenticationSample.java)
+[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/cookbook-java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/AuthenticationSample.java)
 
 ## How to create a managed PlanQK Service?
 
@@ -366,7 +366,6 @@ Now, that you have your zip archive ready (e.g., a file called `user_code.zip`),
 | Attribute name       | Description                                                                        |
 |----------------------|------------------------------------------------------------------------------------|
 | `name`               | Your desired name for your PlanQK Service (required)                               |
-| `type`               | Use `MANAGED` as constant value to create a service managed by the PlanQK Platform |
 | `quantumBackend`     | The quantum backend you want to use. Options: `NONE`, `DWAVE`, `IBM` (required)    |
 | `description`        | A detailed description of your service (optional)                                  |                                                                  |
 | `userCode`           | For managed services, specify the path to your zipped code archive                 |
@@ -378,7 +377,6 @@ Extend your `Application.java` class and add the following:
 ServicePlatformServicesApi servicesApi = apiClient.buildClient(ServicePlatformServicesApi.class);
 
 String serviceName = "Your service name";
-String type = "MANAGED";
 String description = "Your service description";
 File userCode = new File("Absolute path to the user_code.zip file");
 File apiDefinition = new File("Absolute path to the OpenAPI definition");
@@ -395,12 +393,10 @@ String quantumBackend = "NONE";
 // String quantumBackend = "IBM";
 // String quantumBackend = "DWAVE";
 
-ServiceDto service = servicesApi.createService(
+ServiceDto service = servicesApi.createManagedService(
     serviceName,
-    type,
-    quantumBackend,
     description,
-    null,
+    quantumBackend,
     usePlatformToken,
     cpuConfiguration,
     memoryConfiguration,
@@ -424,7 +420,7 @@ Extend your `Application.java` as follows:
 ServiceDefinitionDto version = service.getServiceDefinitions().stream().findFirst().orElseThrow();
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ServiceManagedCreateSample.java)
+[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/cookbook-java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ServiceManagedCreateSample.java)
 
 ## How to wait until a managed PlanQK Service has been built by the PlanQK Platform?
 
@@ -465,7 +461,7 @@ Add the above method to your `Application.java` and call it from the main method
 waitForServiceToBeCreated(servicesApi, service.getId(), version.getId());
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ServiceManagedCreateSample.java)
+[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/cookbook-java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ServiceManagedCreateSample.java)
 
 ## How to connect a self-hosted service with the PlanQK Platform?
 
@@ -476,7 +472,6 @@ The following properties are required to create a self-hosted PlanQK Service:
 | Attribute name       | Description                                                                                   |
 |----------------------|-----------------------------------------------------------------------------------------------|
 | `name`               | Your desired name for your PlanQK Service (required)                                          |
-| `type`               | Use `EXTERNAL` as constant value (required)                                                   |
 | `quantumBackend`     | The quantum backend your self-hosted service uses. Options: `NONE`, `DWAVE`, `IBM` (required) |
 | `description`        | A detailed description of your service (optional)                                             |
 | `productionEndpoint` | Supply a valid URL to your self-hosted service (required)                                     |
@@ -488,7 +483,6 @@ Extend or adapt your `Application.java` class and add the following:
 ServicePlatformServicesApi servicesApi = apiClient.buildClient(ServicePlatformServicesApi.class);
 
 String name = "Your service name";
-String type = "EXTERNAL";
 String description = "Your service description";
 String productionEndpoint = "Your public endpoint URL";
 File apiDefinition = new File("Absolute path to your OpenAPI definition");
@@ -501,7 +495,17 @@ String quantumBackend = "NONE";
 // String quantumBackend = "IBM";
 // String quantumBackend = "DWAVE";
 
-ServiceDto service = servicesApi.createService(name, type, quantumBackend, description, productionEndpoint, false, null, null, null, null, apiDefinition);
+ServiceDto service = servicesApi.createExternalService(
+    name,
+    productionEndpoint,
+    description,
+    quantumBackend,
+    "NONE", // no security config
+    null, // username
+    null, // password
+    null,
+    apiDefinition
+);
 ```
 
 In this case, it is not necessary to wait for the service to be created.
@@ -518,7 +522,7 @@ Extend your `Application.java` as follows:
 ServiceDefinitionDto version = service.getServiceDefinitions().stream().findFirst().orElseThrow();
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ServiceExternalCreateSample.java)
+[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/cookbook-java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ServiceExternalCreateSample.java)
 
 ## How to update a PlanQK Service?
 
@@ -533,7 +537,7 @@ The following attributes can be updated:
 As a prerequisite, you need a ready to use PlanQK Service:
 
 ```
-ServiceDto service = servicesApi.createService(/* ... */);
+ServiceDto service = servicesApi.createManagedService(/* ... */);
 ServiceDefinitionDto version = service.getServiceDefinitions().stream().findFirst().orElseThrow();
 
 waitForServiceToBeCreated(/* ... */)
@@ -603,7 +607,7 @@ File apiDefinition = new File("Path to the updated API definition");
 servicesApi.updateApiDefinition(service.getId(), version.getId(), apiDefinition, null);
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ServiceUpdateSample.java)
+[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/cookbook-java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ServiceUpdateSample.java)
 
 ## How to delete a PlanQK Service?
 
@@ -628,7 +632,7 @@ Afterwards, you can add the following to your `Application.java`:
 servicesApi.deleteService(service.getId(), null);
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ServiceFindAndDeleteSample.java)
+[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/cookbook-java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ServiceFindAndDeleteSample.java)
 
 ## How to make my PlanQK Service accessible to other users?
 
@@ -652,7 +656,7 @@ if (version.getLifecycle() != ServiceDefinitionDto.LifecycleEnum.ACCESSIBLE) {
 }
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ServicePublishInternalSample.java)
+[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/cookbook-java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ServicePublishInternalSample.java)
 
 ### Publish service to PlanQK Marketplace
 
@@ -670,7 +674,7 @@ if (version.getLifecycle() != ServiceDefinitionDto.LifecycleEnum.PUBLISHED) {
 }
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ServicePublishSample.java)
+[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/cookbook-java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ServicePublishSample.java)
 
 ### Unpublish a PlanQK Service
 
@@ -697,7 +701,7 @@ String name = "My Application";
 ApplicationDto application = applicationsApi.createApplication(new CreateApplicationRequest().name(name), null);
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ApplicationCreateSample.java)
+[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/cookbook-java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ApplicationCreateSample.java)
 
 ## How to delete a PlanQK Application?
 
@@ -722,7 +726,7 @@ Afterwards, you can add the following to your `Application.java` to delete your 
 applicationsApi.deleteApplication(application.getId(), null);
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ApplicationFindAndDeleteSample.java)
+[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/cookbook-java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ApplicationFindAndDeleteSample.java)
 
 ## How to subscribe to internally published PlanQK Services?
 
@@ -732,7 +736,7 @@ This means only you can subscribe to it by a PlanQK Application.
 As a prerequisite for the subscription you need a PlanQK Service:
 
 ```
-ServiceDto service = servicesApi.createService(/* ... */);
+ServiceDto service = servicesApi.createManagedService(/* ... */);
 ServiceDefinitionDto version = service.getServiceDefinitions().stream().findFirst().orElseThrow();
 
 waitForServiceToBeCreated(/* ... */);
@@ -766,7 +770,7 @@ You may add the following code to retrieve a list of all active subscriptions:
 List<SubscriptionDto> subscriptions = applicationsApi.getApplicationSubscriptions(application.getId(), null);
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/SubscribeInternalServiceSample.java)
+[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/cookbook-java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/SubscribeInternalServiceSample.java)
 
 ## How to subscribe to PlanQK Services published in the PlanQK Marketplace?
 
@@ -830,7 +834,7 @@ You may add the following code to retrieve a list of all active subscriptions:
 List<SubscriptionDto> subscriptions = applicationsApi.getApplicationSubscriptions(application.getId(), null);
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/SubscribeServiceSample.java)
+[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/cookbook-java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/SubscribeServiceSample.java)
 
 ## Working with PlanQK Organizations
 
@@ -838,7 +842,7 @@ To interact with organizations we first have to create one.
 Following this [link](https://docs.platform.planqk.de/en/latest/platform_instructions/additional_information.html#organizations) you can find more information about organizations and how to create one.
 
 To perform operations in organization-context, you need to add the ID of your organization to the respective API operations
-For example, the `createService(...)` methode has an `organizationId` parameter that must be use in this regard.
+For example, the `createManagedService(...)` methode has an `organizationId` parameter that must be use in this regard.
 If this parameter is set to `null`, you operate in your personal space.
 
 > The ID of your organization can be found on your [organization details page](https://platform.planqk.de/settings/organizations) on the PlanQK Platform.
@@ -852,7 +856,7 @@ String organizationId = "<id of your organization>";
 ### Share a PlankQK Service in an Organization
 
 ```
-ServiceDto service = servicesApi.createService(
+ServiceDto service = servicesApi.createManagedService(
     serviceName,
     type,
     quantumBackend,
@@ -867,7 +871,7 @@ ServiceDto service = servicesApi.createService(
 );
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/OrganizationSample.java)
+[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/cookbook-java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/OrganizationSample.java)
 
 ### Share a PlanQK Application in an Organization
 
@@ -876,7 +880,7 @@ String name = "My Application";
 ApplicationDto application = applicationsApi.createApplication(new CreateApplicationRequest().name(name), organizationId);
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/OrganizationSample.java)
+[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/cookbook-java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/OrganizationSample.java)
 
 ### Create internal subscriptions to PlanQK Services within an Organization
 
@@ -888,7 +892,7 @@ CreateInternalSubscriptionRequest subscriptionRequest = new CreateInternalSubscr
 SubscriptionDto subscription = applicationsApi.createInternalSubscription(application.getId(), subscriptionRequest, organizationId);
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/OrganizationSample.java)
+[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/cookbook-java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/OrganizationSample.java)
 
 ## How to execute a PlanQK service?
 
@@ -1083,4 +1087,4 @@ private static String getExecutionResult(ServiceDefinitionDto version, ServiceEx
 
 Congratulation, you successfully executed your subscribed PlanQK Service.
 
-[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ServiceExecutionSample.java)
+[Code Example](https://github.com/PlanQK/planqk-platform-docs/tree/main/cookbook/cookbook-java/planqk-samples/app/src/main/java/de/stoneone/planqk/samples/ServiceExecutionSample.java)
