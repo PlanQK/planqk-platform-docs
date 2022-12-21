@@ -34,7 +34,7 @@ module.exports = {
     lastUpdated: 'Last Updated',
 
     repo: 'PlanQK/planqk-platform-docs',
-    repoLabel: 'Contribute!',
+    // repoLabel: 'Contribute!',
     docsDir: 'src',
     docsBranch: 'next',
     editLinks: true,
