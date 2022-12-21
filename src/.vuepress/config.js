@@ -6,7 +6,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'PlanQK',
+  title: 'PlanQK Docs',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -43,15 +43,11 @@ module.exports = {
 
     nav: [
       {
-        text: 'Guide',
+        text: 'Documentation',
         link: '/guide/',
       },
       {
-        text: 'SDK',
-        link: '/sdk/'
-      },
-      {
-        text: 'Cookbooks',
+        text: 'Tutorials & Cookbooks',
         link: '/cookbooks/'
       },
       {
@@ -59,6 +55,7 @@ module.exports = {
         link: 'https://platform.planqk.de/'
       }
     ],
+
     sidebar: {
       '/guide/': [
         {
