@@ -1,4 +1,4 @@
-const {description} = require('../../package')
+const { description } = require('../../package')
 
 module.exports = {
   base: '/planqk-platform-docs/',
@@ -18,9 +18,9 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
-    ['meta', {name: 'theme-color', content: '#3eaf7c'}],
-    ['meta', {name: 'apple-mobile-web-app-capable', content: 'yes'}],
-    ['meta', {name: 'apple-mobile-web-app-status-bar-style', content: 'black'}]
+    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
   ],
 
   /**
@@ -85,6 +85,9 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
-    ['vuepress-plugin-code-copy', true]
+    ['vuepress-plugin-code-copy', {
+      align: 'top',
+      color: '#fff',
+    }]
   ]
 }
