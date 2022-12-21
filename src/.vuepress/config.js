@@ -33,8 +33,8 @@ module.exports = {
 
     lastUpdated: 'Last Updated',
 
-    repo: 'PlanQK/planqk-platform-docs',
-    // repoLabel: 'Contribute!',
+    repo: '',
+    docsRepo: 'PlanQK/planqk-platform-docs',
     docsDir: 'src',
     docsBranch: 'next',
     editLinks: true,
@@ -91,7 +91,6 @@ module.exports = {
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
     ['vuepress-plugin-code-copy', {
-      align: 'top',
       color: '#fff',
     }]
   ]
