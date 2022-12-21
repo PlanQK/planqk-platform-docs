@@ -29,12 +29,17 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
-    repo: '',
     logo: '/planqk.png',
-    editLinks: false,
-    docsDir: '',
-    editLinkText: '',
+
     lastUpdated: 'Last Updated',
+
+    repo: 'PlanQK/planqk-platform-docs',
+    repoLabel: 'Contribute!',
+    docsDir: 'src',
+    docsBranch: 'next',
+    editLinks: true,
+    editLinkText: 'Help us improve this page!',
+
     nav: [
       {
         text: 'Guide',
