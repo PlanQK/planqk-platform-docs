@@ -1,6 +1,8 @@
 const {description} = require('../../package')
 
 module.exports = {
+  base: '/planqk-platform-docs',
+
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
