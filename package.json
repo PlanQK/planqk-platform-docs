@@ -1,0 +1,22 @@
+{
+  "name": "planqk",
+  "version": "0.0.1",
+  "description": "The PlanQK Documentation.",
+  "main": "index.js",
+  "authors": {
+    "name": "Christoph Krieger",
+    "email": "christoph.krieger@stoneone.de"
+  },
+  "repository": "docs/Planqk Blog",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  },
+  "dependencies": {
+    "vuepress-plugin-code-copy": "^1.0.6"
+  }
+}
