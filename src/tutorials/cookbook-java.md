@@ -488,24 +488,28 @@ Extend or adapt your `Application.java` class and add the following:
 ```java
 ServicePlatformServicesApi servicesApi = apiClient.buildClient(ServicePlatformServicesApi.class);
 
-String serviceName = "Your service name";
-String quantumBackend = "NONE";
+String name = "Your service name";
 String description = "Your service description";
-File userCode = new File("Absolute path to the user_code.zip file");
-File apiDefinition = new File("Absolute path to the OpenAPI definition");
-Integer cpuConfiguration = null; // null to use default CPU configuration: 1 vCPU
-Integer memoryConfiguration = null; // null to use default memory configuration: 2048 = 2GB
-String usePlatformToken = "FALSE"; // FALSE to use own backend tokens in case 'quantumBackend' is 'DWAVE' or 'IBM'
+String productionEndpoint = "Your public endpoint URL";
+File apiDefinition = new File("Absolute path to your OpenAPI definition");
 
-ServiceDto service = servicesApi.createManagedService(
-    serviceName,
+/*
+ * Uncomment one of the following lines if your self-hosted service communicates with of the quantum cloud providers,
+ * e.g., with IBM Quantum Cloud or D-Wave Leap.
+ */
+String quantumBackend = "NONE";
+// String quantumBackend = "IBM";
+// String quantumBackend = "DWAVE";
+
+ServiceDto service = servicesApi.createExternalService(
+    name,
+    productionEndpoint,
     description,
     quantumBackend,
-    usePlatformToken,
-    cpuConfiguration,
-    memoryConfiguration,
+    "NONE", // no security config
+    null, // username
+    null, // password
     null,
-    userCode,
     apiDefinition
 );
 ```
