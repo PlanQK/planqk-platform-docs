@@ -75,6 +75,7 @@ module.exports = {
           title: 'Tutorials & Cookbooks',
           collapsable: false,
           children: [
+            'tutorial-dwave',
             'cookbook-java'
           ]
         }
