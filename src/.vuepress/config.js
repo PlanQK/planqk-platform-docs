@@ -68,6 +68,14 @@ module.exports = {
             'marketplace',
             'additional-information'
           ]
+        },
+        {
+          title: 'Third Party',
+          collapsable: false,
+          children: [
+            'nisq-analyzer',
+            'tosca',
+          ]
         }
       ],
       '/tutorials/': [
