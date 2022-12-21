@@ -21,7 +21,7 @@ module.exports = {
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-    ['link', { rel: "shortcut icon", href: "/favicon.ico"}],
+    ['link', { rel: "shortcut icon", href: "/favicon.ico" }],
   ],
 
   /**
@@ -48,7 +48,7 @@ module.exports = {
       },
       {
         text: 'Tutorials & Cookbooks',
-        link: '/cookbooks/'
+        link: '/tutorials/'
       },
       {
         text: 'PlanQK Platform',
@@ -70,16 +70,20 @@ module.exports = {
           ]
         }
       ],
-      '/cookbooks/': [
+      '/tutorials/': [
         {
-          title: 'Cookbooks',
+          title: 'Tutorials & Cookbooks',
           collapsable: false,
           children: [
-            'tutorial-dwave',
+            'cookbook-java'
           ]
         }
       ],
     }
+  },
+
+  markdown: {
+    lineNumbers: true
   },
 
   /**
