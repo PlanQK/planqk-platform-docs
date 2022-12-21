@@ -44,7 +44,7 @@ module.exports = {
     nav: [
       {
         text: 'Documentation',
-        link: '/guide/',
+        link: '/docs/',
       },
       {
         text: 'Tutorials & Cookbooks',
@@ -57,9 +57,9 @@ module.exports = {
     ],
 
     sidebar: {
-      '/guide/': [
+      '/docs/': [
         {
-          title: 'Guide',
+          title: 'Documentation',
           collapsable: false,
           children: [
             '',

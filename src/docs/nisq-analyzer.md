@@ -1,13 +1,13 @@
-# NISQ Analyzer  
+# NISQ Analyzer
 
 The [NISQ Analyzer](https://github.com/UST-QuAntiL/nisq-analyzer) is a research prototype based on [Salm et al.](https://link.springer.com/chapter/10.1007/978-3-030-64846-6_5).
 It automatically analyzes implementations of quantum algorithms.
 The results indicate if a quantum algorithm can be executed on a Quantum Processing Unit (QPU) or simulator.
 It also enables the analysis and selection of suitable QPUs based on a specific quantum algorithm implementation.
-Based on [Salm et al.](https://link.springer.com/chapter/10.1007/978-3-030-87568-8_4), it enables the automated comparison of available quantum compilers to support the selection of the most suitable compiled quantum circuit.  
+Based on [Salm et al.](https://link.springer.com/chapter/10.1007/978-3-030-87568-8_4), it enables the automated comparison of available quantum compilers to support the selection of the most suitable compiled quantum circuit.
 
 ## User Guide to Run the NISQ Analyzer on PlanQK Platform Data
-  
+
 This guidance guides you through the [QC Atlas UI](https://github.com/UST-QuAntiL/qc-atlas-ui) for applying
 the [NISQ Analyzer](https://github.com/UST-QuAntiL/nisq-analyzer) on given implementations of the PlanQK Platform for
 selecting suitable quantum computers.
