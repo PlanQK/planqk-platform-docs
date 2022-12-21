@@ -28,13 +28,18 @@ One of the tabs at the top of an algorithm is "Members". There you can see peopl
 
 ### Markdown & LaTeX
 
-Since a lot of people love math and many algorithms require formulae for a better understanding, we support Markdown combined with Latex for most of the textboxes on our platform. Just use `$ latex $` for inline or `$$ latex $$` for centered equations. You can see other supported Markdown options whenever you are editing a textbox by clicking on the ?-symbol in the top right corner of the box. We use KaTeX to display LaTeX. Click [here](https://katex.org/docs/supported.html) to see the supported KaTeX features.
+Since a lot of people love math and many algorithms require formulae for a better understanding, we support Markdown combined with Latex for most of the textboxes on our platform. 
+Just use `$ latex $` for inline or `$$ latex $$` for centered equations. You can see other supported Markdown options whenever you are editing a textbox by clicking on the ?-symbol in the top right corner of the box. 
+We use KaTeX to display LaTeX. 
+Click [here](https://katex.org/docs/supported.html) to see the supported KaTeX features.
 
 ### Scale Image
 
 If an image is referenced in Markdown, you have the option to scale it using the following syntax:
 
-```![](){width=<value><unit>, height=<value><unit>}```.
+``` md
+![](){width=<value><unit>, height=<value><unit>}
+```
 
 Any standard CSS unit for width is supported, but we recommend using one of the following: ```px```, ```em```, ```rem``` or ```%```.
 
@@ -42,7 +47,7 @@ Any standard CSS unit for width is supported, but we recommend using one of the 
 
 Sometimes math is just not enough to express certain parts of quantum algorithms which is why we also support [quantikz](https://ctan.org/pkg/quantikz) within latex math mode. So in order to draw circuits just type
 
-```
+``` md
 $$
 \begin{quantikz}
     *cool circuit*
@@ -52,28 +57,35 @@ $$
 
 ### Sketches
 
-When formulae and circuits fail to convey information there is another: Images! You can include any standard picture format (such as .png or .jpg) as a sketch by scrolling down to the bottom of the page within the details view of the algorithm and click on the green + sign at the top right corner in the "Sketches" section. After uploading it, you should see your picture within this section, as well as an ID below it. You can use this ID to include it within your description of the algorithm by the common Markdown syntax (the title does not affect the display of the image at all)
+When formulae and circuits fail to convey information there is another: Images! 
+You can include any standard picture format (such as .png or .jpg) as a sketch by scrolling down to the bottom of the page within the details view of the algorithm and click on the green + sign at the top right corner in the "Sketches" section.
+After uploading it, you should see your picture within this section, as well as an ID below it.
+You can use this ID to include it within your description of the algorithm by the common Markdown syntax (the title does not affect the display of the image at all)
 
-```
+``` 
 ![title](*image-id*)
 ```
 
 ## Implementations
 
-For any algorithm you can also add an implementation for other users to see and download, which in principle can be any format (such as a plain .py python file or a .ipynb jupyter notebook). However, these implementations can also be used and executed as [jobs](service_platform.html#jobs).
+For any algorithm you can also add an implementation for other users to see and download, which in principle can be any format (such as a plain .py python file or a .ipynb jupyter notebook). 
+However, these implementations can also be used and executed as [jobs](./service-platform.md#jobs).
 
 In future updates of the platform, it will also be possible to provide implementations in different ways, such as a remote git repository.
 
 ### Provide an implementation for job execution
 
-If you want to allow other users to not only download but also use your implementation and execute it as a job: Awesome! That's the spirit! You now just have to take two things into consideration:
+If you want to allow other users to not only download but also use your implementation and execute it as a job: Awesome! 
+That's the spirit! You now just have to take two things into consideration:
 
-1. Your implementation **must** be a zipped python module according to the [User Code Template](service_platform.html#embedding-the-python-code-into-the-user-code-template)
+1. Your implementation **must** be a zipped python module according to the [User Code Template](./service-platform.html#embedding-the-python-code-into-the-user-code-template)
 2. Change the format of your `user_code.zip` into `user_code.planqk`. This shows the platform, that the provided zip file is in the right format for the platform to deploy it as a service, indicated by the "Create Service" button next to the uploaded implementation.
 
-**Note:** Similar to algorithms, you have to give users permission to see and use/download your implementation. For that, click on the "Members" tab at the top of a given implementation.  
+::: tip Note
+Similar to algorithms, you have to give users permission to see and use/download your implementation. 
+For that, click on the "Members" tab at the top of a given implementation.  
 Now, everyone with a "Viewer" role or above can create a service out of the implementation and run ist as a job.
-
+:::
 
 ## Use Cases
 When you have worked on an industrial use case which exploits quantum algorithms for solving and improving one (or even multiple) subproblem(s) you can elaborate on it in this section.
@@ -102,7 +114,7 @@ Similar to members from an algorithm, any person that should be able to see/edit
 
 ## Data Pools
 The PlanQK platform provides functionality to describe and store different types of data objects through "Data Pools".
-The data pools can be shared with other platform users and [jobs](service_platform.html#jobs).
+The data pools can be shared with other platform users and [jobs](./service-platform.html#jobs).
 This means the input for, and the result of job executions can be read from and stored in such data pools, respectively.
 Take, for instance, long-running jobs: After completion, the results can be automatically stored inside a data pool and be shared with selected people/organizations who can further process them e.g. in their own jobs.
 You do not have to worry about the storage mechanisms of different cloud providers and the hurdles which come up when trying to exchange data between organizations.
@@ -142,8 +154,9 @@ Depending on your rights on the platform, not all described features may be avai
 To transfer content to the community, you need to publish it.
 You can either publish it as read-only or that it can be modified by other community experts.
 
->**Note:**
->Once content was published, it can neither be unpublished nor be deleted anymore.
+::: tip IMPORTANT
+Once content was published, it can neither be unpublished nor be deleted anymore.
+:::
 
 Algorithms are always published under [Create Commons license](https://creativecommons.org/licenses/by/4.0/).
 For implementations and data pools you can choose between different licenses that need to be assigned in the "Details" tab
@@ -155,8 +168,6 @@ To publish content perform the following steps:
 2. Go to the "Community" tab and there click the "Publish to Community" button.
 3. Choose if the content is published with viewer or edit-rights.
 4. for algorithms and, for algorithms only, accept the license.
-
-
 
 ## Sharing Content With Certain Users
 If you want to stay in control over your content but still want to make accessible to certain PlanQK users, you can share it with them.
@@ -184,8 +195,9 @@ If at least one expert accepted the content, it is considered as reviewed and ma
 The reviewers assigned to an artefacts, are listed in its "Community" tab.
 The review comments can be found and discussed in the "Discussions" tab (tagged with "Review").
 
->**Note:**
->Reviews can be only created for published artefacts.
+::: tip Note
+Reviews can be only created for published artefacts.
+:::
 
 ### Creating a Review
 As reviewer your platform account has a special role assigned that enables you to create a review for a published artefacts.

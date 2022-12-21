@@ -13,22 +13,22 @@ Any questions regarding this process, as well as subscribing to service and job 
    unzip template.zip planqk_service
    cd planqk_service
    ```
-   > **RECOMMENDED:**
-   > Develop and test in a dedicated Conda environment:
-   > ```bash 
-   > conda env create -f environment.yml
-   > conda activate planqk-service
-   > ```
-3. Include your quantum code in `program.py`, add required packages in `environment.yml` and (optionally) describe the API for your service in `openapi-spec.yml`.
-4. Test functionality locally:
+    
+3. Recommended: Create a conda environment and activate it:
+    ```bash 
+    conda env create -f environment.yml
+    conda activate planqk-service
+    ```
+4. Include your quantum code in `program.py`, add required packages in `environment.yml` and (optionally) describe the API for your service in `openapi-spec.yml`.
+5. Test functionality locally:
     ```bash
     python3 -m src
     ```
-5. Compress files important for the service creation:
+6. Compress files important for the service creation:
    ```bash
    zip -r user_code.zip src environment.yml openapi-spec.yml requirements.txt
    ```
-6. Test functionality via docker:
+7. Test functionality via docker:
     - Build image:
       ```bash
       docker pull ghcr.io/planqk/job-template:latest-base-1.0.0
@@ -44,7 +44,7 @@ Any questions regarding this process, as well as subscribing to service and job 
         -v $PROJECT_ROOT/params.json:/var/input/params/params.json \
         planqk-service
       ```
-7. Create your service on the [PlanQK](https://platform.planqk.de) platform with the `user_code.zip` file.
+8. Create your service on the [PlanQK](https://platform.planqk.de) platform with the `user_code.zip` file.
 
 ## Service Provisioning - Detailed Version
 
@@ -100,8 +100,9 @@ After generating/extracting it, you should find the following structure:
 We recommend building your service from within a dedicated and fresh Conda environment, s.t. you can simply install and track all required packages and see possible dependency issues early on.  
 For this reason, the template already contains an `environment.yml` file from which a fresh environment can be created and activated by running the following command from within the template folder:
 
-> **HINT:**
-> As an alternative to Conda, you may use `requirements.txt` to create a virtual environment with the tooling of your choice.
+::: tip HINT
+As an alternative to Conda, you may use `requirements.txt` to create a virtual environment with the tooling of your choice.
+:::
 
 ```bash
 conda env create -f environment.yml
@@ -150,8 +151,9 @@ zip -r user_code.zip src environment.yml openapi-spec.yml requirements.txt
 
 This creates a `user_code.zip` file that you can upload to the PlanQK platform in order to create a service.
 
-> **RECOMMENDED:**
-> After being able to run your code as a module and if you're interested in offering your service via an API to others, you should also take the time to adapt the `openapi-spec.yml` file, in order to describe your API.
+::: tip RECOMMENDED
+After being able to run your code as a module and if you're interested in offering your service via an API to others, you should also take the time to adapt the `openapi-spec.yml` file, in order to describe your API.
+:::
 
 ### 2. Test your Service locally and with Docker
 
@@ -166,14 +168,14 @@ At first, as described in the beginning of the previous section, execute your se
 python3 -m src
 ```
 
-> **NOTE:** Please ensure that the `environment.yml` file contains _all_ necessary packages for executing your program.
-> You can easily check this by testing the local execution in a fresh conda environment with the packages from the file:
->
-> ```bash 
-> conda env create -f environment.yml -n planqk-service-test
-> conda activate planqk-service-test
-> python3 -m src
-> ```
+ **NOTE:** Please ensure that the `environment.yml` file contains _all_ necessary packages for executing your program.
+ You can easily check this by testing the local execution in a fresh conda environment with the packages from the file:
+
+ ```bash 
+ conda env create -f environment.yml -n planqk-service-test
+ conda activate planqk-service-test
+ python3 -m src
+ ```
 
 If this runs smoothly and as expected, you should also test your implementation by utilizing Docker.
 In general, by following the described procedure you replicate the steps performed by the PlanQK platform, which is a way to verify your service in an early stage.
@@ -202,25 +204,25 @@ docker run -it \
   planqk-service
 ```
 
-> **NOTE:**
-> For GitBash users on Windows, replace
-> ```bash
-> PROJECT_ROOT=(`pwd`)
-> ```
-> with
-> ```bash
-> PROJECT_ROOT=(/`pwd`)
-> ```
->
-> For Windows command-prompt users, you can use the following command:
-> ```bash
-> docker run -it \
->   -e BASE64_ENCODED=false \
->   -e LOG_LEVEL=DEBUG \
->   -v %cd%/input/data.json:/var/input/data/data.json \
->   -v %cd%/input/params.json:/var/input/params/params.json \
->   planqk-service
-> ```
+ **NOTE:**
+ For GitBash users on Windows, replace
+ ```bash
+ PROJECT_ROOT=(`pwd`)
+ ```
+ with
+ ```bash
+ PROJECT_ROOT=(/`pwd`)
+ ```
+
+ For Windows command-prompt users, you can use the following command:
+ ```bash
+ docker run -it \
+   -e BASE64_ENCODED=false \
+   -e LOG_LEVEL=DEBUG \
+   -v %cd%/input/data.json:/var/input/data/data.json \
+   -v %cd%/input/params.json:/var/input/params/params.json \
+   planqk-service
+ ```
 
 If the service executed successfully, you should see something like `Job:ResulsResponse:` followed by the output you defined for your service.
 Otherwise, if you see `Job:ErrorResponse`: Bad news, something went wrong.
@@ -238,9 +240,10 @@ EOF
 >> eyJ2YWx1ZXMiOiBbMTAwLCA1MCwgMjAwLCA3MCwgMC42OV19
 ```
 
-> **NOTE:**
-> In general, the maximum default length of environment variables in Linux-based systems is at 128KiB.
-> On Windows, the maximum default length is at 32KiB.
+::: tip NOTE 
+In general, the maximum default length of environment variables in Linux-based systems is at 128KiB.
+On Windows, the maximum default length is at 32KiB.
+:::
 
 To create a base64 encoded string of the `"params"` part, execute the following:
 
@@ -301,15 +304,6 @@ When you have zipped your code and successfully tested it via Docker, creating a
 From the landing page, go to [My Services](https://platform.planqk.de/services).
 Here you need to click on `Create Service` in the top right corner.
 
-::: tip IMPORTANT 
-You need to add a valid credit card before being able to create services.
-This card is used to charge you for the costs that emerge from hosting the service on the platform.
-To add the card go to [Payments](https://platform.planqk.de/settings/payments).
-Since the platform is still under development, the payments are just simulated.
-Therefore, you can provide a [test credit card number](https://stripe.com/docs/testing#europe-and-middle-east).
-A detailed step-by-step tutorial is described in this [video](https://www.loom.com/share/1ddf3b919bbc4219883f576931a14a12).
-:::
-
 You will be directed to an interface, where you can provide information, as well as the actual user code.
 
 **Service Properties:**
@@ -351,7 +345,9 @@ As an alternative to section 3, you could also use the PlanQK CLI to deploy your
     3. Complete the prompts to finally create your service on the PlanQK Platform
 6. Open [platform.planqk.de](https://platform.planqk.de), go to `My Services` and either publish it to the marketplace or for internal use.
 
-> **Note:** At the moment you can only create "free" services.
+::: tip NOTE 
+At the moment you can only create "free" services.
+:::
 
 <details>
    <summary>CLI Commands</summary>
@@ -547,7 +543,7 @@ The execution id can be used to query the state and the result of a service exec
 
 Since a service execution is performed asynchronously, you need to query its state to know if its execution completed.
 After a service was completed you can retrieve the result.
-Therefore, a service provides a set of [REST endpoints](#create-an-api-spec-file-for-your-service) to query the state of each of its executions.
+Therefore, a service provides a set of [REST endpoints](#_3-create-an-api-spec-file-for-your-service) to query the state of each of its executions.
 
 The state can be retrieved by calling the endpoint `GET /{id}`.
 The state of our example service execution with id `02e0d85a-5a95-4abe-a642-1ee9a94fdf14` can be for instance retrieved with the following request:
@@ -586,7 +582,7 @@ In case of an error the message may contain an error `"code"` and an error `"det
 
 #### Input Data
 
-Input data being processed by the service can be either passed as **value** or as **[data pool](knowledge_platform.html#data-pools)**.
+Input data being processed by the service can be either passed as **value** or as **[data pool](./community-platform.html#data-pools)**.
 
 ::: tip IMPORTANT
 Currently, only JSON is supported as service input.
@@ -660,7 +656,7 @@ curl -X 'POST' \
 
 The PlanQK Platform also provides the functionality to execute services directly via the platform without the need of dealing with the underlying REST methods when communicating with existing services.
 We refer to this feature as _Jobs_ and they are either based your own services or on suitable implementations provided by the community.
-Jobs can be especially useful when experimenting with implementations for quantum hardware and when intending to share results with other users of the platform in the form of a [data pool](knowledge_platform.html#data-pools).
+Jobs can be especially useful when experimenting with implementations for quantum hardware and when intending to share results with other users of the platform in the form of a [data pool](./community-platform.html#data-pools).
 
 ### Create Jobs
 
@@ -672,7 +668,7 @@ So click on "Create Job" in the top right corner, and the interface guides you t
 
 You have to select a service that should be run as a job.
 This can either be one of your own services or (and that is the neat part of this feature) an implementation provided for any of the algorithms.
-Any implementation provided according to the steps described [here](knowledge_platform.html#provide-an-implementation-for-job-execution) and to which you have access can be used for jobs.
+Any implementation provided according to the steps described [here](./community-platform.html#provide-an-implementation-for-job-execution) and to which you have access can be used for jobs.
 In order to do so, click on "Create Service" button next to the file for the implementation of your choice.
 After the service has been created it should appear in the list of available services for your job.  
 Also, if an API file was provided for your selected service, you should see it at the bottom of the page.
@@ -689,7 +685,7 @@ Note, the data or param size must not exceed 1 MB.
 The input of this step are the components of the `"data"` field of the implementation.
 :::
 
-You have the option to hand over the input as a single JSON object or load an existing input object from the [Data Pools](knowledge_platform.html#data-pools).
+You have the option to hand over the input as a single JSON object or load an existing input object from the [Data Pools](./community-platform.html#data-pools).
 
 #### 3. Job Parameters
 
