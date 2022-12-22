@@ -5,8 +5,6 @@ tagline: Platform and Ecosystem for Quantum Applications
 footer: © Copyright 2023 Anaqor AG
 ---
 
-Welcome to the PlanQK Platform! PlanQK stands for platform and ecosystem for quantum-supported artificial intelligence and that basically says it all.
-
 **Do you want to learn about quantum computing?**
 
 The PlanQK community created a large set of knowledge artifacts, such as quantum algorithms including their executable implementations, solution patterns and use cases.
