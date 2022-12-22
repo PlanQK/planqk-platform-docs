@@ -11,8 +11,6 @@ jobs:
         uses: jenkey2011/vuepress-deploy@master
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          # TARGET_REPO: PlanQK/planqk-platform-docs
-          # TARGET_BRANCH: gh-pages
           BUILD_SCRIPT: yarn && yarn build
           BUILD_DIR: src/.vuepress/dist
           CNAME: docs.platform.planqk.de
