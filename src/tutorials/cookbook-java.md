@@ -641,7 +641,7 @@ servicesApi.deleteService(service.getId(), null);
 
 ## How to make my PlanQK Service accessible to other users?
 
-There are to ways to make a service accessible for other users:
+There are two ways to make a service accessible for other users:
 (1) You can publish your service internally to run PlanQK Jobs or test its correct behaviour or
 (2) publicly via the PlanQK Marketplace if you want to monetize your service.
 
