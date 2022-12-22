@@ -4,6 +4,7 @@ heroImage: /planqk.png
 tagline: Platform and Ecosystem for Quantum Applications
 footer: © Copyright 2023 Anaqor AG
 ---
+## What is PlanQK?
 
 **Do you want to learn about quantum computing?**
 
@@ -26,7 +27,7 @@ Do not open issues for general support questions as we want to keep GitHub issue
 Instead, we recommend using our [Slack Support Channel](https://planqk-platform.slack.com/archives/C03HLMQBSSG) to ask support-related questions.
 Just join our [Slack Workspace](https://join.slack.com/t/planqk-platform/shared_invite/zt-1b4899wqr-xqOYLSCr8KqYkREi251NxQ) to get access.
 
-## Found n Bug?
+## Found a Bug?
 
 If you find n bug in our system, you can help us by [submitting an issue](https://github.com/PlanQK/platform/issues) to our public [GitHub Repository](https://github.com/PlanQK/platform).
 Please check whether there is already an open issue. If not, just click the "New issue" button and select "Bug report".
