@@ -1,7 +1,3 @@
----
-footer: © Copyright 2023 Anaqor AG
----
-
 # Marketplace
 
 ## Quantum Service Store

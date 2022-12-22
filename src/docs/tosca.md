@@ -1,7 +1,3 @@
----
-footer: © Copyright 2023 Anaqor AG
----
-
 # OpenTOSCA
 
 [OpenTOSCA](https://www.opentosca.org/) is a toolchain to deploy and manage cloud applications.

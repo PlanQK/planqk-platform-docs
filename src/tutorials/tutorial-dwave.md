@@ -1,7 +1,3 @@
----
-footer: © Copyright 2023 Anaqor AG
----
-
 # Tutorial: D-Wave Service on PlanQK
 
 This tutorial shows how to create a D-Wave flavored PlanQK Service.
