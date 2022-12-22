@@ -5,6 +5,7 @@ tagline: Platform and Ecosystem for Quantum Applications
 footer: © Copyright 2023 Anaqor AG
 ---
 ## What is PlanQK?
+PlanQK is the next generation platform to integrate, deploy, advance, and monetize quantum code.
 
 **Do you want to learn about quantum computing?**
 
