@@ -1,3 +1,7 @@
+---
+footer: © Copyright 2023 Anaqor AG
+---
+
 # Additional Information
 
 ## Organizations

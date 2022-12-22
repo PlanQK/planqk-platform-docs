@@ -1,3 +1,7 @@
+---
+footer: © Copyright 2023 Anaqor AG
+---
+
 # NISQ Analyzer
 
 The [NISQ Analyzer](https://github.com/UST-QuAntiL/nisq-analyzer) is a research prototype based on [Salm et al.](https://link.springer.com/chapter/10.1007/978-3-030-64846-6_5).

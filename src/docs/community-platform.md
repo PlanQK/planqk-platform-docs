@@ -1,3 +1,7 @@
+---
+footer: © Copyright 2023 Anaqor AG
+---
+
 # Community Platform
 
 Here, the quantum community comes together for exchanging their knowledge and experience. Whether you are interested in the key concepts of certain algorithms, want to see implementations (for various SDKs) or learn about real world use cases for quantum computers, this is your place to be.  

@@ -1,3 +1,7 @@
+---
+footer: © Copyright 2023 Anaqor AG
+---
+
 # Service Platform
 
 You have your quantum code ready in a Python file and want to provide it to others as a service via the PlanQK platform?

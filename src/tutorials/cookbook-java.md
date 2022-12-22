@@ -1,3 +1,7 @@
+---
+footer: © Copyright 2023 Anaqor AG
+---
+
 # PlanQK Cookbook for Java
 
 The PlanQK Cookbook for Java contains general instructions and recipes on how to programmatically perform certain tasks within the PlanQK Platform.
