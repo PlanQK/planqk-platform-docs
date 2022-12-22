@@ -37,7 +37,7 @@ module.exports = {
     repo: '',
     docsRepo: 'PlanQK/planqk-platform-docs',
     docsDir: 'src',
-    docsBranch: 'next',
+    docsBranch: 'main',
     editLinks: true,
     editLinkText: 'Help us improve this page!',
 
