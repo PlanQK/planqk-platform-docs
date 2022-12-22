@@ -368,7 +368,6 @@ Now, that you have your zip archive ready (e.g., a file called `user_code.zip`),
 | Attribute name   | Description                                                                        |
 |------------------|------------------------------------------------------------------------------------|
 | `name`           | Your desired name for your PlanQK Service (required)                               |
-| `type`           | Use `MANAGED` as constant value to create a service managed by the PlanQK Platform |
 | `quantumBackend` | The quantum backend you want to use. Options: `NONE`, `DWAVE`, `IBM` (required)    |
 | `description`    | A detailed description of your service (optional)                                  |                                                                  |
 | `userCode`       | For managed services, specify the path to your zipped code archive                 |
@@ -477,7 +476,6 @@ The following properties are required to create a self-hosted PlanQK Service:
 | Attribute name       | Description                                                                                   |
 |----------------------|-----------------------------------------------------------------------------------------------|
 | `name`               | Your desired name for your PlanQK Service (required)                                          |
-| `type`               | Use `EXTERNAL` as constant value (required)                                                   |
 | `quantumBackend`     | The quantum backend your self-hosted service uses. Options: `NONE`, `DWAVE`, `IBM` (required) |
 | `description`        | A detailed description of your service (optional)                                             |
 | `productionEndpoint` | Supply a valid URL to your self-hosted service (required)                                     |
