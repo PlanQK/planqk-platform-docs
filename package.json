@@ -1,0 +1,21 @@
+{
+  "name": "planqk-platform-docs",
+  "version": "1.0.0",
+  "description": "PlanQK Docs - Platform and Ecosystem for Quantum Applications",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PlanQK/planqk-platform-docs"
+  },
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "CC-BY-4.0",
+  "devDependencies": {
+    "@vuepress/plugin-active-header-links": "^1.9.7",
+    "@vuepress/plugin-back-to-top": "^1.9.7",
+    "@vuepress/plugin-medium-zoom": "^1.9.7",
+    "vuepress": "^1.5.3",
+    "vuepress-plugin-code-copy": "^1.0.6"
+  }
+}

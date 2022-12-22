@@ -1,0 +1,16 @@
+name: Build and Deploy
+on:
+  - push
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: vuepress-deploy
+        uses: jenkey2011/vuepress-deploy@master
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BUILD_SCRIPT: yarn && yarn build
+          BUILD_DIR: src/.vuepress/dist
+          CNAME: docs.platform.planqk.de
