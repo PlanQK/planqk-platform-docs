@@ -41,6 +41,8 @@ module.exports = {
     editLinks: true,
     editLinkText: 'Help us improve this page!',
 
+    smoothScroll: true,
+
     nav: [
       {
         text: 'Documentation',
@@ -103,6 +105,11 @@ module.exports = {
     '@vuepress/plugin-medium-zoom',
     ['vuepress-plugin-code-copy', {
       color: '#fff',
+    }],
+    ['@vuepress/last-updated', {
+      dateOptions: {
+        hour12: false
+      }
     }]
   ]
 }
