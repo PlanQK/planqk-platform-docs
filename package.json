@@ -13,7 +13,6 @@
   "license": "CC-BY-4.0",
   "devDependencies": {
     "vuepress": "^1.5.3",
-    "vuepress-plugin-code-copy": "^1.0.6",
-    "vuepress-plugin-copyright": "^1.0.2"
+    "vuepress-plugin-code-copy": "^1.0.6"
   }
 }
