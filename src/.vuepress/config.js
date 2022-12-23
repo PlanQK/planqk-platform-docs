@@ -82,11 +82,18 @@ module.exports = {
       ],
       '/tutorials/': [
         {
-          title: 'Tutorials & Cookbooks',
+          title: 'Tutorials',
           collapsable: false,
           children: [
-            'tutorial-dwave',
-            'cookbook-java'
+            'tutorial-dwave'
+          ]
+        },
+        {
+          title: 'Cookbooks',
+          collapsable: false,
+          children: [
+            'cookbook-java',
+            'cookbook-python'
           ]
         }
       ],

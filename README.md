@@ -1,8 +1,7 @@
 # PlanQK Platform Documentation
 
-## Build
+## Build and run the project
 
 ```bash
-npm install
-npm run dev
+yarn && yarn dev
 ```
