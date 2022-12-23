@@ -316,12 +316,14 @@ Alternatively, you may search for an existing PlanQK Service using its ID or by 
 
 * Search by name:
     ```python
-    lifecycle = 'CREATED'
-    services = services_api.get_services(lifecycle=lifecycle)    
-    service = None
-    for x in services:
-       if x['My Service Name'] == name:
-           service = x
+        lifecycle = 'CREATED'
+        services = services_api.get_services(lifecycle=lifecycle)
+        name = "My service name"
+        found_service = None
+        # Filter the list by name
+        for service in services:
+            if service['name'] == name:
+            found_service = service
     ```
 
 **Update description and related industries:**
@@ -334,9 +336,10 @@ industries = services_api.get_industries()
 
 # Retrieve 'information_technology' industry from the list
 information_technology = None
-for x in industries:
-    if x['name'] == 'information_technology':
-        information_technology = IndustryDto(id=x['id'], name=x['name'])   
+industry_name = 'information_technology'
+for industry in industries:
+    if industry['name'] == industry_name:
+        information_technology = IndustryDto(id=industry['id'], name=industry['name'])   
 ```
 
 Then, use the following code to update your service:
@@ -471,12 +474,13 @@ Assuming you already created a PlanQK Application, you can delete it by using it
 To get a PlanQK Service ID, you may search for an existing service:
 
 ```python
-applications = applications_api.get_applications()
 name = 'My Application'
-application = None
-for x in applications:
-    if x['name'] == name:
-        application = x
+applications = applications_api.get_applications()
+found_application = None
+# Filter the list by name
+for application in applications:
+    if application['name'] == name:
+        found_application = application
 ```
 
 Afterwards, you can add the following to your `application.py` to delete your PlanQK Application:
