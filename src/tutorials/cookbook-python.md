@@ -157,19 +157,18 @@ quantumBackend = "NONE"  # Default value
 # quantumBackend = "IBM";
 # quantumBackend = "DWAVE";
 
-with open('Absolute path to the user_code.zip file', 'rb') \
-        as user_code, open('Absolute path to the OpenAPI definition', 'rb') \
-        as api_definition:
-    service = service_api.create_managed_service(
-        name=name,
-        quantum_backend=quantumBackend,
-        description=description,
-        use_platform_token=use_platform_token,
-        cpu=cpu,
-        memory=memory,
-        user_code=user_code,
-        api_definition=api_definition
-    )
+user_code = open('Absolute path to the user_code.zip file', 'rb')
+api_definition = open('Absolute path to the OpenAPI definition', 'rb')
+service = services_api.create_managed_service(
+    name=name,
+    quantum_backend=quantumBackend,
+    description=description,
+    use_platform_token=use_platform_token,
+    cpu=cpu,
+    memory=memory,
+    user_code=user_code,
+    api_definition=api_definition
+)
 ```
 
 The service creation takes approx. one or two minutes to complete.
@@ -262,14 +261,14 @@ quantumBackend = "NONE"  # Default value
 # quantumBackend = "IBM";
 # quantumBackend = "DWAVE";
 
-with open("Absolute path to your OpenAPI definition", 'rb') as api_definition:
-    service = service_api.create_external_service(
-        name=name,
-        url=production_endpoint,
-        quantum_backend=quantumBackend,
-        description=description,
-        api_definition=api_definition
-    )
+api_definition = open("Absolute path to your OpenAPI definition", 'rb')
+service = service_api.create_external_service(
+    name=name,
+    url=production_endpoint,
+    quantum_backend=quantumBackend,
+    description=description,
+    api_definition=api_definition
+)
 ```
 
 In this case, it is not necessary to wait for the service to be created.
@@ -621,20 +620,18 @@ organization_id = "<id of your organization>";
 ### Share a PlankQK Service in an Organization
 
 ```python
-with open('Absolute path to the user_code.zip file', 'rb') \
-        as user_code, open('Absolute path to the OpenAPI definition', 'rb') \
-        as api_definition:
-    service = services_api.create_managed_service(
-        name=name,
-        quantum_backend=quantumBackend,
-        description=description,
-        use_platform_token=use_platform_token,
-        cpu=cpu,
-        memory=memory,
-        user_code=user_code,
-        api_definition=api_definition,
-        x_organization_id=organization_id
-    )
+user_code = open('Absolute path to the user_code.zip file', 'rb')
+api_definition = open('Absolute path to the OpenAPI definition', 'rb')
+service = services_api.create_managed_service(
+    name=name,
+    quantum_backend=quantumBackend,
+    description=description,
+    use_platform_token=use_platform_token,
+    cpu=cpu,
+    memory=memory,
+    user_code=user_code,
+    api_definition=api_definition
+)
 ```
 
 [Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/organization_sample.py)
@@ -709,13 +706,13 @@ Create a file, e.g. `input.json`, containing the `data` and `params` JSON struct
 Extend your `application.py` with the following:
 
 ```python
-with open("Absolute path to your input file, e.g., 'input.json'", 'rb') as input_data:
-    # Prepare the HTTP payload to trigger an execution
-    service_endpoint = version.gateway_endpoint
-    default_headers = {
-        "Authorization": f"Bearer {access_token}",
-        'Content-Type': 'application/json'
-    }
+input_data = open("Absolute path to your input file, e.g., 'input.json'", 'rb')
+# Prepare the HTTP payload to trigger an execution
+service_endpoint = version.gateway_endpoint
+default_headers = {
+    "Authorization": f"Bearer {access_token}",
+    'Content-Type': 'application/json'
+}
 ```
 
 Now execute the service with the following code:
