@@ -210,10 +210,10 @@ def wait_for_service_to_be_created():
         # Check build status again to see if job failed or succeeded
         build_status = service_api.get_build_status(service_id=service.id, version_id=version.id)
         if build_status['status'] == 'SUCCESS':
-            print("Service successfully created".upper())
+            print("Service successfully created")
             break
         elif build_status['status'] == 'FAILURE':
-            print("Error creating PlanQK Service".upper())
+            print("Error creating PlanQK Service")
             break
 ```
 
@@ -309,21 +309,21 @@ wait_for_service_to_be_created()
 Alternatively, you may search for an existing PlanQK Service using its ID or by its name.
 
 * Search by ID:
-  ```python
-    service = services_api.get_service(<id>)
-  ```
+```python
+service = services_api.get_service(<id>)
+```
 
 * Search by name:
-    ```python
-        lifecycle = 'CREATED'
-        services = services_api.get_services(lifecycle=lifecycle)
-        name = "My service name"
-        found_service = None
-        # Filter the list by name
-        for service in services:
-            if service['name'] == name:
-            found_service = service
-    ```
+```python
+lifecycle = 'CREATED'
+services = services_api.get_services(lifecycle=lifecycle)
+name = "My service name"
+found_service = None
+# Filter the list by name
+for service in services:
+    if service['name'] == name:
+        found_service = service
+```
 
 **Update description and related industries:**
 
@@ -417,7 +417,7 @@ You may check if your service is in the correct lifecycle state:
 
 ```python
 if version.lifecycle == "ACCESSIBLE":
-    print("service successfully published".upper(), "\n")
+    print("service successfully published")
 ```
 
 [Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/publish_service_internal_sample.py)
@@ -434,7 +434,7 @@ You may check if your service is in the correct lifecycle state:
 
 ```python
 if version.lifecycle == "PUBLISHED":
-    print("service successfully published".upper(), "\n")
+    print("service successfully published")
 ```
 
 [Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/publish_service_sample.py)
@@ -554,23 +554,20 @@ At this stage, you have two options:
 
 ```python
 lifecycle = 'CREATED'
-
 # Get all available PlanQK Services
 services = services_api.get_services(lifecycle=lifecycle)
-
-name = "Your service name"
-
+name = "My Service Name"
 # Filter the list by name
-service = None
-for x in services:
-    if x['My Service Name'] == name:
-        service = x
+found_service = None
+for service in services:
+    if service['name'] == name:
+        service = found_service
 ```
 
 ### Use PlanQK Service ID found on PlanQK Platform
 
 ```python
-service = marketplace_api.find_services(<service id>)
+service = marketplace_api.find_service(<service id>)
 ```
 
 ### Select a suitable pricing plan
