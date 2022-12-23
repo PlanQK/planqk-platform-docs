@@ -25,8 +25,12 @@ A complete Python project including a couple of example can be found [here](http
 :::
 
 
-TODO Virtual environment (e.g. Coda show example)
+You can set up a new Python virtual environment for your project, e.g., you may use Conda and the following commands:
 
+```bash
+conda env create -f environment.yml
+conda activate planqk-samples
+```
 
 After we have the proper structure we have to install the required third-party dependencies.
 Add the following third-party dependencies to your local `requirements.txt` file:
@@ -52,20 +56,15 @@ After the installation of the `requirements.txt` we can install the [openapi-gen
 npm install -g @openapitools/openapi-generator-cli
 ```
 
-TODO rework
+Generate the API client project in a new directory and don't forget to copy it in your `./src` folder like shown below:
 
-Then we have to set the version manually:
 ```bash
+mkdir generator-output && cd generator-output
+
 openapi-generator-cli version-manager set 5.4.0
-```
-
-And finally execute the command below on root level `./src` to generate the api clients.
-
-```bash
 openapi-generator-cli generate -g python -i https://platform.planqk.de/qc-catalog/v3/api-docs
+cp -R openapi_client ../src
 ```
-
-An `openapi_client` i.a. will be added to your `./src` folder.
 
 ## How to authenticate with the PlanQK platform?
 
