@@ -10,32 +10,49 @@ A general API description of all supported operations can be found [here](https:
 
 ## How to set up a PlanQK integration project?
 
-First of all, create the following folder structure and files:
+First of all, create a project folder.
+Afterwards, create the following folder structure and files:
 
 ```
-. 
-├── src
-│   ├── resources
-│       └── .
+.
+├── requirements.txt
+└── src
+    └── application.py
 ```
 
 ::: tip
 A complete Python project including a couple of example can be found [here](https://github.com/PlanQK/planqk-platform-samples/tree/master/python/planqk-samples).
 :::
 
-After we have the proper structure we have to install the required libraries listed in:
-[requirements](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/requirements.txt).
-You can run this command to install all the requirements at once, assuming that have you stored the `.txt` in `./src`:
+
+TODO Virtual environment (e.g. Coda show example)
+
+
+After we have the proper structure we have to install the required third-party dependencies.
+Add the following third-party dependencies to your local `requirements.txt` file:
+
+```
+certifi >= 14.5.14
+frozendict ~= 2.3.4
+python-dateutil ~= 2.7.0
+setuptools >= 21.0.0
+typing_extensions ~= 4.3.0
+urllib3 ~= 1.26.7
+```
+
+Afterwards, execute the following command to install them:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-After the installation of the `requirements` we can install the [openapi-generator-cli](https://openapi-generator.tech/docs/installation):
+After the installation of the `requirements.txt` we can install the [openapi-generator-cli](https://openapi-generator.tech/docs/installation):
 
 ```bash
-npm install @openapitools/openapi-generator-cli -g
+npm install -g @openapitools/openapi-generator-cli
 ```
+
+TODO rework
 
 Then we have to set the version manually:
 ```bash
