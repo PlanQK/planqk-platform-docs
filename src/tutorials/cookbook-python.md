@@ -140,13 +140,8 @@ Now, that you have your zip archive ready (e.g., a file called `user_code.zip`),
 Extend your `application.py` script and add the following:
 
 ```python
+# API interface to manage PlanQK Services
 service_api = ServicePlatformServicesApi(api_client=api_client)
-
-name = "Your service name"
-description = "Your service description"
-use_platform_token = "FALSE"  # FALSE to use own backend tokens in case 'quantumBackend' is 'DWAVE', 'IBM' etc.
-cpu = 500  # minimum
-memory = 2048  # default memory configuration: 2048 = 2GB
 
 """
 At the moment each managed PlanQK Service may communicate with exactly one quantum cloud provider,
@@ -157,8 +152,16 @@ quantumBackend = "NONE"  # Default value
 # quantumBackend = "IBM";
 # quantumBackend = "DWAVE";
 
+name = "Your service name"
+description = "Your service description"
+use_platform_token = "FALSE"  # FALSE to use own backend tokens in case 'quantumBackend' is 'DWAVE', 'IBM' etc.
+cpu = 500  # minimum
+memory = 2048  # default memory configuration: 2048 = 2GB
 user_code = open('Absolute path to the user_code.zip file', 'rb')
 api_definition = open('Absolute path to the OpenAPI definition', 'rb')
+user_code = open('Absolute path to the user_code.zip file', 'rb')
+api_definition = open('Absolute path to the OpenAPI definition', 'rb')
+
 service = services_api.create_managed_service(
     name=name,
     quantum_backend=quantumBackend,
@@ -247,11 +250,8 @@ The following properties are required to create a self-hosted PlanQK Service:
 Extend or adapt your `application.py` script and add the following:
 
 ```python
+# API interface to manage PlanQK Services
 service_api = ServicePlatformServicesApi(api_client=api_client)
-
-name = "Your service name"
-production_endpoint = "Your public endpoint URL"
-description = "Your service description"
 
 """
 Uncomment one of the following lines if your self-hosted service communicates with of the quantum cloud providers,
@@ -261,7 +261,11 @@ quantumBackend = "NONE"  # Default value
 # quantumBackend = "IBM";
 # quantumBackend = "DWAVE";
 
+name = "Your service name"
+production_endpoint = "Your public endpoint URL"
+description = "Your service description"
 api_definition = open("Absolute path to your OpenAPI definition", 'rb')
+
 service = service_api.create_external_service(
     name=name,
     url=production_endpoint,
@@ -317,12 +321,14 @@ service = services_api.get_service(<id>)
 ```python
 lifecycle = 'CREATED'
 services = services_api.get_services(lifecycle=lifecycle)
-name = "My service name"
+
 found_service = None
+name = "My service name"
+
 # Filter the list by name
 for service in services:
-    if service['name'] == name:
-        found_service = service
+   if service['name'] == name:
+      found_service = service
 ```
 
 **Update description and related industries:**
@@ -358,8 +364,8 @@ version = services_api.update_service_version(service_id=service.id, version_id=
 **Update your service code:**
 
 ```python
-with open('Path to the updated user_code.zip file', 'rb') as updated_user_code:
-    services_api.update_source_code(service_id=service.id, version_id=version.id, source_code=updated_user_code)
+updated_user_code = open('Path to the updated user_code.zip file', 'rb')
+services_api.update_source_code(service_id=service.id, version_id=version.id, source_code=updated_user_code)
 
 wait_for_service_to_be_created()
 ```
@@ -367,8 +373,8 @@ wait_for_service_to_be_created()
 **Update your API definition:**
 
 ```python
-with open('Path to the updated API definition', 'rb') as updated_api_definition:
-    services_api.update_api_definition(service_id=service.id, version_id=version.id, file=updated_api_definition)
+updated_api_definition = open('Path to the updated API definition', 'rb')
+services_api.update_api_definition(service_id=service.id, version_id=version.id, file=updated_api_definition)
 ```
 
 [Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/update_service_sample.py)
@@ -382,19 +388,19 @@ To get a PlanQK Service ID, you may search for an existing service:
 lifecycle = 'CREATED'
 services = services_api.get_services(lifecycle=lifecycle)
 
-name = "Your service name"
+found_service = None
+name = "My service name"
 
 # Filter the list by name
-service = None
-for x in services:
-    if x['My Service Name'] == name:
-        service = x
+for service in services:
+   if service['name'] == name:
+      found_service = service
 ```
 
 Afterwards, you can add the following to your `application.py`:
 
 ```python
-services_api.delete_service(service.id)
+services_api.delete_service(found_service.id)
 ```
 
 [Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/find_and_delete_service_sample.py)
@@ -473,19 +479,21 @@ Assuming you already created a PlanQK Application, you can delete it by using it
 To get a PlanQK Service ID, you may search for an existing service:
 
 ```python
-name = 'My Application'
 applications = applications_api.get_applications()
+
 found_application = None
+name = 'My Application'
+
 # Filter the list by name
 for application in applications:
-    if application['name'] == name:
-        found_application = application
+   if application['name'] == name:
+      found_application = application
 ```
 
 Afterwards, you can add the following to your `application.py` to delete your PlanQK Application:
 
 ```python
-applications_api.delete_application(application.id)
+applications_api.delete_application(found_application.id)
 ```
 
 [Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/find_and_delete_application_sample.py)
@@ -520,7 +528,6 @@ Finally, create a _subscription request_ object and trigger the operation:
 
 ```python
 subscription_request = CreateInternalSubscriptionRequest(application_id=application.id, service_id=service.id)
-
 applications_api.create_internal_subscription(id=application.id, create_internal_subscription_request=subscription_request)
 ```
 
@@ -553,15 +560,16 @@ At this stage, you have two options:
 
 
 ```python
-lifecycle = 'CREATED'
 # Get all available PlanQK Services
-services = services_api.get_services(lifecycle=lifecycle)
-name = "My Service Name"
-# Filter the list by name
+services = marketplace_api.find_services()
+
 found_service = None
+name = "My Service Name"
+
+# Filter the list by name
 for service in services:
     if service['name'] == name:
-        service = found_service
+       found_service = service
 ```
 
 ### Use PlanQK Service ID found on PlanQK Platform
@@ -617,8 +625,15 @@ organization_id = "<id of your organization>";
 ### Share a PlankQK Service in an Organization
 
 ```python
+name = "Your service name"
+quantumBackend = "NONE"  # Default value
+description = "Your service description"
+use_platform_token = "FALSE"  # FALSE to use own backend tokens in case 'quantumBackend' is 'DWAVE', 'IBM' etc.
+cpu = 500  # minimum
+memory = 2048  # default memory configuration: 2048 = 2GB
 user_code = open('Absolute path to the user_code.zip file', 'rb')
 api_definition = open('Absolute path to the OpenAPI definition', 'rb')
+
 service = services_api.create_managed_service(
     name=name,
     quantum_backend=quantumBackend,
@@ -704,6 +719,7 @@ Extend your `application.py` with the following:
 
 ```python
 input_data = open("Absolute path to your input file, e.g., 'input.json'", 'rb')
+
 # Prepare the HTTP payload to trigger an execution
 service_endpoint = version.gateway_endpoint
 default_headers = {
@@ -723,7 +739,7 @@ Extend your `application.py` with the following code:
 
 ```python
 current_status = wait_for_execution_to_be_finished()
-print("The service execution {}".format(current_status))
+print(f"The service execution is: {current_status}")
 ```
 
 ::: details Method wait_for_execution_to_be_finished()
@@ -750,7 +766,7 @@ If the service execution was successful, you may retrieve the result of it:
 ```python
 if current_status == 'SUCCEEDED':
     result = requests.get(url=status_url + '/result', headers=default_headers).json()
-    print("The service execution result: {}".format(result))
+    print(f"The service execution result: {result}")
 ```
 
 Congratulation, you successfully executed your subscribed PlanQK Service.
