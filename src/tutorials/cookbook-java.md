@@ -1043,7 +1043,13 @@ private static ServiceExecutionDto waitForExecutionToBeFinished(ServiceDefinitio
 
     return e;
 }
+```
 
+:::
+
+::: details Method getExecutionStatus()
+
+```java
 private static ServiceExecutionDto getExecutionStatus(ServiceDefinitionDto version, ServiceExecutionDto execution, AccessTokenDto accessToken) throws Exception {
     Request request = new Request.Builder()
         .get()
