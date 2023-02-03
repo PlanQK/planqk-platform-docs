@@ -478,6 +478,22 @@ In order to test it, you can use any of your applications to subscribe to this s
 
 There are two ways to subscribe to a service. One is to subscribe to an internal service, the other is to subscribe to a service that has been published on the marketplace.
 
+### Subscribe to an internal service
+
+1. Navigate to the details page of your service
+2. Click on the "Publish Internal" button
+3. Navigate to the details page of your application
+4. Press the "Subscribe to Service" button
+5. A modal dialog appears in which you have to select the published service
+6. After you have selected the correct service, click on the "Subscribe" button in the modal dialog
+
+
+### Subscribe to a service published on the marketplace
+
+1. Navigate to the Marketplace mask
+2. Select "Services" from the navigation menu
+3. Select a service you want to subscribe to and navigate to its details page
+4. Select the pricing plan that suits you and click on the "Subscribe" button of the respective pricing plan
 
 
 The token can be requested from the platform's token endpoint by providing the client credentials, i.e. the _Consumer Key_ and _Consumer Secret_ of your application.
