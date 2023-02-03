@@ -476,6 +476,10 @@ To test the correct behaviour of _your own services_ you should publish it "for 
 In order to test it, you can use any of your applications to subscribe to this service.
 :::
 
+There are two ways to subscribe to a service. One is to subscribe to an internal service, the other is to subscribe to a service that has been published on the marketplace.
+
+
+
 The token can be requested from the platform's token endpoint by providing the client credentials, i.e. the _Consumer Key_ and _Consumer Secret_ of your application.
 
 1. Go to your application in the [Applications](https://platform.planqk.de/applications) section
