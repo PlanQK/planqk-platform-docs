@@ -481,19 +481,43 @@ There are two ways to subscribe to a service. One is to subscribe to an internal
 ### Subscribe to an internal service
 
 1. Navigate to the details page of your service
+
+    <img width="40%" alt="service-overview" src="./assets/service-overview.png">
+    
 2. Click on the "Publish Internal" button
+
+    <img width="40%" alt="service-details-page" src="./assets/service-details-page.png">
+
 3. Navigate to the details page of your application
+
+    <img width="40%" alt="application-overview" src="./assets/application-overview.png">
+
 4. Press the "Subscribe to Service" button
 5. A modal dialog appears in which you have to select the published service
+
+    <img width="40%" alt="internal-service-subscription" src="./assets/internal-service-subscription.png">
+
 6. After you have selected the correct service, click on the "Subscribe" button in the modal dialog
 
 
 ### Subscribe to a service published on the marketplace
 
-1. Navigate to the Marketplace mask
+1. Navigate in the upper navigation bar to the "Marketplace" mask
+
+    <img width="40%" alt="navigation-bar" src="./assets/navigation-bar.png">
+
 2. Select "Services" from the navigation menu
+
+    <img height="200px" alt="marketplace-service-overview" src="./assets/marketplace-service-overview.png">
+
 3. Select a service you want to subscribe to and navigate to its details page
-4. Select the pricing plan that suits you and click on the "Subscribe" button of the respective pricing plan
+4. Select the pricing plan that suits you and click on the "Subscribe" button of the respective pricing plan. A modal dialog will show up
+
+    <img width="40%" alt="select-pricing-plan" src="./assets/select-pricing-plan.png">
+
+4. Finally, select the application and press the "Subscribe" button
+
+    <img width="40%" alt="application-selection" src="./assets/application-selection.png">
 
 
 The token can be requested from the platform's token endpoint by providing the client credentials, i.e. the _Consumer Key_ and _Consumer Secret_ of your application.
