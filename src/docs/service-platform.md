@@ -476,9 +476,9 @@ To test the correct behaviour of _your own services_ you should publish it "for 
 In order to test it, you can use any of your applications to subscribe to this service.
 :::
 
-There are two ways to subscribe to a service. One is to subscribe to an internal service, the other is to subscribe to a service that has been published on the marketplace.
+There are two ways to subscribe to a service. One is to subscribe to an internally published service, the other is to subscribe to a service that has been published on the marketplace.
 
-### Subscribe to an internal service
+### Subscribe to an internally published service
 
 1. Navigate to the details page of your service
 
