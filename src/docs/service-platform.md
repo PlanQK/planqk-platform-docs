@@ -493,11 +493,11 @@ There are two ways to subscribe to a service. One is to subscribe to an internal
     <img width="40%" alt="application-overview" src="./assets/application-overview.png">
 
 4. Press the "Subscribe to Service" button
-5. A modal dialog appears in which you have to select the published service
+5. A dialog box appears in which you have to select the published service
 
     <img width="40%" alt="internal-service-subscription" src="./assets/internal-service-subscription.png">
 
-6. After you have selected the correct service, click on the "Subscribe" button in the modal dialog
+6. After you have selected the correct service, click on the "Subscribe" button in the dialog box
 
 
 ### Subscribe to a service published on the marketplace
@@ -511,7 +511,7 @@ There are two ways to subscribe to a service. One is to subscribe to an internal
     <img height="200px" alt="marketplace-service-overview" src="./assets/marketplace-service-overview.png">
 
 3. Select a service you want to subscribe to and navigate to its details page
-4. Select the pricing plan that suits you and click on the "Subscribe" button of the respective pricing plan. A modal dialog will show up
+4. Select the pricing plan that suits you and click on the "Subscribe" button of the respective pricing plan. A dialog box will show up
 
     <img width="40%" alt="select-pricing-plan" src="./assets/select-pricing-plan.png">
 
