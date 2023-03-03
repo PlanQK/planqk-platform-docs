@@ -1,6 +1,7 @@
 # Tutorials 
 
 * [Tutorial: D-Wave Service on PlanQK](tutorial-dwave.md)
+* [Tutorial: Executing Qiskit Circuits with the PlanQK Quantum Platform Library](tutorial-qiskit.md)
 
 # Cookbooks
 
