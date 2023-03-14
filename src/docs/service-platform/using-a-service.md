@@ -1,101 +1,70 @@
 # Using a Service
 
-After a quantum service was published, you need to subscribe to it through _applications_ first.
-Then you can interact with it in order to execute its business logic either through HTTP or directly from your own code through Java, Python oder JavaScript clients.
-You can download the clients from the platform's service page in the [Marketplace](https://platform.planqk.de/marketplace/apis).  
-To be language independent we will focus on HTTP examples in this section.
+You can use any PlanQK Service and its underlying HTTP API by subscribing to it with a PlanQK Application.
 
-Examples showing how to utilize results from services (e.g. via Jupyter notebooks) can be found in [this](https://github.com/PlanQK/service-usage-examples) repository.
-
-## Subscribing to Services using Applications
-
-Whenever you want to interact with services from the marketplace, you must be subscribed to them with an application.
-[Applications](https://platform.planqk.de/applications) hold all necessary information for a secure communication with the service from an external source.
-This includes a public and secret key pair, as well as a token- and service endpoint.
-The former is used for generating an Authorization token, which is required for sending requests to the latter.
-
-The token can be requested from the platform's token endpoint by providing the client credentials, i.e. the _Consumer Key_ and _Consumer Secret_ of your application.
-
-1. Go to your application in the [Applications](https://platform.planqk.de/applications) section
-2. Copy the curl command into your clipboard by clicking the "Copy Text" button. The command contains already the consumer key and secret encoded as Base64 string.
-3. Paste and execute the command in your favorite shell.
-4. The value of the property `"access_token"` contains the authorization token.
-
-An example curl command copied for retrieving the token is presented below:
-
-```
-curl -k -X POST https://gateway.am.platform.planqk.de/token -d "grant_type=client_credentials" -H "Authorization: Basic b2g3cWROZHBCZ0N1OGZ1dV8xMjlORkZBbnNZYTpSaGtVYndhamY4WEh6NktpOXdFZUVhVF9LdGth"
-```
-
-The response of the command reveals the authorization token:
-
-```json
-{"access_token":"eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUX...","scope":"default","token_type":"Bearer","expires_in":3600}
-```
-
-You need to add this token in each subsequent HTTP request to the `"Authorization: Bearer"` header field to authenticate yourself.
-Then token has an expiration time, i.e., after it expired you need to obtain a new one with the curl command above.
-
-
-::: tip IMPORTANT
-To test the correct behaviour of _your own services_ you should publish it "for internal use".
-In order to test it, you can use any of your applications to subscribe to this service.
+::: tip NOTE
+Examples showing how to work with PlanQK Services (e.g., via Jupyter notebooks) can be found in [this](https://github.com/PlanQK/planqk-platform-samples) repository.
 :::
 
-There are two ways to subscribe to a service. One is to subscribe to an internally published service, the other is to subscribe to a service that has been published on the marketplace.
+There are two ways to subscribe to a service.
+One is to subscribe to an internally published service, the other is to subscribe to a service that has been published on the marketplace.
 
-## Subscribe to an internally published service
+## Subscribe to an Internally Published PlanQK Service
 
-1. Navigate to the details page of your service
+1. Navigate to the details page of your service.
 
-    <img width="40%" alt="service-overview" src="../assets/service-overview.png">
+   <img alt="service-overview" src="../assets/service-overview.png">
 
-2. Click on the "Publish Internal" button
+2. Click on the "Publish Internal" button.
 
-    <img width="40%" alt="service-details-page" src="../assets/service-details-page.png">
+   <img alt="service-details-page" src="../assets/service-details-page.png">
 
-3. Navigate to the details page of your application
+3. Navigate to the details page of your application.
 
-    <img width="40%" alt="application-overview" src="../assets/application-overview.png">
+   <img alt="application-overview" src="../assets/application-overview.png">
 
-4. Press the "Subscribe to Service" button
-5. A dialog box appears in which you have to select the published service
+4. Press the "Subscribe to Service" button.
+5. A dialog box appears in which you have to select the published service.
 
-    <img width="40%" alt="internal-service-subscription" src="../assets/internal-service-subscription.png">
+    <img alt="internal-service-subscription" src="../assets/internal-service-subscription.png">
 
-6. After you have selected the correct service, click on the "Subscribe" button in the dialog box
+6. After you have selected the correct service, click on the "Subscribe" button in the dialog box.
 
+## Subscribe to a PlanQK Service Published on the PlanQK Marketplace
 
-## Subscribe to a service published on the marketplace
+1. Click on "Marketplace" on the top navigation.
 
-1. Navigate in the upper navigation bar to the "Marketplace" mask
+   <img alt="navigation-bar" src="../assets/navigation-bar.png">
 
-    <img width="40%" alt="navigation-bar" src="../assets/navigation-bar.png">
+2. Select "Services" from the left navigation menu.
 
-2. Select "Services" from the navigation menu
+   <img alt="marketplace-service-overview" src="../assets/marketplace-service-overview.png">
 
-    <img height="200px" alt="marketplace-service-overview" src="../assets/marketplace-service-overview.png">
+3. Select a service you want to subscribe to and navigate to its details page.
+4. Select the pricing plan that suits you and click on the "Subscribe" button of the respective pricing plan. A dialog box will show up.
 
-3. Select a service you want to subscribe to and navigate to its details page
-4. Select the pricing plan that suits you and click on the "Subscribe" button of the respective pricing plan. A dialog box will show up
+    <img alt="select-pricing-plan" src="../assets/select-pricing-plan.png">
 
-    <img width="40%" alt="select-pricing-plan" src="../assets/select-pricing-plan.png">
+5. Finally, select your application and press the "Subscribe" button.
 
-5. Finally, select the application and press the "Subscribe" button
+    <img alt="application-selection" src="../assets/application-selection.png">
 
-    <img width="40%" alt="application-selection" src="../assets/application-selection.png">
+## Execute a Subscribed PlanQK Service
 
-## Starting Service Execution
+To execute a service, you need to provide the following information:
 
-To start the execution of a service, you need to provide the following information:
+1. **Service Endpoint URL**:
+   Can be obtained from the subscriptions section of your application that subscribed to the service
+2. **Authorization Bearer Token**:
+   Can be obtained from platform's token endpoint as described in the previous section
+3. **Header Fields**:
+   `Content-Type` and  `Accept` are both set to `application/json`
+4. **Input Data**:
+   Either passed as [value or as data pool reference](#input-data)
+5. **Parameters**:
+   Either passed as [value or as data pool reference](#input-parameters)
 
-1. **Service Endpoint URL**: Can be obtained from the subscriptions section of your application that subscribed to the service
-2. **Authorization Bearer Token**: Can be obtained from platform's token endpoint as described in the previous section
-3. **Header Fields**: `Content-Type` and  `Accept` are both set to `application/json`
-4. **Input Data**: Either passed as [value or as data pool reference](#input-data)
-5. **Parameters**: Either passed as [value or as data pool reference](#input-parameters)
-
-An example curl call is shown below:
+The following examples shows the cURL command and how to start a service execution:
 
 ```
 curl -X 'POST' \
@@ -116,21 +85,25 @@ curl -X 'POST' \
   }'
 ```
 
-For each call a new service execution is created.
+For each call, a new service execution is created.
 The id of the service execution and its initial execution state is returned by the POST request.
 The POST above returns for instance the following result:
 
 ```json
-{"id":"02e0d85a-5a95-4abe-a642-1ee9a94fdf14","status":"PENDING","createdAt":"2022-09-19 16:45:24"}%
+{
+  "id": "02e0d85a-5a95-4abe-a642-1ee9a94fdf14",
+  "status": "PENDING",
+  "createdAt": "2022-09-19 16:45:24"
+}
 ```
 
 The execution id can be used to query the state and the result of a service execution.
 
-### Service Execution State & Result
+## Retrieve Execution Result
 
 Since a service execution is performed asynchronously, you need to query its state to know if its execution completed.
 After a service was completed you can retrieve the result.
-Therefore, a service provides a set of [REST endpoints](#_3-create-an-api-spec-file-for-your-service) to query the state of each of its executions.
+Therefore, a PlanQK Service provides dedicated endpoints to query the state of each of its executions.
 
 The state can be retrieved by calling the endpoint `GET /{id}`.
 The state of our example service execution with id `02e0d85a-5a95-4abe-a642-1ee9a94fdf14` can be for instance retrieved with the following request:
@@ -164,12 +137,16 @@ If the service execution succeeded, the response contains the `"result"` propert
 In case of an error the message may contain an error `"code"` and an error `"detail"` property, for example:
 
 ```json
-{"code":"CONNECTION_ERROR","detail":"Backend host could not be found."}
+{
+  "code": "CONNECTION_ERROR",
+  "detail": "Backend host could not be found."
+}
 ```
 
-### Input Data
+## Provide Input Data
 
-Input data being processed by the service can be either passed as **value** or as **[data pool](src/docs/community-platform.md#data-pools)**.
+Input data being processed by the service can be either passed as **value**
+or as **[data pool](src/docs/community-platform.md#data-pools)**.
 
 ::: tip IMPORTANT
 Currently, only JSON is supported as service input.
@@ -215,7 +192,7 @@ To obtain the data pool file reference object perform the following steps:
 1. Go to your data pool in the [data pool](https://platform.planqk.de/datapools) section.
 2. Click the "Copy Text" button of the respective file to copy the file reference object to your clipboard.
 
-### Input Parameters
+## Provide Input Parameters
 
 Input parameters provide additional (meta-)information for the execution such as the number of shots, the number of variational layers for a circuit or the name of the backend.
 Like input data, they can be either provided as value or as data pool.
@@ -238,3 +215,15 @@ curl -X 'POST' \
     }
   }'
 ```
+
+## Using the Generated API Client
+
+::: warning
+This section still needs to be revised.
+If you have any questions, please contact support@planqk.de per email.
+:::
+
+You can interact with a PlanQK Service through HTTP (see above) or using a generated API client for Java, Python, or JavaScript.
+You can download the clients from the respective service details page in the [PlanQK Marketplace](https://platform.planqk.de/marketplace/apis).  
+
+Once you download the client, extract and integrate it into your project.
