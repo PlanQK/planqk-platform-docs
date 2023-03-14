@@ -7,13 +7,13 @@ To create an external service, follow these steps:
   2. Enter a name for your service.
   3. Under `Service Type` select `External Service`.
   4. Enter the URL of your service.
-  5. Optionally, you can define an [authentication method](external-services.md#add-an-authentication-method) for your service. 
+  5. Optionally, you can define an [security configuration](external-services.md#add-a-security-configuration) for your service. 
   6. Under `Quantum Backend` select the quantum backend your service is using. Customers can use this information to find your service on the [marketplace](../marketplace.md).
   7. Optionally, you can add a description and API specification for your service. You can also provide this information later.
   8. Finally, click on `Create Service`.
 
-## Add an Authentication Method
-The authentication method defines how the PlanQK platform authenticates requests to your service. 
+## Add a Security Configuration
+The security configuration defines how the PlanQK platform authenticates requests to your service. 
 At the moment, Basic Authentication using username and password is supported.
 Under Security Configuration, select `Basic Authentication` and enter username and password.
 
