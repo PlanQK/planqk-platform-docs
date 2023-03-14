@@ -66,10 +66,18 @@ module.exports = {
           children: [
             '',
             'community-platform',
-            'service-platform',
-            'quantum-access',
             'marketplace',
             'additional-information'
+          ]
+        },
+        {
+          title: 'Service Platform',
+          collapsable: false,
+          children: [
+            'service-platform/managed-services',
+            'service-platform/external-services',
+            'service-platform/applications',
+            'service-platform/using-a-service',
           ]
         },
         {
@@ -86,7 +94,9 @@ module.exports = {
           title: 'Tutorials',
           collapsable: false,
           children: [
-            'tutorial-dwave'
+            'tutorial-dwave',
+            'tutorial-qiskit',
+            'metering-external-services',
           ]
         },
         {

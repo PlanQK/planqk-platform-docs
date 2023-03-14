@@ -1,3 +1,7 @@
+# Execute Qiskit Circuits with the PlanQK Quantum Platform Library
+This tutorial describes how you can use the PlanQK Quantum Platform Library to execute your Qiskit code on different quantum backends supported by PlanQK.
+The library is a wrapper for the Qiskit SDK. 
+Hence, it provides the same functionality and syntax as the original Qiskit SDK.
 # Tutorial: Executing Qiskit Circuits with the PlanQK Quantum Platform Library
 This tutorial describes how you can use the PlanQK quantum package to execute your Qiskit code on different quantum backends supported by PlanQK. 
 Since it is a wrapper of the corresponding part of the Qiskit SDK, you can use backends the same way, as you would do in your regular Qiskit code.

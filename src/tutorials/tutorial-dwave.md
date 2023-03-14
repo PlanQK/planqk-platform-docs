@@ -1,4 +1,4 @@
-# Tutorial: D-Wave Service on PlanQK
+# D-Wave Service on PlanQK
 
 This tutorial shows how to create a D-Wave flavored PlanQK Service.
 The guide shows step by step the certain development stages and milestones and will guide you through the whole process.
