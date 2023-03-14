@@ -1,7 +1,7 @@
 # External Services
 External services allow you to integrate your self-hosted quantum services into the PlanQK platform.
 
-## Create an external service
+## Create an External Service
 To create an external service, follow these steps:
   1. Go to the [create service page](https://platform.planqk.de/services/new).
   2. Enter a name for your service.
@@ -12,12 +12,12 @@ To create an external service, follow these steps:
   7. Optionally, you can add a description and API specification for your service. You can also provide this information later.
   8. Finally, click on `Create Service`.
 
-## Add an authentication method
+## Add an Authentication Method
 The authentication method defines how the PlanQK platform authenticates requests to your service. 
 At the moment, Basic Authentication using username and password is supported.
 Under Security Configuration, select `Basic Authentication` and enter your username and password.
 
-## Create a pricing plan for your service
+## Create a Pricing Plan
 A pricing plan for an external service consists of the products that you, as a service provider, want to charge your customers for.
 For example, if you want to charge for API calls, CPU time, and memory time, create a product for each of these.
 You can create a pricing plan for your service by following these steps:
@@ -27,7 +27,7 @@ You can create a pricing plan for your service by following these steps:
 3. Click on `Create Plan`.
 4. On the services details page you will see your pricing plan with its products.
 
-## Report product usage of your external service
+## Report Service Usage
 ::: tip Authentication
 The metering API uses access tokens to authenticate requests.
 You can view and manage your personal access tokens in your [settings](https://platform.planqk.de/settings/access-tokens).
