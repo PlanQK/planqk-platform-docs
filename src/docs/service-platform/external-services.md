@@ -1,9 +1,21 @@
 # External Services
-In this tutorial you will learn how to create an external service with a pay-per-use pricing plan
-and report the usage of your service to our metering API.
+External services allow you to integrate your self-hosted quantum services into the PlanQK platform.
 
 ## Create an external service
+To create an external service, follow these steps:
+  1. Go to the [create service page](https://platform.planqk.de/services/new).
+  2. Enter a name for your service.
+  3. Under `Service Type` select `External Service`.
+  4. Enter the URL of your service.
+  5. Optionally, you can define an [authentication method](external-services.md#add-an-authentication-method) for your service. 
+  6. Under `Quantum Backend` select the quantum backend your service is using. Customers can use this information to find your service on the [marketplace](../marketplace.md).
+  7. Optionally, you can add a description and API specification for your service. You can also provide this information later.
+  8. Finally, click on `Create Service`.
 
+## Add an authentication method
+The authentication method defines how the PlanQK platform authenticates requests to your service. 
+At the moment, Basic Authentication using username and password is supported.
+Under Security Configuration, select `Basic Authentication` and enter your username and password.
 
 ## Create a pricing plan for your service
 A pricing plan for an external service consists of the products that you, as a service provider, want to charge your customers for.
@@ -12,11 +24,8 @@ You can create a pricing plan for your service by following these steps:
 
 1. On the details page of your service, click on `Create Pricing Plan`.
 2. On the create pricing plan page, add your products to the pricing plan. For each product provide its name, unit price, and unit.
-   An example of a pricing plan with three products is shown below:
-
 3. Click on `Create Plan`.
 4. On the services details page you will see your pricing plan with its products.
-
 
 ## Report product usage of your external service
 ::: tip Authentication
