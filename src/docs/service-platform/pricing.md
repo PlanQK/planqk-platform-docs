@@ -58,5 +58,12 @@ One-qubit gates are billed as 0.225 of a two-qubit gate (rounded down).
 
 ## Transaction Fees
 
-- 20 percent of services provided in the marketplace
-- Based on revenue 
+The PlanQK Marketplace is a marketplace for quantum services that allows users to discover, evaluate, and use quantum services.
+As a service provider, you can offer your PlanQK services on the PlanQK Marketplace to other users:
+
+* You can offer your PlanQK Service for free, hence, you bear all the resource costs from above by yourself.
+* For [Managed Services](../service-platform/managed-services.md), you can define a markup in percent that will be added to the resource costs for each service execution by respective service consumers.
+* For [External Services](../service-platform/external-services.md), you can define a custom pricing plan of your choice, comprising custom products that are metered by yourself and billed through the PlanQK Platform.
+
+Therefore, for non-free PlanQK Services, you will earn a revenue that will be transferred to your connected Stripe account on a monthly basis.
+For this transaction, the PlanQK Platform charges a transaction fee of 15 percent of the revenue.
