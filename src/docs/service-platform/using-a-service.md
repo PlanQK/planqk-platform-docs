@@ -13,20 +13,20 @@ One is to subscribe to an internally published service, the other is to subscrib
 
 1. Navigate to the details page of your service.
 
-   <img alt="service-overview" src="../assets/service-overview.png">
+   <img width="768" alt="service-overview" src="../assets/service-overview.png">
 
 2. Click on the "Publish Internal" button.
 
-   <img alt="service-details-page" src="../assets/service-details-page.png">
+   <img width="768" alt="service-details-page" src="../assets/service-details-page.png">
 
 3. Navigate to the details page of your application.
 
-   <img alt="application-overview" src="../assets/application-overview.png">
+   <img width="768" alt="application-overview" src="../assets/application-overview.png">
 
 4. Press the "Subscribe to Service" button.
 5. A dialog box appears in which you have to select the published service.
 
-    <img alt="internal-service-subscription" src="../assets/internal-service-subscription.png">
+    <img width="500" alt="internal-service-subscription" src="../assets/internal-service-subscription.png">
 
 6. After you have selected the correct service, click on the "Subscribe" button in the dialog box.
 
@@ -34,20 +34,20 @@ One is to subscribe to an internally published service, the other is to subscrib
 
 1. Click on "Marketplace" on the top navigation.
 
-   <img alt="navigation-bar" src="../assets/navigation-bar.png">
+   <img width="768" alt="navigation-bar" src="../assets/navigation-bar.png">
 
 2. Select "Services" from the left navigation menu.
 
-   <img alt="marketplace-service-overview" src="../assets/marketplace-service-overview.png">
+   <img height="300" alt="marketplace-service-overview" src="../assets/marketplace-service-overview.png">
 
 3. Select a service you want to subscribe to and navigate to its details page.
 4. Select the pricing plan that suits you and click on the "Subscribe" button of the respective pricing plan. A dialog box will show up.
 
-    <img alt="select-pricing-plan" src="../assets/select-pricing-plan.png">
+    <img width="768" alt="select-pricing-plan" src="../assets/select-pricing-plan.png">
 
 5. Finally, select your application and press the "Subscribe" button.
 
-    <img alt="application-selection" src="../assets/application-selection.png">
+    <img width="500" alt="application-selection" src="../assets/application-selection.png">
 
 ## Execute a Subscribed PlanQK Service
 
@@ -220,7 +220,7 @@ curl -X 'POST' \
 
 ::: warning
 This section still needs to be revised.
-If you have any questions, please contact support@planqk.de per email.
+If you have any questions, please contact support@planqk.de by email.
 :::
 
 You can interact with a PlanQK Service through HTTP (see above) or using a generated API client for Java, Python, or JavaScript.
