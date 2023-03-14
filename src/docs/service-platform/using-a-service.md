@@ -216,7 +216,7 @@ curl -X 'POST' \
   }'
 ```
 
-## Using the Generated API Client
+## Using Generated API Clients
 
 ::: warning
 This section still needs to be revised.
