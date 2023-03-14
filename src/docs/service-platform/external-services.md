@@ -15,7 +15,7 @@ To create an external service, follow these steps:
 ## Add an Authentication Method
 The authentication method defines how the PlanQK platform authenticates requests to your service. 
 At the moment, Basic Authentication using username and password is supported.
-Under Security Configuration, select `Basic Authentication` and enter your username and password.
+Under Security Configuration, select `Basic Authentication` and enter username and password.
 
 ## Create a Pricing Plan
 A pricing plan for an external service consists of the products that you, as a service provider, want to charge your customers for.
