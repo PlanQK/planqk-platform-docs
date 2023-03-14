@@ -28,7 +28,7 @@ Similarly, running a PlanQK Service with a 256 megabyte memory configuration for
   An API request is defined as a single HTTP request to your PlanQK Service through the PlanQK Platform Gateway API.
 * vCPU per milliCPU-second:
   The virtual CPU resources reserved for your PlanQK Service. A milliCPU-second is defined as the usage of a one thousandth of one virtual CPU for one second.
-* Memory per megabyte-second:  
+* Memory per megabyte-second:
   The memory resources reserved for your PlanQK Service. A megabyte-second is defined as the usage of 1 MB of memory for one second.
 
 ### Quantum Resources
@@ -53,8 +53,6 @@ where:
 
 Multi-controlled two-qubit gates are billed as `6 * (N-2)` two-qubit gates, where `N` is the number of qubits involved in the gate.
 For example, a NOT gate with three controls would be billed as `(6 * (4-2))` or 12 two-qubit gates.
-One-qubit gates are billed as 0.225 of a two-qubit gate (rounded down).
-
 
 ## Transaction Fees
 
