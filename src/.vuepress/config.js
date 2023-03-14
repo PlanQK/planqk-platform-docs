@@ -75,6 +75,7 @@ module.exports = {
           collapsable: false,
           children: [
             'service-platform/managed-services',
+            'service-platform/managed-services-jobs',
             'service-platform/external-services',
             'service-platform/applications',
             'service-platform/using-a-service',

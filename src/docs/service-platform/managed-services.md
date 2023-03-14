@@ -13,7 +13,7 @@ Any questions regarding this process, as well as subscribing to service and job 
    unzip template.zip planqk_service
    cd planqk_service
    ```
-    
+
 3. Recommended: Create a conda environment and activate it:
     ```bash 
     conda env create -f environment.yml
@@ -119,9 +119,9 @@ python3 -m src
 The most important method, which takes the user input and generates the output of interest is the `run()` method inside `program.py`.
 
 ::: tip IMPORTANT
- Do not rename either the `src` folder, the `program.py` package, as well as the `run`-method inside `program.py`.
- These are fixed entry points for the service.
- Changing their names will result in a malfunctioning service.
+Do not rename either the `src` folder, the `program.py` package, as well as the `run`-method inside `program.py`.
+These are fixed entry points for the service.
+Changing their names will result in a malfunctioning service.
 :::
 
 From the start, you should be able to run `python3 -m src` from within the `user_code` folder, which is our goal when replacing the provided dummy code with your own.
@@ -168,8 +168,8 @@ At first, as described in the beginning of the previous section, execute your se
 python3 -m src
 ```
 
- **NOTE:** Please ensure that the `environment.yml` file contains _all_ necessary packages for executing your program.
- You can easily check this by testing the local execution in a fresh conda environment with the packages from the file:
+**NOTE:** Please ensure that the `environment.yml` file contains _all_ necessary packages for executing your program.
+You can easily check this by testing the local execution in a fresh conda environment with the packages from the file:
 
  ```bash 
  conda env create -f environment.yml -n planqk-service-test
@@ -204,25 +204,32 @@ docker run -it \
   planqk-service
 ```
 
- **NOTE:**
- For GitBash users on Windows, replace
- ```bash
- PROJECT_ROOT=(`pwd`)
- ```
- with
- ```bash
- PROJECT_ROOT=(/`pwd`)
- ```
+::: tip NOTE
 
- For Windows command-prompt users, you can use the following command:
- ```bash
- docker run -it \
-   -e BASE64_ENCODED=false \
-   -e LOG_LEVEL=DEBUG \
-   -v %cd%/input/data.json:/var/input/data/data.json \
-   -v %cd%/input/params.json:/var/input/params/params.json \
-   planqk-service
- ```
+For GitBash users on Windows, replace
+
+```bash
+PROJECT_ROOT=(`pwd`)
+```
+
+with
+
+```bash
+PROJECT_ROOT=(/`pwd`)
+```
+
+For Windows command-prompt users, you can use the following command:
+
+```bash
+docker run -it \
+  -e BASE64_ENCODED=false \
+  -e LOG_LEVEL=DEBUG \
+  -v %cd%/input/data.json:/var/input/data/data.json \
+  -v %cd%/input/params.json:/var/input/params/params.json \
+  planqk-service
+```
+
+:::
 
 If the service executed successfully, you should see something like `Job:ResulsResponse:` followed by the output you defined for your service.
 Otherwise, if you see `Job:ErrorResponse`: Bad news, something went wrong.
@@ -240,7 +247,7 @@ EOF
 >> eyJ2YWx1ZXMiOiBbMTAwLCA1MCwgMjAwLCA3MCwgMC42OV19
 ```
 
-::: tip NOTE 
+::: tip NOTE
 In general, the maximum default length of environment variables in Linux-based systems is at 128KiB.
 On Windows, the maximum default length is at 32KiB.
 :::
@@ -308,16 +315,17 @@ You will be directed to an interface, where you can provide information, as well
 
 **Service Properties:**
 
-| Property          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name              | Choose a meaningful name for your service. If you publish your service later on, this name will be displayed to other users.                                                                                                                                                                                                                                                                                                                                                                                           |
-| Service Import    | Click on "Import from file" and upload your zipped service. The option "Import from URL" can be used if your service is running somewhere (e.g., on your own infrastructure) and you just want the PlanQK platform to manage the access to it.                                                                                                                                                                                                                                                                         |
-| API Specification | Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. You can leave this empty to use the default OpenAPI specification supplied with this template.                                                                                                                                                                                                                                                                    | 
-| Description       | Other users will see this description of the service, if its name sparked some interest, and they clicked on it in the marketplace. So any additional information you want to provide goes in here.                                                                                                                                                                                                                                                                                                                    |
-| Quantum Backend   | Currently, only IBM and D-Wave are supported quantum backends and only one can be picked. Afterwards, you have to decide to use your own Quantum Backend Token ([more info](src/docs/additional-information.md)) or whether you let PlanQK manage it for you. If you are working with local simulators only (e.g., when using the `AerBackend` from Qiskit or the `SimulatedAnnealingSampler` from the D-Wave anneal package) you may choose the option "None", since locally running code does not get affected by the choice. |
-| Pricing Plans     | Will be important for when you want to offer your service via the marketplace and charge your customers for using them. If you just want to test your service, you should select "Free".                                                                                                                                                                                                                                                                                                                               |
+| Property               | Description                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name                   | Choose a meaningful name for your service. If you publish your service later on, this name will be displayed to other users.                                                                                                                                                                                                                                                                                                           |
+| Service Import         | For "Managed Services", Click on "Import from file" and upload your zipped service. The option "Import from URL" can be used if your service is running somewhere (e.g., on your own infrastructure) and you just want the PlanQK platform to manage the access to it.                                                                                                                                                                 |
+| Resource Configuration | Define and configure the allocated resources when your PlanQK Service is executed.                                                                                                                                                                                                                                                                                                                                                     |
+| Quantum Backend        | Select one of the supported quantum backends your quantum code is using. Currently, IonQ, IBM, and D-Wave are supported quantum backends and only one can be picked. If you are working with local simulators only (e.g., when using the `AerBackend` from Qiskit or the `SimulatedAnnealingSampler` from the D-Wave anneal package) you may choose the option "None", since locally running code does not get affected by the choice. |
+| API Specification      | Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. You can leave this empty to use the default OpenAPI specification supplied with this template.                                                                                                                                                                                    |
+| Description            | Other users will see this description of the service, if its name sparked some interest, and they clicked on it in the marketplace. So any additional information you want to provide goes in here.                                                                                                                                                                                                                                    |
 
-And there you go. As soon as you click on "Create Service", the containerization and deployment starts.
+And there you go.
+As soon as you click on "Create Service", the containerization and deployment starts.
 As soon as it's finished (as indicated in the "My Services" section with a green checkmark) you will be able to publish your service to the quantum service store or for internal use and test your service thoroughly.
 
 #### 4.1 Using the PlanQK CLI
@@ -344,10 +352,6 @@ As an alternative to section 3, you could also use the PlanQK CLI to deploy your
     2. `planqk up --file=user_code.zip --api-spec=openapi-spec.yml`
     3. Complete the prompts to finally create your service on the PlanQK Platform
 6. Open [platform.planqk.de](https://platform.planqk.de), go to `My Services` and either publish it to the marketplace or for internal use.
-
-::: tip NOTE 
-At the moment you can only create "free" services.
-:::
 
 <details>
    <summary>CLI Commands</summary>
@@ -452,59 +456,3 @@ EXAMPLES
 ```
 
 </details>
-
-The next sections guide you through how to use the newly created service.
-
-## Jobs
-
-The PlanQK Platform also provides the functionality to execute services directly via the platform without the need of dealing with the underlying REST methods when communicating with existing services.
-We refer to this feature as _Jobs_ and they are either based your own services or on suitable implementations provided by the community.
-Jobs can be especially useful when experimenting with implementations for quantum hardware and when intending to share results with other users of the platform in the form of a [data pool](src/docs/community-platform.md#data-pools).
-
-### Create Jobs
-
-When being in the "Jobs" tab you should see a (possibly empty) list of finished jobs.
-If you did not execute any jobs yet, it's time to change that.
-So click on "Create Job" in the top right corner, and the interface guides you through the necessary steps.
-
-#### 1. Service (from Implementation)
-
-You have to select a service that should be run as a job.
-This can either be one of your own services or (and that is the neat part of this feature) an implementation provided for any of the algorithms.
-Any implementation provided according to the steps described [here](src/docs/community-platform.md#provide-an-implementation-for-job-execution) and to which you have access can be used for jobs.
-In order to do so, click on "Create Service" button next to the file for the implementation of your choice.
-After the service has been created it should appear in the list of available services for your job.  
-Also, if an API file was provided for your selected service, you should see it at the bottom of the page.
-
-#### 2. Input Data
-
-In general, services that run via the PlanQK platform, require two, possibly empty, fields as input.
-These fields are `"data"` and  `"params"` (if you have worked with the user code template, you should have seen them already).
-The field `"data"` should provide all the data required for the problem at hand, e.g., a QUBO.
-The `"params"` field should provide additional (meta-)information for the execution such as the number of iterations, the number of variational layers for a circuit or the name of the backend.
-Note, the data or param size must not exceed 1 MB.
-
-::: tip IMPORTANT
-The input of this step are the components of the `"data"` field of the implementation.
-:::
-
-You have the option to hand over the input as a single JSON object or load an existing input object from the [Data Pools](src/docs/community-platform.md#data-pools).
-
-#### 3. Job Parameters
-
-Similar to the section above, the job parameters refer to the corresponding `"params"` field of a service.
-You have the option to include them via key-value pairs or directly as a JSON object, similar to the input data.
-
-#### 4. Advanced Settings
-
-Right now, there's not much for this point except for the option to save the results of your job in a data pool to e.g. share them with other users.
-
-### Job Results
-
-Now, after you clicked on "Run" you will be direct to the page dedicated to the result and details of your job.
-Directly after starting it, you will probably just see "Input Data" and "Job Parameters" fields containing the information you just provided the step prior.  
-After the job has (hopefully successfully) finished, the status icon switches to one of two things: It being a green checkmark says - Hooray!
-Your job has been executed without any errors, and you see your result either directly on that page or, if you chose that option, in a specifically created data pool.  
-On the other hand, if the status switches to a red cross, something went wrong.
-For that reason we included the **Logs** of the job in the top right corner for your convenience.
-The information you find there hopefully helps in identifying if something in the provided data was missing or whether the service itself is malfunctioning.

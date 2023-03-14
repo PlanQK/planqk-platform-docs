@@ -66,4 +66,4 @@ As a service provider, you can offer your PlanQK services on the PlanQK Marketpl
 * For [External Services](../service-platform/external-services.md), you can define a custom pricing plan of your choice, comprising custom products that are metered by yourself and billed through the PlanQK Platform.
 
 Therefore, for non-free PlanQK Services, you will earn a revenue that will be transferred to your connected Stripe account on a monthly basis.
-For this transaction, the PlanQK Platform charges a transaction fee of 15 percent of the revenue.
+For this transaction, the PlanQK Platform charges a transaction fee of **15 percent (15%) of the transferred revenue**.
