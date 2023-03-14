@@ -67,6 +67,7 @@ module.exports = {
             '',
             'community-platform',
             'service-platform',
+            'quantum-access',
             'marketplace',
             'additional-information'
           ]
