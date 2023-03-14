@@ -78,6 +78,7 @@ module.exports = {
             'service-platform/external-services',
             'service-platform/applications',
             'service-platform/using-a-service',
+            'service-platform/pricing',
           ]
         },
         {
@@ -96,7 +97,6 @@ module.exports = {
           children: [
             'tutorial-dwave',
             'tutorial-qiskit',
-            'metering-external-services',
           ]
         },
         {
