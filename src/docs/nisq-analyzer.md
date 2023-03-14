@@ -39,7 +39,7 @@ circuits that do not require input parameters, can be executed. The Shor impleme
 
 #### 2. Run QC Atlas UI, the NISQ Analyzer, and all additionally required components
 
-Open a console, navigate to the [`Docker`](https://github.com/UST-QuAntiL/nisq-analyzer-content/tree/paper/pre-selection/pre-selection/Docker) folder of the nisq-analyzer-conent repository, and run the following commands:
+Open a console, navigate to the [`Docker`](https://github.com/UST-QuAntiL/nisq-analyzer-content/tree/paper/pre-selection/pre-selection/Docker) folder of the nisq-analyzer-content repository, and run the following commands:
 
 1. `docker-compose pull`
 2. `docker-compose build db`
