@@ -7,5 +7,5 @@ Besides services, there will also be other types of offerings in the future, suc
 
 ## Use Cases
 
-As the name suggestes, this category includes an in-depth insight into industrial use cases and how they can harness the power of quantum algorithms.
+As the name suggests, this category includes an in-depth insight into industrial use cases and how they can harness the power of quantum algorithms.
 Besides a general description you should also find a list of algorithms related to the approach used in the use case, as well as possible industries where it (or something similar to it) could be applied.
