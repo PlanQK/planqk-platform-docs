@@ -1,6 +1,6 @@
 # Pricing
 
-The usage costs for the PlanQK Platform consist of resource costs and transaction fees.
+The usage costs for the PlanQK Platform consist of resource costs and marketplace fees.
 
 ## Resource Costs
 
@@ -54,14 +54,14 @@ where:
 Multi-controlled two-qubit gates are billed as `6 * (N-2)` two-qubit gates, where `N` is the number of qubits involved in the gate.
 For example, a NOT gate with three controls would be billed as `(6 * (4-2))` or 12 two-qubit gates.
 
-## Transaction Fees
+## Marketplace Fees
 
 The PlanQK Marketplace is a marketplace for quantum services that allows users to discover, evaluate, and use quantum services.
-As a service provider, you can offer your PlanQK services on the PlanQK Marketplace to other users:
+As a service provider, you can offer and commercialize your PlanQK services on the PlanQK Marketplace to other users:
 
 * You can offer your PlanQK Service for free, hence, you bear all the resource costs from above by yourself.
 * For [Managed Services](../service-platform/managed-services.md), you can define a markup in percent that will be added to the resource costs for each service execution by respective service consumers.
 * For [External Services](../service-platform/external-services.md), you can define a custom pricing plan of your choice, comprising custom products that are metered by yourself and billed through the PlanQK Platform.
 
-Therefore, for non-free PlanQK Services, you will earn a revenue that will be transferred to your connected Stripe account on a monthly basis.
-For this transaction, the PlanQK Platform charges a transaction fee of **20 percent (%) of the transferred revenue**.
+Therefore, for non-free PlanQK Services, you will earn a revenue that will be transferred to your revenue account on a monthly basis.
+The PlanQK Platform charges a marketplace fee of **20 percent (%)** of the transferred revenue.
