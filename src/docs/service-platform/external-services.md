@@ -31,6 +31,9 @@ You can create a pricing plan for your service by following these steps:
 4. On the services details page you will see your pricing plan with its products.
 
 ## Metering API
+In order to charge your customers for using your service, you need to report the usage to our metering API.
+The PlanQK platform aggregates all reported usage events and charge your customers at the end of each month.
+
 ::: tip Authentication
 The metering API uses access tokens to authenticate requests.
 You can view and manage your personal access tokens in your [settings](https://platform.planqk.de/settings/access-tokens).
@@ -42,9 +45,9 @@ The body of the request must contain the following information:
 
 ```json
 {
-  "itemId": "YOUR_PRODUCT_ID",
-  "count": "ITEM_COUNT",
-  "correlationId": "YOUR_CORRELATING_ID"
+  "itemId": string
+  "count": integer
+  "correlationId": string
 }
 ```
 
@@ -52,7 +55,7 @@ The body of the request must contain the following information:
   You can find the id of your product in the pricing plan table on the service details page.
 - The `count` is the quantity of units you want to report.
 - The `correlationId` is needed to correlate your reported usage to the corresponding user of your service.
-  You can obtain the correlation id from the `x-correlation-id` header of the request that was forwarded by the PlanQK platform to your service.
+  You can obtain the correlation id from the `x-correlation-id` header of the request that was forwarded by our API Gateway to your service.
 
 The Python code below shows a simple example for metering API calls.
 Here for each request to the service, a usage of the API product with count 1 is reported to the metering API.
