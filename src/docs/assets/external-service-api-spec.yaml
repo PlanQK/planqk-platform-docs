@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
   version: "1.0"
-  title: Title of your External Service
+  title: Title of your External Service API
   description: |
-    Detailed description of our External Service.
+    Detailed description of your External Service API.
 paths:
   /job:
     post:
