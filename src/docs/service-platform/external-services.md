@@ -1,21 +1,20 @@
 # External Services
-External services allow you to integrate your self-hosted quantum services into the PlanQK platform.
+External services allow you to integrate, market, and monetize your self-hosted quantum services via the PlanQK platform.
 
 ## Create an External Service
-To create an external service, follow these steps:
-  1. Go to the [create service page](https://platform.planqk.de/services/new).
-  2. Enter a name for your service.
-  3. Under `Service Type` select `External Service`.
-  4. Enter the URL of your service.
-  5. Optionally, you can define a [security configuration](external-services.md#add-a-security-configuration) for your service. 
-  6. Under `Quantum Backend` select the quantum backend your service is using. Customers can use this information to find your service on the [marketplace](../marketplace.md).
-  7. Optionally, you can add a description and API specification for your service. You can also provide this information later.
-  8. Finally, click on `Create Service`.
+To create an external service, go to the [create service page](https://platform.planqk.de/services/new) and provide the following information:
 
-## Add a Security Configuration
-The security configuration defines how the PlanQK platform authenticates requests to your service. 
-At the moment, Basic Authentication using username and password is supported.
-Under Security Configuration, select `Basic Authentication` and enter username and password.
+| Property | Description                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|--|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name | Choose a meaningful name for your service. If you publish your service later on, this name will be displayed to other users.                                                                                                                                                                                                                                                                                                           |
+| Service Type | Select "External Service".                                                                                                                                                                                                                                                                                                                                                                                                             |
+| URL | Enter the URL of your service.                                                                                                                                                                                                                                                                                                                                                           |    
+| Security Configuration | Define how the PlanQK platform authenticates requests to your service. At the moment, Basic Authentication using username and password is supported. |
+| Quantum Backend | Select one of the supported quantum backends your quantum code is using. Customers can use this information to find your service in the marketplace. |
+| API Specification | Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. You can leave this empty to use the default OpenAPI specification supplied with this template.                                                                                                                                                                                    |
+| Description | Other users will see this description of the service, if its name sparked some interest, and they clicked on it in the marketplace. So any additional information you want to provide goes in here.
+
+Finally, click on "Create Service" to create your service.
 
 ## Create a Pricing Plan
 A pricing plan for an external service consists of the products that you, as a service provider, want to charge your customers for.
@@ -53,7 +52,7 @@ The body of the request must contain the following information:
   You can find the id of your product in the pricing plan table on the service details page.
 - The `count` is the quantity of units you want to report.
 - The `correlationId` is needed to correlate your reported usage to the corresponding user of your service.
-  You can obtain the correlation id from the `x-correlation-id` header of the request that was forwarded by our gateway to your API.
+  You can obtain the correlation id from the `x-correlation-id` header of the request that was forwarded by the PlanQK platform to your service.
 
 The Python code below shows a simple example for metering API calls.
 Here for each request to the service, a usage of the API product with count 1 is reported to the metering API.
