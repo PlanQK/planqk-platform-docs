@@ -7,7 +7,7 @@ To create an external service, follow these steps:
   2. Enter a name for your service.
   3. Under `Service Type` select `External Service`.
   4. Enter the URL of your service.
-  5. Optionally, you can define an [security configuration](external-services.md#add-a-security-configuration) for your service. 
+  5. Optionally, you can define a [security configuration](external-services.md#add-a-security-configuration) for your service. 
   6. Under `Quantum Backend` select the quantum backend your service is using. Customers can use this information to find your service on the [marketplace](../marketplace.md).
   7. Optionally, you can add a description and API specification for your service. You can also provide this information later.
   8. Finally, click on `Create Service`.
@@ -23,11 +23,15 @@ For example, if you want to charge for API calls, CPU time, and memory time, cre
 You can create a pricing plan for your service by following these steps:
 
 1. On the details page of your service, click on `Create Pricing Plan`.
-2. On the create pricing plan page, add your products to the pricing plan. For each product provide its name, unit price, and unit.
+2. On the create pricing plan page, add your products to the pricing plan. For each product provide the following information:
+   -  **Name**: The name of the product.
+   -  **Unit Price**: The price per unit of the product.
+   -  **Unit**: The unit describes how the product is sold and appears as a label on customer's invoices. 
+   For example, if your product is CPU time and is billed per second, the unit would be "second".
 3. Click on `Create Plan`.
 4. On the services details page you will see your pricing plan with its products.
 
-## Report Service Usage
+## Metering API
 ::: tip Authentication
 The metering API uses access tokens to authenticate requests.
 You can view and manage your personal access tokens in your [settings](https://platform.planqk.de/settings/access-tokens).
