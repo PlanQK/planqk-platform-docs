@@ -71,21 +71,21 @@ For authentication, provide your access token in the `X-Auth-Token` header field
 
 This endpoint is used to report the usage of your external service.
 The request body must contain a `correlationId`, which is forwarded by the PlanQK API Gateway upon service execution.
-The PlanQK Platform then logs a usage event for the corresponding product item (`itemId`) and the submitted count.
+The PlanQK Platform then logs a usage event for the corresponding product item (`productId`) and the submitted count.
 
 **Request Body:**
 
 ```json
 {
   "correlationId": "string",
-  "itemId": "string",
+  "productId": "string",
   "count": 0
 }
 ```
 
 - The `correlationId` is needed to correlate your reported usage to the corresponding user of your service.
   You can obtain the correlation id from the `x-correlation-id` header of the request that was forwarded by our API Gateway to your service.
-- The `itemId` is the id of the product you want to report.
+- The `productId` is the id of the product you want to report.
   You can find the id of your product in the pricing plan table on the service details page.
 - The `count` is the quantity of units you want to report.
 
@@ -98,7 +98,7 @@ curl -X 'POST' 'https://platform.planqk.de/qc-catalog/external-services/metering
   -H 'X-Auth-Token: <your access token>' \
   -d '{
     "correlationId": "bXlleHRlcm5hbHNlcnZpY2VuYW1lOnRoZWFwcGxpY2F0aW9ubmFtZXRoYXRpc3N1YnNjcmliZWQ=",
-    "itemId": "prod_YX8skS2X",
+    "productId": "prod_YX8skS2X",
     "count": 10
 }'
 ```
@@ -142,7 +142,7 @@ def run(request: Request):
 def reportApiUsage(correlation_id: Union[str, None]):
     payload = {
         "correlationId": correlation_id,
-        "itemId": os.getenv("API_PRODUCT_ID", None),
+        "productId": os.getenv("API_PRODUCT_ID", None),
         "count": 1
     }
     r = requests.post(METERING_API_URL, json=payload, headers={"X-Auth-Token": ACCESS_TOKEN})
