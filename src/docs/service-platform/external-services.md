@@ -56,7 +56,7 @@ Now, other PlanQK users can discover and subscribe to your service.
 
 If you decided to offer your service with a commercial pricing plan, read on and learn how to charge your customers for using your service.
 
-## Metering API
+## Meter Service Usage
 
 To charge your customers for using your service, you need to report the usage to our Metering API.
 The PlanQK Platform aggregates all reported usage events and charges your customers at the end of each month.
@@ -102,6 +102,15 @@ curl -X 'POST' 'https://platform.planqk.de/qc-catalog/external-services/metering
     "count": 10
 }'
 ```
+
+### Test your metering logic
+To verify that your service is correctly reporting usage to the Metering API, you can use the Metering Test Mode.
+
+You can use the test mode by following these steps:
+1. On the service details page, click on `Publish Internal`. This will make your service accessible only to you.
+2. Subscribe to the service using one of your Applications.
+3. Execute the service.
+4. On the service details page, click on `Metering Events`. This will show you the usage events that were reported to the Metering API.
 
 ## External Service Example
 
