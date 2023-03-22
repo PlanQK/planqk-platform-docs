@@ -30,7 +30,7 @@ Just join our [Slack Workspace](https://join.slack.com/t/planqk-platform/shared_
 
 ## Found a Bug?
 
-If you find n bug in our system, you can help us by [submitting an issue](https://github.com/PlanQK/platform/issues) to our public [GitHub Repository](https://github.com/PlanQK/platform).
+If you find a bug in our system, you can help us by [submitting an issue](https://github.com/PlanQK/platform/issues) to our public [GitHub Repository](https://github.com/PlanQK/platform).
 Please check whether there is already an open issue. If not, just click the "New issue" button and select "Bug report".
 
 ## Missing a Feature?
