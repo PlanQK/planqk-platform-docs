@@ -98,6 +98,7 @@ module.exports = {
           children: [
             'tutorial-dwave',
             'tutorial-qiskit',
+            'tutorial-meter-external-service',
           ]
         },
         {

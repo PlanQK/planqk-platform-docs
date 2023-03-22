@@ -1,71 +1,59 @@
-# Meter External Service
+# Meter an External Service
 
 In this tutorial you will learn how to create an external service with a pay-per-use pricing plan
 and report the usage of your service to our metering API.
 Further reading on external services can be found in our [External Services documentation](../docs/service-platform/external-services.md).
 
+## The Example Service
 
-For this tutorial you need an infrastructure to host the example service. 
-An easy and free solution is [render](https://render.com/) but you can also use any other hosting provider of your choice.
+As our example we use a simple FastAPI service that reports for each request an API call to the metering API.
+You can find the complete code of the service in [this GitHub repo](https://github.com/PlanQK/planqk-platform-samples/tree/master/python/external-service-sample).
+An excerpt of the service with the metering code is shown below:
 
+```python
+def meter_api_usage(request: Union[Request, None]):
+    correlation_id = request.headers.get("x-correlation-id")
+    PLANQK_METERING_API = "https://platform.planqk.de/qc-catalog/external-services/metering"
+    ACCESS_TOKEN = os.getenv("ACCESS_TOKEN", None)
+    PRODUCT_ID = os.getenv("PRODUCT_ID", None)
 
-## 1. Host Example Service
-
-As our external service we use a simple Python service as shown below.
-The services has a single POST endpoint that returns a random number.
-For each request to the service, an API call is reported to the metering API.
-To do so, a POST request is sent to https://platform.planqk.de/qc-catalog/external-services/metering with the following request body:
-
-```json
-{
-  "correlationId": correlation_id,
-  "productId": API_PRODUCT_ID,
-  "count": 1
-}
+    payload = {
+        "correlationId": correlation_id,
+        "productId": PRODUCT_ID,
+        "count": 1
+    }
+    r = requests.post(METERING_API_URL, json=payload, headers={"X-Auth-Token": ACCESS_TOKEN})
 ```
 
+The `reportApiUsage` method sends a POST request to https://platform.planqk.de/qc-catalog/external-services/metering with the following request body:
 - The `correlationId` is needed to correlate your reported usage to the corresponding user of your service.
   The correlation id is obtained from the `x-correlation-id` header of the request that was forwarded by the PlanQK API Gateway to your service.
 - The `productId` holds the id of the API product you want to report. We will learn how to obtain the id in the next step.
 - The `count` is the quantity of units you want to report in this case we report 1 API call.
 
 For authentication, an access token is provided in the `X-Auth-Token` header field.
-In the following steps, you will learn how to obtain the API product ID and access token.
 
-```python
-from typing import Union
-import os
-import requests
+The API product id and the access token are provided as environment variables to the service.
+In the following steps, you will learn how to obtain both the API product ID and access token.
 
-from fastapi import FastAPI, Request
+## Host the example service
+First you need to deploy the service on an infrastructure of your choice.
+An easy and free solution is [Render](https://render.com/).
 
-app = FastAPI()
+You can deploy this example to render with just a couple of clicks:
 
+- Go to [Render](https://render.com/deploy)
+- Create new "Web Service" from "Public Git repository"
+    - Use `https://github.com/PlanQK/planqk-platform-samples` as public repository URL
+    - Choose a region close to you
+    - Use `master` as branch
+    - Use `python/external-service-sample` as root directory
+    - Use `Docker` as runtime
+    - Choose an instance type, i.e., the "Free" plan is just fine
+    - Click "Create Web Service"
+    - And your done your service should be up and running in a few minutes  🎉
 
-@app.post("/")
-def run(request: Request):
-    correlation_id = request.headers.get("x-correlation-id")
-    reportApiUsage(correlation_id)
-    # Here do your logic e.g execute your quantum algorithm
-    ...
-    return {"result": some_result}
-
-
-def reportApiUsage(correlation_id: Union[str, None]):
-    METERING_API_URL = "https://platform.planqk.de/qc-catalog/external-services/metering"
-    ACCESS_TOKEN = os.getenv("ACCESS_TOKEN", None)
-    API_PRODUCT_ID = os.getenv("API_PRODUCT_ID", None)
-    _
-
-    payload = {
-        "correlationId": correlation_id,
-        "productId": API_PRODUCT_ID,
-        "count": 1,
-    }
-    r = requests.post(METERING_API_URL, json=payload, headers={"X-Auth-Token": ACCESS_TOKEN})
-```
-
-## 2. Create the external service
+## Create the external service on PlanQK
 
 Once you have successfully deployed the service on the infrastructure of your choice, you can create the external service on the PlanQK Platform.
 To do so, follow these steps:
@@ -77,7 +65,7 @@ To do so, follow these steps:
 7. Add the API specification for your service.
 8. Finally, click on `Create Service`.
 
-## 3. Create a pay-per-use pricing plan for your service
+## Create a pay-per-use pricing plan for your service
 Next, create a pay-per-use pricing plan for your service containing a product for API calls.
 You can create a pricing plan for your service by following these steps:
 
@@ -89,13 +77,29 @@ You can create a pricing plan for your service by following these steps:
 3. Click on `Create Plan`.
 4. On the services details page you will see your pricing plan.
 
-## 4. Create Access Token for your service
+Here you also find the API product ID of your service. Copy the id by clicking on the copy icon next to the id.
+Add the id as environment variable to your service.
 
-## 5. Add environment variables to your service
+## Create an Access Token for your service
+Requests to the metering API must be authenticated with an access token.
+You can create an access token on the [Personal Access Tokens](https://platform.planqk.de/settings/access-tokens) page of your account.
+The access token must have the `API` scope.
+**Important**: Save the token as you will need it in the next step.
 
-## 6. Test your service
+Once you have created the access token, you can add it as environment variable to your service.
 
-
+## Test your service
+Once you have added the API product ID and access token to your service, its time to test if everything works.
+You can test your service using our Metering Test Mode by following these steps:
+1. Publish your service internal by clicking on `Publish Internal` on the service details page.
+2. Create an Application on the [Applications](https://platform.planqk.de/applications) page.
+3. Subscribe to your service by clicking on `Subscribe to Service` on the application details page. 
+You should see your service on the subscription list of the application
+4. Click on the `Try it out` button of your subscription. 
+5. On the `Try it out` page, send a POST request to your service. 
+6. On the details page of your service, click on the `Metering Events` to show the test metering history of your service. 
+There you should see the API call you just sent.
+    
 
 
 
