@@ -1,4 +1,4 @@
-# Meter an External Service
+# Create and Test an External Service
 
 In this tutorial you will learn how to create an external service with a pay-per-use pricing plan
 and report the usage of your service to our metering API.
@@ -36,7 +36,7 @@ For authentication, an access token is provided in the `X-Auth-Token` header fie
 The API product id and the access token are provided as environment variables to the service.
 In the following steps, you will learn how to obtain both the API product ID and access token.
 
-## Host the example service
+## Host the Example Service
 First you need to deploy the service on an infrastructure of your choice.
 An easy and free solution is [Render](https://render.com/).
 
@@ -53,9 +53,9 @@ You can deploy this example to render with just a couple of clicks:
     - Click "Create Web Service"
     - And your done your service should be up and running in a few minutes  🎉
 
-## Create the external service on PlanQK
+## Integrate as an External Service on the PlanQK Platform
 
-Once you have successfully deployed the service on the infrastructure of your choice, you can create the external service on the PlanQK Platform.
+Once you have successfully deployed the example service you can integrate it as an external service on the PlanQK Platform.
 To do so, follow these steps:
 
 1. Go to the [create service page](https://platform.planqk.de/services/new).
@@ -65,7 +65,7 @@ To do so, follow these steps:
 7. Add the [API specification](https://raw.githubusercontent.com/PlanQK/planqk-platform-samples/master/python/external-service-sample/api-spec.yaml) for your service. Use right click 'save as' to download. 
 8. Finally, click on `Create Service`.
 
-## Create a pay-per-use pricing plan for your service
+## Add a Pricing Plan 
 Next, create a pay-per-use pricing plan for your service containing a product for API calls.
 You can create a pricing plan for your service by following these steps:
 
@@ -77,23 +77,22 @@ You can create a pricing plan for your service by following these steps:
 3. Click on `Create Plan`.
 4. On the services details page you will see your pricing plan with the product `API`.
 5. Copy the ID of your API product by clicking on the copy icon.
-6. Add the ID as environment variable to your service.
+6. Add the ID as environment variable with key `PRODUCT_ID` to your service.
 
-## Create an Access Token for your service
+## Create an Access Token
 Requests to the metering API must be authenticated with an access token.
 You can create an access token on the [Personal Access Tokens](https://platform.planqk.de/settings/access-tokens) page of your account.
 The access token must have the `API` scope.
-**Important**: Save the token as you will need it in the next step.
 
-Once you have created the access token, you can add it as environment variable to your service.
+Once you have created the access token, you can add it as environment variable with key `ACCESS_TOKEN`to your service.
 
-## Test your service
+## Test your Service
 Once you have added the API product ID and access token to your service, its time to test if everything works.
 You can test your service using our Metering Test Mode by following these steps:
 1. Publish your service internal by clicking on `Publish Internal` on the service details page.
 2. Create an Application on the [Applications](https://platform.planqk.de/applications) page.
 3. Subscribe to your service by clicking on `Subscribe to Service` on the application details page. 
-You should see your service on the subscription list of the application
+Now, you should see your service on the subscription list of the application
 4. Click on the `Try it out` button of your subscription. 
 5. On the `Try it out` page, send a POST request to your service. 
 6. On the details page of your service, click on the `Metering Events` to show the test metering history of your service. 
