@@ -25,7 +25,7 @@ def meter_api_usage(request: Union[Request, None]):
     r = requests.post(METERING_API_URL, json=payload, headers={"X-Auth-Token": ACCESS_TOKEN})
 ```
 
-The `reportApiUsage` method sends a POST request to https://platform.planqk.de/qc-catalog/external-services/metering with the following request body:
+The `meter_api_usage` method sends a POST request to https://platform.planqk.de/qc-catalog/external-services/metering with the following request body:
 - The `correlationId` is needed to correlate your reported usage to the corresponding user of your service.
   The correlation id is obtained from the `x-correlation-id` header of the request that was forwarded by the PlanQK API Gateway to your service.
 - The `productId` holds the id of the API product you want to report. We will learn how to obtain the id in the next step.
@@ -42,7 +42,7 @@ An easy and free solution is [Render](https://render.com/).
 
 You can deploy this example to render with just a couple of clicks:
 
-- Go to [Render](https://render.com/deploy)
+- Go to [Render](https://dashboard.render.com/select-repo?type=web) 
 - Create new "Web Service" from "Public Git repository"
     - Use `https://github.com/PlanQK/planqk-platform-samples` as public repository URL
     - Choose a region close to you
@@ -62,7 +62,7 @@ To do so, follow these steps:
 2. Enter a name for your service.
 3. Under `Service Type` select `External Service`.
 4. Enter the URL of your service.
-7. Add the API specification for your service.
+7. Add the [API specification](https://raw.githubusercontent.com/PlanQK/planqk-platform-samples/master/python/external-service-sample/api-spec.yaml) for your service. Use right click 'save as' to download. 
 8. Finally, click on `Create Service`.
 
 ## Create a pay-per-use pricing plan for your service
@@ -70,15 +70,14 @@ Next, create a pay-per-use pricing plan for your service containing a product fo
 You can create a pricing plan for your service by following these steps:
 
 1. On the details page of your service, click on `Create Pricing Plan`.
-2. On the create pricing plan page, add a products to the pricing plan and enter the following values:
+2. On the create pricing plan page, add a product to the pricing plan and enter the following values:
     - **Name**: `API` 
     - **Unit Price**: `0.00001`, or any other price you want to charge for an API call
     - **Unit**: `call`
 3. Click on `Create Plan`.
-4. On the services details page you will see your pricing plan.
-
-Here you also find the API product ID of your service. Copy the id by clicking on the copy icon next to the id.
-Add the id as environment variable to your service.
+4. On the services details page you will see your pricing plan with the product `API`.
+5. Copy the ID of your API product by clicking on the copy icon.
+6. Add the ID as environment variable to your service.
 
 ## Create an Access Token for your service
 Requests to the metering API must be authenticated with an access token.
