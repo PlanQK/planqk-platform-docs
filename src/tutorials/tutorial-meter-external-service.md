@@ -25,15 +25,15 @@ def meter_api_usage(request: Union[Request, None]):
     r = requests.post(METERING_API_URL, json=payload, headers={"X-Auth-Token": ACCESS_TOKEN})
 ```
 
-The `meter_api_usage` method sends a POST request to https://platform.planqk.de/qc-catalog/external-services/metering with the following request body:
-- The `correlationId` is needed to correlate your reported usage to the corresponding user of your service.
+The `meter_api_usage` method sends a POST request to the metering API with the following request body:
+- The `correlationId` is needed identify the consumer of your.
   The correlation id is obtained from the `x-correlation-id` header of the request that was forwarded by the PlanQK API Gateway to your service.
 - The `productId` holds the id of the API product you want to report. We will learn how to obtain the id in the next step.
 - The `count` is the quantity of units you want to report in this case we report 1 API call.
 
 For authentication, an access token is provided in the `X-Auth-Token` header field.
 
-The API product id and the access token are provided as environment variables to the service.
+You must provide the API product id and access token as environment variables to your service.
 In the following steps, you will learn how to obtain both the API product ID and access token.
 
 ## Host the Example Service
@@ -55,14 +55,14 @@ You can deploy this example to render with just a couple of clicks:
 
 ## Integrate as an External Service on the PlanQK Platform
 
-Once you have successfully deployed the example service you can integrate it as an external service on the PlanQK Platform.
+Once your service is deployed, you can integrate it as an external service on the PlanQK Platform.
 To do so, follow these steps:
 
 1. Go to the [create service page](https://platform.planqk.de/services/new).
 2. Enter a name for your service.
 3. Under `Service Type` select `External Service`.
 4. Enter the URL of your service.
-7. Add the [API specification](https://raw.githubusercontent.com/PlanQK/planqk-platform-samples/master/python/external-service-sample/api-spec.yaml) for your service. Use right click 'save as' to download. 
+7. Add the [API specification](https://raw.githubusercontent.com/PlanQK/planqk-platform-samples/master/python/external-service-sample/api-spec.yaml) for your service. 
 8. Finally, click on `Create Service`.
 
 ## Add a Pricing Plan 

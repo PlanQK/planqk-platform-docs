@@ -2,6 +2,7 @@
 
 * [D-Wave Service on PlanQK](tutorial-dwave.md)
 * [Execute Qiskit Circuits with the PlanQK Quantum Platform Library](tutorial-qiskit.md)
+* [Create and Test an External Service](tutorial-meter-external-service.md)
 
 # Cookbooks
 
