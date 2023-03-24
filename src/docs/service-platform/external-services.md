@@ -3,6 +3,8 @@
 External services allow you to integrate, commercialize, and monetize your self-hosted quantum services via the PlanQK platform.
 Your service can be hosted and run somewhere (e.g., on your own infrastructure) and the PlanQK Platform manages the access and billing for you.
 
+Related Tutorial: [Create and Test an External Service](../../tutorials/tutorial-meter-external-service.md)
+
 ## Create an External Service
 
 To create an external service, go to the [create service page](https://platform.planqk.de/services/new) and provide the following information:
@@ -111,39 +113,3 @@ You can use the test mode by following these steps:
 2. Subscribe to the service using one of your Applications.
 3. Execute the service.
 4. On the service details page, click on `Metering Events`. This will show you the usage events that were reported to the Metering API.
-
-## External Service Example
-
-The Python code below shows a simple example of an external service that uses the PlanQK Metering API.
-Here for each request to the service, a usage of the API product with count `1` is reported.
-
-```python
-import os
-import requests
-from fastapi import FastAPI, Request
-from typing import Union
-
-METERING_API_URL = "https://platform.planqk.de/qc-catalog/external-services/metering"
-ACCESS_TOKEN = os.getenv("ACCESS_TOKEN", None)
-
-app = FastAPI()
-
-
-@app.post("/")
-def run(request: Request):
-    correlation_id = request.headers.get("x-correlation-id")
-    reportApiUsage(correlation_id)
-
-    # Here do your logic e.g execute your quantum algorithm
-
-    return {"id": "your job id"}
-
-
-def reportApiUsage(correlation_id: Union[str, None]):
-    payload = {
-        "correlationId": correlation_id,
-        "productId": os.getenv("API_PRODUCT_ID", None),
-        "count": 1
-    }
-    r = requests.post(METERING_API_URL, json=payload, headers={"X-Auth-Token": ACCESS_TOKEN})
-```
