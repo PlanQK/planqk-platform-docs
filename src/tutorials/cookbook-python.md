@@ -1,6 +1,6 @@
-# PlanQK Cookbook for Python
+# Automate PlanQK using Python
 
-The PlanQK Cookbook for python contains general instructions and recipes on how to programmatically perform certain tasks within the PlanQK Platform.
+This cookbook for python contains general instructions and recipes on how to programmatically perform certain tasks within the PlanQK Platform.
 The instructions are written as step-by-step guides on which you can follow like a usual tutorial.
 
 ::: tip NOTE
