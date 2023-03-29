@@ -1,6 +1,6 @@
-# Managed Services - Jobs
+# Jobs
 
-The PlanQK Platform provides the functionality to execute services directly via the platform.
+The PlanQK Platform provides the functionality to execute **managed services** directly via the platform.
 We refer to this feature as
 _Jobs_ and they are either based your own services, services in an organization, or subscribed services via the PlanQK marketplace.
 Jobs can be especially useful when experimenting with implementations for quantum hardware and when intending to share results with other users of the platform in the form of a [data pool](src/docs/community-platform.md#data-pools).

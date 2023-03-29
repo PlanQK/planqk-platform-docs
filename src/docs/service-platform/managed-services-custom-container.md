@@ -1,6 +1,6 @@
-# Managed Services using Custom Docker Containers
+# Custom Docker Containers
 
-PlanQK support to run your service based on a custom Docker container.
+PlanQK supports to run your managed services based on a custom Docker container.
 You may consider using "Docker" as your service runtime in the following scenarios:
 
 - You need OS-level packages not included in the Python Template. With Docker, you have complete control over your base operating system and installed packages.
