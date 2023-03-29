@@ -21,7 +21,7 @@ You may use exit codes to indicate success or failure of your code.
 
 #### Input:
 
-The platform runtime uses the input provided via the Service API in the form of { "data": <data>, "params": <params> }.
+The platform runtime uses the input provided via the Service API in the form of `{ "data": <data>, "params": <params> }`.
 The runtime then mounts the input data to `/var/input/data.json` and the parameters to `/var/input/params.json` of the container.
 Both files will contain valid JSON strings.
 
