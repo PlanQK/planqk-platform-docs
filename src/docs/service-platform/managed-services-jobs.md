@@ -11,7 +11,7 @@ When being in the "Jobs" tab you should see a (possibly empty) list of finished 
 If you did not execute any jobs yet, it's time to change that.
 So click on "Create Job" in the top right corner, and the interface guides you through the necessary steps.
 
-## Create Job
+## Create a Job
 
 ### Select a Service
 
