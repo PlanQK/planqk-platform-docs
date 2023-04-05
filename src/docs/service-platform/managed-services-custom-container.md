@@ -37,7 +37,9 @@ The output itself must also be a valid JSON string.
 
 ## Set up a Custom Docker Container Project
 
-> Examples for custom Docker container projects can be found in the [PlanQK Platform Samples](https://github.com/PlanQK/planqk-platform-samples/tree/master/coding-templates/docker).
+::: tip TIP
+Examples for custom Docker container projects can be found in the [PlanQK Platform Samples](https://github.com/PlanQK/planqk-platform-samples/tree/master/coding-templates/docker).
+:::
 
 The starting folder structure of the project could look like this:
 
