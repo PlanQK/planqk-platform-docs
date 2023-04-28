@@ -81,6 +81,7 @@ module.exports = {
             'service-platform/applications',
             'service-platform/using-a-service',
             'service-platform/pricing',
+            'service-platform/quickstart',
           ]
         },
         {
