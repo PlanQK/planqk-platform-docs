@@ -31,6 +31,19 @@ Similarly, running a PlanQK Service with a 256 megabyte memory configuration for
 * Memory per megabyte-second:
   The memory resources reserved for your PlanQK Service. A megabyte-second is defined as the usage of 1 MB of memory for one second.
 
+### GPU Resources
+
+| Resource Name          | Price                                  |
+|------------------------|----------------------------------------|
+| NVIDIA® T4 Tensor Core | € 0.0001945 / second or € 0.70 / hour  |
+
+As an example, running a PlanQK Service with a GPU configuration for 5 minutes would cost € 0.05835.
+
+#### Definitions
+
+* GPU core-second:
+  The GPU resources reserved for your PlanQK Service. A GPU core-second is defined as the usage of one GPU core for one second.
+
 ### Quantum Resources
 
 | Resource Name     | Price            |
