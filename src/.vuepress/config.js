@@ -61,13 +61,13 @@ module.exports = {
     sidebar: {
       '/docs/': [
         {
-          title: 'Documentation',
+          title: 'Getting Started',
           collapsable: false,
           children: [
             '',
-            'community-platform',
-            'marketplace',
-            'additional-information'
+            'getting-started/quickstart',
+            'getting-started/manage-organizations',
+            'getting-started/manage-access-tokens',
           ]
         },
         {
@@ -81,7 +81,24 @@ module.exports = {
             'service-platform/applications',
             'service-platform/using-a-service',
             'service-platform/pricing',
-            // 'service-platform/quickstart',
+            'service-platform/marketplace',
+          ]
+        },
+        {
+          title: 'Community Platform',
+          collapsable: false,
+          children: [
+            'community-platform/overview',
+            'community-platform/algorithms',
+            'community-platform/implementations',
+            'community-platform/data-pools',
+            'community-platform/use-cases',
+            'community-platform/quantum-apps',
+            'community-platform/pattern-atlas',
+            'community-platform/markdown-latex-editor',
+            'community-platform/manage-permissions',
+            'community-platform/publish-content',
+            'community-platform/reviews',
           ]
         },
         {
