@@ -33,11 +33,12 @@ Similarly, running a PlanQK Service with a 256 megabyte memory configuration for
 
 ### GPU Resources
 
-| Resource Name          | Price                                  |
-|------------------------|----------------------------------------|
-| NVIDIA® T4 Tensor Core | € 0.0001945 / second or € 0.70 / hour  |
+| Resource Name | Price (per core)                      |
+|---------------|---------------------------------------|
+| NVIDIA® T4    | € 0.0001945 / second or € 0.70 / hour |
+| NVIDIA® V100  | € 0.0013778 / second or € 4.96 / hour |
 
-As an example, running a PlanQK Service with a GPU configuration for 5 minutes would cost € 0.05835.
+As an example, running a PlanQK Service with one (1) NVIDIA® T4 GPU for 5 minutes would cost € 0.05835.
 
 #### Definitions
 
