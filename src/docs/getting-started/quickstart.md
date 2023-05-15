@@ -18,7 +18,7 @@ For details read the [CLI reference](https://www.npmjs.com/package/@anaqor/planq
 
 ### 3. Login to your account
 - [Create an Access Token](https://platform.planqk.de/settings/access-tokens) and copy the token to your clipboard.
-- Login to your account using a personal access token:
+- Login to your account using your access token:
 
 ```bash
 planqk login -t <your access token>
