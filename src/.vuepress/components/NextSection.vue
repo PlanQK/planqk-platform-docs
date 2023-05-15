@@ -1,6 +1,4 @@
 <template>
-  <div>
-    <h2 style="margin-top: 3rem;">Whats Next?</h2>
     <div class="container">
       <a v-for="item in items" class="card" :href="item.link">
         <span class="material-symbols-outlined" :style="{'color': item.color}">{{item.icon}}</span>
@@ -8,7 +6,6 @@
         <span class="description">{{ item.description }}</span>
       </a>
     </div>
-  </div>
 </template>
 
 <script>
@@ -59,6 +56,7 @@ export default {
   column-gap: 1rem;
   align-items: stretch;
   text-align: left;
+  margin-top: 2rem;
 }
 
 .card {
