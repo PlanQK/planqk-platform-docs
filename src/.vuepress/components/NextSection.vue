@@ -73,6 +73,15 @@ export default {
   text-decoration: none !important;
 }
 
+/* Styles for screens smaller than 600px */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
 .description {
   font-size: 1rem;
   color: #7f8c8d;
