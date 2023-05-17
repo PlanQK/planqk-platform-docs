@@ -1,10 +1,10 @@
 # Quickstart
-A crash course on using the PlanQK Platform to run an entire Quantum ML workflow, from development to deployment :rocket:.
+A crash course on using the PlanQK Platform to run an entire Quantum workflow, from development to deployment :rocket:.
 
 ## Installation
 
 ### 1. Create an account 
-If you don't have one yet, [create an account](https://login.planqk.de/realms/planqk/login-actions/registration?client_id=planqk-login&tab_id=vhbRDbcVAn8) 
+If you don't have one yet, [create an account](https://platform.planqk.de/) 
 
 ### 2. Install the PlanQK CLI
 To install the PlanQK CLI, you must install Node.js and the npm command line interface using either a 
