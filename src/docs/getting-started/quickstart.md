@@ -34,27 +34,49 @@ planqk init my-project
 
 You will be prompted to provide some information about your project configuration.
 For this quickstart, select the following configuration:
- - **Quantum Backend**: `NONE`
+ - **Template**: `Python Starter IonQ` (Premium Account required) | `Python Starter` (Free Account)
  - **vCPU**: `0.5 vCPU`
  - **Memory**: `1GB`
- - **Runtime**: `Pyton Template`
- - **Template**: `Vanilla`
 
-This will create a new directory called `my-project` containing all required files to run your quantum code on the PlanQK platform.
-You find a detailed description of the template in this [GitHub repository](https://github.com/PlanQK/planqk-platform-samples/tree/master/coding-templates/python/vanilla).
+This will create a new directory called `my-project` containing all required files to run your quantum code on the PlanQK Platform.
+You find a detailed description of the template in this [GitHub repository](https://github.com/PlanQK/planqk-platform-samples/tree/master/coding-templates/python/python-starter-ionq).
 It also contains a `planqk.json` file, which contains the project configuration. The file should look like this:
 
 ```json
 {
   "name": "my-project",
   "description": "<your project description>",
-  "quantumBackend": "NONE",
+  "quantumBackend": "IONQ",
   "resources": {
     "cpu": 0.5,
     "memory": 1
   },
   "runtime": "PYTHON_TEMPLATE"
 }
+```
+
+## Test your service locally
+Let's test your service locally before deploying it to the PlanQK Platform.
+First, switch to your project directory:
+
+```bash
+cd my-project
+```
+
+Then, install the required dependencies. We recommend using a dedicated [conda](https://docs.conda.io/en/latest/) environment.
+As an alternative, you can use the requirements.txt to install the dependencies with the tooling of your choice.
+
+With conda run:
+
+```bash
+conda env create -f environment.yml -n my-project
+conda activate my-project
+```
+
+Finally, run your service locally:
+
+```bash
+python -m src
 ```
 
 ## Deploy your service
