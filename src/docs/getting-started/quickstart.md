@@ -34,9 +34,13 @@ planqk init my-project
 
 You will be prompted to provide some information about your project configuration.
 For this quickstart, select the following configuration:
- - **Template**: `Python Starter IonQ` (Premium Account required) | `Python Starter` (Free Account)
+ - **Template**: `Python Starter IonQ` (Premium Account required) | `Starter Qiskit Aer` (Free Account)
  - **vCPU**: `0.5 vCPU`
  - **Memory**: `1GB`
+
+::: tip
+Access to IonQ's quantum computers requires a Premium Account. If you don't have one, you can use our `Starter Qiskit Aer` template.
+:::
 
 This will create a new directory called `my-project` containing all required files to run your quantum code on the PlanQK Platform.
 You find a detailed description of the template in this [GitHub repository](https://github.com/PlanQK/planqk-platform-samples/tree/master/coding-templates/python/python-starter-ionq).
