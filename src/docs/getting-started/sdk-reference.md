@@ -12,5 +12,30 @@ The package is released on PyPI and can be installed via `pip`:
 pip install --upgrade planqk-quantum
 ```
 
+## Quantum Backends
+
+### IonQ Quantum simulator
+GPU-accelerated idealized simulator supporting up to 29 qubits,
+using the same set of gates IonQ provide on its quantum hardware—a great place to preflight jobs before running them on an actual quantum computer.
+
+### IonQ Harmony
+The IonQ Harmony is a trapped ion quantum computer and is dynamically reconfigurable in software to use up to 11 qubits.
+All qubits are fully connected, meaning you can run a two-qubit gate between any pair.
+For details see the [specification](https://ionq.com/quantum-systems/harmony)
+
+### IonQ Aria
+IonQ Aria is IonQ's latest generation of trapped-ion quantum computer. 
+With a 23-qubit dynamically reconfigurable system.
+For details see the [specification](https://ionq.com/quantum-systems/aria)
+
+### :eyes: Coming Soon
+
+We are working on adding more quantum backends to the PlanQK Platform. The following backends are coming soon:
+
+- IBM Quantum
+- Rigetti
+
+Is your favorite backend missing? [Let us know](https://join.slack.com/t/planqk-platform/shared_invite/zt-1b4899wqr-xqOYLSCr8KqYkREi251NxQ&#41)
+
 ## What's next?
 Check out the [Tutorial on how to create a PlanQK Service using the `planqk-quantum` library](../../tutorials/tutorial-qiskit.md).
