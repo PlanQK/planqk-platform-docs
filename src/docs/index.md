@@ -1,5 +1,5 @@
 # Introduction
 
-Welcome to the PlanQK Documentation! :wave:
+:wave: Welcome to the PlanQK Documentation!
 
 Here you find all the resources to get you on your way with the PlanQK Platform. 
