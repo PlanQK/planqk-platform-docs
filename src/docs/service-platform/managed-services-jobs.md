@@ -8,10 +8,6 @@ results with other users of the platform in the form of a [data pool](src/docs/c
 <iframe src="https://www.loom.com/embed/4840327812944f0ebf21cb14c9f2c99b?sid=fa5f0456-4962-426a-a66a-e9972151810a?hide_owner=true&hide_title=true&hideEmbedTopBar=true&hide_share=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
 </iframe></div>
 
-When being in the "Jobs" tab you should see a (possibly empty) list of finished jobs.
-If you did not execute any jobs yet, it's time to change that.
-Click on "Create Job" and the interface guides you through the necessary steps.
-
 ## Create a Job
 A step-by-step guide on how to create a job is provided below.
 
