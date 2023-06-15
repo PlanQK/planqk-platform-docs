@@ -1,11 +1,14 @@
 <template>
-    <div class="container">
-      <a v-for="item in items" class="card" :href="item.link">
-        <span class="material-symbols-outlined" :style="{'color': item.color}">{{item.icon}}</span>
-        <h3 class="title">{{ item.title }}</h3>
-        <span class="description">{{ item.description }}</span>
-      </a>
-    </div>
+  <div class="container">
+    <a v-for="item in items" class="card" :href="item.link">
+     <span v-if="!item.fontawesome"
+           class="material-symbols-outlined" :style="{'color': item.color}">{{ item.icon }}</span>
+      <i v-if="item.fontawesome"
+         :class="item.icon" :style="{'color': item.color}"></i>
+      <h3 class="title">{{ item.title }}</h3>
+      <span class="description">{{ item.description }}</span>
+    </a>
+  </div>
 </template>
 
 <script>
@@ -30,7 +33,8 @@ export default {
         {
           title: 'Custom Docker Images',
           description: 'Run your own Docker images on the platform',
-          icon: 'inventory_2',
+          icon: 'fa-brands fa-docker',
+          fontawesome: true,
           color: 'green',
           link: '/docs/service-platform/managed-services-custom-container.html#runtime-interface'
         },
