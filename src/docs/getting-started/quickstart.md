@@ -48,7 +48,7 @@ For this quickstart, select the following configuration:
 
 ::: tip
 Access to IonQ's quantum computers requires a Premium Account. If you don't have one, you can use
-our `Starter Qiskit Aer` template.
+our `Starter Qiskit` template.
 :::
 
 This will create a new directory called `my-project` containing all required files to run your quantum code on the
