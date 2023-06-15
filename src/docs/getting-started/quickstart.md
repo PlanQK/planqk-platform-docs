@@ -42,7 +42,7 @@ planqk init
 You will be prompted to provide some information about your project configuration.
 For this quickstart, select the following configuration:
 - **Name**: `my-project`
-- **Template**: `Python Starter IonQ` (Premium Account required) | `Starter Qiskit Aer` (Free Account)
+- **Template**: `Python Starter IonQ` (Premium Account required) | `Starter Qiskit` (Free Account)
 - **vCPU**: `0.5 vCPU`
 - **Memory**: `1GB`
 

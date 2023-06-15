@@ -79,3 +79,25 @@ job_monitor(job)
 Executing your Qiskit code on the PlanQK platform may lead to execution costs depending on selected backend and number of shots.
 Please find an overview about the costs for each backend [here](../service-platform/pricing.md).
 :::
+
+## Deploy your circuit as a PlanQK Service
+
+To deploy your circuit to the PlanQK Platform you may adapt the `program.py` file of the `python-starter` template.
+
+::: tip NOTE
+To create a new development project, you may run `planqk init` and select `Starter Qiskit` as coding template.
+Further instructions are available [here](quickstart.md#create-your-first-project).
+:::
+
+The `program.py` file contains a `run` function which is called when the service is executed.
+Copy and paste the code from above into the `run` function and add the following line at the end of the function:
+
+```python
+return ResultResponse(result={"status": "COMPLETED"})
+```
+
+You may want to add some additional information to the `ResultResponse` object, e.g., the actual results of your circuit.
+You are now able to deploy your circuit as a PlanQK Service.
+
+Use `planqk up` to deploy your service to the PlanQK Platform.
+Next, you may use `planqk run` to execute your service.
