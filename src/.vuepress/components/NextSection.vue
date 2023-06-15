@@ -14,11 +14,11 @@ export default {
     return {
       items: [
         {
-          title: 'Invite your Team',
-          description: 'Create an organization to collaborate with your team',
-          icon: 'groups',
+          title: 'Get Started with our SDK',
+          description: 'Learn how to use our SDK to interact with our supported quantum backends',
+          icon: 'code',
           color: 'blue',
-          link: '/docs/getting-started/manage-organizations.html'
+          link: '/docs/getting-started/using-sdk.html'
         },
         {
           title: 'Deep Dive into Jobs',
@@ -30,7 +30,7 @@ export default {
         {
           title: 'Custom Docker Images',
           description: 'Run your own Docker images on the platform',
-          icon: 'code',
+          icon: 'inventory_2',
           color: 'green',
           link: '/docs/service-platform/managed-services-custom-container.html#runtime-interface'
         },

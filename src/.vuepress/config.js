@@ -67,6 +67,7 @@ module.exports = {
           children: [
             '',
             'getting-started/quickstart',
+            'getting-started/using-sdk',
             'getting-started/cli-reference',
             'getting-started/sdk-reference',
             'getting-started/manage-organizations',
