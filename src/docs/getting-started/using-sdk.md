@@ -15,48 +15,51 @@ The package is released on PyPI and can be installed via `pip`:
 pip install planqk-quantum
 ```
 
-::: warning NOTE
-Make sure you are logged in with the PlanQK CLI.
-Check the [quickstart guide](../docs/service-platform/quickstart.md) for further instructions.
-:::
+## Execute your first circuit
 
-## Backend Selection and Execution
-
-In your Qiskit code you can access the PlanQK quantum backends through the `PlanqkQuantumProvider` object.
-You need to import this object and pass your access token to it, as shown in the example below.
+In your Qiskit code you can access the PlanQK quantum backends through the `PlanqkQuantumProvider` class.
+Import the class and instantiate it as shown below:
 
 ```python
 from planqk.qiskit import PlanqkQuantumProvider
-
-# set your PlanQK access token
-planqk_token = "YOUR_ACCESS_TOKEN"
-provider = PlanqkQuantumProvider(access_token=planqk_token)
 ```
 
-::: tip NOTE
-If your Qiskit code is executed in a PlanQK service, the access token is automatically set by the platform.
-In this case the `access_token` parameter can be omitted.
-If it is set it is replaced by the service token.
-:::
+If you are already logged in with the [PlanQK CLI](quickstart.md#3-login-to-your-account) you can create the provider object without any parameters:
 
-After you have created the provider object you can list all backends supported by the PlanQK platform and select the one
+```python
+provider = PlanqkQuantumProvider()
+```
+
+Alternatively, you can also create the provider object by passing your PlanQK access token:
+
+```python
+provider = PlanqkQuantumProvider(access_token="your-access-token")
+```
+
+After you have created the provider object you can list all backends supported by the PlanQK Platform and select the one
 you want to use, e.g., the `ionq.simulator`:
 
 ```python
 # list all available PlanQK quantum backends
 backends = planqk_provider.backends()
 
-# select certain backend
+# select a certain backend
 backend = provider.get_backend(name="ionq.simulator")
 ```
 
-Now you can execute your Qiskit circuit on the selected backend, retrieve its `job` object, monitor its execution
-status, retrieve its results, cancel it etc.
+Now you can execute your Qiskit circuit on the selected backend, retrieve its `job` object, monitor its execution status, retrieve its results, cancel it etc.
+The full example would look like this:
 
 ```python
+from planqk.qiskit import PlanqkQuantumProvider
+
 from qiskit import execute
 from qiskit.circuit import QuantumCircuit
 from qiskit.tools.monitor import job_monitor
+
+# instantiate the PlanQK provider and select a backend
+provider = PlanqkQuantumProvider()
+backend = provider.get_backend(name="ionq.simulator")
 
 # create a qiskit circuit
 circuit = QuantumCircuit(3, 3)
@@ -73,7 +76,6 @@ job_monitor(job)
 ```
 
 ::: tip NOTE
-Executing your Qiskit code on the PlanQK platform may lead to execution costs depending on selected backend and number
-of shots.
-Please find an overview about the costs for each backend [here](../docs/service-platform/pricing.md).
+Executing your Qiskit code on the PlanQK platform may lead to execution costs depending on selected backend and number of shots.
+Please find an overview about the costs for each backend [here](../service-platform/pricing.md).
 :::
