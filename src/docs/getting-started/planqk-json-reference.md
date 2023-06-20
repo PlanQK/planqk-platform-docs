@@ -37,4 +37,4 @@ The following properties are supported:
 | `resources.gpu.type`  | `string` | The type of GPU to allocate for your service. One of `NVIDIA_TESLA_T4` or `NVIDIA_TESLA_V100`.                                                                                      |
 | `resources.gpu.count` | `number` | The number of GPUs to allocate for your service.                                                                                                                                    |
 | `runtime`             | `string` | **Required**. The runtime to use for your service. Choose `PYTHON_TEMPLATE` to run Pyhton quantum services. Choose `DOCKER` to run custom docker images in any programming language |
-| `serviceId`           | `string` | References a deployed service of the deployed service. Gets automatically added on successful deployment.                                                                           |
+| `serviceId`           | `string` | References a deployed service. Gets automatically added on successful deployment.                                                                                                   |
