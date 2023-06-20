@@ -106,10 +106,14 @@ curl -X 'POST' 'https://platform.planqk.de/qc-catalog/external-services/metering
 ```
 
 ### Test your metering logic
+
 To verify that your service is correctly reporting usage to the Metering API, you can use the Metering Test Mode.
 
 You can use the test mode by following these steps:
+
 1. On the service details page, click on `Publish Internal`. This will make your service accessible only to you.
-2. Subscribe to the service using one of your Applications.
+2. Subscribe to the service using one of your [Applications](https://platform.planqk.de/applications).
 3. Execute the service.
-4. On the service details page, click on `Metering Events`. This will show you the usage events that were reported to the Metering API.
+4. Your service logic need to obtain the correlation id from the `x-correlation-id` header of the request that was forwarded by our API Gateway to your service.
+5. Meter the usage of your service by calling the Metering API with the correlation id you obtained in the previous step.
+6. On the service details page, click on `Metering Events`. This will show you the metering events that were reported to our Metering API.
