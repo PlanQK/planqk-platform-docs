@@ -15,7 +15,7 @@ You may also get information about a specific command:
 planqk <command> --help
 ```
 
-## Usage
+# Usage
 
 <!-- usage -->
 
@@ -33,7 +33,7 @@ USAGE
 
 <!-- usagestop -->
 
-## Commands
+# Commands
 
 <!-- commands -->
 
