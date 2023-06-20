@@ -15,6 +15,8 @@ You may also get information about a specific command:
 planqk <command> --help
 ```
 
+<!-- insert usage and commands here -->
+
 # Usage
 
 <!-- usage -->
@@ -24,7 +26,7 @@ $ npm install -g @anaqor/planqk
 $ planqk COMMAND
 running command...
 $ planqk (--version)
-@anaqor/planqk/1.7.1 darwin-arm64 node-v18.15.0
+@anaqor/planqk/1.7.4 darwin-arm64 node-v18.15.0
 $ planqk --help [COMMAND]
 USAGE
   $ planqk COMMAND
@@ -40,11 +42,12 @@ USAGE
 * [`planqk autocomplete [SHELL]`](#planqk-autocomplete-shell)
 * [`planqk get-context`](#planqk-get-context)
 * [`planqk init`](#planqk-init)
+* [`planqk list-contexts`](#planqk-list-contexts)
 * [`planqk login`](#planqk-login)
 * [`planqk logout`](#planqk-logout)
 * [`planqk run [SERVICEID]`](#planqk-run-serviceid)
 * [`planqk services`](#planqk-services)
-* [`planqk set-context`](#planqk-set-context)
+* [`planqk set-context [CONTEXTID]`](#planqk-set-context-contextid)
 * [`planqk up`](#planqk-up)
 
 ## `planqk autocomplete [SHELL]`
@@ -79,14 +82,14 @@ code: [@oclif/plugin-autocomplete](https://github.com/oclif/plugin-autocomplete/
 
 ## `planqk get-context`
 
-Get the current context, i.e. the personal or organization account you are currently working with.
+Get the current context, i.e., the personal or organization account you are currently working with.
 
 ```
 USAGE
   $ planqk get-context
 
 DESCRIPTION
-  Get the current context, i.e. the personal or organization account you are currently working with.
+  Get the current context, i.e., the personal or organization account you are currently working with.
 
 EXAMPLES
   $ planqk get-context
@@ -110,6 +113,23 @@ EXAMPLES
 ```
 
 _See code: [dist/commands/init/index.ts](https://github.com/PlanQK/planqk-cli/tree/main/src/commands)_
+
+## `planqk list-contexts`
+
+Retrieves the available contexts, i.e., the personal or organizational accounts you are currently working with.
+
+```
+USAGE
+  $ planqk list-contexts
+
+DESCRIPTION
+  Retrieves the available contexts, i.e., the personal or organizational accounts you are currently working with.
+
+EXAMPLES
+  $ planqk list-contexts
+```
+
+_See code: [dist/commands/list-contexts/index.ts](https://github.com/PlanQK/planqk-cli/tree/main/src/commands)_
 
 ## `planqk login`
 
@@ -200,19 +220,21 @@ EXAMPLES
 
 _See code: [dist/commands/services/index.ts](https://github.com/PlanQK/planqk-cli/tree/main/src/commands)_
 
-## `planqk set-context`
+## `planqk set-context [CONTEXTID]`
 
-Set the current context, i.e. the personal or organization account you are currently working with.
+Set the current context, i.e., the personal or organization account you are currently working with.
 
 ```
 USAGE
-  $ planqk set-context
+  $ planqk set-context [CONTEXTID]
 
 DESCRIPTION
-  Set the current context, i.e. the personal or organization account you are currently working with.
+  Set the current context, i.e., the personal or organization account you are currently working with.
 
 EXAMPLES
   $ planqk set-context
+
+  $ planqk set-context <context-id>
 ```
 
 _See code: [dist/commands/set-context/index.ts](https://github.com/PlanQK/planqk-cli/tree/main/src/commands)_
