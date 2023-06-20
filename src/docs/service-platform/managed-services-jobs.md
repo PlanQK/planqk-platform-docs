@@ -4,10 +4,6 @@ Jobs provide an easy way to execute your services directly via the platform.
 Jobs can be especially useful when experimenting with implementations for quantum hardware and when intending to share
 results with other users of the platform in the form of a [data pool](src/docs/community-platform.md#data-pools).
 
-<div style="position: relative; border-radius: 10px; padding-bottom: 58.727569331158236%; height: 0;">
-<iframe src="https://www.loom.com/embed/4840327812944f0ebf21cb14c9f2c99b?sid=fa5f0456-4962-426a-a66a-e9972151810a?hide_owner=true&hide_title=true&hideEmbedTopBar=true&hide_share=true" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-</iframe></div>
-
 ## Create a Job
 A step-by-step guide on how to create a job is provided below.
 
