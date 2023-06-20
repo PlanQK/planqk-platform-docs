@@ -35,6 +35,32 @@ Specifically, the output must be printed to standard output (stdout) and prefixe
 Only the first stdout output using this marker will be used as the result output of the service.
 The output itself must also be a valid JSON string.
 
+An example of a valid result output could look like this (note that the output is a single line):
+
+```
+PlanQK:Job:Result: {"sum":42}
+```
+
+PlanQK also supports multi-line result outputs.
+In this case, the output must be printed to stdout and wrapped with `PlanQK:Job:MultilineResult`.
+For example:
+
+```
+PlanQK:Job:MultilineResult
+{
+  "sum": 50
+}
+PlanQK:Job:MultilineResult
+```
+
+Further, PlanQK also supports interim results, i.e., results that are not the final result of the service but which you want to make available to the user while the service is still running.
+In this case, the output must be printed to stdout and prefixed with `PlanQK:Job:InterimResult`.
+For example:
+
+```
+PlanQK:Job:InterimResult: {"sum":25.2}
+```
+
 ## Set up a Custom Docker Container Project
 
 ::: tip TIP
@@ -52,6 +78,11 @@ The starting folder structure of the project could look like this:
 └── src
     └── ...
 ```
+
+::: tip TIP
+You may use the [PlanQK CLI](https://docs.platform.planqk.de/docs/getting-started/quickstart.html#installation) to create a new custom Docker container project.
+Just select a suitable starter project when running `planqk init`.
+:::
 
 It is important that there is a file called `Dockerfile` in the root directory of the project.
 The `Dockerfile` is the file that defines the Docker image that will be built.
