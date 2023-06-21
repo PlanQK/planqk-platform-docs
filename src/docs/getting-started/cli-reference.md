@@ -37,7 +37,7 @@ $ npm install -g @anaqor/planqk
 $ planqk COMMAND
 running command...
 $ planqk (--version)
-@anaqor/planqk/1.7.4 darwin-arm64 node-v18.15.0
+@anaqor/planqk/1.8.0 darwin-arm64 node-v18.15.0
 $ planqk --help [COMMAND]
 USAGE
   $ planqk COMMAND
@@ -127,14 +127,14 @@ _See code: [dist/commands/init/index.ts](https://github.com/PlanQK/planqk-cli/tr
 
 ## `planqk list-contexts`
 
-Retrieves the available contexts, i.e., the personal or organizational accounts you are currently working with.
+Retrieves the available contexts, i.e., the personal or organizational accounts available to you to work with.
 
 ```
 USAGE
   $ planqk list-contexts
 
 DESCRIPTION
-  Retrieves the available contexts, i.e., the personal or organizational accounts you are currently working with.
+  Retrieves the available contexts, i.e., the personal or organizational accounts available to you to work with.
 
 EXAMPLES
   $ planqk list-contexts
@@ -148,11 +148,10 @@ Login with your PlanQK Platform credentials
 
 ```
 USAGE
-  $ planqk login [--help] [-t <value>]
+  $ planqk login [-t <value>]
 
 FLAGS
   -t, --token=<value>  Your personal access token
-  --help               Show CLI help.
 
 DESCRIPTION
   Login with your PlanQK Platform credentials
@@ -169,10 +168,7 @@ Logout of the PlanQK Platform
 
 ```
 USAGE
-  $ planqk logout [--help]
-
-FLAGS
-  --help  Show CLI help.
+  $ planqk logout
 
 DESCRIPTION
   Logout of the PlanQK Platform
@@ -216,14 +212,14 @@ _See code: [dist/commands/run/index.ts](https://github.com/PlanQK/planqk-cli/tre
 
 ## `planqk services`
 
-List all available services
+List all available services of the current selected context.
 
 ```
 USAGE
   $ planqk services
 
 DESCRIPTION
-  List all available services
+  List all available services of the current selected context.
 
 EXAMPLES
   $ planqk services
@@ -256,7 +252,10 @@ Creates or updates a PlanQK Service
 
 ```
 USAGE
-  $ planqk up
+  $ planqk up [--silent]
+
+FLAGS
+  --silent  Suppresses all outputs, helpful when executed in a CI/CD pipeline.
 
 DESCRIPTION
   Creates or updates a PlanQK Service
@@ -266,4 +265,5 @@ EXAMPLES
 ```
 
 _See code: [dist/commands/up/index.ts](https://github.com/PlanQK/planqk-cli/tree/main/src/commands)_
+
 <!-- commandsstop -->
