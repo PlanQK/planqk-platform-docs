@@ -5,3 +5,7 @@
 ```bash
 yarn && yarn dev
 ```
+
+## License
+
+Apache-2.0 | Copyright 2022-2023 Anaqor AG
