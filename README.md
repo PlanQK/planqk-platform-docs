@@ -1,5 +1,7 @@
 # PlanQK Platform Documentation
 
+Documentation for the PlanQK Platform available at [https://docs.platform.planqk.de](https://docs.platform.planqk.de).
+
 ## Build and run the project
 
 ```bash
