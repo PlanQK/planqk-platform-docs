@@ -19,7 +19,7 @@ Then install the PlanQK CLI globally using npm:
 npm install -g @anaqor/planqk
 ```
 
-For details read the [CLI reference](https://www.npmjs.com/package/@anaqor/planqk)
+For details read the [CLI reference](./cli-reference.md)
 
 ### 3. Login to your account
 
