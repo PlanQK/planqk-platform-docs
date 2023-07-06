@@ -49,7 +49,7 @@ After you have created the provider object you can list all backends supported b
 backends = planqk_provider.backends()
 
 # select certain backend
-backend = provider.get_backend(name="ionq.simulator")
+backend = provider.get_backend(name="azure.ionq.sim")
 ```
 
 Now you can execute your Qiskit circuit on the selected backend, retrieve its `job` object, monitor its execution status, retrieve its results, cancel it etc.
