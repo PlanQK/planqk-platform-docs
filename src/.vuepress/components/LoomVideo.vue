@@ -1,5 +1,11 @@
-<script>
+<template>
+  <div class="video-container">
+    <iframe :src="url + '?hide_owner=true&hide_title=true&hideEmbedTopBar=true&hide_share=true'"
+            frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen/>
+  </div>
+</template>
 
+<script>
 export default {
   props: {
     url: {
@@ -10,16 +16,7 @@ export default {
 }
 </script>
 
-<template>
-  <div class="video-container">
-    <iframe
-        :src="url + '?hide_owner=true&hide_title=true&hideEmbedTopBar=true&hide_share=true'"
-        frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen/>
-  </div>
-</template>
-
 <style scoped>
-
 .video-container {
   position: relative;
   border-radius: 10px;
@@ -36,5 +33,4 @@ export default {
   width: 100%;
   height: 100%;
 }
-
 </style>
