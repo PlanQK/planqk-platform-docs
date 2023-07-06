@@ -42,7 +42,7 @@ In this case the `access_token` parameter can be omitted.
 If it is set it is replaced by the service token.
 :::
 
-After you have created the provider object you can list all backends supported by the PlanQK platform and select the one you want to use, e.g., the `ionq.simulator`:
+After you have created the provider object you can list all backends supported by the PlanQK platform and select the one you want to use, e.g., the `azure.ionq.sim` backend:
 
 ```python
 # list all available PlanQK quantum backends

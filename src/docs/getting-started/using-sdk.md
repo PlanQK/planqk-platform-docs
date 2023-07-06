@@ -37,7 +37,7 @@ provider = PlanqkQuantumProvider(access_token="your-access-token")
 ```
 
 After you have created the provider object you can list all backends supported by the PlanQK Platform and select the one
-you want to use, e.g., the `ionq.simulator`:
+you want to use, e.g., the `azure.ionq.sim` backend:
 
 ```python
 # list all available PlanQK quantum backends
