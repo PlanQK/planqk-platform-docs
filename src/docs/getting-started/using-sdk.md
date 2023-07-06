@@ -37,14 +37,14 @@ provider = PlanqkQuantumProvider(access_token="your-access-token")
 ```
 
 After you have created the provider object you can list all backends supported by the PlanQK Platform and select the one
-you want to use, e.g., the `azure.ionq.sim` backend:
+you want to use, e.g., the `azure.ionq.simulator` backend:
 
 ```python
 # list all available PlanQK quantum backends
 backends = planqk_provider.backends()
 
 # select a certain backend
-backend = provider.get_backend(name="azure.ionq.sim")
+backend = provider.get_backend(name="azure.ionq.simulator")
 ```
 
 Now you can execute your Qiskit circuit on the selected backend, retrieve its `job` object, monitor its execution status, retrieve its results, cancel it etc.
@@ -59,7 +59,7 @@ from qiskit.tools.monitor import job_monitor
 
 # instantiate the PlanQK provider and select a backend
 provider = PlanqkQuantumProvider()
-backend = provider.get_backend(name="azure.ionq.sim")
+backend = provider.get_backend(name="azure.ionq.simulator")
 
 # create a qiskit circuit
 circuit = QuantumCircuit(3, 3)

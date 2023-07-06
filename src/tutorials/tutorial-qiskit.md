@@ -42,14 +42,14 @@ In this case the `access_token` parameter can be omitted.
 If it is set it is replaced by the service token.
 :::
 
-After you have created the provider object you can list all backends supported by the PlanQK platform and select the one you want to use, e.g., the `azure.ionq.sim` backend:
+After you have created the provider object you can list all backends supported by the PlanQK platform and select the one you want to use, e.g., the `azure.ionq.simulator` backend:
 
 ```python
 # list all available PlanQK quantum backends
 backends = planqk_provider.backends()
 
 # select certain backend
-backend = provider.get_backend(name="azure.ionq.sim")
+backend = provider.get_backend(name="azure.ionq.simulator")
 ```
 
 Now you can execute your Qiskit circuit on the selected backend, retrieve its `job` object, monitor its execution status, retrieve its results, cancel it etc.
