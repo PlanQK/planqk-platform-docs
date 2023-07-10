@@ -7,14 +7,15 @@
     "url": "https://github.com/PlanQK/planqk-platform-docs"
   },
   "scripts": {
-    "dev": "NODE_OPTIONS=--openssl-legacy-provider vuepress dev src",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider vuepress build src"
+    "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev src",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build src"
   },
   "license": "CC-BY-4.0",
   "devDependencies": {
     "@vuepress/plugin-active-header-links": "^1.9.7",
     "@vuepress/plugin-back-to-top": "^1.9.7",
     "@vuepress/plugin-medium-zoom": "^1.9.7",
+    "cross-env": "^7.0.3",
     "vuepress": "^1.5.3",
     "vuepress-plugin-code-copy": "^1.0.6"
   }
