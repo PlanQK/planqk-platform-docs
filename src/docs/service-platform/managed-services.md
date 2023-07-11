@@ -19,6 +19,11 @@ We strongly recommend to use the [PlanQK CLI](../getting-started/cli-reference.m
 You could select a general starter template or choose one specifically for a certain quantum provider or backend.
 Furthermore, the PlanQK CLI provides you with commands to directly package and deploy your quantum code along with the metadata and configuration to the PlanQK Platform.
 
+::: tip Hint
+Take a look into the `README.md` file of your created project to get started.
+It contains all the information you need to run and test your code locally as well as to deploy it to the PlanQK Platform.
+:::
+
 Despite the PlanQK CLI, when creating a new Managed Service you have to upload a ZIP file containing your quantum code.
 You have to zip (at minimum) the `src` folder and the Conda `environment.yml` file from your created project folder.
 **You must not zip the project folder itself but its content.**
