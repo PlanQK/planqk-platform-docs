@@ -10,7 +10,7 @@ By using our coding templates, you can easily turn your ideas into running quant
 Once deployed, you can share your services with your colleagues or even external parties through an HTTP API.
 
 ::: tip Quickstart Guide
-Checkout our [quickstart](../getting-started/quickstart.md) guide to get started with Managed Services using the PlanQK CLI.
+Check out our [quickstart](../getting-started/quickstart.md) guide to get started with Managed Services using the PlanQK CLI.
 :::
 
 ## Quantum Code
