@@ -35,7 +35,7 @@ Here you need to click on `Create Service` in the top right corner.
 
 Fill out the form and import the `planqk.zip` file you created before.
 And there you go.
-As soon as the containerization of your code has finished you are able to jobs to execute your service.
+As soon as the containerization of your code has finished you are able to run jobs against your service.
 Further, you may publish it for internal use or into the PlanQK Marketplace to share it with other users.
 
 ## Service Metadata
