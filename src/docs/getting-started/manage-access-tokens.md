@@ -11,6 +11,23 @@ This is especially useful when you want to execute your quantum solutions using 
 
 ## Personal Access Tokens
 
+You can use personal access tokens to access the PlanQK API, e.g., by the [PlanQK CLI](cli-reference.md) or by the [PlanQK Quantum SDK](sdk-reference.md).
+Further, you can use them to authenticate any custom application that wants to interact with the PlanQK Platform API.
+
+<LoomVideo url="https://www.loom.com/embed/b7bdfe322e72401d80782aaa28dbcfeb?sid=61f62d05-4c81-41fa-9903-073000fc1958"/>
+
+To create a personal access token to your account, go to the user-menu in the top right corner and click on "Settings".
+Under "Personal Access Tokens" you can create new personal access tokens and manage existing ones.
+
+You can use different scopes to set the permission levels granted to the token.
+For example, for using the **PlanQK CLI**, make sure you at least select the `api` scope.
+For using the **PlanQK Quantum SDK**, make sure you select the `api` and `quantum_tokens` scopes.
+
+::: tip Note
+Personal access tokens can only be created for user accounts.
+You can use your personal access token to interact with organizations you are a member of.
+:::
+
 ## Quantum Backend Tokens
 
 By bringing your own access tokens, you can use your own accounts for certain quantum backends.
