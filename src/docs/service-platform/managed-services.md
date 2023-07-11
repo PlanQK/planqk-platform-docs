@@ -1,13 +1,13 @@
 # Managed Services
 
-PlanQK Managed Services enable to run your quantum code on-demand without needing to manage your own infrastructure, provision servers, or upgrade hardware.
-The PlanQK Platform containerizes and deploys your quantum code fully automatically and makes it accessible through well known protocols (HTTP/S) – you bring the code, we do the REST.
+Managed Services enable to run your quantum code on-demand without needing to manage your own infrastructure, provision servers, or upgrade hardware.
+We containerize and deploy your quantum code fully automatically and makes it accessible through well known protocols (HTTP/S) – you bring the code, we do the REST.
 We enable developers to focus on writing their quantum code in Python (and other languages) to build quantum solutions for tomorrow's challenges.
 
 A Managed Service consists of your quantum code, metadata describing the service, and configuration information for the execution of the service.
 By using our coding templates, you can easily turn your ideas into running quantum solutions at rapid speed.
 
-Once deployed, the PlanQK Platform helps you to share your services with your colleagues or even external parties through an HTTP API.
+Once deployed, you can share your services with your colleagues or even external parties through an HTTP API.
 
 ::: tip Quickstart Guide
 Checkout our [quickstart](../getting-started/quickstart.md) guide to get started with Managed Services using the PlanQK CLI.
@@ -17,7 +17,7 @@ Checkout our [quickstart](../getting-started/quickstart.md) guide to get started
 
 We strongly recommend to use the [PlanQK CLI](../getting-started/cli-reference.md) to create new quantum coding projects.
 You could select a general starter template or choose one specifically for a certain quantum provider or backend.
-Furthermore, the PlanQK CLI provides you with commands to directly package and deploy your quantum code along with the metadata and configuration to the PlanQK Platform.
+Furthermore, it provides you with commands to directly package and deploy your quantum code along with the metadata and configuration.
 
 ::: tip Hint
 Take a look into the `README.md` file of your created project to get started.
@@ -35,8 +35,8 @@ Here you need to click on `Create Service` in the top right corner.
 
 Fill out the form and import the `planqk.zip` file you created before.
 And there you go.
-As soon as the containerization of your code has finished you will be able to run a PlanQK Job to execute your service.
-Further, you may publish it for internal use or into the PlanQK Marketplace to share it with other PlanQK users.
+As soon as the containerization of your code has finished you are able to jobs to execute your service.
+Further, you may publish it for internal use or into the PlanQK Marketplace to share it with other users.
 
 ## Service Metadata
 
