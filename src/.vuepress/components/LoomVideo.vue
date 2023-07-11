@@ -19,8 +19,7 @@ export default {
 <style scoped>
 .video-container {
   position: relative;
-  border-radius: 10px;
-  padding-bottom: 58.727569331158236%;
+  padding-bottom: 62.5%;
   height: 0;
 }
 
