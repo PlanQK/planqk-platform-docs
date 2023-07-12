@@ -82,6 +82,7 @@ module.exports = {
           collapsable: false,
           children: [
             'service-platform/managed-services',
+            'service-platform/managed-services-api-spec',
             'service-platform/managed-services-jobs',
             'service-platform/managed-services-custom-container',
             'service-platform/external-services',
