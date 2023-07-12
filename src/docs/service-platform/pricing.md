@@ -70,7 +70,7 @@ where:
 Multi-controlled two-qubit gates are billed as `6 * (N-2)` two-qubit gates, where `N` is the number of qubits involved in the gate.
 For example, a NOT gate with three controls would be billed as `(6 * (4-2))` or 12 two-qubit gates.
 
-##### AWS Braket Simulator
+#### AWS Braket Simulators
 
 You are billed at a millisecond rate, for the time your simulation takes to run.
 You are billed for a minimum of 3 seconds per simulation.
@@ -83,7 +83,7 @@ You are billed for a minimum of 3 seconds per simulation.
 
 #### AWS Braket Quantum Hardware
 
-There are two pricing components when using AWS Braket Quantum Hardware: a per-shot fee and a per-task fee.
+There are two pricing components when using AWS Braket quantum hardware: a per-shot fee and a per-task fee.
 Per-task pricing is the same across all QPUs.
 The per-shot pricing depends on the type of QPU used.
 For gate-based QPUs, the per-shot price is not affected by the number or type of gates used in a quantum circuit.
@@ -97,13 +97,17 @@ Note that the use of error mitigation on IonQ's Aria QPU requires a minimum of 2
 | Rigetti Aspen-M | € 0.0007 / shot | € 0.60 / task  |
 | OQC Lucy        | € 0.0007 / shot | € 0.60 / task  |
 
-A scientist runs a quantum algorithm on the Rigetti Aspen-M quantum computer. 
-This task includes 10,000 repeated shots of the same circuit design. 
+
+**Pricing example:**
+A scientist runs a quantum algorithm on the Rigetti Aspen-M quantum computer.
+This task includes 10,000 repeated shots of the same circuit design.
 The cost to run this task includes a per-task charge of €0.60, plus 10,000 shots at a per-shot price of €0.0007.
 
 The cost to run this algorithm:
- - Task charges: 1 task x €0.60 / task = €0.60
- - Shots charges: 10,000 shots x €0.0007 / shot = €7.00
+
+- Task charges: 1 task x €0.60 / task = €0.60
+- Shots charges: 10,000 shots x €0.0007 / shot = €7.00
+
 Total charges: €0.60 + €7.00 = €7.60
 
 ## Marketplace Fees
