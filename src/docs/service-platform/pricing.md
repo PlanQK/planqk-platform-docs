@@ -45,9 +45,16 @@ As an example, running a PlanQK Service with one (1) NVIDIA® T4 GPU for 5 minut
 * GPU core-second:
   The GPU resources reserved for your PlanQK Service. A GPU core-second is defined as the usage of one GPU core for one second.
 
-### Quantum Resources
+### Azure Quantum
 
-#### Azure Quantum
+#### Simulators
+
+We provide access to a GPU-accelerated idealized simulator supporting up to 29 qubits, using the same set of gates that IonQ provides on its quantum hardware.
+It is a great place to preflight jobs before running them on an actual quantum computer.
+
+**Free of charge.**
+
+#### Quantum Hardware
 
 | Resource Name     | Price            |
 |-------------------|------------------|
@@ -70,7 +77,9 @@ where:
 Multi-controlled two-qubit gates are billed as `6 * (N-2)` two-qubit gates, where `N` is the number of qubits involved in the gate.
 For example, a NOT gate with three controls would be billed as `(6 * (4-2))` or 12 two-qubit gates.
 
-#### AWS Braket Simulators
+### AWS Braket 
+
+#### Simulators
 
 You are billed at a millisecond rate, for the time your simulation takes to run.
 You are billed for a minimum of 3 seconds per simulation.
@@ -81,7 +90,7 @@ You are billed for a minimum of 3 seconds per simulation.
 | Density Matrix Simulator (DM1) | € 0.0000025 / ms |
 | Tensor Network Simulator (TN1) | € 0.0000092 / ms |
 
-#### AWS Braket Quantum Hardware
+#### Quantum Hardware
 
 There are two pricing components when using AWS Braket quantum hardware: a per-shot fee and a per-task fee.
 Per-task pricing is the same across all QPUs.
