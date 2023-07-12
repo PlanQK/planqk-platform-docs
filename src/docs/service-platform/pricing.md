@@ -88,7 +88,6 @@ You are billed for a minimum of 3 seconds per simulation.
 |--------------------------------|------------------|
 | State Vector Simulator (SV1)   | € 0.0000025 / ms |
 | Density Matrix Simulator (DM1) | € 0.0000025 / ms |
-| Tensor Network Simulator (TN1) | € 0.0000092 / ms |
 
 #### Quantum Hardware
 
@@ -99,16 +98,15 @@ For gate-based QPUs, the per-shot price is not affected by the number or type of
 
 Note that the use of error mitigation on IonQ's Aria QPU requires a minimum of 2,500 shots per task.
 
-| Resource Name   | Per shot price  | Per task price |
-|-----------------|-----------------|----------------|
-| IonQ Harmony    | € 0.02 / shot   | € 0.60 / task  |
-| IonQ Aria       | € 0.06 / shot   | € 0.60 / task  |
-| Rigetti Aspen-M | € 0.0007 / shot | € 0.60 / task  |
-| OQC Lucy        | € 0.0007 / shot | € 0.60 / task  |
-
+| Resource Name     | Per shot price  | Per task price |
+|-------------------|-----------------|----------------|
+| IonQ Harmony      | € 0.02 / shot   | € 0.60 / task  |
+| IonQ Aria         | € 0.06 / shot   | € 0.60 / task  |
+| Rigetti Aspen-M-3 | € 0.0007 / shot | € 0.60 / task  |
+| OQC Lucy          | € 0.0007 / shot | € 0.60 / task  |
 
 **Pricing example:**
-A scientist runs a quantum algorithm on the Rigetti Aspen-M quantum computer.
+A scientist runs a quantum algorithm on the Rigetti Aspen-M-3 quantum computer.
 This task includes 10,000 repeated shots of the same circuit design.
 The cost to run this task includes a per-task charge of €0.60, plus 10,000 shots at a per-shot price of €0.0007.
 
