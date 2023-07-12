@@ -32,7 +32,7 @@ Each external service needs to provide an OpenAPI specification that describes t
 Further, this is the technical baseline for PlanQK to integrate your external service.
 PlanQK uses the [OpenAPI Specification v3 (OAS3)](https://swagger.io/specification) to describe the API of an external service.
 
-A full example and template is available to <a :href="$withBase('/external-service-api-spec.yaml')"  download>download</a>.
+A full example and template is available to <a :href="$withBase('/files/external-service-api-spec.yaml')" download>download</a>.
 
 You can change the API specification of your service at any time by clicking on `Edit Service` on the service details page.
 

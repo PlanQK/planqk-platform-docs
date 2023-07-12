@@ -13,20 +13,20 @@ One is to subscribe to an internally published service, the other is to subscrib
 
 1. Navigate to the details page of your service.
 
-   <img width="768" alt="service-overview" src="../assets/service-overview.png">
+   <img width="768" :src="$withBase('/images/service-overview.png')" alt="">
 
 2. Click on the "Publish Internal" button.
 
-   <img width="768" alt="service-details-page" src="../assets/service-details-page.png">
+   <img width="768" :src="$withBase('/images/service-details-page.png')" alt="">
 
 3. Navigate to the details page of your application.
 
-   <img width="768" alt="application-overview" src="../assets/application-overview.png">
+   <img width="768" :src="$withBase('/images/application-overview.png')" alt="">
 
 4. Press the "Subscribe to Service" button.
 5. A dialog box appears in which you have to select the published service.
 
-    <img width="500" alt="internal-service-subscription" src="../assets/internal-service-subscription.png">
+    <img width="500" :src="$withBase('/images/internal-service-subscription.png')" alt="">
 
 6. After you have selected the correct service, click on the "Subscribe" button in the dialog box.
 
@@ -34,20 +34,20 @@ One is to subscribe to an internally published service, the other is to subscrib
 
 1. Click on "Marketplace" on the top navigation.
 
-   <img width="768" alt="navigation-bar" src="../assets/navigation-bar.png">
+   <img width="768" :src="$withBase('/images/navigation-bar.png')" alt="">
 
 2. Select "Services" from the left navigation menu.
 
-   <img height="300" alt="marketplace-service-overview" src="../assets/marketplace-service-overview.png">
+   <img height="300" :src="$withBase('/images/marketplace-service-overview.png')" alt="">
 
 3. Select a service you want to subscribe to and navigate to its details page.
 4. Select the pricing plan that suits you and click on the "Subscribe" button of the respective pricing plan. A dialog box will show up.
 
-    <img width="768" alt="select-pricing-plan" src="../assets/select-pricing-plan.png">
+    <img width="768" :src="$withBase('/images/select-pricing-plan.png')" alt="">
 
 5. Finally, select your application and press the "Subscribe" button.
 
-    <img width="500" alt="application-selection" src="../assets/application-selection.png">
+    <img width="500" :src="$withBase('/images/application-selection.png')" alt="">
 
 ## Execute a Subscribed PlanQK Service
 
@@ -60,9 +60,9 @@ To execute a service, you need to provide the following information:
 3. **Header Fields**:
    `Content-Type` and  `Accept` are both set to `application/json`
 4. **Input Data**:
-   Either passed as [value or as data pool reference](#input-data)
+   Either passed as [value or as data pool reference](#provide-input-data)
 5. **Parameters**:
-   Either passed as [value or as data pool reference](#input-parameters)
+   Either passed as [value or as data pool reference](#provide-input-parameters)
 
 The following examples shows the cURL command and how to start a service execution:
 
@@ -145,8 +145,8 @@ In case of an error the message may contain an error `"code"` and an error `"det
 
 ## Provide Input Data
 
-Input data being processed by the service can be either passed as **value**
-or as **[data pool](src/docs/community-platform.md#data-pools)**.
+Input data being processed by the service can be either passed as **value** or as 
+**[data pool](../community-platform/data-pools.md)**.
 
 ::: tip IMPORTANT
 Currently, only JSON is supported as service input.
@@ -224,6 +224,6 @@ If you have any questions, please contact support@planqk.de by email.
 :::
 
 You can interact with a PlanQK Service through HTTP (see above) or using a generated API client for Java, Python, or JavaScript.
-You can download the clients from the respective service details page in the [PlanQK Marketplace](https://platform.planqk.de/marketplace/apis).  
+You can download the clients from the respective service details page in the [PlanQK Marketplace](https://platform.planqk.de/marketplace/apis).
 
 Once you download the client, extract and integrate it into your project.
