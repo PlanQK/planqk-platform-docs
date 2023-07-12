@@ -12,7 +12,7 @@ You need to have Python 3.7 or higher installed.
 The package is released on PyPI and can be installed via `pip`:
 
 ```bash
-pip install planqk-quantum
+pip install --upgrade planqk-quantum
 ```
 
 ## Execute your first circuit
@@ -101,3 +101,9 @@ You are now able to deploy your circuit as a PlanQK Service.
 
 Use `planqk up` to deploy your service to the PlanQK Platform.
 Next, you may use `planqk run` to execute your service.
+
+
+## What's next?
+
+- See our supported [quantum hardware and simulators](quantum-hardware.md).
+- Check out the [Tutorial on how to create a PlanQK Service using the `planqk-quantum` library](../../tutorials/tutorial-qiskit.md).
