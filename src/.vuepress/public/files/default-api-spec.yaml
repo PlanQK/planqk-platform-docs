@@ -4,6 +4,62 @@ info:
   title: Managed PlanQK Service
   description: |
     Generic API description for a managed PlanQK Service.
+components:
+  schemas:
+    inputData:
+      type: object
+      #
+      # Define the schema of your input data here
+      #
+    inputParams:
+      type: object
+      #
+      # Define the schema of your input parameters here
+      #
+    interimResults:
+      type: object
+      #
+      # Define the schema of your interim results here
+      #
+    result:
+      type: object
+      properties:
+        result:
+          type: object
+          description: service-specific result object
+          #
+          # Define the schema of your result here
+          #
+        metadata:
+          type: object
+          description: service-specific metadata object which contains additional information besides the actual results
+        code:
+          type: string
+          description: service-specific error code representing the type of problem encountered
+        detail:
+          type: string
+          description: service-specific error message describing the detail of the problem encountered
+    job:
+      # do NOT change this schema
+      type: object
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+          enum: [ UNKNOWN, PENDING, RUNNING, SUCCEEDED, CANCELLED, FAILED ]
+        createdAt:
+          type: string
+        startedAt:
+          type: string
+        endedAt:
+          type: string
+      example:
+        id: 87cb778e-ac43-11ec-b909-0242ac120002
+        status: SUCCEEDED
+        createdAt: "2022-01-01 22:38:08"
+        startedAt: "2022-01-01 22:39:08"
+        endedAt: "2022-01-01 22:40:08"
 paths:
   /:
     get:
@@ -35,12 +91,9 @@ paths:
               type: object
               properties:
                 data:
-                  type: object
+                  $ref: "#/components/schemas/inputData"
                 params:
-                  type: object
-            example:
-              data: {}
-              params: {}
+                  $ref: "#/components/schemas/inputParams"
       responses:
         "201":
           description: Execution of the service started
@@ -109,22 +162,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  result:
-                    type: object
-                    description: service-specific result object
-                  metadata:
-                    type: object
-                    description: service-specific metadata object which contains additional information besides the actual results
-                  code:
-                    type: string
-                    description: service-specific error code representing the type of problem encountered
-                  detail:
-                    type: string
-                    description: service-specific error message describing the detail of the problem encountered
-              example:
-                result: 420.69
+                $ref: "#/components/schemas/result"
         "401":
           description: Unauthorized
         "403":
@@ -158,7 +196,11 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                oneOf:
+                  - type: array
+                    items:
+                      $ref: "#/components/schemas/interimResults"
+                  - $ref: "#/components/schemas/interimResults"
         "401":
           description: Unauthorized
         "403":
@@ -194,26 +236,3 @@ paths:
           description: Not found
         "500":
           description: Internal server error
-
-components:
-  schemas:
-    job:
-      type: object
-      properties:
-        id:
-          type: string
-        status:
-          type: string
-          enum: [ UNKNOWN, PENDING, RUNNING, SUCCEEDED, CANCELLED, FAILED ]
-        createdAt:
-          type: string
-        startedAt:
-          type: string
-        endedAt:
-          type: string
-      example:
-        id: 87cb778e-ac43-11ec-b909-0242ac120002
-        status: SUCCEEDED
-        createdAt: "2022-01-01 22:38:08"
-        startedAt: "2022-01-01 22:39:08"
-        endedAt: "2022-01-01 22:40:08"

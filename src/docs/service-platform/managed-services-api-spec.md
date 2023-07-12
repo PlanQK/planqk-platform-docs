@@ -1,25 +1,36 @@
 # API Specification
 
-Each external service needs to provide an OpenAPI specification that describes the service interface and input data to let other PlanQK users discover and understand the capabilities of your service.
-Further, this is the technical baseline for PlanQK to integrate your external service.
-PlanQK uses the [OpenAPI Specification v3 (OAS3)](https://swagger.io/specification) to describe the API of an external service.
+Each service that is managed by PlanQK may provide a detailed API specification.
+This specification is used to describe the interface of the service and the input data that is required to execute the service.
+We use the [OpenAPI Specification v3 (OAS3)](https://swagger.io/specification) to describe the API of a service.
 
+## Endpoints
 
-A full example and template is available to <a :href="$withBase('/files/default-api-spec.yaml')" download>download</a>.
-
-
-When creating a new service, a generic API description file (`openapi-spec.yml`) based on the OpenAPI 3.0 format is provided as well.
-It describes standardized REST methods for interacting with the service such as starting an execution and retrieving results.
+Each managed service supports the following endpoints:
 
 ::: tip IMPORTANT
-Do **NOT
-** change the paths for the different methods otherwise communicating with the service will not work as intended.
+Do **NOT** change the operations or add new ones, otherwise communicating with the service will not work as intended.
 :::
 
-As a service provider, you can (and should) change titles and descriptions for the different endpoints, as well as the API itself.
-Besides that, it is your job to describe the format of the inputs (section `requestBody`) and outputs (section `responses`) for your service within the `POST` method.
+| Method | Path                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|:-------|:------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `GET`  | `/`                     | Gives the user the information, whether the service is available at all.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `POST` | `/`                     | This method is used to start a service execution while sending the appropriate input. It returns an execution ID, which is required for receiving results of the execution.                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `GET`  | `/{id}`                 | The ID generated via the `POST` method can be used here in order to check on the status of the service execution. The possible status values are quite self-explanatory but just to make sure: if the execution is still running, you should get `"status": "RUNNING"` or `"status": "PENDING"` (especially in the beginning). When the execution finished successfully, you should see `"status": "SUCCEEDED"`. If you get either `"status": "FAILED"` or `"status": "UNKNOWN"`... Well, apparently something went wrong. Hopefully, you get some information on what went wrong with the next method. |    
+| `GET`  | `/{id}/result`          | Returns the result of a service execution if the status is either succeeded or failed (details on the occurred problems). Similar to the example illustrated for the `POST` method, you should describe for this endpoint what kind of output the user has to expect when successfully running the service.                                                                                                                                                                                                                                                                                             |
+| `GET`  | `/{id}/interim-results` | Via this endpoint, possible intermediate results of the service execution can be retrieved.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `PUT`  | `/{id}/cancel`          | After starting a service execution, it can be canceled via this method.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
-## Describing the Input / Output format
+## Describing your API
+
+As a service provider, you can (and should) change titles and descriptions for the different endpoints, as well as the API itself.
+Besides that, it is highly recommended to describe the format of the inputs (section `requestBody`) and outputs (section `responses`) for your service within the `POST` method.
+
+Our default API specification, which can be used as a template, is available to <a :href="$withBase('/files/default-api-spec.yaml')" download>download</a>.
+
+### Title and Description
+
+### the Input / Output format
 
 When looking at e.g. the request body of the `POST` method within the provided API description file for the Qiskit starter as an example, it looks as follows:
 
@@ -49,47 +60,3 @@ The first should encode the information about the actual problem (e.g. the entri
 In this example the service expects the integer-typed input `n_bits`, which should at least be 2 and has an example value of 8.
 Exactly this schema, as well as the one for a response with a successful status code should be adapted to represent the input and output of your service.
 For a list of supported data types, please refer to the OpenAPI [guide](https://swagger.io/docs/specification/data-models/data-types/).
-
-## Types of Endpoints
-
-### `GET /`
-
-Gives the user the information, whether the service is available at all.
-
-### `POST /`
-
-This method is used to start a service execution while sending the appropriate input.
-It returns an execution ID, which is required for receiving results of the execution.
-
-### `GET /{id}`
-
-The ID generated via the `POST` method can be used here in order to check on the status of the service execution.
-The possible status values are quite self-explanatory but just to make sure:
-
-If the execution is still running, you should get `"status": "RUNNING"` or `"status": "PENDING"` (especially in the beginning).
-
-When the execution finished successfully, you should see `"status": "SUCCEEDED"`.
-
-If you get either `"status": "FAILED"` or `"status": "UNKNOWN"`... Well, apparently something went wrong. Hopefully, you get some information on what went wrong with the next method.
-
-### `GET /{id}/result`
-
-If the service execution either failed or succeeded, you can get the results (or details on the occurred problems) via this method.
-Similar to the example illustrated for the `POST` method, you should describe for this endpoint what kind of output the user has to expect when successfully running the service.
-
-### `GET /{id}/interim-results`
-
-Via this endpoint, possible intermediate results of the service execution can be retrieved.
-
-### `PUT /{id}/cancel`
-
-After starting a service execution, it can be canceled via this method.
-
-| Endpoint                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|:----------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `GET /`                     | Gives the user the information, whether the service is available at all.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| `POST /`                    | This method is used to start a service execution while sending the appropriate input. It returns an execution ID, which is required for receiving results of the execution.                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `GET /{id}`                 | The ID generated via the `POST` method can be used here in order to check on the status of the service execution. The possible status values are quite self-explanatory but just to make sure: If the execution is still running, you should get `"status": "RUNNING"` or `"status": "PENDING"` (especially in the beginning). When the execution finished successfully, you should see `"status": "SUCCEEDED"`. If you get either `"status": "FAILED"` or `"status": "UNKNOWN"`... Well, apparently something went wrong. Hopefully, you get some information on what went wrong with the next method. |    
-| `GET /{id}/result`          | If the service execution either failed or succeeded, you can get the results (or details on the occurred problems) via this method. Similar to the example illustrated for the `POST` method, you should describe for this endpoint what kind of output the user has to expect when successfully running the service.                                                                                                                                                                                                                                                                                   |
-| `GET /{id}/interim-results` | Via this endpoint, possible intermediate results of the service execution can be retrieved.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `PUT /{id}/cancel`          | After starting a service execution, it can be canceled via this method.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
