@@ -47,6 +47,8 @@ As an example, running a PlanQK Service with one (1) NVIDIA® T4 GPU for 5 minut
 
 ### Quantum Resources
 
+#### Azure Quantum
+
 | Resource Name     | Price            |
 |-------------------|------------------|
 | IonQ 1-Qubit Gate | € 0.00006 / shot |
@@ -67,6 +69,42 @@ where:
 
 Multi-controlled two-qubit gates are billed as `6 * (N-2)` two-qubit gates, where `N` is the number of qubits involved in the gate.
 For example, a NOT gate with three controls would be billed as `(6 * (4-2))` or 12 two-qubit gates.
+
+##### AWS Braket Simulator
+
+You are billed at a millisecond rate, for the time your simulation takes to run.
+You are billed for a minimum of 3 seconds per simulation.
+
+| Resource Name                  | Price            |
+|--------------------------------|------------------|
+| State Vector Simulator (SV1)   | € 0.0000025 / ms |
+| Density Matrix Simulator (DM1) | € 0.0000025 / ms |
+| Tensor Network Simulator (TN1) | € 0.0000092 / ms |
+
+#### AWS Braket Quantum Hardware
+
+There are two pricing components when using AWS Braket Quantum Hardware: a per-shot fee and a per-task fee.
+Per-task pricing is the same across all QPUs.
+The per-shot pricing depends on the type of QPU used.
+For gate-based QPUs, the per-shot price is not affected by the number or type of gates used in a quantum circuit.
+
+Note that the use of error mitigation on IonQ's Aria QPU requires a minimum of 2,500 shots per task.
+
+| Resource Name   | Per shot price  | Per task price |
+|-----------------|-----------------|----------------|
+| IonQ Harmony    | € 0.02 / shot   | € 0.60 / task  |
+| IonQ Aria       | € 0.06 / shot   | € 0.60 / task  |
+| Rigetti Aspen-M | € 0.0007 / shot | € 0.60 / task  |
+| OQC Lucy        | € 0.0007 / shot | € 0.60 / task  |
+
+A scientist runs a quantum algorithm on the Rigetti Aspen-M quantum computer. 
+This task includes 10,000 repeated shots of the same circuit design. 
+The cost to run this task includes a per-task charge of €0.60, plus 10,000 shots at a per-shot price of €0.0007.
+
+The cost to run this algorithm:
+ - Task charges: 1 task x €0.60 / task = €0.60
+ - Shots charges: 10,000 shots x €0.0007 / shot = €7.00
+Total charges: €0.60 + €7.00 = €7.60
 
 ## Marketplace Fees
 
