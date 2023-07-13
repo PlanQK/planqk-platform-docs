@@ -7,17 +7,17 @@ This page provides an overview of the supported quantum hardware and simulators.
 Simulators are a great way to test your quantum circuits before running them on actual quantum hardware.
 We support simulators from Azure Quantum and AWS Braket.
 
-### Azure IonQ Quantum Simulator
+### Azure IonQ Quantum Simulator <BackendStatus id="azure.ionq.simulator"/>
 
 GPU-accelerated idealized simulator supporting up to 29 qubits, using the same set of gates IonQ provide on its quantum hardware—a great place to preflight jobs before running them on an actual quantum computer.
 
-### AWS Braket State Vector Simulator (SV1)
+### AWS Braket State Vector Simulator (SV1) <BackendStatus id="aws.sim.sv1"/>
 
 SV1 is a fully managed, high-performance, state vector simulator running on AWS.
 You can use SV1 to simulate circuits up to 34 qubits.
 SV1 is always available, executes your circuits on demand, and and you can run multiple circuits in parallel.
 
-### AWS Braket Density Matrix Simulator (DM1)
+### AWS Braket Density Matrix Simulator (DM1) <BackendStatus id="aws.sim.dm1"/>
 
 DM1 is a fully managed, high-performance, density matrix simulator.
 You can use DM1 to simulate circuits with noise up to 17 qubits.
@@ -34,11 +34,20 @@ The IonQ Harmony is a trapped ion quantum computer and is dynamically reconfigur
 All qubits are fully connected, meaning you can run a two-qubit gate between any pair.
 For details see the [specification](https://ionq.com/quantum-systems/harmony)
 
+| Provider      | Status                                   |
+|---------------|------------------------------------------|
+| Azure Quantum | <BackendStatus id="azure.ionq.harmony"/> |
+| AWS Braket    | <BackendStatus id="aws.ionq.harmony"/>   |
+
 ### IonQ Aria
 
 IonQ Aria is IonQ's latest generation of trapped-ion quantum computer.
 With a 23-qubit dynamically reconfigurable system.
 For details see the [specification](https://ionq.com/quantum-systems/aria)
+
+| Provider   | Status                              |
+|------------|-------------------------------------|
+| AWS Braket | <BackendStatus id="aws.ionq.aria"/> |
 
 ### Rigetti Aspen-M-3
 
@@ -46,11 +55,19 @@ Rigetti quantum processors are universal, gate-model machines based on tunable s
 Rigetti Aspen-M-3 is a 79-qubit processor based on scalable multi-chip technology and features enhanced readout capabilities that contribute to better overall circuit fidelities independent of depth and width.
 For details see the [specification](https://qcs.rigetti.com/qpus)
 
+| Provider   | Status                                  |
+|------------|-----------------------------------------|
+| AWS Braket | <BackendStatus id="aws.rigetti.aspen"/> |
+
 ### Oxford Quantum Circuits (OQC) Lucy
 
 Oxford Quantum Circuits (OQC) quantum computers are universal, gate-based machines based on superconducting qubits built using proprietary 'Coaxmon' technolog.
 OQC Lucy offers an 8 qubit QPU with a topology of a ring where each qubit is connected to its 2 nearest neighbors.
 For details see the [specification](https://oxfordquantumcircuits.com/technology)
+
+| Provider   | Status                             |
+|------------|------------------------------------|
+| AWS Braket | <BackendStatus id="aws.oqc.lucy"/> |
 
 ### :eyes: Coming Soon
 
