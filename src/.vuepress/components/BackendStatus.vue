@@ -37,7 +37,7 @@ export default {
     }
   },
   mounted() {
-    fetch(`http://34.90.225.20.nip.io/qiskit/backends?name=${this.id}`)
+    fetch(`https://platform.planqk.de/qiskit/backends?name=${this.id}`)
         .then(response => response.json())
         .then(data => this.backend = data[0])
   }
