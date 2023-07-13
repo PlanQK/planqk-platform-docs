@@ -1,10 +1,7 @@
 # Using the SDK
 
-The `planqk-quantum` SDK provides an easy way for developing quantum circuits
-using [Qiskit](https://pypi.org/project/qiskit) to be run on quantum devices
-provided by the [PlanQK Platform](https://docs.platform.planqk.de).
-The SDK is an extension for the [Qiskit SDK](https://github.com/Qiskit/qiskit-metapackage) and provides the same
-functionality and syntax as well as some PlanQK specific commands.
+The `planqk-quantum` SDK provides an easy way for developing quantum circuits using [Qiskit](https://pypi.org/project/qiskit) to be run on quantum devices provided by the [PlanQK Platform](https://docs.platform.planqk.de).
+The SDK is an extension for the [Qiskit SDK](https://github.com/Qiskit/qiskit-metapackage) and provides the same functionality and syntax as well as some PlanQK specific commands.
 
 ## Installation
 
@@ -30,7 +27,7 @@ If you are already logged in with the [PlanQK CLI](quickstart.md#3-login-to-your
 provider = PlanqkQuantumProvider()
 ```
 
-Alternatively, you can also create the provider object by passing your PlanQK access token:
+Alternatively, you can also create the provider object by passing your PlanQK [personal access token](manage-access-tokens.md#personal-access-tokens):
 
 ```python
 provider = PlanqkQuantumProvider(access_token="your-access-token")
@@ -41,7 +38,7 @@ you want to use, e.g., the `azure.ionq.simulator` backend:
 
 ```python
 # list all available PlanQK quantum backends
-backends = planqk_provider.backends()
+backends = provider.backends()
 
 # select a certain backend
 backend = provider.get_backend(name="azure.ionq.simulator")
@@ -89,8 +86,8 @@ To create a new development project, you may run `planqk init` and select `Start
 Further instructions are available [here](quickstart.md#create-your-first-project).
 :::
 
-The `program.py` file contains a `run` function which is called when the service is executed.
-Copy and paste the code from above into the `run` function and add the following line at the end of the function:
+The `program.py` file contains a `run()` method which is called when the service is executed.
+Copy and paste the code from above into the `run()` method and add the following line at the end of the function:
 
 ```python
 return ResultResponse(result={"status": "COMPLETED"})
@@ -101,7 +98,6 @@ You are now able to deploy your circuit as a PlanQK Service.
 
 Use `planqk up` to deploy your service to the PlanQK Platform.
 Next, you may use `planqk run` to execute your service.
-
 
 ## What's next?
 
