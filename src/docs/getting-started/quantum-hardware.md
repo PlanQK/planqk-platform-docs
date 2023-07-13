@@ -69,9 +69,10 @@ For details see the [specification](https://oxfordquantumcircuits.com/technology
 |------------|------------------------------------|
 | AWS Braket | <BackendStatus id="aws.oqc.lucy"/> |
 
-### :eyes: Coming Soon
+## Coming Soon :eyes:
 
-We are working on adding more quantum backends to the PlanQK Platform. The following backends are coming soon:
+We are working on adding more quantum backends to the PlanQK Platform.
+The following backends are coming soon:
 
 - IBM Quantum
 
