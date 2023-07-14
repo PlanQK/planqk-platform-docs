@@ -9,12 +9,15 @@ By using our coding templates, you can easily turn your ideas into running quant
 
 Once deployed, you can share your services with your colleagues or even external parties through an HTTP API.
 
-::: tip Quickstart Guide
+::: tip Quickstart Guide 
 Check out our [quickstart](../getting-started/quickstart.md) guide to get started with Managed Services using the PlanQK CLI.
 :::
 
-## Quantum Code
+## Creating a Managed Service
 
+You can create a Managed Service either via the [PlanQK CLI](../getting-started/cli-reference.md) or via [the create service page](https://platform.planqk.de/services/new) of our UI.
+
+### Using the PlanQK CLI (recommended)
 We strongly recommend to use the [PlanQK CLI](../getting-started/cli-reference.md) to create new quantum coding projects.
 You could select a general starter template or choose one specifically for a certain quantum provider or backend.
 Furthermore, it provides you with commands to directly package and deploy your quantum code along with the metadata and configuration.
@@ -24,16 +27,14 @@ Take a look into the `README.md` file of your created project to get started.
 It contains all the information you need to run and test your code locally as well as to deploy it to the PlanQK Platform.
 :::
 
-Despite the PlanQK CLI, when creating a new Managed Service you have to upload a ZIP file containing your quantum code.
+### Using the PlanQK Platform UI
+On the [create service page](https://platform.planqk.de/services/new) of our UI you can create a new Managed Service by uploading a ZIP file containing your quantum code.
+
 You have to zip (at minimum) the `src` folder and the Conda `environment.yml` file from your created project folder.
 **You must not zip the project folder itself but its content.**
 You may execute the following from within the project folder: `zip -r planqk.zip src environment.yml`.
 
-Now that you have your code in a zip-file, creating a PlanQK Service via the platform is easy:
-From the landing page, go to "[Service Platform > My Services](https://platform.planqk.de/services)".
-Here you need to click on `Create Service` in the top right corner.
-
-Fill out the form and import the `planqk.zip` file you created before.
+Now that you have your code in a zip-file, fill out the form and import the `planqk.zip` file you created before.
 And there you go.
 As soon as the containerization of your code has finished you are able to run jobs against your service.
 Further, you may publish it for internal use or into the PlanQK Marketplace to share it with other users.
