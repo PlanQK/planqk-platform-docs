@@ -13,7 +13,7 @@ Once deployed, you can share your services with your colleagues or even external
 Check out our [quickstart](../getting-started/quickstart.md) guide to get started with Managed Services using the PlanQK CLI.
 :::
 
-## Creating a Managed Service
+## Create a Managed Service
 
 You can create a Managed Service either via the [PlanQK CLI](../getting-started/cli-reference.md) or via [the create service page](https://platform.planqk.de/services/new) of our UI.
 
