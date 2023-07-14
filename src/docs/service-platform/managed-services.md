@@ -1,7 +1,7 @@
 # Managed Services
 
-Managed Services enable to run your quantum code on-demand without needing to manage your own infrastructure, provision servers, or upgrade hardware.
-We containerize and deploy your quantum code fully automatically and makes it accessible through well known protocols (HTTP/S) – you bring the code, we do the REST.
+Managed Services enable you to run your quantum code on-demand without needing to manage your own infrastructure, provision servers, or upgrade hardware.
+We containerize and deploy your quantum code fully automatically and make it accessible through well-known protocols (HTTP/S) – you bring the code, we do the REST.
 We enable developers to focus on writing their quantum code in Python (and other languages) to build quantum solutions for tomorrow's challenges.
 
 A Managed Service consists of your quantum code, metadata describing the service, and configuration information for the execution of the service.
