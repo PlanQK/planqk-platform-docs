@@ -6,11 +6,8 @@ We use the [OpenAPI Specification v3 (OAS3)](https://swagger.io/specification) t
 
 ## Endpoints
 
-Each managed service supports the following endpoints:
-
-::: tip IMPORTANT
-Do **NOT** change the operations or add new ones, otherwise communicating with the service will not work as intended.
-:::
+Managed Services expose an API to asynchronously execute the service and retrieve the results.
+The following table lists the available endpoints:
 
 | Method | Path                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |:-------|:------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -21,42 +18,112 @@ Do **NOT** change the operations or add new ones, otherwise communicating with t
 | `GET`  | `/{id}/interim-results` | Via this endpoint, possible intermediate results of the service execution can be retrieved.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `PUT`  | `/{id}/cancel`          | After starting a service execution, it can be canceled via this method.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
-## Describing your API
+::: tip IMPORTANT
+Do **NOT** change the operations or add new ones, otherwise communicating with the service will not work as intended.
+:::
 
-As a service provider, you can (and should) change titles and descriptions for the different endpoints, as well as the API itself.
-Besides that, it is highly recommended to describe the format of the inputs (section `requestBody`) and outputs (section `responses`) for your service within the `POST` method.
+## Describing your API
 
 Our default API specification, which can be used as a template, is available to <a :href="$withBase('/files/default-api-spec.yaml')" download>download</a>.
 
+As a service provider, you can (and should) change titles and descriptions for the different endpoints, as well as the API itself.
+Besides that, it is highly recommended to describe the format of the inputs and outputs withing the `components.schemas` section of the API specification.
+This is especially important for the `POST /` endpoint, since it defines what kind of input data may be provided by the user.
+Further, the response specification for `GET /{id}/result` endpoint is equally important, since it defines what kind of output the user can expect when successfully running the service.
+
 ### Title and Description
 
-### the Input / Output format
+We highly recommend to change the title and description of the API to match your service.
 
-When looking at e.g. the request body of the `POST` method within the provided API description file for the Qiskit starter as an example, it looks as follows:
+| Field              | Description                     |
+|:-------------------|:--------------------------------|
+| `info.title`       | The title of the API.           |
+| `info.description` | A short description of the API. |
+
+Example:
 
 ```yaml
-requestBody:
-  required: true
-  content:
-    application/json:
-      schema:
-        type: object
-        properties:
-          data:
-            type: object
-            properties:
-              n_bits:
-                type: integer
-                minimum: 2
-                description: Number of qubits to use, defines the range of random numbers between 0 and 2^n_bits - 1
-                example: 8
-          params:
-            type: object
-            example: { }
+info:
+  title: Managed PlanQK Service
+  description: |
+    Generic API description for a managed PlanQK Service.
 ```
 
-It should always contain two (possibly empty) properties: `data` and `params` which your service expects.
-The first should encode the information about the actual problem (e.g. the entries of a QUBO-matrix) while the second refers to additional parameters for the evaluation (e.g. the number of ancillary qubits for an execution).
-In this example the service expects the integer-typed input `n_bits`, which should at least be 2 and has an example value of 8.
-Exactly this schema, as well as the one for a response with a successful status code should be adapted to represent the input and output of your service.
-For a list of supported data types, please refer to the OpenAPI [guide](https://swagger.io/docs/specification/data-models/data-types/).
+### Input Data and Parameters
+
+Each managed service retrieves input data and parameters from the user when executed (via the `POST /` endpoint).
+If you are using a Python template, the input data and parameters are provided as dictionary objects of the `run()` method.
+In case you are using [Custom Docker Containers](managed-services-custom-container.md), the input data and parameters are mounted to `/var/input/data.json` and `/var/input/params.json` of the container.
+
+| Field                            | Description                         |
+|:---------------------------------|:------------------------------------|
+| `components.schemas.inputData`   | The schema of the input data.       |
+| `components.schemas.inputParams` | The schema of the input parameters. |
+
+Example:
+
+```yaml
+inputData:
+  type: object
+  properties:
+    n_bits:
+      type: integer
+      minimum: 2
+      description: Number of qubits to use, defines the range of random numbers between 0 and 2^n_bits - 1
+      example: 8
+inputParams:
+  type: object
+  example: { }
+```
+
+In general, input data should encode the information about the actual problem (e.g., the entries of a QUBO-matrix) while input parameters are additional information to influence the evaluation (e.g., the number of ancillary qubits for an execution).
+In this example the service expects the integer-typed input `n_bits`, which should at least be `2` and has an example value of `8`.
+The input parameters are empty in this example, but you can add additional parameters as needed.
+
+Learn more about how to define the schema of your input data and parameters [here](https://swagger.io/specification/#schema-object).
+
+### Responses (aka. Output)
+
+| Field                                      | Description                                |
+|:-------------------------------------------|:-------------------------------------------|
+| `components.schemas.resultResponse`        | The schema of the result response.         |
+| `components.schemas.errorResponse`         | The schema of the error response.          |
+| `components.schemas.interimResultResponse` | The schema of the interim result response. |
+
+```yaml
+resultResponse:
+  type: object
+  properties:
+    result:
+      type: object
+      description: service-specific result object
+      #
+      # Define the schema of your result object here
+      #
+    metadata:
+      type: object
+      description: service-specific metadata object which contains additional information besides the actual results
+      #
+      # Define the schema of your metadata object here
+      #
+errorResponse:
+  # adapt the schema of this error response to your needs
+  type: object
+  properties:
+    code:
+      type: string
+      description: service-specific error code representing the type of problem encountered
+    detail:
+      type: string
+      description: service-specific error message describing the detail of the problem encountered
+```
+
+#### Interim Results
+
+```yaml
+interimResultResponse:
+  type: object
+  #
+  # Define the schema of your interim results here
+  #
+```

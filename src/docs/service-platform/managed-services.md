@@ -7,9 +7,10 @@ We enable developers to focus on writing their quantum code in Python (and other
 A Managed Service consists of your quantum code, metadata describing the service, and configuration information for the execution of the service.
 By using our coding templates, you can easily turn your ideas into running quantum solutions at rapid speed.
 
-Once deployed, you can share your services with your colleagues or even external parties through an HTTP API.
+Once deployed, you can asynchronously execute your service and retrieve the results. 
+Further, you can share your services with your colleagues or even external parties, everything through an [HTTP API](managed-services-api-spec.md).
 
-::: tip Quickstart Guide 
+::: tip Quickstart Guide
 Check out our [quickstart](../getting-started/quickstart.md) guide to get started with Managed Services using the PlanQK CLI.
 :::
 
@@ -18,6 +19,7 @@ Check out our [quickstart](../getting-started/quickstart.md) guide to get starte
 You can create a Managed Service either via the [PlanQK CLI](../getting-started/cli-reference.md) or via [the create service page](https://platform.planqk.de/services/new) of our UI.
 
 ### Using the PlanQK CLI (recommended)
+
 We strongly recommend to use the [PlanQK CLI](../getting-started/cli-reference.md) to create new quantum coding projects.
 You could select a general starter template or choose one specifically for a certain quantum provider or backend.
 Furthermore, it provides you with commands to directly package and deploy your quantum code along with the metadata and configuration.
@@ -28,6 +30,7 @@ It contains all the information you need to run and test your code locally as we
 :::
 
 ### Using the PlanQK Platform UI
+
 On the [create service page](https://platform.planqk.de/services/new) of our UI you can create a new Managed Service by uploading a ZIP file containing your quantum code.
 
 You have to zip (at minimum) the `src` folder and the Conda `environment.yml` file from your created project folder.
