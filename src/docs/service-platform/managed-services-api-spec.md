@@ -82,7 +82,7 @@ In general, input data should encode the information about the actual problem (e
 In this example the service expects the integer-typed input `n_bits`, which should at least be `2` and has an example value of `8`.
 The input parameters are empty in this example, but you can add additional parameters as needed.
 
-Learn more about how to define the schema of your input data and parameters [here](https://swagger.io/specification/#schema-object) or which [data types are supported](https://swagger.io/specification/#data-types).
+Learn more about how to define the schema of your input data and parameters [here](https://swagger.io/specification/#schema-object) or which data types are supported [here](https://swagger.io/specification/#data-types).
 
 ### Responses (aka. Output)
 
@@ -146,4 +146,4 @@ components:
           example: 0.3
 ```
 
-Learn more about how to define the schema of your input data and parameters [here](https://swagger.io/specification/#schema-object) or which [data types are supported](https://swagger.io/specification/#data-types).
+Learn more about how to define the schema of your input data and parameters [here](https://swagger.io/specification/#schema-object) or which data types are supported [here](https://swagger.io/specification/#data-types).
