@@ -63,26 +63,35 @@ In case you are using [Custom Docker Containers](managed-services-custom-contain
 Example:
 
 ```yaml
-inputData:
-  type: object
-  properties:
-    n_bits:
-      type: integer
-      minimum: 2
-      description: Number of qubits to use, defines the range of random numbers between 0 and 2^n_bits - 1
-      example: 8
-inputParams:
-  type: object
-  example: { }
+components:
+  schemas:
+    inputData:
+      type: object
+      properties:
+        n_bits:
+          type: integer
+          minimum: 2
+          description: Number of qubits to use, defines the range of random numbers between 0 and 2^n_bits - 1
+          example: 8
+    inputParams:
+      type: object
+      example: {}
 ```
 
 In general, input data should encode the information about the actual problem (e.g., the entries of a QUBO-matrix) while input parameters are additional information to influence the evaluation (e.g., the number of ancillary qubits for an execution).
 In this example the service expects the integer-typed input `n_bits`, which should at least be `2` and has an example value of `8`.
 The input parameters are empty in this example, but you can add additional parameters as needed.
 
-Learn more about how to define the schema of your input data and parameters [here](https://swagger.io/specification/#schema-object).
+Learn more about how to define the schema of your input data and parameters [here](https://swagger.io/specification/#schema-object) or which [data types are supported](https://swagger.io/specification/#data-types).
 
 ### Responses (aka. Output)
+
+A service may return different kinds of responses.
+Result responses are returned when the service execution finished successfully.
+The result response contains the actual result of the service execution as well as additional metadata.
+Error responses are returned when the service execution failed.
+The error response contains information about the error that occurred during the service execution.
+Interim result responses may be provided during the service execution to convey intermediate results to the user.
 
 | Field                                      | Description                                |
 |:-------------------------------------------|:-------------------------------------------|
@@ -90,40 +99,51 @@ Learn more about how to define the schema of your input data and parameters [her
 | `components.schemas.errorResponse`         | The schema of the error response.          |
 | `components.schemas.interimResultResponse` | The schema of the interim result response. |
 
-```yaml
-resultResponse:
-  type: object
-  properties:
-    result:
-      type: object
-      description: service-specific result object
-      #
-      # Define the schema of your result object here
-      #
-    metadata:
-      type: object
-      description: service-specific metadata object which contains additional information besides the actual results
-      #
-      # Define the schema of your metadata object here
-      #
-errorResponse:
-  # adapt the schema of this error response to your needs
-  type: object
-  properties:
-    code:
-      type: string
-      description: service-specific error code representing the type of problem encountered
-    detail:
-      type: string
-      description: service-specific error message describing the detail of the problem encountered
-```
-
-#### Interim Results
+Example:
 
 ```yaml
-interimResultResponse:
-  type: object
-  #
-  # Define the schema of your interim results here
-  #
+components:
+  schemas:
+    resultResponse:
+      type: object
+      properties:
+        result:
+          type: object
+          description: service-specific result object
+          properties:
+          counts_dict:
+            type: object
+            additionalProperties:
+              type: integer
+            example:
+              00: 548
+              11: 476
+        metadata:
+          type: object
+          description: service-specific metadata object which contains additional information besides the actual results
+          properties:
+            num_qubits:
+              type: integer
+              example: 2
+            eval_time:
+              type: number
+              example: 1.04
+    errorResponse:
+      # adapt the schema of this error response to your needs
+      type: object
+      properties:
+        code:
+          type: string
+          description: service-specific error code representing the type of problem encountered
+        detail:
+          type: string
+          description: service-specific error message describing the detail of the problem encountered
+    interimResultResponse:
+      type: object
+      properties:
+        eval_time:
+          type: number
+          example: 0.3
 ```
+
+Learn more about how to define the schema of your input data and parameters [here](https://swagger.io/specification/#schema-object) or which [data types are supported](https://swagger.io/specification/#data-types).
