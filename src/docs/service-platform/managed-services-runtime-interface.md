@@ -32,7 +32,27 @@ The runtime ensures that the input provided via the Service API in the form of `
 
 ### Output
 
-TODO
+Our runtime expects the `run()` method to return a `ResultResponse` or `ErrorResponse` object.
+Both objects must be JSON serializable and will be returned to the user via the Service API.
+
+Each coding template already contains respective class representations for the `ResultResponse` and `ErrorResponse` objects.
+
+```python
+class ErrorResponse(Response):
+    def __init__(self, code: str, detail: str):
+        self.code = code
+        self.detail = detail
+
+
+class ResultResponse(Response):
+    def __init__(self, result: dict, metadata: dict = None):
+        self.result = result
+        self.metadata = metadata
+```
+
+You may exchange the `ResultResponse` and `ErrorResponse` classes with your own classes.
+However, you must ensure that your classes are JSON serializable and the name of the class is `ResultResponse` and/or `ErrorResponse`.
+Otherwise, the runtime will not be able to serialize your objects and the service execution will fail.
 
 ## Custom Docker Container
 
@@ -54,10 +74,10 @@ The platform runtime uses the input provided via the Service API in the form of 
 The runtime then mounts the input data to `/var/input/data.json` and the parameters to `/var/input/params.json` of the container.
 Both files will contain valid JSON strings.
 
-#### Output:
+### Output:
 
 Any result that should be returned to the user must be written to standard output (stdout) and prefixed with `PlanQK:Job:Result:`.
-Only the first occurrence of the `PlanQK:Job:Result:` marker will be used as the result output of the service. 
+Only the first occurrence of the `PlanQK:Job:Result:` marker will be used as the result output of the service.
 The result itself must be a valid JSON string, for example (note that the output is a single line):
 
 ```
