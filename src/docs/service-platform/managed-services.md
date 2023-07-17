@@ -7,7 +7,7 @@ We enable developers to focus on writing their quantum code in Python (and other
 A Managed Service consists of your quantum code, metadata describing the service, and configuration information for the execution of the service.
 By using our coding templates, you can easily turn your ideas into running quantum solutions at rapid speed.
 
-Once deployed, you can asynchronously execute your service and retrieve the results. 
+Once deployed, you can asynchronously execute your service and retrieve the results.
 Further, you can share your services with your colleagues or even external parties, everything through an [HTTP API](managed-services-api-spec.md).
 
 ::: tip Quickstart Guide
@@ -16,7 +16,7 @@ Check out our [quickstart](../getting-started/quickstart.md) guide to get starte
 
 ## Create a Managed Service
 
-You can create a Managed Service either via the [PlanQK CLI](../getting-started/cli-reference.md) or via [the create service page](https://platform.planqk.de/services/new) of our UI.
+You can create a Managed Service either via the [PlanQK CLI](../getting-started/cli-reference.md) or via the [create service page](https://platform.planqk.de/services/new) of our UI.
 
 ### Using the PlanQK CLI (recommended)
 
@@ -24,7 +24,7 @@ We strongly recommend to use the [PlanQK CLI](../getting-started/cli-reference.m
 You could select a general starter template or choose one specifically for a certain quantum provider or backend.
 Furthermore, it provides you with commands to directly package and deploy your quantum code along with the metadata and configuration.
 
-::: tip Hint
+::: tip Check out the README
 Take a look into the `README.md` file of your created project to get started.
 It contains all the information you need to run and test your code locally as well as to deploy it to the PlanQK Platform.
 :::
@@ -57,8 +57,8 @@ The following table describes the metadata properties of a service.
 
 The following table describes the configuration capabilities of a service.
 
-| Property               | Description                                                                                                                                                                                                             |
-|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Runtime Configuration  | PlanQK supports to run your service based on the PlanQK Coding Template and custom Docker containers. Choose "Python Template" for selecting the PlanQK Coding Template as your runtime.                                |
-| Resource Configuration | Define and configure the allocated resources when your service is executed.                                                                                                                                             |
-| API Specification      | Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. You can leave this empty to use the default OpenAPI specification. |
+| Property               | Description                                                                                                                                                                                                                                                |
+|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Runtime Configuration  | PlanQK supports to run your service based on the PlanQK Coding Template and custom Docker containers. Choose "Python Template" for selecting the PlanQK Coding Template as your runtime. Choose "Docker" for selecting the custom Docker container option. |
+| Resource Configuration | Define and configure the allocated resources when your service is executed.                                                                                                                                                                                |
+| API Specification      | Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. You can leave this empty to use the default OpenAPI specification.                                    |
