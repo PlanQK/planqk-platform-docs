@@ -18,13 +18,15 @@ The following table lists the available endpoints:
 | `GET`  | `/{id}/interim-results` | Via this endpoint, possible intermediate results of the service execution can be retrieved.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `PUT`  | `/{id}/cancel`          | After starting a service execution, it can be canceled via this method.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
-::: tip IMPORTANT
+::: warning IMPORTANT
 Do **NOT** change the operations or add new ones, otherwise communicating with the service will not work as intended.
 :::
 
 ## Describing your API
 
+::: tip API Specification Template  
 Our default API specification, which can be used as a template, is available to <a :href="$withBase('/files/default-api-spec.yaml')" download>download</a>.
+:::
 
 As a service provider, you can (and should) change titles and descriptions for the different endpoints, as well as the API itself.
 Besides that, it is highly recommended to describe the format of the inputs and outputs withing the `components.schemas` section of the API specification.
