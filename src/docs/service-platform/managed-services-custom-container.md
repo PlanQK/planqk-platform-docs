@@ -1,6 +1,6 @@
 # Custom Docker Containers
 
-PlanQK supports to run your managed services based on a custom Docker container.
+We support custom Docker containers to run your service.
 You may consider using "Docker" as your service runtime in the following scenarios:
 
 - You need OS-level packages not included in the Python Template. With Docker, you have complete control over your base operating system and installed packages.
@@ -8,7 +8,7 @@ You may consider using "Docker" as your service runtime in the following scenari
 - You need guaranteed reproducible builds. We release regular updates to our coding templates to improve functionality, security, and performance. While we aim for full backward compatibility, using a Dockerfile is the best way to ensure that your production runtime is always in sync with your local builds.
 
 ::: warning Be compliant with our runtime interface
-You cannot run an arbitrary Docker container. You must comply with our [runtime interface](managed-services-runtime-interface.md).
+You cannot run an arbitrary Docker container. You must comply with our [runtime interface](managed-services-runtime-interface.md#custom-docker-container).
 :::
 
 ## Set up a Custom Docker Container Project
