@@ -71,6 +71,7 @@ module.exports = {
             'getting-started/quickstart',
             'getting-started/using-sdk',
             'getting-started/quantum-hardware',
+            'getting-started/sdk-reference',
             'getting-started/cli-reference',
             'getting-started/planqk-json-reference',
             'getting-started/manage-organizations',
