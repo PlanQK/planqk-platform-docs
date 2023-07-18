@@ -1,6 +1,6 @@
 # Using the SDK
 
-The `planqk-quantum` SDK provides an easy way for developing quantum circuits using [Qiskit](https://pypi.org/project/qiskit) to be run on quantum devices provided by the [PlanQK Platform](https://docs.platform.planqk.de).
+The PlanQK Quantum SDK provides an easy way for developing quantum circuits using [Qiskit](https://pypi.org/project/qiskit) to be run on quantum devices provided by the [PlanQK Platform](https://docs.platform.planqk.de).
 The SDK is an extension for the [Qiskit SDK](https://github.com/Qiskit/qiskit-metapackage) and provides the same functionality and syntax as well as some PlanQK specific commands.
 
 ## Installation
@@ -103,4 +103,4 @@ Next, you may use `planqk run` to execute your service.
 ## What's next?
 
 - See our supported [quantum hardware and simulators](quantum-hardware.md).
-- Check out the [Tutorial on how to create a PlanQK Service using the `planqk-quantum` library](../../tutorials/tutorial-qiskit.md).
+- Check out the [Tutorial on how to create a PlanQK Service using the PlanQK Quantum SDK](../../tutorials/tutorial-qiskit.md).

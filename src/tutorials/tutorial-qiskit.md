@@ -1,14 +1,14 @@
-# Execute Qiskit Circuits using PlanQK's Quantum Library
+# Execute Qiskit Circuits using the PlanQK Quantum SDK
 
-This tutorial describes how you can use the PlanQK Quantum Platform Library to execute your Qiskit code on different quantum backends supported by PlanQK.
-The library is a wrapper for the Qiskit SDK.
+This tutorial describes how you can use the PlanQK Quantum SDK to execute your Qiskit code on different quantum backends supported by PlanQK.
+The SDK is a wrapper for the Qiskit SDK.
 Hence, it provides the same functionality and syntax as the original Qiskit SDK.
 
-You can use the library either directly from your favorite IDE or in a [PlanQK service](../docs/service-platform/managed-services.md).
+You can use the SDK either directly from your favorite IDE or in a [PlanQK service](../docs/service-platform/managed-services.md).
 
-## Install the `planqk-quantum` Library
+## Install the PlanQK Quantum SDK
 
-To install the PlanQK Quantum Platform Library you need to have Python 3.7 or higher installed.
+To install the PlanQK Quantum SDK you need to have Python 3.7 or higher installed.
 The package is released on PyPI and can be installed via `pip`:
 
 ```bash
