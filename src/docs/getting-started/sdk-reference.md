@@ -1,4 +1,4 @@
-# Qiskit SDK Reference
+# SDK Reference
 
 The PlanQK Quantum SDK provides an easy way for developing quantum circuits using [Qiskit](https://pypi.org/project/qiskit) to be run on [quantum hardware and simulators supported](quantum-hardware.md) by the [PlanQK Platform](https://docs.platform.planqk.de).
 It is an **extension** for the [Qiskit SDK](https://github.com/Qiskit/qiskit-metapackage).
@@ -14,18 +14,32 @@ pip install --upgrade planqk-quantum
 
 ## Using the SDK
 
-As the SDK is based on Qiskit, you can use the Qiskit syntax to access quantum hardware and simulators.
-To list and access the quantum backends supported by Planqk, you'll need to use the `PlanqkQuantumProvider` class.
+The SDK, based on Qiskit, enables access to quantum hardware and simulators using the Qiskit syntax. To list and access the quantum backends supported by Planqk, you will need to use the `PlanqkQuantumProvider` class.
 
-Here's an example:
+### Authentication
+
+To use the SDK, you need to authenticate using an access token with at least the `quantum-tokens` scope.
+The token can be generated [here](https://platform.planqk.de/settings/access-tokens).
+This token can be set in two ways:
+
+1. Automatically, by logging in through the [PlanQK CLI](quickstart.md#3-login-to-your-account). The command to login via CLI is `planqk login -t <your_access_token>`. This method will automatically inject the access token when you instantiate the `PlanqkQuantumProvider` class.
+
+2. Explicitly, during instantiation of the `PlanqkQuantumProvider` class as shown in the example below. This method overrides any access token that has been automatically injected through the PlanQK CLI login.
+
+If the access token is not set or if it is invalid or has expired, an `InvalidAccessTokenError` is thrown. 
+You need to generate a new token and login again. 
+
+### Example Usage
 
 ```python
 from planqk.qiskit import PlanqkQuantumProvider
 
-provider = PlanqkQuantumProvider()
+# Initialize the provider with your access token
+provider = PlanqkQuantumProvider(access_token="your_access_token")
+
 backends = provider.backends()
 
-# select a certain backend
+# Select a certain backend
 backend = provider.get_backend(name="azure.ionq.simulator")
 ```
 
@@ -44,7 +58,7 @@ This section provides a brief overview of the most important classes and methods
 
 ### Provider
 
-The `PlanqkQuantumProvider` class is a wrapper for the [Qiskit Provider](https://qiskit.org/documentation/stubs/qiskit.providers.ProviderV1.get_backend.html#qiskit.providers.ProviderV1.get_backend).
+The `PlanqkQuantumProvider` class is an extension for the [Qiskit Provider](https://qiskit.org/documentation/stubs/qiskit.providers.ProviderV1.get_backend.html#qiskit.providers.ProviderV1.get_backend).
 
 | Method              | Description                                                                                                                            |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------|
@@ -53,11 +67,11 @@ The `PlanqkQuantumProvider` class is a wrapper for the [Qiskit Provider](https:/
 
 ### Backend
 
-The `PlanqkBackend` class is based on the IBM [`BackendV2`](https://qiskit.org/documentation/stubs/qiskit.providers.BackendV2.html) class.
-A `Backend` object provides information about quantum backends (e.g., number of qubits, qubit connectivity, etc.) and enables you to run quantum circuits on the backend.
+The `PlanqkBackend` class represents a [Qiskit Backend](https://qiskit.org/documentation/stubs/qiskit.providers.BackendV2.html).
+It provides information about quantum backends (e.g., number of qubits, qubit connectivity, etc.) and enables you to run quantum circuits on the backend.
 Please note that currently, only circuits with gate-based operations are supported while pulse-based operations are not supported.
 
-The `Backend` class supports the following methods:
+The `PlanqkBackend` class supports the following methods:
 
 | Method                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -83,7 +97,8 @@ job = backend.retrieve_job("6ac422ad-c854-4af4-b37a-efabb159d92e")
 
 ### Jobs & Results
 
-The `PlanqkJob` class is based on the [Qiskit Job class](https://qiskit.org/documentation/stubs/qiskit.providers.JobV1.html#jobv1). It provides status information about a job (e.g., job id, status, etc.) and enables you to access the job result as soon as the job execution has completed successfully.
+The `PlanqkJob` represents a [Qiskit Job](https://qiskit.org/documentation/stubs/qiskit.providers.JobV1.html#jobv1). 
+It provides status information about a job (e.g., job id, status, etc.) and enables you to access the job result as soon as the job execution has completed successfully.
 
 #### Methods
 
