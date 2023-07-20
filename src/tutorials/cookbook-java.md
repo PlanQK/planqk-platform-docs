@@ -369,7 +369,6 @@ Now, that you have your zip archive ready (e.g., a file called `user_code.zip`),
 | Attribute name   | Description                                                                        |
 |------------------|------------------------------------------------------------------------------------|
 | `name`           | Your desired name for your PlanQK Service (required)                               |
-| `quantumBackend` | The quantum backend you want to use. Options: `NONE`, `DWAVE`, `IBM` (required)    |
 | `description`    | A detailed description of your service (optional)                                  |                                                                  |
 | `userCode`       | For managed services, specify the path to your zipped code archive                 |
 | `apiDefinition`  | Specify the path to your OpenAPI description for your service (optional)           |

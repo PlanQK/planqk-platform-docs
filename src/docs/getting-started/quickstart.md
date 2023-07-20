@@ -62,7 +62,6 @@ It also contains a `planqk.json` file, which contains the project configuration.
 {
   "name": "my-project",
   "description": "<your project description>",
-  "quantumBackend": "IONQ",
   "resources": {
     "cpu": 0.5,
     "memory": 1

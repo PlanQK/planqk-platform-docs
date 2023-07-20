@@ -9,7 +9,6 @@ Here is an example containing all supported fields:
 {
   "name": "my-service",
   "description": "This service does awesome things.",
-  "quantumBackend": "IONQ",
   "resources": {
     "cpu": 2,
     "memory": 4,
@@ -29,7 +28,6 @@ The following properties are supported:
 |-----------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                | `string` | **Required**. The name of your service.                                                                                                                                                                             |
 | `description`         | `string` | A short description of your service.                                                                                                                                                                                |
-| `quantumBackend`      | `string` | **Required**. The quantum provider your service uses. One of `IBM`, `IONQ`, `DWAVE` or `NONE`.                                                                                                                      |  
 | `resources`           | `object` | **Required**. The resource configuration of your service.                                                                                                                                                           |
 | `resources.cpu`       | `number` | **Required**. The number of virtual CPU cores to allocate for your service.                                                                                                                                         |
 | `resources.memory`    | `number` | **Required**. The amount of memory in GB to allocate for your service.                                                                                                                                              |
