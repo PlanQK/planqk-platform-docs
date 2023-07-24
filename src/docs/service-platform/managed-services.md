@@ -20,7 +20,7 @@ You can create a Managed Service either via the [PlanQK CLI](../getting-started/
 
 ### Using the PlanQK CLI (recommended)
 
-We strongly recommend to use the [PlanQK CLI](../getting-started/cli-reference.md) to create new quantum coding projects.
+We strongly recommend to use the [PlanQK CLI](../getting-started/quickstart.md) to create new Managed Service.
 You could select a general starter template or choose one specifically for a certain quantum provider or backend.
 Furthermore, it provides you with commands to directly package and deploy your quantum code along with the metadata and configuration.
 
