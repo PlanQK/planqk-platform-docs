@@ -1,7 +1,7 @@
 # API Specification
 
-Each service that is managed by PlanQK may provide a detailed API specification.
-This specification is used to describe the interface of the service and the input data that is required to execute the service.
+The API Specification will help users of your service to understand how to use it. 
+It is the technical interface of your API product and describes the input and output data that is required to execute the service.
 We use the [OpenAPI Specification v3 (OAS3)](https://swagger.io/specification) to describe the API of a service.
 
 ## Endpoints
