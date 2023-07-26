@@ -33,6 +33,9 @@ Besides that, it is highly recommended to describe the format of the inputs and 
 This is especially important for the `POST /` endpoint, since it defines what kind of input data may be provided by the user.
 Further, the response specification for `GET /{id}/result` endpoint is equally important, since it defines what kind of output the user can expect when successfully running the service.
 
+You can use the [Swagger Online Editor](https://editor.swagger.io) to edit the API specification.
+Further, you may use OpenAPI editor extensions for your IDE, e.g,. for [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi).
+
 ### Title and Description
 
 We highly recommend to change the title and description of the API to match your service.

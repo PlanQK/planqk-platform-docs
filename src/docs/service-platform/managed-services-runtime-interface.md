@@ -6,12 +6,16 @@ Therefore, each service API employs polling to avoid client timeouts when waitin
 
 We support two runtime configurations:
 (1) Python Templates that are based our [coding templates](https://github.com/PlanQK/planqk-platform-samples/tree/master/coding-templates/python) and
-(2) Custom Docker Containers that can be run as a one-shot process.
+(2) Custom Docker Containers that can be run as a one-shot process, examples can be found [here](https://github.com/PlanQK/planqk-platform-samples/tree/master/coding-templates/docker).
 
 ## Python Template
 
 When starting with PlanQK, we recommend using `Python Template` as your runtime configuration.
 It is best to use the [PlanQK CLI](../getting-started/quickstart.md) to create a new project based on our coding templates.
+
+::: tip Samples and Templates
+Several sample projects can be found in our [coding templates](https://github.com/PlanQK/planqk-platform-samples/tree/master/coding-templates/python) repository.
+:::
 
 ### Lifecycle
 
@@ -54,6 +58,17 @@ You may exchange the `ResultResponse` and `ErrorResponse` classes with your own 
 However, you must ensure that your classes are JSON serializable and the name of the class is `ResultResponse` and/or `ErrorResponse`.
 Otherwise, the runtime will not be able to serialize your objects and the service execution will fail.
 
+We also support interim results, i.e., results that are not the final result of the service but which you want to make available to the user while the service is still running.
+In this case, the output must be printed to stdout and prefixed with `PlanQK:Job:InterimResult`, for example:
+
+```
+PlanQK:Job:InterimResult: {"sum":25.2}
+```
+
+::: warning NOTE
+For interim results, the complete JSON string must be printed to a single line.
+:::
+
 ## Custom Docker Container
 
 We recommend using "Docker" only if one of the following reasons apply:
@@ -61,6 +76,11 @@ We recommend using "Docker" only if one of the following reasons apply:
 - You need OS-level packages not included in the Python Template. With Docker, you have complete control over your base operating system and installed packages.
 - Your application is in a language not yet supported by PlanQK, like Go or Rust.
 - You need guaranteed reproducible builds. We release regular updates to our coding templates to improve functionality, security, and performance. While we aim for full backward compatibility, using a Dockerfile is the best way to ensure that your production runtime is always in sync with your local builds.
+
+::: tip Samples and Templates
+Several sample projects can be found in our [coding templates](https://github.com/PlanQK/planqk-platform-samples/tree/master/coding-templates/docker) repository.
+These are also available to be used as a template when creating a new service via the [PlanQK CLI](../getting-started/quickstart.md).
+:::
 
 ### Lifecycle:
 

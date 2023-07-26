@@ -15,7 +15,6 @@ To create an external service, go to the [create service page](https://platform.
 | Service Type           | Select "External Service".                                                                                                                                                              |
 | Service Endpoint       | Enter the public endpoint (URL) of your service.                                                                                                                                        |    
 | Security Configuration | Define how the PlanQK Platform authenticates requests to your service. At the moment, Basic Authentication using username and password is supported.                                    |
-| Quantum Backend        | Select one of the supported quantum backends your quantum code is using. Customers can use this information to find your service in the marketplace.                                    |
 | API Specification      | Click on "Import from OpenAPI File" if you already have prepared an OpenAPI specification for your service. You can leave this empty for now and supply an OpenAPI specification later. |
 | Description            | Provide any additional meaningful information you want to provide to other PlanQK users.                                                                                                |
 

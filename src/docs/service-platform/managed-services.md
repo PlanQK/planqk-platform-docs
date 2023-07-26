@@ -46,19 +46,22 @@ Further, you may publish it for internal use or into the PlanQK Marketplace to s
 
 The following table describes the metadata properties of a service.
 
-| Property        | Description                                                                                                                                                                                                                                       |
-|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name            | Choose a meaningful name for your service. If you publish your service later on, this name will be displayed to other users.                                                                                                                      |
-| Service Type    | Select "Managed Services" and upload your code archive (ZIP). The option "External Service" can be used if your service is running somewhere (e.g., on your own infrastructure) and you just want the PlanQK Platform to manage the access to it. |
-| Description     | Other users will see this description of the service, if its name sparked some interest, and they clicked on it in the marketplace. So any additional information you want to provide goes in here.                                               |
-| Quantum Backend | Select one of the supported quantum backends your quantum code is using. Currently only one can be picked and serves as a label for your service when published or visible to other users.                                                        |
+| Property     | Description                                                                                                                                                                                                                                       |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name         | Choose a meaningful name for your service. If you publish your service later on, this name will be displayed to other users.                                                                                                                      |
+| Service Type | Select "Managed Services" and upload your code archive (ZIP). The option "External Service" can be used if your service is running somewhere (e.g., on your own infrastructure) and you just want the PlanQK Platform to manage the access to it. |
+| Description  | Other users will see this description of the service, if its name sparked some interest, and they clicked on it in the marketplace. So any additional information you want to provide goes in here.                                               |
 
 ## Service Configuration
 
 The following table describes the configuration capabilities of a service.
 
-| Property               | Description                                                                                                                                                                                                                                                |
-|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Runtime Configuration  | PlanQK supports to run your service based on the PlanQK Coding Template and custom Docker containers. Choose "Python Template" for selecting the PlanQK Coding Template as your runtime. Choose "Docker" for selecting the custom Docker container option. |
-| Resource Configuration | Define and configure the allocated resources when your service is executed.                                                                                                                                                                                |
-| API Specification      | Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. You can leave this empty to use the default OpenAPI specification.                                    |
+| Property               | Description                                                                                                                                                                                                                                                                                        |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Runtime Configuration  | PlanQK supports to run your service based on the PlanQK Coding Template and custom Docker containers. Choose "Python Template" for selecting the PlanQK Coding Template as your runtime. Choose "Docker" for selecting the custom Docker container option.                                         |
+| Resource Configuration | Define and configure the allocated resources when your service is executed. You can define the number of virtual CPU cores and the amount of memory in GB to be allocated for your service at runtime. If you wish to access GPU resources, you may specify the GPU configuration of your service. |
+| API Specification      | Click on "Import from OpenAPI File" if you have prepared an OpenAPI specification for your service describing your service interface and input data. You can leave this empty to use the default OpenAPI specification.                                                                            |
+
+::: tip API Specification
+Further details and a template to create your own API specification are described on the [API Specification](managed-services-api-spec.md) page.
+:::

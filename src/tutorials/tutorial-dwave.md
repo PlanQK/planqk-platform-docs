@@ -123,7 +123,7 @@ PLANQK_PERSONAL_ACCESS_TOKEN = "your personal access token"
 Next, go to <https://platform.planqk.de>, navigate to your user settings and create a "Personal Access Token" with `api` and `quantum_tokens` permission levels enabled (scope).
 Respectively assign your personal access token to the `PLANQK_PERSONAL_ACCESS_TOKEN` constant.
 
-Further, in your PlanQK user settings, go to "Quantum Backend Tokens" and add your personal D-Wave Leap access token.
+Further, in your PlanQK user settings, go to "Provider Access Tokens" and add your personal D-Wave Leap access token.
 
 Finally, you can change the instantiation of the `LeapHybridSampler` object as follows:
 
