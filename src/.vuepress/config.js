@@ -49,7 +49,7 @@ module.exports = {
     nav: [
       {
         text: 'Documentation',
-        link: '/docs/',
+        link: '/',
       },
       {
         text: 'Tutorials & Cookbooks',
@@ -62,7 +62,26 @@ module.exports = {
     ],
 
     sidebar: {
-      '/docs/': [
+      '/tutorials/': [
+        {
+          title: 'Tutorials',
+          collapsable: false,
+          children: [
+            'tutorial-dwave',
+            'tutorial-qiskit',
+            'tutorial-meter-external-service',
+          ]
+        },
+        {
+          title: 'Cookbooks',
+          collapsable: false,
+          children: [
+            'cookbook-java',
+            'cookbook-python'
+          ]
+        }
+      ],
+      '/': [
         {
           title: 'Getting Started',
           collapsable: false,
@@ -96,7 +115,7 @@ module.exports = {
         },
         {
           title: 'Community Platform',
-          collapsable: false,
+          collapsable: true,
           children: [
             'community-platform/overview',
             'community-platform/algorithms',
@@ -113,29 +132,10 @@ module.exports = {
         },
         {
           title: 'Third Party',
-          collapsable: false,
+          collapsable: true,
           children: [
             'nisq-analyzer',
             'tosca',
-          ]
-        }
-      ],
-      '/tutorials/': [
-        {
-          title: 'Tutorials',
-          collapsable: false,
-          children: [
-            'tutorial-dwave',
-            'tutorial-qiskit',
-            'tutorial-meter-external-service',
-          ]
-        },
-        {
-          title: 'Cookbooks',
-          collapsable: false,
-          children: [
-            'cookbook-java',
-            'cookbook-python'
           ]
         }
       ],
