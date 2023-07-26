@@ -19,11 +19,11 @@ Then install the PlanQK CLI globally using npm:
 npm install -g @anaqor/planqk
 ```
 
-For details read the [CLI reference](./cli-reference.md)
+For details read the [CLI reference](cli-reference.md)
 
 ### 3. Login to your account
 
-- [Create an Access Token](https://platform.planqk.de/settings/access-tokens) with the scope `api` and `quantum_tokens`
+- [Create a Personal Access Token](https://platform.planqk.de/settings/access-tokens) with the scope `api` and `quantum_tokens`
   and copy the token to your clipboard.
 - Login to your account using your access token:
 
@@ -79,7 +79,7 @@ First, switch to your project directory:
 cd my-project
 ```
 
-Then, install the required dependencies. We recommend using a dedicated [conda](https://docs.conda.io/en/latest/)
+Then, install the required dependencies. We recommend using a dedicated [conda](https://docs.conda.io/en/latest)
 environment.
 As an alternative, you can use the requirements.txt to install the dependencies with the tooling of your choice.
 
@@ -135,7 +135,7 @@ You can also provide the input data and params as command line flags:
 planqk run -d '{"values": [10,12]}' -p '{"round_up": true}'
 ```
 
-For more details and options see the [CLI reference](https://www.npmjs.com/package/@anaqor/planqk)
+For more details and options see the [CLI reference](cli-reference.md)
 
 ## What's next?
 
