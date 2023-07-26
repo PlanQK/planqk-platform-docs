@@ -5,7 +5,6 @@ They are especially useful when experimenting with implementations for quantum h
 You can create a Job either via the [our CLI](../getting-started/quickstart.md) or via the [create job page](https://platform.planqk.de/jobs/new).
 On the [Job Dashboard](https://platform.planqk.de/jobs) you see an overview of all your created jobs.
 
-<LoomVideo url="https://www.loom.com/embed/e15c7156348041199479c12c0dac7d7d?sid=3292e46f-03a4-4c16-9908-849c924075b6"/>
-
+<LoomVideo url="https://www.loom.com/embed/9ee68ea9450047d1a9ce5d67b031807d?sid=ccd240aa-da86-49a3-a3cd-6330fd4add4e"/>
 
 
