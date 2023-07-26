@@ -98,14 +98,20 @@ module.exports = {
           ]
         },
         {
+          title: 'Managed Services',
+          collapsable: false,
+          children: [
+            'managed-services/managed-services',
+            'managed-services/managed-services-runtime-interface',
+            'managed-services/managed-services-custom-container',
+            'managed-services/managed-services-api-spec',
+            'managed-services/managed-services-jobs',
+          ]
+        },
+        {
           title: 'Service Platform',
           collapsable: false,
           children: [
-            'service-platform/managed-services',
-            'service-platform/managed-services-runtime-interface',
-            'service-platform/managed-services-api-spec',
-            'service-platform/managed-services-jobs',
-            'service-platform/managed-services-custom-container',
             'service-platform/external-services',
             'service-platform/applications',
             'service-platform/using-a-service',
