@@ -33,7 +33,7 @@ You can use your personal access token to interact with organizations you are a 
 By bringing your own access tokens, you can use your own accounts for certain quantum backends.
 This allows PlanQK to access quantum backend providers at runtime.
 
-<LoomVideo url="https://www.loom.com/embed/25663a0e9a594f1a8e92a68de64f35d6?sid=6b59ae19-3d55-4754-94cc-f102ade591aa"/>
+<LoomVideo url="https://www.loom.com/embed/330cb6ae8f3a4a29bf904ed9cef038fb?sid=bd3bc415-fc0c-45f7-bcff-57ca4cd70acf"/>
 
 To add a token for your account, go to the user-menu in the top right corner and click on "Settings".
 Under "Provider Access Tokens" you can add different tokens to your account, depending on the provider.
