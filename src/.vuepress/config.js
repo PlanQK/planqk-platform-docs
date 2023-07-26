@@ -104,6 +104,7 @@ module.exports = {
             'managed-services/managed-services',
             'managed-services/managed-services-runtime-interface',
             'managed-services/managed-services-custom-container',
+            'managed-services/manage-runtime-configuration',
             'managed-services/managed-services-api-spec',
             'managed-services/managed-services-jobs',
           ]
