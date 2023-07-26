@@ -1,7 +1,7 @@
 # Quantum Backends
 
 This page provides an overview of the supported quantum hardware and simulators.
-For detailed information about each backend, please visit the [quantum backend page](https://platform.planqk.de/quantum-backends) of the platform.
+For detailed information about each backend, please visit our [quantum backends page](https://platform.planqk.de/quantum-backends).
 
 ## Simulators
 

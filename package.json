@@ -19,5 +19,8 @@
     "cross-env": "^7.0.3",
     "vuepress": "^1.5.3",
     "vuepress-plugin-code-copy": "^1.0.6"
+  },
+  "dependencies": {
+    "@adamdehaven/vuepress-plugin-custom-tooltip": "^1.4.3"
   }
 }
