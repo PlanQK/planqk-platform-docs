@@ -19,7 +19,7 @@ Then install the PlanQK CLI globally using npm:
 npm install -g @anaqor/planqk
 ```
 
-For details read the [CLI reference](cli-reference.md)
+For details read the [CLI reference](cli-reference.md).
 
 ### 3. Login to your account
 
@@ -135,7 +135,7 @@ You can also provide the input data and params as command line flags:
 planqk run -d '{"values": [10,12]}' -p '{"round_up": true}'
 ```
 
-For more details and options see the [CLI reference](cli-reference.md)
+For more details and options see the [CLI reference](cli-reference.md).
 
 ## What's next?
 
