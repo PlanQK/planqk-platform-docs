@@ -1,4 +1,4 @@
-# Quickstart
+# Introduction
 
 Managed Services enable you to run your quantum code on-demand without needing to manage your own infrastructure, provision servers, or upgrade hardware.
 We containerize and deploy your quantum code fully automatically and make it accessible through well-known protocols (HTTP/S) – you bring the code, we do the REST.

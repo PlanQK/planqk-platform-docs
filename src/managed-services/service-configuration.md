@@ -1,4 +1,6 @@
-### Manage Runtime Configuration
+# Service Configuration
+
+## Runtime Configuration
 
 After you have created a new service, you can change the runtime configuration on the service detail page.
 From the toolbar on the top, select "Edit Service" and then "Runtime Configuration".
@@ -12,7 +14,7 @@ If you enable this option, the following environment variables containing your p
 
 <LoomVideo url="https://www.loom.com/embed/0d415bfaa4144ec08d2b8736ba72194d?sid=b3026ef5-bfb5-4e91-b3fd-b189c43f9a3f"/>
 
-### Resource Configuration
+## Resource Configuration
 
 After you have created a new service, you can change the resource configuration on the service detail page.
 

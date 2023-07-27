@@ -86,7 +86,6 @@ module.exports = {
           title: 'Getting Started',
           collapsable: false,
           children: [
-            '',
             'getting-started/quickstart',
             'getting-started/using-sdk',
             'getting-started/quantum-hardware',
@@ -104,7 +103,7 @@ module.exports = {
             'managed-services/managed-services',
             'managed-services/managed-services-runtime-interface',
             'managed-services/managed-services-custom-container',
-            'managed-services/manage-runtime-configuration',
+            'managed-services/service-configuration',
             'managed-services/managed-services-api-spec',
             'managed-services/managed-services-jobs',
           ]
@@ -116,8 +115,8 @@ module.exports = {
             'service-platform/external-services',
             'service-platform/applications',
             'service-platform/using-a-service',
-            'service-platform/pricing',
             'service-platform/marketplace',
+            'service-platform/pricing',
           ]
         },
         {
