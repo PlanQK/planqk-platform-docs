@@ -77,36 +77,9 @@ The `-v` option is used to mount this directory as volumes in the Docker contain
 The application may read the input from `/var/input/data.json` and parameters from `/var/input/params.json` respectively.
 The Docker container runs the application and returns the result as output, printed to stdout and prefixed by `PlanQK:Job:Result:`.
 
-## Create your Service on the PlanQK Platform
+For more information on how to deal with input and output data, see our runtime interface documentation for [custom Docker containers](managed-services-runtime-interface.md#custom-docker-container).
 
-If you have already completed your custom Docker container project and are now looking to offer it as a service through the PlanQK platform, you are on the right track!
-With just a few more steps, your service can be deployed and made available for customers to subscribe to.
-This guide will provide you with all the necessary information about the process of subscribing to services and executing jobs, as well as answering any questions you may have.
+## What's next?
 
-### Create an API Specification File for your Service
-
-Although not absolutely necessary for providing a service, we do strongly recommend to write (or customize) an API description for your service.
-This API description gives users of the service a manual on how they are able to communicate with the service, namely how they can send the input for problems and receive the solutions.  
-On the PlanQK platform we support the OpenAPI 3.0 (formerly Swagger) format for describing the REST methods used for communicating with the service.
-
-Since the execution of services might take several hours (e.g., for training variational circuits) we support an asynchronous communication.
-The [PlanQK Platform samples for custom Docker containers](https://github.com/PlanQK/planqk-platform-samples/tree/master/coding-templates/docker)
-already include the file `openapi-spec.yml`, which is a generic API description and can (and should!) be adapted for your own service.
-This especially refers to defining the types of input and output for the corresponding REST-methods which will be described below.
-
-::: tip API Specification Details
-Learn more about our API endpoints and how to describe input data and output responses [here](managed-services-api-spec.md).
-:::
-
-### Deploy your Service on the PlanQK Platform
-
-When you have zipped your code and successfully tested it via Docker, creating a service via the platform is easy:
-you can create it either via the [PlanQK CLI](../getting-started/cli-reference.md) or via the [create service page](https://platform.planqk.de/services/new) of our UI.
-
-::: tip Create a Managed Service
-Learn more about how to create a managed service [here](managed-services.md#create-a-managed-service)
-:::
-
-And there you go.
-As soon as you click on "Create Service", the containerization and deployment starts.
-As soon as it's finished (as indicated in the "My Services" section with a green checkmark) you will be able to publish your service to the quantum service store or for internal use and test your service thoroughly.
+- Learn how to create an [API specification](managed-services-api-spec.md) for your service.
+- [Deploy your service](managed-services.md#create-a-managed-service) using our CLI or web application.

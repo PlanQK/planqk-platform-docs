@@ -102,10 +102,10 @@ module.exports = {
           children: [
             'managed-services/managed-services',
             'managed-services/managed-services-runtime-interface',
-            'managed-services/managed-services-custom-container',
             'managed-services/service-configuration',
             'managed-services/managed-services-api-spec',
             'managed-services/managed-services-jobs',
+            'managed-services/managed-services-custom-container',
           ]
         },
         {
