@@ -25,6 +25,13 @@ module.exports = {
     ['link', { rel: "stylesheet", href: "/material-symbols/outlined.css" }],
     ['link', { rel: "stylesheet", href: "/material-symbols/customization.css" }],
     ['link', { rel: "stylesheet", href: "/fontawesome/css/all.css" }],
+
+    // Plausible
+    ['script', {
+      defer: "defer",
+      "data-domain": "docs.platform.planqk.de",
+      src: "https://plausible.anaqor.io/js/script.outbound-links.file-downloads.tagged-events.js"
+    }],
   ],
 
   /**
