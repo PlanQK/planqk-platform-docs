@@ -101,6 +101,7 @@ module.exports = {
             'getting-started/planqk-json-reference',
             'getting-started/manage-organizations',
             'getting-started/manage-access-tokens',
+            'service-platform/pricing',
           ]
         },
         {
@@ -123,7 +124,6 @@ module.exports = {
             'service-platform/applications',
             'service-platform/using-a-service',
             'service-platform/marketplace',
-            'service-platform/pricing',
           ]
         },
         {
