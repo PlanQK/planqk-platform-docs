@@ -108,7 +108,7 @@ module.exports = {
           title: 'Managed Services',
           collapsable: false,
           children: [
-            'managed-services/managed-services',
+            'managed-services/introduction',
             'managed-services/managed-services-runtime-interface',
             'managed-services/service-configuration',
             'managed-services/managed-services-api-spec',
@@ -117,10 +117,18 @@ module.exports = {
           ]
         },
         {
+          title: 'External Services',
+          collapsable: false,
+          children: [
+            'external-services/introduction',
+            'external-services/offer-on-marketplace',
+            'external-services/report-usage',
+          ]
+        },
+        {
           title: 'Service Platform',
           collapsable: false,
           children: [
-            'service-platform/external-services',
             'service-platform/applications',
             'service-platform/using-a-service',
             'service-platform/marketplace',
