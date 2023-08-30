@@ -93,15 +93,15 @@ module.exports = {
           title: 'Getting Started',
           collapsable: false,
           children: [
-            'getting-started/quickstart',
-            'getting-started/using-sdk',
-            'getting-started/quantum-hardware',
-            'getting-started/sdk-reference',
-            'getting-started/cli-reference',
-            'getting-started/planqk-json-reference',
-            'getting-started/manage-organizations',
-            'getting-started/manage-access-tokens',
-            'service-platform/pricing',
+            'quickstart',
+            'using-sdk',
+            'quantum-hardware',
+            'sdk-reference',
+            'cli-reference',
+            'planqk-json-reference',
+            'manage-organizations',
+            'manage-access-tokens',
+            'pricing',
           ]
         },
         {
@@ -117,21 +117,20 @@ module.exports = {
           ]
         },
         {
-          title: 'External Services',
+          title: 'Using a Service',
           collapsable: false,
+          children: [
+            'applications',
+            'using-a-service',
+          ]
+        },
+        {
+          title: 'External Services',
+          collapsable: true,
           children: [
             'external-services/introduction',
             'external-services/offer-on-marketplace',
             'external-services/report-usage',
-          ]
-        },
-        {
-          title: 'Service Platform',
-          collapsable: false,
-          children: [
-            'service-platform/applications',
-            'service-platform/using-a-service',
-            'service-platform/marketplace',
           ]
         },
         {
