@@ -21,14 +21,14 @@ export default {
           description: 'Learn how to use our SDK to interact with our supported quantum backends',
           icon: 'code',
           color: 'blue',
-          link: '/docs/getting-started/using-sdk.html'
+          link: '/getting-started/using-sdk.html'
         },
         {
           title: 'Deep Dive into Jobs',
           description: 'Learn everything about Jobs and how to use them',
           icon: 'play_arrow',
           color: 'red',
-          link: '/docs/service-platform/managed-services-jobs.html'
+          link: '/managed-services/managed-services-jobs.html'
         },
         {
           title: 'Custom Docker Images',
@@ -36,7 +36,7 @@ export default {
           icon: 'fa-brands fa-docker',
           fontawesome: true,
           color: 'green',
-          link: '/docs/service-platform/managed-services-custom-container.html#runtime-interface'
+          link: '/managed-services/managed-services-custom-container.html'
         },
         {
           title: 'Explore our Tutorials',
