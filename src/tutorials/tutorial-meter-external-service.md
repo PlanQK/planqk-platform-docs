@@ -1,8 +1,8 @@
-# Create and Test an External Service
+# Create and Test an On-premise Service
 
-In this tutorial you will learn how to create an external service with a pay-per-use pricing plan
+In this tutorial you will learn how to create an on-premise service with a pay-per-use pricing plan
 and report the usage of your service to our metering API.
-Further reading on external services can be found in our [External Services documentation](../docs/service-platform/external-services.md).
+Further reading on external services can be found in our [On-premise Services documentation](../docs/service-platform/external-services.md).
 
 ## The Example Service
 
@@ -53,14 +53,14 @@ You can deploy this example to render with just a couple of clicks:
     - Click "Create Web Service"
     - And your done your service should be up and running in a few minutes  🎉
 
-## Integrate as an External Service on the PlanQK Platform
+## Integrate as an On-premise Service on the PlanQK Platform
 
-Once your service is deployed, you can integrate it as an external service on the PlanQK Platform.
+Once your service is deployed, you can integrate it as an on-premise service on the PlanQK Platform.
 To do so, follow these steps:
 
 1. Go to the [create service page](https://platform.planqk.de/services/new).
 2. Enter a name for your service.
-3. Under `Service Type` select `External Service`.
+3. Under `Service Type` select `On-premise Service`.
 4. Enter the URL of your service.
 7. Add the [API specification](https://raw.githubusercontent.com/PlanQK/planqk-platform-samples/master/python/external-service-sample/api-spec.yaml) for your service. 
 8. Finally, click on `Create Service`.

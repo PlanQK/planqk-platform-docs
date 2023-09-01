@@ -125,12 +125,12 @@ module.exports = {
           ]
         },
         {
-          title: 'External Services',
+          title: 'On-premise Services',
           collapsable: true,
           children: [
-            'external-services/introduction',
-            'external-services/offer-on-marketplace',
-            'external-services/report-usage',
+            'on-premise-services/introduction',
+            'on-premise-services/offer-on-marketplace',
+            'on-premise-services/report-usage',
           ]
         },
         {

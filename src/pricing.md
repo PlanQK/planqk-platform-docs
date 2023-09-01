@@ -124,7 +124,7 @@ As a service provider, you can offer and commercialize your PlanQK services on t
 
 * You can offer your PlanQK Service for free, hence, you bear all the resource costs from above by yourself.
 * For [Managed Services](../service-platform/managed-services.md), you can define a markup in percent that will be added to the resource costs for each service execution by respective service consumers.
-* For [External Services](../service-platform/external-services.md), you can define a custom pricing plan of your choice, comprising custom products that are metered by yourself and billed through the PlanQK Platform.
+* For [On-premise Services](../service-platform/external-services.md), you can define a custom pricing plan of your choice, comprising custom products that are metered by yourself and billed through the PlanQK Platform.
 
 Therefore, for non-free PlanQK Services, you will earn a revenue that will be transferred to your revenue account on a monthly basis.
 The PlanQK Platform charges a marketplace fee of **20 percent (%)** of the transferred revenue.

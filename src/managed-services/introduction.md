@@ -49,7 +49,7 @@ The following table describes the metadata properties of a service.
 | Property     | Description                                                                                                                                                                                                                                       |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Name         | Choose a meaningful name for your service. If you publish your service later on, this name will be displayed to other users.                                                                                                                      |
-| Service Type | Select "Managed Services" and upload your code archive (ZIP). The option "External Service" can be used if your service is running somewhere (e.g., on your own infrastructure) and you just want the PlanQK Platform to manage the access to it. |
+| Service Type | Select "Managed Services" and upload your code archive (ZIP). The option "On-premise Service" can be used if your service is running somewhere (e.g., on your own infrastructure) and you just want the PlanQK Platform to manage the access to it. |
 | Description  | Other users will see this description of the service, if its name sparked some interest, and they clicked on it in the marketplace. So any additional information you want to provide goes in here.                                               |
 
 ## Service Configuration

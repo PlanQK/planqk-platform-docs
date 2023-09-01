@@ -11,7 +11,7 @@ For authentication, provide your access token in the `X-Auth-Token` header field
 
 ### `POST /qc-catalog/external-services/metering`
 
-This endpoint is used to report the usage of your external service.
+This endpoint is used to report the usage of your on-premise service.
 The request body must contain a `correlationId`, which is forwarded by the PlanQK API Gateway upon service execution.
 The PlanQK Platform then logs a usage event for the corresponding product item (`productId`) and the submitted count.
 
