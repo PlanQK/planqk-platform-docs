@@ -100,8 +100,7 @@ module.exports = {
             'cli-reference',
             'planqk-json-reference',
             'manage-organizations',
-            'manage-access-tokens',
-            'pricing',
+            'manage-access-tokens'
           ]
         },
         {
