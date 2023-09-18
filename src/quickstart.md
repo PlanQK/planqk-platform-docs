@@ -42,13 +42,13 @@ planqk init
 You will be prompted to provide some information about your project configuration.
 For this quickstart, select the following configuration:
 - **Name**: `my-project`
-- **Template**: `Python Starter IonQ` (Premium Account required) | `Starter Qiskit` (Free Account)
+- **Template**: `IonQ Starter (Cloud Simulator)`
 - **vCPU**: `0.5 vCPU`
 - **Memory**: `1GB`
 
 ::: tip
-Access to IonQ's quantum computers requires a Premium Account. If you don't have one, you can use
-our `Starter Qiskit` template.
+Access to IonQ's quantum simulator is available in basic accounts.
+At least a pro account is required, if you want to use IonQ QPUs or other quantum hardware.
 :::
 
 This will create a new directory called `my-project` containing all required files to run your quantum code on the
