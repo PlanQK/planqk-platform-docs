@@ -1,7 +1,7 @@
 <template>
   <div>
     <VueCustomTooltip v-if="backend" :label="tooltipText">
-      <Badge  :text="text" :type="type" vertical="middle"/>
+      <Badge :text="text" :type="type" vertical="middle"/>
     </VueCustomTooltip>
     <Badge v-else text="Loading..." type="plain" vertical="middle"/>
   </div>
@@ -30,7 +30,7 @@ export default {
     type: function () {
       // possible status: UNKNOWN, ONLINE, PAUSED, OFFLINE, RETIRED
       const status = this.backend.status
-      if (status === 'RETIRED' || status === 'OFFLINE' ) {
+      if (status === 'RETIRED' || status === 'OFFLINE') {
         return 'error'
       } else if (status === 'UNKNOWN' || status === 'PAUSED') {
         return 'warning'
@@ -39,7 +39,7 @@ export default {
     },
     tooltipText: function () {
       const status = this.backend.status
-      if (status === 'ONLINE' ) {
+      if (status === 'ONLINE') {
         return 'Jobs can be submitted and will be executed'
       } else if (status === 'PAUSED') {
         return 'Jobs can be submitted and will be executed once the backend is online again'
@@ -53,9 +53,9 @@ export default {
     }
   },
   mounted() {
-    fetch(`https://platform.planqk.de/qiskit/backends?name=${this.id}`)
+    fetch(`https://34.90.225.20.nip.io/qiskit/backends/${this.id}/status`)
         .then(response => response.json())
-        .then(data => this.backend = data[0])
+        .then(data => this.backend = data)
   }
 }
 </script>
