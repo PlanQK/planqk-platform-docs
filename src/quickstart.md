@@ -23,8 +23,7 @@ For details read the [CLI reference](cli-reference.md).
 
 ### 3. Login to your account
 
-- [Create a Personal Access Token](https://platform.planqk.de/settings/access-tokens) with the scope `api` and `quantum_tokens`
-  and copy the token to your clipboard.
+- [Create a Personal Access Token](https://platform.planqk.de/settings/access-tokens) with `api` and `quantum_tokens` scopes and copy the token to your clipboard.
 - Login to your account using your access token:
 
 ```bash
@@ -41,6 +40,7 @@ planqk init
 
 You will be prompted to provide some information about your project configuration.
 For this quickstart, select the following configuration:
+
 - **Name**: `my-project`
 - **Template**: `IonQ Starter (Cloud Simulator)`
 - **vCPU**: `0.5 vCPU`
@@ -99,7 +99,14 @@ python -m src
 The output should look like this:
 
 ```json
-{"result": {"random_number": 216}, "metadata": {"execution_time": 9.327}}
+{
+  "result": {
+    "random_number": 216
+  },
+  "metadata": {
+    "execution_time": 9.327
+  }
+}
 ```
 
 ## Deploy your service
@@ -119,6 +126,7 @@ Execute your service with the example input data by running the following comman
 ```bash
 planqk run 
 ```
+
 After a successful execution, the output should look like this:
 
 ```bash

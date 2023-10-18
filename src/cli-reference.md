@@ -26,6 +26,17 @@ You may also get information about a specific command:
 planqk <command> --help
 ```
 
+# Authentication
+
+[Create a Personal Access Token](https://platform.planqk.de/settings/access-tokens) with `api` and `quantum_tokens` scopes.
+Please copy the access token to your clipboard, since you will need it in the next steps.
+
+Login to your account using your access token:
+
+```bash
+planqk login -t <your access token>
+```
+
 <!-- insert usage and commands here -->
 
 # Usage
