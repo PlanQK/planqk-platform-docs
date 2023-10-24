@@ -133,6 +133,13 @@ module.exports = {
           ]
         },
         {
+          title: 'Demos',
+          collapsable: false,
+          children: [
+            'demos/introduction',
+          ]
+        },
+        {
           title: 'Community Platform',
           collapsable: true,
           children: [
