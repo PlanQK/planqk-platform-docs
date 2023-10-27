@@ -57,7 +57,7 @@ For details see the [specification](https://ionq.com/quantum-systems/harmony)
 IonQ Aria is IonQ's latest generation of trapped-ion quantum computer.
 With a 23-qubit dynamically reconfigurable system.
 For details see the [specification](https://ionq.com/quantum-systems/aria)
-There are two IonQ Aria backends available. 
+There are two IonQ Aria backends available where only one is active (ONLINE, PAUSED) at a time.
 The second one serves a backup in case `aws.ionq.aria` is not available due to maintenance.
 
 | Name              | Provider   | Status                                |
