@@ -21,7 +21,7 @@ Afterwards, create the following folder structure and files:
 ```
 
 ::: tip
-A complete Python project including a couple of example can be found [here](https://github.com/PlanQK/planqk-platform-samples/tree/master/python/planqk-samples).
+A complete Python project including a couple of example can be found [here](https://github.com/PlanQK/planqk-platform-samples/tree/master/planqk-api/python/planqk-samples).
 :::
 
 
