@@ -21,7 +21,7 @@ Import the class and instantiate it as shown below:
 from planqk.qiskit import PlanqkQuantumProvider
 ```
 
-If you are already logged in with the [PlanQK CLI](quickstart.md#3-login-to-your-account) you can create the provider object without any parameters:
+If you are already logged in with the [PlanQK CLI](quickstart.md#_3-login-to-your-account) you can create the provider object without any parameters:
 
 ```python
 provider = PlanqkQuantumProvider()

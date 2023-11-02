@@ -23,7 +23,7 @@ To use the SDK, you need to authenticate using an access token with at least the
 The token can be generated [here](https://platform.planqk.de/settings/access-tokens).
 This token can be set in two ways:
 
-1. Automatically, by logging in through the [PlanQK CLI](quickstart.md#3-login-to-your-account). The command to login via CLI is `planqk login -t <your_access_token>`. This method will automatically inject the access token when you instantiate the `PlanqkQuantumProvider` class.
+1. Automatically, by logging in through the [PlanQK CLI](quickstart.md#_3-login-to-your-account). The command to login via CLI is `planqk login -t <your_access_token>`. This method will automatically inject the access token when you instantiate the `PlanqkQuantumProvider` class.
 
 2. Explicitly, during instantiation of the `PlanqkQuantumProvider` or the `PlanqkQiskitRuntimeService` class as shown in the example below. This method overrides any access token that has been automatically injected through the PlanQK CLI login.
 
@@ -46,7 +46,7 @@ backend = provider.get_backend(name="azure.ionq.simulator")
 
 ::: tip IMPORTANT
 Note: You need to set an access token having at least the `quantum-tokens` scope to use the PlanqkQuantumProvider class.
-You can either set it explicitly in the constructor `PlanqkQuantumProvider(access_token = "my_token")` or use the [PlanQK CLI to login](quickstart.md#3-login-to-your-account).
+You can either set it explicitly in the constructor `PlanqkQuantumProvider(access_token = "my_token")` or use the [PlanQK CLI to login](quickstart.md#_3-login-to-your-account).
 In latter case the token is automatically applied when you instantiate the `PlanqkQuantumProvider` class.
 If the access token is not set or if it is invalid, an `InvalidAccessTokenError` is thrown.
 You can generate a new token [here](https://platform.planqk.de/settings/access-tokens).
