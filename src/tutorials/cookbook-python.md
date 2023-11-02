@@ -108,7 +108,7 @@ lifecycle = "CREATED"
 service_api.get_services(lifecycle=lifecycle)
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/authentication_sample.py)
+[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/planqk-api/python/planqk-samples/src/authentication_sample.py)
 
 ## How to create a managed PlanQK Service?
 
@@ -187,7 +187,7 @@ Extend your `application.py` as follows:
 version = service.service_definitions[0]
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/create_managed_service_sample.py)
+[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/planqk-api/python/planqk-samples/src/create_managed_service_sample.py)
 
 ## How to wait until a managed PlanQK Service has been built by the PlanQK Platform?
 
@@ -229,7 +229,7 @@ Add the above method to your `application.py` and call it.
 wait_for_service_to_be_created()
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/create_managed_service_sample.py)
+[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/planqk-api/python/planqk-samples/src/create_managed_service_sample.py)
 
 ## How to connect a self-hosted service with the PlanQK Platform?
 
@@ -288,7 +288,7 @@ Extend your `application.py` as follows:
 version = service.service_definitions[0]
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/create_external_service_sample.py)
+[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/planqk-api/python/planqk-samples/src/create_external_service_sample.py)
 
 ## How to update a PlanQK Service?
 
@@ -376,7 +376,7 @@ updated_api_definition = open('Path to the updated API definition', 'rb')
 services_api.update_api_definition(service_id=service.id, version_id=version.id, file=updated_api_definition)
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/update_service_sample.py)
+[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/planqk-api/python/planqk-samples/src/update_service_sample.py)
 
 ## How to delete a PlanQK Service?
 
@@ -402,7 +402,7 @@ Afterwards, you can add the following to your `application.py`:
 services_api.delete_service(found_service.id)
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/find_and_delete_service_sample.py)
+[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/planqk-api/python/planqk-samples/src/find_and_delete_service_sample.py)
 
 ## How to make my PlanQK Service accessible to other users?
 
@@ -425,7 +425,7 @@ if version.lifecycle == "ACCESSIBLE":
     print("service successfully published")
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/publish_service_internal_sample.py)
+[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/planqk-api/python/planqk-samples/src/publish_service_internal_sample.py)
 
 ### Publish service to PlanQK Marketplace
 
@@ -442,7 +442,7 @@ if version.lifecycle == "PUBLISHED":
     print("service successfully published")
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/publish_service_sample.py)
+[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/planqk-api/python/planqk-samples/src/publish_service_sample.py)
 
 ### Unpublish a PlanQK Service
 
@@ -470,7 +470,7 @@ create_app_request = CreateApplicationRequest(name=application_name)
 application = application_api.create_application(create_app_request)
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/create_application_sample.py)
+[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/planqk-api/python/planqk-samples/src/create_application_sample.py)
 
 ## How to delete a PlanQK Application?
 
@@ -495,7 +495,7 @@ Afterwards, you can add the following to your `application.py` to delete your Pl
 applications_api.delete_application(found_application.id)
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/find_and_delete_application_sample.py)
+[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/planqk-api/python/planqk-samples/src/find_and_delete_application_sample.py)
 
 ## How to subscribe to internally published PlanQK Services?
 
@@ -536,7 +536,7 @@ You may add the following code to retrieve a list of all active subscriptions:
 subscriptions = applications_api.get_application_subscriptions(id=application.id)
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/subscribe_internal_service_sample.py)
+[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/planqk-api/python/planqk-samples/src/subscribe_internal_service_sample.py)
 
 ## How to subscribe to PlanQK Services published in the PlanQK Marketplace?
 
@@ -600,7 +600,7 @@ You may add the following code to retrieve a list of all active subscriptions:
 subscriptions = applications_api.get_application_subscriptions(id=application.id)
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/subscribe_service_sample.py)
+[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/planqk-api/python/planqk-samples/src/subscribe_service_sample.py)
 
 ## Working with PlanQK Organizations
 
@@ -645,7 +645,7 @@ service = services_api.create_managed_service(
 )
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/organization_sample.py)
+[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/planqk-api/python/planqk-samples/src/organization_sample.py)
 
 ### Share a PlanQK Application in an Organization
 
@@ -654,7 +654,7 @@ create_app_request = CreateApplicationRequest(name="My Application")
 application = applications_api.create_application(create_application_request=create_app_request, x_organization_id=organization_id)
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/organization_sample.py)
+[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/planqk-api/python/planqk-samples/src/organization_sample.py)
 
 ### Create internal subscriptions to PlanQK Services within an Organization
 
@@ -668,7 +668,7 @@ applications_api.create_internal_subscription(
 )
 ```
 
-[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/organization_sample.py)
+[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/planqk-api/python/planqk-samples/src/organization_sample.py)
 
 ## How to execute a PlanQK service?
 
@@ -770,4 +770,4 @@ if current_status == 'SUCCEEDED':
 
 Congratulation, you successfully executed your subscribed PlanQK Service.
 
-[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/python/planqk-samples/src/service_execution_sample.py)
+[Code Example](https://github.com/PlanQK/planqk-platform-samples/blob/master/planqk-api/python/planqk-samples/src/service_execution_sample.py)
