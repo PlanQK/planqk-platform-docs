@@ -3,7 +3,7 @@
 On-premise services allow you to integrate, commercialize, and monetize your self-hosted quantum services via the PlanQK platform.
 Your service can be hosted on the infrastructure of your choice and the PlanQK Platform manages the access and billing for you.
 
-Related Tutorial: [Create and Test an On-premise Service](../../tutorials/tutorial-meter-external-service.md)
+Related Tutorial: [Create and Test an On-premise Service](../tutorials/tutorial-meter-external-service.md)
 
 ## Create an On-premise Service
 

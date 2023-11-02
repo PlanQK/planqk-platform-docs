@@ -75,7 +75,7 @@ job_monitor(job)
 
 ::: tip NOTE
 Executing your Qiskit code on the PlanQK platform may lead to execution costs depending on selected backend and number of shots.
-Please find an overview about the costs for each backend [here](../service-platform/pricing.md).
+Please find an overview about the costs for each backend [on our pricing page](https://platform.planqk.de/pricing).
 :::
 
 ## Deploy your circuit as a PlanQK Service
@@ -103,4 +103,4 @@ Next, you may use `planqk run` to execute your service.
 ## What's next?
 
 - See our supported [quantum hardware and simulators](quantum-hardware.md).
-- Check out the [Tutorial on how to create a PlanQK Service using the PlanQK Quantum SDK](../../tutorials/tutorial-qiskit.md).
+- Check out the [Tutorial on how to create a PlanQK Service using the PlanQK Quantum SDK](tutorials/tutorial-qiskit.md).

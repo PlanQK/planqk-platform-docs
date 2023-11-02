@@ -354,12 +354,12 @@ For the following tutorial, you just need to download the [PlanQK user code temp
 ::: details
 However, to implement a fresh new PlanQK Service for the PlanQK Platform you need to complete the following prerequisites:
 
-1. First, you need to download or generate the PlanQK user code template as explained in the [documentation](../docs/service-platform.md#1-embedding-the-python-code-into-the-user-code-template).
+1. First, you need to download or generate the PlanQK user code template as explained in our [quickstart](../quickstart.md).
 2. Implement your service logic by modifying the PlanQK user code template according to your business requirements.
-3. Before deploying it to the PlanQK platform, you should test the correct behavior of your service on [your local machine](../docs/service-platform.md#2-test-your-service-locally-and-with-docker).
+3. Before deploying it to the PlanQK platform, you should test the correct behavior of your service on your local machine.
    This will help you to identify and correct potential errors before the actual deployment process.
 4. Create a ZIP archive of your PlanQK Service code.
-5. Although not absolutely necessary for providing a service, we do strongly recommend to write an [API description](../docs/service-platform.md#3-create-an-api-spec-file-for-your-service) for your PlanQK service.
+5. Although not absolutely necessary for providing a service, we do strongly recommend to write an [API description](../managed-services/managed-services-api-spec.md) for your PlanQK service.
    This API description gives users of the service a manual on how they are able to communicate with the service, namely how they can send the input for problems and receive the solutions.
 
 :::
@@ -844,7 +844,7 @@ List<SubscriptionDto> subscriptions = applicationsApi.getApplicationSubscription
 ## Working with PlanQK Organizations
 
 To interact with organizations we first have to create one.
-Following this [link](../docs/additional-information.md#organizations) you can find more information about organizations and how to create one.
+Following this [link](../manage-organizations.md) you can find more information about organizations and how to create one.
 
 To perform operations in organization-context, you need to add the ID of your organization to the respective API operations
 For example, the `createService(...)` methode has an `organizationId` parameter that must be use in this regard.

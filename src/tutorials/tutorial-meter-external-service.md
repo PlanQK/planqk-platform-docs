@@ -2,7 +2,7 @@
 
 In this tutorial you will learn how to create an on-premise service with a pay-per-use pricing plan
 and report the usage of your service to our metering API.
-Further reading on external services can be found in our [On-premise Services documentation](../docs/service-platform/external-services.md).
+Further reading on external services can be found in our [On-premise Services documentation](../on-premise-services/introduction.md).
 
 ## The Example Service
 

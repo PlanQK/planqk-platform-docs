@@ -82,4 +82,4 @@ For more information on how to deal with input and output data, see our runtime 
 ## What's next?
 
 - Learn how to create an [API specification](managed-services-api-spec.md) for your service.
-- [Deploy your service](managed-services.md#create-a-managed-service) using our CLI or web application.
+- [Deploy your service](introduction.md#create-a-managed-service) using our CLI or web application.

@@ -2,9 +2,7 @@
 
 This tutorial shows how to create a D-Wave flavored PlanQK Service.
 The guide shows step by step the certain development stages and milestones and will guide you through the whole process.
-Further readings and information can be found in our general [PlanQK Service Platform Documentation](../docs/index.md).
-If you got stuck or if you have general questions, please consider [joining our Slack channel](../index.md#got-a-question-or-problem) or create a respective issue on our [issue board](https://github.com/PlanQK/platform#planqk-platform-issue-repository).
-
+Further readings and information can be found in our general [PlanQK Service Platform Documentation](../index.md).
 
 ## Preparation
 
@@ -268,8 +266,8 @@ zip -r user_code.zip src environment.yml openapi-spec.yml requirements.txt
 ```
 
 Afterwards, navigate to <https://platform.planqk.de> and create a new PlanQK Service
-([more info](../docs/service-platform.md#4-deploy-services-on-the-planqk-platform))
-or, if you have the [PlanQK CLI](../docs/service-platform.md#41-using-the-planqk-cli) installed, execute the following command:
+([more info](../managed-services/introduction.md))
+or, if you have the [PlanQK CLI](../cli-reference.md) installed, execute the following command:
 
 ```bash
 planqk login -t <your PlanQK personal access token>
@@ -283,7 +281,7 @@ You have successfully created your own PlanQK Service.
 
 So, as a very fist step you may want to test your newly created service on PlanQK.
 You can now *publish your service for internal use* and read on how to use the service utilizing PlanQK Applications.
-Just follow the steps in the [Using a Service](../docs/service-platform.md#using-a-service) section in our documentation.
+Just follow the steps in the [Using a Service](../using-a-service.md) section in our documentation.
 
 As an alternative, you could also try out PlanQK Jobs with your new service.
-More information about PlanQK Jobs and how to use them can be found in our general [documentation](../docs/service-platform.md#jobs).
+More information about PlanQK Jobs and how to use them can be found in our general [documentation](../managed-services/managed-services-jobs.md).

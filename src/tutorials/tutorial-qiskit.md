@@ -4,7 +4,7 @@ This tutorial describes how you can use the PlanQK Quantum SDK to execute your Q
 The SDK is a wrapper for the Qiskit SDK.
 Hence, it provides the same functionality and syntax as the original Qiskit SDK.
 
-You can use the SDK either directly from your favorite IDE or in a [PlanQK service](../docs/service-platform/managed-services.md).
+You can use the SDK either directly from your favorite IDE or in a [PlanQK service](../managed-services/introduction.md).
 
 ## Install the PlanQK Quantum SDK
 
@@ -75,5 +75,5 @@ job_monitor(job)
 
 ::: tip NOTE
 Executing your Qiskit code on the PlanQK platform may lead to execution costs depending on selected backend and number of shots.
-Please find an overview about the costs for each backend [here](../docs/service-platform/pricing.md).
+Please find an overview about the costs for each backend on [our pricing page](https://platform.planqk.de/pricing).
 :::

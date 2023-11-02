@@ -146,7 +146,7 @@ In case of an error the message may contain an error `"code"` and an error `"det
 ## Provide Input Data
 
 Input data being processed by the service can be either passed as **value** or as 
-**[data pool](../community-platform/data-pools.md)**.
+**[data pool](community-platform/data-pools.md)**.
 
 ::: tip IMPORTANT
 Currently, only JSON is supported as service input.

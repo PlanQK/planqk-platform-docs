@@ -218,4 +218,4 @@ More information about the estimator primitive can be found [here](https://qiski
 ## What's next?
 
 - See our supported [quantum hardware and simulators](quantum-hardware.md)
-- Check out the [Tutorial on how to create a PlanQK Service using the PlanQK Quantum SDK](../../tutorials/tutorial-qiskit.md).
+- Check out the [Tutorial on how to create a PlanQK Service using the PlanQK Quantum SDK](tutorials/tutorial-qiskit.md).
