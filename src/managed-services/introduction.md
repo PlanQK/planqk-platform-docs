@@ -11,16 +11,16 @@ Once deployed, you can asynchronously execute your service and retrieve the resu
 Further, you can share your services with your colleagues or even external parties, everything through an [HTTP API](managed-services-api-spec.md).
 
 ::: tip Quickstart Guide
-Check out our [quickstart](../getting-started/quickstart.md) guide to get started with Managed Services using the PlanQK CLI.
+Check out our [quickstart](../quickstart.md) guide to get started with Managed Services using the PlanQK CLI.
 :::
 
 ## Create a Managed Service
 
-You can create a Managed Service either via the [PlanQK CLI](../getting-started/cli-reference.md) or via the [create service page](https://platform.planqk.de/services/new) of our UI.
+You can create a Managed Service either via the [PlanQK CLI](../cli-reference.md) or via the [create service page](https://platform.planqk.de/services/new) of our UI.
 
 ### Using the PlanQK CLI (recommended)
 
-We strongly recommend to use the [PlanQK CLI](../getting-started/quickstart.md) to create new Managed Service.
+We strongly recommend to use the [PlanQK CLI](../quickstart.md) to create new Managed Service.
 You could select a general starter template or choose one specifically for a certain quantum provider or backend.
 Furthermore, it provides you with commands to directly package and deploy your quantum code along with the metadata and configuration.
 

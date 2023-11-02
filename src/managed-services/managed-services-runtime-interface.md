@@ -11,7 +11,7 @@ We support two runtime configurations:
 ## Python Template
 
 When starting with PlanQK, we recommend using `Python Template` as your runtime configuration.
-It is best to use the [PlanQK CLI](../getting-started/quickstart.md) to create a new project based on our coding templates.
+It is best to use the [PlanQK CLI](../quickstart.md) to create a new project based on our coding templates.
 
 ::: tip Samples and Templates
 Several sample projects can be found in our [coding templates](https://github.com/PlanQK/planqk-platform-samples/tree/master/coding-templates/python) repository.
@@ -79,7 +79,7 @@ We recommend using "Docker" only if one of the following reasons apply:
 
 ::: tip Samples and Templates
 Several sample projects can be found in our [coding templates](https://github.com/PlanQK/planqk-platform-samples/tree/master/coding-templates/docker) repository.
-These are also available to be used as a template when creating a new service via the [PlanQK CLI](../getting-started/quickstart.md).
+These are also available to be used as a template when creating a new service via the [PlanQK CLI](../quickstart.md).
 :::
 
 ### Lifecycle:

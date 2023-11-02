@@ -21,7 +21,7 @@ export default {
           description: 'Learn how to use our SDK to interact with our supported quantum backends',
           icon: 'code',
           color: 'blue',
-          link: '/getting-started/using-sdk.html'
+          link: '/using-sdk.html'
         },
         {
           title: 'Deep Dive into Jobs',

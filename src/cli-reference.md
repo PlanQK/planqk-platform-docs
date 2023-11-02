@@ -1,7 +1,7 @@
 # CLI Reference
 
 The PlanQK Command Line Interface (CLI) lets you interact with the PlanQk Platform directly from your terminal.
-We have installation instructions to guide you through the initial setup in our [quickstart](../getting-started/quickstart.md) guide.
+We have installation instructions to guide you through the initial setup in our [quickstart](../quickstart.md) guide.
 
 # Installation
 

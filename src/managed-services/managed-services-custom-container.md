@@ -30,7 +30,7 @@ The starting folder structure of the project could look like this:
 ```
 
 ::: tip Use the PlanQK CLI
-You may use the [PlanQK CLI](https://docs.platform.planqk.de/docs/getting-started/quickstart.html#installation) to create a new custom Docker container project.
+You may use the [PlanQK CLI](../quickstart.md#installation) to create a new custom Docker container project.
 Just select a suitable starter project when running `planqk init`.
 :::
 
