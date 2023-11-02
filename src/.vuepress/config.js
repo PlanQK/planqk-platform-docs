@@ -83,7 +83,6 @@ module.exports = {
           title: 'Cookbooks',
           collapsable: false,
           children: [
-            'cookbook-java',
             'cookbook-python'
           ]
         }

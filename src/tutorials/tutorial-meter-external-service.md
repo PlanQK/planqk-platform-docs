@@ -7,7 +7,7 @@ Further reading on external services can be found in our [On-premise Services do
 ## The Example Service
 
 As our example we use a simple FastAPI service that reports for each request an API call to the metering API.
-You can find the complete code of the service in [this GitHub repo](https://github.com/PlanQK/planqk-platform-samples/tree/master/python/external-service-sample).
+You can find the complete code of the service in [this GitHub repo](https://github.com/PlanQK/planqk-platform-samples/tree/master/planqk-services/external-service-sample).
 An excerpt of the service with the metering code is shown below:
 
 ```python
@@ -62,7 +62,7 @@ To do so, follow these steps:
 2. Enter a name for your service.
 3. Under `Service Type` select `On-premise Service`.
 4. Enter the URL of your service.
-7. Add the [API specification](https://raw.githubusercontent.com/PlanQK/planqk-platform-samples/master/python/external-service-sample/api-spec.yaml) for your service. 
+7. Add the [API specification](https://raw.githubusercontent.com/PlanQK/planqk-platform-samples/master/planqk-services/external-service-sample/api-spec.yaml) for your service. 
 8. Finally, click on `Create Service`.
 
 ## Add a Pricing Plan 
