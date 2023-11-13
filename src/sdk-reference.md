@@ -107,7 +107,7 @@ job = backend.retrieve_job("6ac422ad-c854-4af4-b37a-efabb159d92e")
 
 #### Jobs & Results
 
-The `PlanqkJob` represents a [Qiskit Job](https://qiskit.org/documentation/stubs/qiskit.providers.JobV1.html#jobv1). 
+The class `PlanqkJob` represents a [Qiskit Job](https://qiskit.org/documentation/stubs/qiskit.providers.JobV1.html#jobv1). 
 It provides status information about a job (e.g., job id, status, etc.) and enables you to access the job result as soon as the job execution has completed successfully.
 
 ##### Methods
@@ -224,6 +224,15 @@ with Session(service=service, backend="ibmq_qasm_simulator") as session:
 ```
 
 More information about the estimator primitive can be found [here](https://qiskit.org/ecosystem/ibm-runtime/tutorials/how-to-getting-started-with-estimator.html).
+
+##### Jobs & Results
+
+The class `PlanqkRuntimeJob` represents a [Qiskit Runtime Job](https://qiskit.org/ecosystem/ibm-runtime/stubs/qiskit_ibm_runtime.RuntimeJob.html).
+It provides status information about a job (e.g., job id, status, etc.) and enables you to access the job result as soon as the job execution has completed successfully.
+The `PlanqkRuntimeJob` class supports the same methods as the [`PlanqkJob` class](#jobs-&-results), i.e. `status()`, `result()` and `cancel()`.
+Support for streaming results, logs, and intermediate results is currently not available and will be added in a future release.
+
+The format result of a `PlanqkRuntimeJob` depends on the primitive that was used to run the job.
 
 
 ## What's next?
