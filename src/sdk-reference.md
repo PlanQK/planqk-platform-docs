@@ -30,6 +30,14 @@ This token can be set in two ways:
 If the access token is not set or if it is invalid or has expired, an `InvalidAccessTokenError` is thrown. 
 You need to generate a new token and login again. 
 
+### Provider Access Token for IBM Backends
+To utilize IBM backends through the `PlanqkQiskitRuntimeService`, it is essential to supply your IBM API access token. 
+This token can be obtained from either IBM Quantum or IBM Cloud. 
+You should enter this token into your [Provider Access Token settings](https://platform.planqk.de/settings/backend-tokens). 
+PlanQK utilizes this token to determine the backends you are authorized to access and to facilitate interaction with these backends.
+For accessing backends provided by IBM Quantum, you must input the specific "IBM Quantum" token. 
+Similarly, for IBM Cloud backends, the "IBM Cloud" token is required. 
+
 ### Example Usage
 
 ```python
@@ -143,7 +151,7 @@ These primitives operate within sessions, enabling the joint execution of multip
 This results in a significant reduction of the overall execution time.
 In the example below two circuits are executed within the same session.
 The first job waits in the queue. The session starts, if this job is executed on the backend.
-After the first job is finished, the second job of the session is instantly executed on the backend without being queued again. 
+After the first job is finished, the second job of the session is instantly executed on the backend without being queued again.
 
 ```python
 service = PlanqkQiskitRuntimeService()
@@ -163,6 +171,9 @@ with Session(service=service, backend="ibmq_qasm_simulator") as session:
 ```
 
 #### Provider
+To initialize and use the `PlanqkQiskitRuntimeService` class, it's essential to first configure it with your specific API token from IBM. 
+This token could either be from IBM Quantum or IBM Cloud, depending on your requirements. 
+Detailed instructions for obtaining and setting up your API token are available in the section [Provider Access Token for IBM Backends](#provider-access-token-for-IBM-Backends).
 Such as the `PlanqkQuantumProvider`, the `PlanqkQiskitRuntimeService` also provides the methods for retrieving backends:
 
 | Method              | Description                                                                                                                                                               |
