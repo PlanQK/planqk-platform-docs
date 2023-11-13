@@ -173,7 +173,7 @@ with Session(service=service, backend="ibmq_qasm_simulator") as session:
 #### Provider
 To initialize and use the `PlanqkQiskitRuntimeService` class, it's essential to first configure it with your specific API token from IBM. 
 This token could either be from IBM Quantum or IBM Cloud, depending on your requirements. 
-Detailed instructions for obtaining and setting up your API token are available in the section [Provider Access Token for IBM Backends](#provider-access-token-for-IBM-Backends).
+Detailed instructions for obtaining and setting up your API token are available in the section [Provider Access Token for IBM Backends](#provider-access-token-for-ibm-backends).
 Such as the `PlanqkQuantumProvider`, the `PlanqkQiskitRuntimeService` also provides the methods for retrieving backends:
 
 | Method              | Description                                                                                                                                                               |
@@ -229,7 +229,7 @@ More information about the estimator primitive can be found [here](https://qiski
 
 The class `PlanqkRuntimeJob` represents a [Qiskit Runtime Job](https://qiskit.org/ecosystem/ibm-runtime/stubs/qiskit_ibm_runtime.RuntimeJob.html).
 It provides status information about a job (e.g., job id, status, etc.) and enables you to access the job result as soon as the job execution has completed successfully.
-The `PlanqkRuntimeJob` class supports the same methods as the [`PlanqkJob` class](#jobs-&-results), i.e. `status()`, `result()` and `cancel()`.
+The `PlanqkRuntimeJob` class supports the same methods as the [PlanqkJob class](#jobs-results), i.e. `status()`, `result()` and `cancel()`.
 Support for streaming results, logs, and intermediate results is currently not available and will be added in a future release.
 
 The format result of a `PlanqkRuntimeJob` depends on the primitive that was used to run the job.
