@@ -2,6 +2,17 @@ name: Build and Deploy
 on:
   - push
 jobs:
+  check-md-links:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: yarn
+      - run: yarn check-md
   build-and-deploy:
     runs-on: ubuntu-20.04
     steps:

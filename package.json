@@ -9,13 +9,15 @@
   "scripts": {
     "dev": "vuepress dev src",
     "dev-openssl-legacy": "cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev src",
-    "build": "vuepress build src"
+    "build": "vuepress build src",
+    "check-md": "check-md"
   },
   "license": "CC-BY-4.0",
   "devDependencies": {
     "@vuepress/plugin-active-header-links": "^1.9.10",
     "@vuepress/plugin-back-to-top": "^1.9.10",
     "@vuepress/plugin-medium-zoom": "^1.9.10",
+    "check-md": "^1.0.2",
     "cross-env": "^7.0.3",
     "vuepress": "^1.9.10",
     "vuepress-plugin-code-copy": "^1.0.6"
