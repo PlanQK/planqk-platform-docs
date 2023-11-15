@@ -1,6 +1,6 @@
 # SDK Reference
 
-The PlanQK Quantum SDK provides an easy way for developing quantum circuits using [Qiskit](https://pypi.org/project/qiskit) to be run on [quantum hardware and simulators supported](quantum-hardware.md) by the [PlanQK Platform](https://docs.platform.planqk.de).
+The PlanQK Quantum SDK provides an easy way for developing quantum circuits using [Qiskit](https://pypi.org/project/qiskit) to be run on [quantum hardware and simulators supported](uantum-hardware.md) by the [PlanQK Platform](https://docs.platform.planqk.de).
 It is an **extension** for the [Qiskit SDK](https://github.com/Qiskit/qiskit-metapackage).
 This means that you're able to seamlessly integrate and reuse your existing Qiskit code, leveraging the power and familiarity of a framework you're already accustomed to.
 
