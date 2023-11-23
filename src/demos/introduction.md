@@ -54,5 +54,5 @@ The code calls the [Quantum Random Number Generator Service](https://platform.pl
 The service is available as a free service on the PlanQK Marketplace.
 To access the service, a [subscription to the service](https://docs.platform.planqk.de/using-a-service.html#subscribe-to-a-planqk-service-published-on-the-planqk-marketplace) is needed and the consumer key and secret of the subscribed Application needs to be added as environment variables to the Demo.
 
-![Environment Variables](/images/demos/environment-variables.png)
 
+<ImageShadow :src="$withBase('/images/demos/environment-variables.png')"></ImageShadow>
