@@ -29,7 +29,7 @@ You will be asked to connect your GitHub account (if you haven't done so already
 Select the fork of the Gradio starter template you created earlier by clicking on **Connect**.
 That's it, you deployed your first Demo!
 
-But there is one more thing. In order to make your Demo work we need to set some environment variables.
+But there is **one more thing**. In order to make your Demo work we need to set some environment variables.
 Read the next section to learn how to set environment variables.
 
 ## Set Environment Variables
