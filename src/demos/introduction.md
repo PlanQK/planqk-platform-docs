@@ -1,4 +1,4 @@
-# Introduction
+# Demos Overview
 
 PlanQK Demos make it easy for you to create and host interactive web interfaces for your quantum and machine learning use cases.
 Watch the video below for a quick introduction to Demos.
@@ -12,7 +12,9 @@ Gradio lets you build interactive web interfaces in a matter of minutes.
 Check out our [Gradio starter template](https://github.com/Anaqor/gradio-example).
 Alternatively, you can deploy any other web app of your choice using Docker.
 
-The following steps show you how to deploy a Demo for your Use Case:
+
+
+The following steps show you how to deploy a Demo for your Use Case.
 
 Prerequisites:
 
@@ -20,12 +22,15 @@ Prerequisites:
 - A fork of our [Gradio starter template](https://github.com/Anaqor/gradio-example).
 
 **To deploy a Demo** for your Use Case click on the Demo tab of your Use Case and click on the **Create Demo** button.
+
+<ImageShadow :src="$withBase('/images/demos/create-a-demo.png')"></ImageShadow>
+
 You will be asked to connect your GitHub account (if you haven't done so already) and to select a repository.
 Select the fork of the Gradio starter template you created earlier by clicking on **Connect**.
 That's it, you deployed your first Demo!
 
 But there is one more thing. In order to make your Demo work we need to set some environment variables.
-Read the next section to learn how to do that.
+Read the next section to learn how to set environment variables.
 
 ## Set Environment Variables
 If your demo requires environment variables (for instance, secret keys or tokens), you can set them in the **Settings** of your Demo.

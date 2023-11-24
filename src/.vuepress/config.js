@@ -134,7 +134,7 @@ module.exports = {
         },
         {
           title: 'Demos',
-          collapsable: false,
+          collapsable: true,
           children: [
             'demos/introduction',
           ]
