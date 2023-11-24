@@ -33,7 +33,7 @@ But there is **one more thing**. In order to make your Demo work we need to set 
 Read the next section to learn how to set environment variables.
 
 ## Set Environment Variables
-If your demo requires environment variables (for instance, secret keys or tokens), you can set them in the **Settings** of your Demo.
+If your demo requires environment variables (for instance, [Application credentials](../applications.md)), you can set them in the **Settings** of your Demo.
 You can access them in your code like regular environment variables, for example with ```os.getenv()``` in Python.
 
 As an example, below is an excerpt of our [Gradio starter template](https://github.com/Anaqor/gradio-example)
@@ -57,7 +57,7 @@ def run(n_numbers: int):
 
 The code calls the [Quantum Random Number Generator Service](https://platform.planqk.de/marketplace/apis/88b46e18-3d5f-4674-ba04-0d3416c0decd) using the [planqk-service-sdk](https://pypi.org/project/planqk-service-sdk/1.0.1/).
 The service is available as a free service on the PlanQK Marketplace.
-To access the service, a [subscription to the service](https://docs.platform.planqk.de/using-a-service.html#subscribe-to-a-planqk-service-published-on-the-planqk-marketplace) is needed and the consumer key and secret of the subscribed Application need to be added as environment variables to the Demo.
-
+To access the service, a [subscription to the service](https://docs.platform.planqk.de/using-a-service.html#subscribe-to-a-planqk-service-published-on-the-planqk-marketplace) is needed.
+We can add the consumer key and secret of the subscribed Application as environment variables to the Demo.
 
 <ImageShadow :src="$withBase('/images/demos/environment-variables.png')"></ImageShadow>
