@@ -27,7 +27,7 @@ Thats it, you deployed your first Demo!
 But there is one more thing. In order to make your Demo work we need to set some environment variables.
 Read the next section to learn how to do that.
 
-## Setting Environment Variables
+## Set Environment Variables
 If your demo requires environment variables (for instance, secret keys or tokens), you can set them in the **Settings** of your Demo.
 You can access them in your code like regular environment variables, for example with ```os.getenv()``` in Python.
 
