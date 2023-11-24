@@ -20,9 +20,9 @@ Prerequisites:
 - A fork of our [Gradio starter template](https://github.com/Anaqor/gradio-example).
 
 **To deploy a Demo** for your Use Case click on the Demo tab of your Use Case and click on the **Create Demo** button.
-You will be asked to connect your GitHub account (if you haven't done already) and to select a repository.
+You will be asked to connect your GitHub account (if you haven't done so already) and to select a repository.
 Select the fork of the Gradio starter template you created earlier by clicking on **Connect**.
-Thats it, you deployed your first Demo!
+That's it, you deployed your first Demo!
 
 But there is one more thing. In order to make your Demo work we need to set some environment variables.
 Read the next section to learn how to do that.
@@ -52,7 +52,7 @@ def run(n_numbers: int):
 
 The code calls the [Quantum Random Number Generator Service](https://platform.planqk.de/marketplace/apis/88b46e18-3d5f-4674-ba04-0d3416c0decd) using the [planqk-service-sdk](https://pypi.org/project/planqk-service-sdk/1.0.1/).
 The service is available as a free service on the PlanQK Marketplace.
-To access the service, a [subscription to the service](https://docs.platform.planqk.de/using-a-service.html#subscribe-to-a-planqk-service-published-on-the-planqk-marketplace) is needed and the consumer key and secret of the subscribed Application needs to be added as environment variables to the Demo.
+To access the service, a [subscription to the service](https://docs.platform.planqk.de/using-a-service.html#subscribe-to-a-planqk-service-published-on-the-planqk-marketplace) is needed and the consumer key and secret of the subscribed Application need to be added as environment variables to the Demo.
 
 
 <ImageShadow :src="$withBase('/images/demos/environment-variables.png')"></ImageShadow>
