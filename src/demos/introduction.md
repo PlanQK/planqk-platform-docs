@@ -3,7 +3,7 @@
 PlanQK Demos make it easy for you to create and host interactive web interfaces for your quantum and machine learning use cases.
 Watch the video below for a quick introduction to Demos.
 
-<LoomVideo url="https://www.loom.com/embed/75a481472d9847f39ff352c563c1a0ea?sid=cff9fe67-f5ae-4aa4-a992-2a4086c3765b"/>
+<LoomVideo url="https://www.loom.com/embed/8b14e95a332547c0a78c07841af3c9d0?sid=075f2fe0-983d-44b3-87c3-5f9427f69946"/>
 
 ## Deploy a Demo
 
