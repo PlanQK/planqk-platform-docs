@@ -65,6 +65,10 @@ module.exports = {
       {
         text: 'PlanQK Platform',
         link: 'https://platform.planqk.de/'
+      },
+      {
+        text: 'Pricing',
+        link: 'https://platform.planqk.de/pricing'
       }
     ],
 
