@@ -2,6 +2,7 @@ name: Broken link check
 on:
   schedule:
     - cron: '* * * * *' # This will run the workflow every day at midnight (UTC)
+  workflow_dispatch:
 
 jobs:
   broken_link_checker_job:
