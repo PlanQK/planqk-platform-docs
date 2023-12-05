@@ -48,7 +48,7 @@ $ npm install -g @anaqor/planqk
 $ planqk COMMAND
 running command...
 $ planqk (--version)
-@anaqor/planqk/1.8.0 darwin-arm64 node-v18.15.0
+@anaqor/planqk/2.4.3 darwin-arm64 node-v18.17.1
 $ planqk --help [COMMAND]
 USAGE
   $ planqk COMMAND
@@ -57,11 +57,12 @@ USAGE
 
 <!-- usagestop -->
 
-# Commands
+### Commands
 
 <!-- commands -->
 
 * [`planqk autocomplete [SHELL]`](#planqk-autocomplete-shell)
+* [`planqk create-openapi`](#planqk-create-openapi)
 * [`planqk get-context`](#planqk-get-context)
 * [`planqk init`](#planqk-init)
 * [`planqk list-contexts`](#planqk-list-contexts)
@@ -101,6 +102,29 @@ EXAMPLES
 
 _See
 code: [@oclif/plugin-autocomplete](https://github.com/oclif/plugin-autocomplete/blob/v2.1.9/src/commands/autocomplete/index.ts)_
+
+## `planqk create-openapi`
+
+Creates the OpenAPI definition based on the sample data in the "input" directory. The generated OpenAPI definition is saved in the file "openapi-spec.yml". An existing "openapi-spec.yml" file is saved as "openapi-spec-saved.yml" before it is overwritten.After the generation you may check the generated OpenAPI definition and correct it manually if necessary.
+
+```
+USAGE
+  $ planqk create-openapi [--wd <value>]
+
+FLAGS
+  --wd=<value>  Working dir (e.g., for tests)
+
+DESCRIPTION
+  Creates the OpenAPI definition based on the sample data in the "input" directory. The generated OpenAPI definition is
+  saved in the file "openapi-spec.yml". An existing "openapi-spec.yml" file is saved as "openapi-spec-saved.yml" before
+  it is overwritten.After the generation you may check the generated OpenAPI definition and correct it manually if
+  necessary.
+
+EXAMPLES
+  $ planqk create-openapi
+```
+
+_See code: [dist/commands/create-openapi/index.ts](https://github.com/PlanQK/planqk-cli/tree/main/src/commands)_
 
 ## `planqk get-context`
 
@@ -276,5 +300,4 @@ EXAMPLES
 ```
 
 _See code: [dist/commands/up/index.ts](https://github.com/PlanQK/planqk-cli/tree/main/src/commands)_
-
 <!-- commandsstop -->
