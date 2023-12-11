@@ -4,7 +4,7 @@ The PlanQK Quantum SDK provides an easy way for developing quantum circuits usin
 It is an **extension** for the [Qiskit SDK](https://github.com/Qiskit/qiskit-metapackage).
 This means that you're able to seamlessly integrate and reuse your existing Qiskit code, leveraging the power and familiarity of a framework you're already accustomed to.
 
-If you are using [PennyLane](https://pennylane.ai) to implement your quantum machine learning algorithms, you can use the [SDK along with the PennyLane-Qiskit plugin](#PennyLane-Integration) to run them on the quantum hardware provided by the PlanQK Platform.
+If you are using [PennyLane](https://pennylane.ai) to implement your quantum machine learning algorithms, you can use the [SDK along with the PennyLane-Qiskit plugin](#pennylane-integration) to run them on the quantum hardware provided by the PlanQK Platform.
 
 ## Installation
 
@@ -240,7 +240,7 @@ The format result of a `PlanqkRuntimeJob` depends on the primitive that was used
 To use the SDK with PennyLane, you need to install the [PennyLane-Qiskit plugin](https://docs.pennylane.ai/projects/qiskit/en/latest/) by adding 
 the ``pennylane-qiskit`` package to your Python project dependencies, e.g., by running ``pip install pennylane-qiskit``.
 
-To execute a PennyLane circuit using a PlanQK backend, first, retrieve the desired backend using the [PlanqkQuantumProvider](#PlanqkQuantumProvider).  
+To execute a PennyLane circuit using a PlanQK backend, first, retrieve the desired backend using the [PlanqkQuantumProvider](#planqkquantumprovider).  
 Then, create a `qiskit.remote` device and pass the PlanQK backend to it.
 In the following example a remote device that uses the `azure.ionq.simulator` backend is created. 
 
