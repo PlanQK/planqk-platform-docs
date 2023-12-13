@@ -244,7 +244,7 @@ To execute a PennyLane circuit using a PlanQK backend, first, retrieve the desir
 Then, create a `qiskit.remote` device and pass the PlanQK backend to it.
 
 ::: tip IMPORTANT
-Note: Currently, the IBM backends offered by PlanQK cannot be accessed with PennyLane.
+Currently, the IBM backends offered by PlanQK cannot be accessed with PennyLane.
 :::
 
 In the following example a remote device that uses the `azure.ionq.simulator` backend is created. 
