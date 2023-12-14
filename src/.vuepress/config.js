@@ -141,6 +141,8 @@ module.exports = {
           collapsable: true,
           children: [
             'demos/introduction',
+            'demos/deploy-a-demo',
+            'demos/environment-variables',
           ]
         },
         {
