@@ -1,7 +1,7 @@
 # Deploy a Demo
 To deploy a Demo, simply connect a GitHub repository.
 PlanQK always **deploys the default branch** of your repository and **automatically triggers a re-deploy** every time you push to the default branch.
-Each deployed Demo has a resource limit of 1 CPU and 512 MiB of RAM and automatically scales to zero when not in use.
+Each deployed Demo has a resource limit of 1 CPU and 512 MiB of memory and automatically scales to zero when not in use.
 
 ## A step-by-step guide to deploy a Demo
 A simple way to create a Demo is to use the [Gradio](https://www.gradio.app/) python library.
