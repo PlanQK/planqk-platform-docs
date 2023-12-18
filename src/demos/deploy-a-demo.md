@@ -1,6 +1,6 @@
 # Deploy a Demo
 To deploy a Demo, simply connect a GitHub repository.
-PlanQK automatically builds and deploys your Demo every time you push to the default branch of your repository.
+PlanQK always **deploys the default branch** of your repository and **automatically triggers a re-deploy** every time you push to the default branch.
 Each deployed Demo has a resource limit of 1 CPU and 512 MiB of RAM and automatically scales to zero when not in use.
 
 ## A step-by-step guide to deploy a Demo
