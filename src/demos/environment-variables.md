@@ -1,8 +1,9 @@
 # Set Environment Variables
+
 If your demo requires environment variables (for instance, [Application credentials](../applications.md)), you can set them in the **Settings** of your Demo.
 You can access them in your code like regular environment variables, for example with ```os.getenv()``` in Python.
 
-As an example, below is an excerpt of our [Gradio starter template](https://github.com/Anaqor/gradio-example)
+As an example, below is an excerpt of our [Gradio starter template](https://github.com/Anaqor/demo-starter-gradio):
 
 ```python
 import os
