@@ -1,8 +1,16 @@
 # Deploy a Demo
+On this page you will learn how to deploy a Demo for your Use Case.
+You will learn how deployments work, the requirements for host and port configuration, and how to deploy a Demo step-by-step.
 
-To deploy a Demo, simply connect a GitHub repository. 
+## How deployments work
+
+To deploy a Demo, simply connect a GitHub repository.
 PlanQK always **deploys the default branch** of your repository and **automatically triggers a re-deployment** every time you push to the default branch.
 Each deployed Demo has a resource limit of 1 CPU and 512 MiB of memory and automatically scales to zero when not in use.
+
+## Host and port configuration
+
+Your Demo application must listen for requests on ```0.0.0.0``` on the port ```8080```. 
 
 ## A step-by-step guide to deploy a Demo
 
