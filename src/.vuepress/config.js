@@ -143,6 +143,7 @@ module.exports = {
             'demos/introduction',
             'demos/deploy-a-demo',
             'demos/environment-variables',
+            'demos/starter-templates',
           ]
         },
         {

@@ -5,7 +5,7 @@ You will learn how deployments work, the requirements for host and port configur
 ## How deployments work
 
 To deploy a Demo, simply connect a GitHub repository.
-PlanQK always **deploys the default branch** of your repository and **automatically triggers a re-deployment** every time you push to the default branch.
+PlanQK always **deploys the default branch** of your repository and **automatically triggers a re-deployment** every time you **push to the default branch**.
 Each deployed Demo has a resource limit of 1 CPU and 512 MiB of memory and automatically scales to zero when not in use.
 
 ## Host and port configuration
