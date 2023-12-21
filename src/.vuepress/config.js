@@ -69,7 +69,11 @@ module.exports = {
       {
         text: 'Pricing',
         link: 'https://platform.planqk.de/pricing'
-      }
+      },
+      {
+        text: 'Slack',
+        link: 'https://join.slack.com/t/planqk-platform/shared_invite/zt-1b4899wqr-xqOYLSCr8KqYkREi251NxQ'
+      },
     ],
 
     sidebar: {
