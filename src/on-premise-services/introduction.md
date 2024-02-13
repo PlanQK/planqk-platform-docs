@@ -13,11 +13,9 @@ To create an on-premise service, go to the [create service page](https://platfor
 |------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Name                   | Choose a meaningful name for your service. If you publish your service later on, this name will be displayed to other users.                                                            |
 | Service Type           | Select "On-premise Service".                                                                                                                                                              |
-| Service Endpoint       | Enter the public endpoint (URL) of your service.                                                                                                                                        |    
+| Service Endpoint       | Enter the public endpoint (URL) of your service.                                                                                                                                        |
 | Security Configuration | Define how the PlanQK Platform authenticates requests to your service. At the moment, Basic Authentication using username and password is supported.                                    |
 | API Specification      | Click on "Import from OpenAPI File" if you already have prepared an OpenAPI specification for your service. You can leave this empty for now and supply an OpenAPI specification later. |
 | Description            | Provide any additional meaningful information you want to provide to other PlanQK users.                                                                                                |
 
 Finally, click on "Create Service" to create your service.
-
-
