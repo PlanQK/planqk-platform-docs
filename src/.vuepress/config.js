@@ -151,6 +151,14 @@ module.exports = {
           ]
         },
         {
+          title: 'CICD-Integration',
+          collapsable: true,
+          children: [
+            'cicd-integration/introduction',
+            'cicd-integration/github',
+          ]
+        },
+        {
           title: 'Community Platform',
           collapsable: true,
           children: [
