@@ -156,6 +156,7 @@ module.exports = {
           children: [
             'cicd-integration/introduction',
             'cicd-integration/github',
+            'cicd-integration/gitlab',
           ]
         },
         {
