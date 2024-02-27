@@ -314,7 +314,7 @@ FLAGS
   --port  Defines the port on which the serve command is executed.
 
 DESCRIPTION
-  Allows the creation, status check and deletion of service instances. If the flag is not present, the application uses 8081 as the default port.
+  Allows the creation, status check and deletion of service instances. If the flag is not present, the application uses 8081 as default port.
 
 EXAMPLES
   $ planqk serve -p <port>
