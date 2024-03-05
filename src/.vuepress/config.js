@@ -141,6 +141,14 @@ module.exports = {
           ]
         },
         {
+          title: 'Service Orchestration',
+          collapsable: true,
+          children: [
+            'service-orchestration/introduction',
+            'service-orchestration/workflow-editor',
+          ]
+        },
+        {
           title: 'Demos',
           collapsable: true,
           children: [
