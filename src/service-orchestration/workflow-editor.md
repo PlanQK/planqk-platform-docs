@@ -56,13 +56,16 @@ If you want the parameter to be hard coded, just enter "date" as name and the wi
 
 If you want the parameter to be taken from the list of parameters you pass at service invocation, enter "data" as name and a reference to the parameter name where you pass the value later, e.g. ${myServiceData}.
 
-
-
 ### Add a Data Object to pass Input data to Node
+
+An alternative way to configure input and output data is to add data objects to the workflow, connect them with the service nodes, and configure the data within these data objects.
+An advantage of this is, that the data-flow is more explicit visible within the workflow.
+
+The behaviour is the same, it is also possible to mix data configuration at service node with data configuration via data objects.
+
 
 #### Hard code input data
 
-#### Configure Data
-
-### Add a Data Object to get Output data from Node
+If input data is hard coded in the workflow, it is not possible to overwrite the data at call invocation.
+So it is not possible to pass different data when the workflow is executed.
 

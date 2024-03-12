@@ -146,6 +146,7 @@ module.exports = {
           children: [
             'service-orchestration/introduction',
             'service-orchestration/workflow-editor',
+            'service-orchestration/example',
           ]
         },
         {
