@@ -53,7 +53,7 @@ It returns as output:
 
 - A Json structure containing the shrunk covariance matrix.
 
-## The workflow
+## The workflow without explicit data flow
 
 Create a new workflow service. Go to the details page and open the workflow model editor.
 
