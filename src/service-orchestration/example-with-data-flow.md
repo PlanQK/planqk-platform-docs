@@ -4,13 +4,13 @@ In this chapter, the set up of a workflow is described along a concrete example.
 
 The example consist of 2 service calls whereas the second service processes the result of teh first service call.
 
-## The combined Services
+## The combined services
 
 For this example 2 services will be combined in a workflow:
 - stock time series service
 - covariance generator
 
-Both services have to be available, published and subscribed by an algorithm. 
+Both services have to be available, published and subscribed by an application. 
 
 ### Stock time series service
 
@@ -61,8 +61,10 @@ Create the following flow:
 
 <img width="768" :src="$withBase('/images/workflow/workflow-example-v2.png')" alt="">
 
+by doing the following steps:
 - drag 2 service nodes into the editor
 - assign the 2 services to the nodes
+  - click on the _change type_ icon, open the list of _PlanQK Service Tasks_ and select the proper service
 - connect the nodes (start node -> service node -> service node -> end node)
 - drag 4 data object nodes into the editor
 - connect the 4 data object nodes to the service nodes as shown in picture
@@ -103,9 +105,11 @@ Configure the 4th data object node (out_covariance):
 
 ## Save, publish and subscribe
 
-At the end, clock on the save button to store the edited workflow in your workflow service.
+At the end, click on the save button to store the edited workflow in your workflow service.
 
-Note: there is no automatic save or intermediate save, so be aware to not lose you edit work by just leaving the editor without saving your work.
+::: warning NOTE
+There is no automatic save or intermediate save, so be aware to not lose you edit work by just leaving the editor without saving your work.
+:::
 
 When the workflow is ready, it has to be deployed to the deployed to the workflow engine.
 Click on the _Deploy button_.
@@ -143,15 +147,16 @@ If the workflow was executed without errors you can request the result via the G
 The result contains an array of variables.
 Within this array, not only the output variables are listed, but also all input parameters and all intermediate data which are created during the workflow execution.
 
-For this example, the result should contain
+For this example, the result should contain:
 
-| variable name    | description                                                                              | example content                                                                            |
-|------------------|------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
-| wf_stsy          | the stock symbols for the first service passed as input param to the workflow execution  | ["IBM","AAPL"]                                                                             |
-| wf_st            | the start date for the first service passed as input param to the workflow execution     | 2022-01-01                                                                                 |
-| wf_ed            | the end date for the first service passed as input param to the workflow execution       | 2022-01-05                                                                                 |
-| out_stock_data   | the result of the first service                                                          | "AAPL": {<br>"2022-01-01": 179,<br>"2022-01-01": 180<br>}                                  |
-| time_series_data | the transformed out_stock_data which is then passed as input param to the second service | "AAPL": {<br>"2022-01-01": 179,<br>"2022-01-01": 180<br>}                                  |
-| out_covariance   | the result of the second service                                                         | "shrunk_cov_matrix": {<br>"AAPL": {<br>"AAPL":0.001<br>}<br>} |
+| variable name    | description                                                                              | example content                                                         |
+|------------------|------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| wf_stsy          | the stock symbols for the first service passed as input param to the workflow execution  | ["IBM","AAPL"]                                                          |
+| wf_st            | the start date for the first service passed as input param to the workflow execution     | 2022-01-01                                                              |
+| wf_ed            | the end date for the first service passed as input param to the workflow execution       | 2022-01-05                                                              |
+| out_stock_data   | the result of the first service                                                          | "AAPL": {<br>"2022-01-01": 179,<br>"2022-01-01": 180<br>}<br>...        |
+| time_series_data | the transformed out_stock_data which is then passed as input param to the second service | "AAPL": {<br>"2022-01-01": 179,<br>"2022-01-01": 180<br>}<br>...        |
+| out_covariance   | the result of the second service                                                         | "shrunk_cov_matrix": {<br>"AAPL": {<br>"AAPL":0.001<br>},<br>...<br>}   |
+
 
 

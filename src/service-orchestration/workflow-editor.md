@@ -41,7 +41,9 @@ To call a PlanQK service you have to add a service node and assign the service y
 Click on the change type icon and then on _PlanQK Service Tasks_.
 From the list of services, choose the one you want to call here.
 
-Note: Only services you are subscribed on can be used within a workflow.
+::: warning NOTE
+Only services you are subscribed on can be used within a workflow.
+:::
 
 #### Configure input data for the service node
 
@@ -63,9 +65,12 @@ An advantage of this is, that the data-flow is more explicit visible within the 
 
 The behaviour is the same, it is also possible to mix data configuration at service node with data configuration via data objects.
 
+::: warning NOTE
+If an input parameter is defined in both ways, at the service node and via a data object, the configuration via data object has the higher priority.
+:::
 
-#### Hard code input data
-
+::: warning NOTE
 If input data is hard coded in the workflow, it is not possible to overwrite the data at call invocation.
-So it is not possible to pass different data when the workflow is executed.
+So it is not possible to pass different data for different execution runs of the workflow.
+:::
 
