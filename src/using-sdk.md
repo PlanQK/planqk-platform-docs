@@ -1,16 +1,21 @@
 # Using the SDK
 
 The PlanQK Quantum SDK provides an easy way for developing quantum circuits using [Qiskit](https://pypi.org/project/qiskit) to be run on quantum devices provided by the [PlanQK Platform](https://docs.platform.planqk.de).
-The SDK is an extension for the [Qiskit SDK](https://github.com/Qiskit/qiskit-metapackage) and provides the same functionality and syntax as well as some PlanQK specific commands.
+The SDK is an extension for the [Qiskit 1.0 SDK](https://github.com/Qiskit/qiskit-metapackage) and provides the same functionality and syntax as well as some PlanQK specific commands.
 
 ## Installation
 
-You need to have Python 3.7 or higher installed.
+You need to have Python 3.8 or higher installed.
 The package is released on PyPI and can be installed via `pip`:
 
 ```bash
 pip install --upgrade planqk-quantum
 ```
+
+::: tip NOTE
+Ensure that you have versions older than Qiskit SDK 1.0 uninstalled before installing the PlanQK Quantum SDK.
+The best way to ensure this is to create a new virtual environment and install the PlanQK Quantum SDK there.
+:::
 
 ## Execute your first circuit
 
@@ -45,15 +50,13 @@ backends = provider.backends()
 backend = provider.get_backend(name="azure.ionq.simulator")
 ```
 
-Now you can execute your Qiskit circuit on the selected backend, retrieve its `job` object, monitor its execution status, retrieve its results, cancel it etc.
+Now you can execute your Qiskit circuit on the selected backend, retrieve its `job` object, retrieve its results, cancel it etc.
 The full example would look like this:
 
 ```python
 from planqk.qiskit import PlanqkQuantumProvider
 
-from qiskit import execute
-from qiskit.circuit import QuantumCircuit
-from qiskit.tools.monitor import job_monitor
+from qiskit.circuit import QuantumCircuit, transpile
 
 # instantiate the PlanQK provider and select a backend
 provider = PlanqkQuantumProvider()
@@ -66,11 +69,10 @@ circuit.cx(0, 1)
 circuit.cx(1, 2)
 circuit.measure(range(3), range(3))
 
+# transpile circuit for backend
+circuit = transpile(circuit, backend)
 # execute circuit on selected backend
-job = execute(circuit, backend, shots=1000)
-
-# monitor execution status and retrieve results
-job_monitor(job)
+job = backend.run(circuit, shots=1000)
 ```
 
 ::: tip NOTE

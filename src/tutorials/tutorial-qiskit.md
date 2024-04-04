@@ -1,14 +1,14 @@
 # Execute Qiskit Circuits using the PlanQK Quantum SDK
 
 This tutorial describes how you can use the PlanQK Quantum SDK to execute your Qiskit code on different quantum backends supported by PlanQK.
-The SDK is a wrapper for the Qiskit SDK.
+The SDK is a wrapper for Qiskit 1.0.
 Hence, it provides the same functionality and syntax as the original Qiskit SDK.
 
 You can use the SDK either directly from your favorite IDE or in a [PlanQK service](../managed-services/introduction.md).
 
 ## Install the PlanQK Quantum SDK
 
-To install the PlanQK Quantum SDK you need to have Python 3.7 or higher installed.
+To install the PlanQK Quantum SDK you need to have Python 3.8 or higher installed.
 The package is released on PyPI and can be installed via `pip`:
 
 ```bash
@@ -52,12 +52,10 @@ backends = planqk_provider.backends()
 backend = provider.get_backend(name="azure.ionq.simulator")
 ```
 
-Now you can execute your Qiskit circuit on the selected backend, retrieve its `job` object, monitor its execution status, retrieve its results, cancel it etc.
+Now you can execute your Qiskit circuit on the selected backend, retrieve its `job` object, retrieve its results, cancel it etc.
 
 ```python
-from qiskit import execute
-from qiskit.circuit import QuantumCircuit
-from qiskit.tools.monitor import job_monitor
+from qiskit.circuit import QuantumCircuit, transpile
 
 # create a qiskit circuit
 circuit = QuantumCircuit(3, 3)
@@ -66,11 +64,11 @@ circuit.cx(0, 1)
 circuit.cx(1, 2)
 circuit.measure(range(3), range(3))
 
-# execute circuit on selected backend
-job = execute(circuit, backend, shots=1000)
+# transpile circuit for backend
+circuit = transpile(circuit, backend)
 
-# monitor execution status and retrieve results
-job_monitor(job)
+# execute circuit on selected backend
+job = backend.run(circuit, shots=1000)
 ```
 
 ::: tip NOTE
