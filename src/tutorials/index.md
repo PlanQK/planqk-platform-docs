@@ -3,6 +3,7 @@
 * [D-Wave Service on PlanQK](tutorial-dwave.md)
 * [Execute Qiskit Circuits with the PlanQK Quantum SDK](tutorial-qiskit.md)
 * [Create and Test an On-premise Service](tutorial-meter-external-service.md)
+* [Utilize the PlanQK Service SDK for local development using PlanQK CLI](planqk-serve-with-service-sdk.md)
 
 # Cookbooks
 
