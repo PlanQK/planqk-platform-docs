@@ -85,6 +85,7 @@ module.exports = {
             'tutorial-dwave',
             'tutorial-qiskit',
             'tutorial-meter-external-service',
+            'tutorial-local-testing-with-cli-and-service-sdk',
           ]
         },
         {
