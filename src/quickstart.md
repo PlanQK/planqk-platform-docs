@@ -109,6 +109,23 @@ The output should look like this:
 }
 ```
 
+## Test your service locally with PlanQK CLI
+
+To begin, navigate to your project directory:
+
+```bash
+cd my-project
+```
+
+Next, run the following command:
+
+```bash
+planqk serve
+```
+
+Once the server is operational, you can access http://localhost:8081/docs. This interface provides you the ability to manage service executions via the API. Further information can be found in the documentation [planqk serve](https://docs.platform.planqk.de/cli-reference.html#planqk-serve).
+
+
 ## Deploy your service
 
 Deploy your service to the PlanQK Platform. Within your project directory, run:
