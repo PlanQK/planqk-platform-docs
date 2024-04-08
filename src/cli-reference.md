@@ -304,7 +304,7 @@ _See code: [dist/commands/up/index.ts](https://github.com/PlanQK/planqk-cli/tree
 
 ## `planqk serve`
 
-Launches a web server that allows interaction with the API to create, check the status and cancel service executions.
+Launches a web server that enables users to interact with the API. It facilitates service creation, status checks, and cancellation of service executions. A significant advantage is the ability to test services locally before deploying them to the platform
 
 ```
 USAGE
