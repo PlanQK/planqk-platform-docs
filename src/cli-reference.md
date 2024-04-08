@@ -304,7 +304,7 @@ _See code: [dist/commands/up/index.ts](https://github.com/PlanQK/planqk-cli/tree
 
 ## `planqk serve`
 
-Allows the creation, status check and deletion of service instances.
+Launches a web server that allows interaction with the API to create, check the status and cancel service executions.
 
 ```
 USAGE
@@ -314,7 +314,7 @@ FLAGS
   --port  Defines the port on which the serve command is executed.
 
 DESCRIPTION
-  Allows the creation, status check and deletion of service instances. If the flag is not present, the application uses 8081 as default port.
+  Initiates a web server that facilitates API interaction. If the flag is not present, the application uses 8081 as default port.
 
 EXAMPLES
   $ planqk serve -p <port>
