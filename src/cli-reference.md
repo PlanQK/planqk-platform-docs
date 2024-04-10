@@ -42,25 +42,22 @@ planqk login -t <your access token>
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g @anaqor/planqk
 $ planqk COMMAND
 running command...
 $ planqk (--version)
-@anaqor/planqk/2.4.3 darwin-arm64 node-v18.17.1
+@anaqor/planqk/2.9.7 darwin-arm64 node-v18.19.1
 $ planqk --help [COMMAND]
 USAGE
   $ planqk COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 ### Commands
 
 <!-- commands -->
-
 * [`planqk autocomplete [SHELL]`](#planqk-autocomplete-shell)
 * [`planqk create-openapi`](#planqk-create-openapi)
 * [`planqk get-context`](#planqk-get-context)
@@ -69,10 +66,10 @@ USAGE
 * [`planqk login`](#planqk-login)
 * [`planqk logout`](#planqk-logout)
 * [`planqk run [SERVICEID]`](#planqk-run-serviceid)
+* [`planqk serve`](#planqk-serve)
 * [`planqk services`](#planqk-services)
 * [`planqk set-context [CONTEXTID]`](#planqk-set-context-contextid)
 * [`planqk up`](#planqk-up)
-* [`planqk serve`](#planqk-serve)
 
 ## `planqk autocomplete [SHELL]`
 
@@ -101,8 +98,7 @@ EXAMPLES
   $ planqk autocomplete --refresh-cache
 ```
 
-_See
-code: [@oclif/plugin-autocomplete](https://github.com/oclif/plugin-autocomplete/blob/v2.1.9/src/commands/autocomplete/index.ts)_
+_See code: [@oclif/plugin-autocomplete](https://github.com/oclif/plugin-autocomplete/blob/v2.1.9/src/commands/autocomplete/index.ts)_
 
 ## `planqk create-openapi`
 
@@ -146,14 +142,18 @@ _See code: [dist/commands/get-context/index.ts](https://github.com/PlanQK/planqk
 
 ## `planqk init`
 
-Initialize a PlanQK project.
+Initialize a PlanQK project to create a service.
 
 ```
 USAGE
-  $ planqk init
+  $ planqk init [--non-interactive] [--name <value>]
+
+FLAGS
+  --name=<value>     The name of the service
+  --non-interactive  Run it in non-interactive mode
 
 DESCRIPTION
-  Initialize a PlanQK project.
+  Initialize a PlanQK project to create a service.
 
 EXAMPLES
   $ planqk init
@@ -246,6 +246,28 @@ EXAMPLES
 
 _See code: [dist/commands/run/index.ts](https://github.com/PlanQK/planqk-cli/tree/main/src/commands)_
 
+## `planqk serve`
+
+Runs your current service code in a containerized environment to expose it through a local web server, similarly to how the PlanQK Platform would run your code. The local web server exposes the same RESTful HTTP endpoints to start a service execution, to check the status of running executions, to cancel executions, and to retrieve execution results.
+
+```
+USAGE
+  $ planqk serve [-p <value>]
+
+FLAGS
+  -p, --port=<value>  The port on which the local web server accepts requests
+
+DESCRIPTION
+  Runs your current service code in a containerized environment to expose it through a local web server, similarly to
+  how the PlanQK Platform would run your code. The local web server exposes the same RESTful HTTP endpoints to start a
+  service execution, to check the status of running executions, to cancel executions, and to retrieve execution results.
+
+EXAMPLES
+  $ planqk serve -p <port>
+```
+
+_See code: [dist/commands/serve/index.ts](https://github.com/PlanQK/planqk-cli/tree/main/src/commands)_
+
 ## `planqk services`
 
 List all available services of the current selected context.
@@ -301,23 +323,4 @@ EXAMPLES
 ```
 
 _See code: [dist/commands/up/index.ts](https://github.com/PlanQK/planqk-cli/tree/main/src/commands)_
-
-## `planqk serve`
-
-Enables the testing of a service in a containerized environment, similar to the one utilized by our platform. It starts a web server that allows you to create, check the status of, and cancel the execution of the service. This API is exposed just like the platform's.
-```
-USAGE
-  $ planqk serve [--port]
-
-FLAGS
-  --port  Defines the port on which the serve command is executed.
-
-DESCRIPTION
-  Initiates a web server that facilitates API interaction by enabling the creation, status check and termination of the service execution. If the flag is not present, the application uses 8081 as default port.
-
-EXAMPLES
-  $ planqk serve -p <port>
-```
-
-_See code: [dist/commands/serve/index.ts](https://github.com/PlanQK/planqk-cli/tree/main/src/commands)_
 <!-- commandsstop -->
