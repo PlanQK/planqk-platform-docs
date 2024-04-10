@@ -64,11 +64,11 @@ module.exports = {
       },
       {
         text: 'PlanQK Platform',
-        link: 'https://platform.planqk.de/'
+        link: 'https://www.planqk.de'
       },
       {
         text: 'Pricing',
-        link: 'https://platform.planqk.de/pricing'
+        link: 'https://www.planqk.de/pricing'
       },
       {
         text: 'Slack',
