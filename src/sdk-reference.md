@@ -17,7 +17,7 @@ pip install --upgrade planqk-quantum
 ## Using the SDK
 
 The SDK, based on Qiskit, enables access to quantum hardware and simulators using the Qiskit syntax. To list and access the quantum backends supported by Planqk, you will need to use either the `PlanqkQuantumProvider` or the `PlanqkQiskitRuntimeService` class.
-The latter one is used to access the IBM backends while the former one is used to access all other backends.
+The latter one can be only used to access the IBM backends while the former one is used to access all backends.
 
 ### Authentication
 
@@ -25,15 +25,17 @@ To use the SDK, you need to authenticate using an access token with at least the
 The token can be generated [here](https://platform.planqk.de/settings/access-tokens).
 This token can be set in two ways:
 
-1. Automatically, by logging in through the [PlanQK CLI](quickstart.md#_3-login-to-your-account). The command to login via CLI is `planqk login -t <your_access_token>`. This method will automatically inject the access token when you instantiate the `PlanqkQuantumProvider` class.
+1. Automatically, by logging in through the [PlanQK CLI](quickstart.md#_3-login-to-your-account). The command to login via CLI is `planqk login -t <your_access_token>`. This method will automatically inject the access token when you instantiate the `PlanqkQuantumProvider` class. If you want to log in with your organization you need to additionally execute `planqk set-context` and select the organization.
 
-2. Explicitly, during instantiation of the `PlanqkQuantumProvider` or the `PlanqkQiskitRuntimeService` class as shown in the example below. This method overrides any access token that has been automatically injected through the PlanQK CLI login.
+2. Explicitly, during instantiation of the `PlanqkQuantumProvider` or the `PlanqkQiskitRuntimeService` class as shown in the example below. This method overrides any access token that has been automatically injected through the PlanQK CLI login. You can optionally pass the organization id as a parameter, if you want to execute your circuit using your organization's account.
 
 If the access token is not set or if it is invalid or has expired, an `InvalidAccessTokenError` is thrown. 
-You need to generate a new token and login again. 
+You need to generate a new token and login again.
+
+If you want to login with your organization, you can additionally pass the organization id as a parameter.
 
 ### Provider Access Token for IBM Backends
-To utilize IBM backends through the `PlanqkQiskitRuntimeService`, it is essential to supply your IBM API access token. 
+To utilize IBM backends through the `PlanqkQuantumProvider` or the `PlanqkQiskitRuntimeService`, it is essential to supply your IBM API access token. 
 This token can be obtained from either IBM Quantum or IBM Cloud. 
 You should enter this token into your [Provider Access Token settings](https://platform.planqk.de/settings/backend-tokens). 
 PlanQK utilizes this token to determine the backends you are authorized to access and to facilitate interaction with these backends.
@@ -45,8 +47,8 @@ Similarly, for IBM Cloud backends, the "IBM Cloud" token is required.
 ```python
 from planqk.qiskit import PlanqkQuantumProvider
 
-# Initialize the provider with your access token
-provider = PlanqkQuantumProvider(access_token="your_access_token")
+# Initialize the provider with your access token, and optionally your organization id
+provider = PlanqkQuantumProvider(access_token="your_access_token", organization_id="your_organization_id")
 
 backends = provider.backends()
 

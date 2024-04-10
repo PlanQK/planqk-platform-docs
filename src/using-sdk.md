@@ -5,7 +5,7 @@ The SDK is an extension for the [Qiskit 1.0 SDK](https://github.com/Qiskit/qiski
 
 ## Installation
 
-You need to have Python 3.8 or higher installed.
+You need to have Python 3.10 or higher installed.
 The package is released on PyPI and can be installed via `pip`:
 
 ```bash
@@ -36,6 +36,13 @@ Alternatively, you can also create the provider object by passing your PlanQK [p
 
 ```python
 provider = PlanqkQuantumProvider(access_token="your-access-token")
+```
+
+If you want to login with your organization, you can additionally pass the organization id as a parameter.
+The organization id can be found in the organization settings on the PlanQK Platform:
+
+```python
+provider = PlanqkQuantumProvider(access_token="your-access-token", organization_id="your-organization-id")
 ```
 
 After you have created the provider object you can list all backends supported by the PlanQK Platform and select the one
