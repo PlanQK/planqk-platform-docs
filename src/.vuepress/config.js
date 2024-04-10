@@ -186,7 +186,6 @@ module.exports = {
           children: [
             'community-platform/overview',
             'community-platform/algorithms',
-            'community-platform/implementations',
             'community-platform/data-pools',
             'community-platform/use-cases',
             'community-platform/quantum-apps',
