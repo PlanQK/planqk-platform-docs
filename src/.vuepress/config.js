@@ -113,6 +113,17 @@ module.exports = {
           ]
         },
         {
+          title: 'Implementations',
+          collapsable: false,
+          children: [
+            'implementations/introduction',
+            'implementations/getting-started',
+            'implementations/manage-permissions',
+            'implementations/create-a-service',
+            'implementations/share-with-community',
+          ]
+        },
+        {
           title: 'Managed Services',
           collapsable: false,
           children: [

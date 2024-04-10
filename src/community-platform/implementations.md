@@ -1,20 +1,88 @@
 # Implementations
+ 
+Implementations are hosted as Git repositories, which means that version control and collaboration are core elements of PlanQK.
+In a nutshell, an implementation (also known as a repo or repository) is a place where code and assets can be stored to back up your work, share it with the community, and work in a team.
 
-For any algorithm you can also add an implementation for other users to see and download, which in principle can be any format (such as a plain .py python file or a .ipynb jupyter notebook).
-However, these implementations can also be used and executed as [jobs](../managed-services/managed-services-jobs.md).
+In these pages, you will go over the basics of getting started with Git and interacting with implementations on the PlanQK.
 
-In future updates of the platform, it will also be possible to provide implementations in different ways, such as a remote git repository.
+## Getting started
+A step by step guide to your first implementation.
 
-### Provide an implementation for job execution
+### 1. Create an implementation
+On the [Implementations](https://platform.planqk.de/implementations) page, click on the **Create Implementation** button.
+And enter a name for your implementation.
 
-If you want to allow other users to not only download but also use your implementation and execute it as a job: Awesome!
-That's the spirit! You now just have to take two things into consideration:
+### 2. Clone the repository locally
+To clone the repository, copy the URL of the repository from the implementation page.
 
-1. Your implementation **must** be a zipped python module according to our [User Code Templates](https://github.com/PlanQK/planqk-platform-samples/tree/master/coding-templates/python)
-2. Change the format of your `user_code.zip` into `user_code.planqk`. This shows the platform, that the provided zip file is in the right format for the platform to deploy it as a service, indicated by the "Create Service" button next to the uploaded implementation.
+The PlanQK Git Server supports HTTPS with basic authentication.
+You can authenticate by providing your personal access token in the Git URL.
+For example, `https://planqk:<your-access-token>@git.platform.planqk.de/...`.
 
-::: tip Note
-Similar to algorithms, you have to give users permission to see and use/download your implementation.
-For that, click on the "Members" tab at the top of a given implementation.  
-Now, everyone with a "Viewer" role or above can create a service out of the implementation and run ist as a job.
-:::
+For the sake of this example, let's assume the URL is `https://planqk:plqk_123@git.platform.planqk.de/fd0a7648-6b0d-462c-aed2-26c46b439e1d/my-first-impl.git`.
+
+```bash
+git clone https://planqk:plqk_123@git.platform.planqk.de/fd0a7648-6b0d-462c-aed2-26c46b439e1d/my-first-impl.git
+cd my-first-impl
+```
+> You can clone any repository that you have at least 'Viewer' permissions for.
+
+### 3. Add a README
+Add a README to your repository to provide information about your implementation.
+
+```bash
+touch README.md
+git add README.md
+git commit -m "add README"
+```
+
+### 4. Push your changes
+
+Push your code to the repository using the following commands:
+```bash
+git push --set-upstream origin main
+```
+
+After refreshing the page, you will see the README file in the repository.
+
+
+
+## Create a service
+
+## Settings
+1. Manage members
+
+### Share with the Community
+1. Add a README
+2. Add a LICENSE
+
+## Working with Git
+
+You can also upload existing files from your computer using the instructions below.
+
+Git global setup
+git config --global user.name "Felix Mustermann"
+git config --global user.email "felix@anaqor.de"
+Create a new repository
+git clone https://planqk:plqk_hXsDzbWIPpgHdSVVtYkygHx7xoOcxXLBpxHHl1K6eC@git.34.90.225.20.nip.io/fd0a7648-6b0d-462c-aed2-26c46b439e1d/my-supe-cool-impl.git
+cd my-supe-cool-impl
+git switch --create main
+touch README.md
+git add README.md
+git commit -m "add README"
+git push --set-upstream origin main
+Push an existing folder
+cd existing_folder
+git init --initial-branch=main
+git remote add origin https://planqk:plqk_hXsDzbWIPpgHdSVVtYkygHx7xoOcxXLBpxHHl1K6eC@git.34.90.225.20.nip.io/fd0a7648-6b0d-462c-aed2-26c46b439e1d/my-supe-cool-impl.git
+git add .
+git commit -m "Initial commit"
+git push --set-upstream origin main
+Push an existing Git repository
+cd existing_repo
+git remote rename origin old-origin
+git remote add origin https://planqk:plqk_hXsDzbWIPpgHdSVVtYkygHx7xoOcxXLBpxHHl1K6eC@git.34.90.225.20.nip.io/fd0a7648-6b0d-462c-aed2-26c46b439e1d/my-supe-cool-impl.git
+git push --set-upstream origin --all
+git push --set-upstream origin --tags
+
+
