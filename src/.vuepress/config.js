@@ -118,9 +118,8 @@ module.exports = {
           children: [
             'implementations/introduction',
             'implementations/getting-started',
-            'implementations/manage-permissions',
+            'implementations/settings',
             'implementations/create-a-service',
-            'implementations/share-with-community',
           ]
         },
         {

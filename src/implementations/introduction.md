@@ -8,6 +8,5 @@ In these pages, you will go over the basics of getting started with Git and inte
  ### Contents
 
 - [Getting started](getting-started.md)
-- [Manage permissions](manage-permissions.md)
-- [Share with the community](share-with-community.md)
+- [Implementation Settings](settings.md)
 - [Create a Managed Service](create-a-service.md)
