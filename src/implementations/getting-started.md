@@ -36,7 +36,7 @@ This command already contains the **correct URL** to clone the repository.
 ::: tip Authentication 
 The PlanQK Git Server supports HTTPS with basic authentication.
 You can authenticate by providing your personal access token in the Git URL.
-You can clone any repository that you have at least 'Viewer' permissions for. Learn more about permissions in the [manage permissions](manage-permissions.md) section.
+You can clone any repository that you have at least 'Viewer' permissions for. Learn more about permissions in the [settings](settings.md) section.
 :::
 
 ### Add a README
@@ -70,6 +70,6 @@ In case a Dockerfile is present in the implementation a "Create Service" button 
 
 ### What's next?
 
-- Learn how to [manage permissions](manage-permissions.md).
-- Learn how to [share your implementation with the community](share-with-community.md).
+- Learn how to [manage permissions](settings.md).
+- Learn how to [share your implementation with the community](settings.md).
 - Learn how to [create a Managed Service](create-a-service.md).
