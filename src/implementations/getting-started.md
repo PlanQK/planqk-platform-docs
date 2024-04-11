@@ -16,7 +16,7 @@ After creating the implementation, you should see a page like this:
 <ImageShadow :src="$withBase('/images/implementations/empty-implementation.png')" />
 
 Note that the lock icon indicates that the implementation is *private*. 
-Learn how to make your implementation *public* in the [share with the community](share-with-community.md) section.
+Learn how to make your implementation *public* in the [settings](settings.md) section.
 
 Moreover, the empty implementation page provides you a set of command line instructions to clone the repository and start working on your implementation.
 In the following we will go through the steps to clone the repository and add a README file.
