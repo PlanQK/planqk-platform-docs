@@ -5,7 +5,7 @@ This guide assumes that you already know the basics about [managed services](../
 
 ### Requirements
 
-This guide assumes that you have the latest version of PlanQK cli installed on your machine.
+This guide assumes that you have the latest version of PlanQK CLI installed on your machine.
 If not you can install it by following the instructions in the [CLI reference](../cli-reference.md).
 
 
@@ -26,7 +26,7 @@ In the interactive prompt:
 3. Choose your resource configuration.
 
 After the initialization, you will find a new folder with the name of your service in the current directory.
-For sake of simplicity will not get into details of the generated code in this tutorial.
+For sake of simplicity, we will not get into details of the generated code in this tutorial.
 You can check out the README file in the generated project for more information.
 
 ### Create an implementation and push the code
