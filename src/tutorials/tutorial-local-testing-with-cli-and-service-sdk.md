@@ -1,9 +1,8 @@
-# Utilize the PlanQK Service SDK for local development using PlanQK CLI
+# Utilize the PlanQK Service SDK for Local Development
 
-This tutorial outlines how to create, check the status and cancel service executions using both the PlanQK Service SDK and PlanQK CLI.
+This tutorial provides step-by-step guidance on how to create services, monitor their statuses, retrieve their results, and cancel their executions locally. To accomplish this objective, the tutorial utilizes the PlanQK Service SDK and PlanQK CLI.
 
-
-## Using PlanQK CLI
+## Deploying the Services locally with the PlanQK CLI
 
 Begin by navigating to the directory where your project, containing the service, is located.
 
@@ -17,9 +16,11 @@ Next, run the following command:
 planqk serve
 ```
 
-Once the server is up and running, you can utilize http://localhost:8081/ as the URL to access the API. For additional details regarding the `planqk serve` functionality, please refer to the documentation available [here](https://docs.platform.planqk.de/cli-reference.html#planqk-serve).
+Once the SERVICE is up and running, you can access its API under http://localhost:8081/. For additional details regarding the `planqk serve` functionality, please refer to the documentation available [here](https://docs.platform.planqk.de/cli-reference.html#planqk-serve).
 
-## Getting Started with PlanQK Service SDK
+## Accessing a Service with the PlanQK Service SDK
+
+Supported operations are: creating, monitoring the status of the service, retrieving the execution result and cancelling the execution of the service.
 
 Begin by installing the PlanQK Service SDK using pip.
 

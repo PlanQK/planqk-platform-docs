@@ -248,7 +248,7 @@ _See code: [dist/commands/run/index.ts](https://github.com/PlanQK/planqk-cli/tre
 
 ## `planqk serve`
 
-Runs your current service code in a containerized environment to expose it through a local web server, similarly to how the PlanQK Platform would run your code. The local web server exposes the same RESTful HTTP endpoints to start a service execution, to check the status of running executions, to cancel executions, and to retrieve execution results.
+Runs your current service code within a containerized environment, accessible through a local web server, mirroring the functionality of the PlanQK Platform. The local web server exposes the RESTful HTTP endpoints to start a service execution, to check the status of running executions, to cancel executions, and to retrieve execution results.
 
 ```
 USAGE
@@ -258,9 +258,7 @@ FLAGS
   -p, --port=<value>  The port on which the local web server accepts requests
 
 DESCRIPTION
-  Runs your current service code in a containerized environment to expose it through a local web server, similarly to
-  how the PlanQK Platform would run your code. The local web server exposes the same RESTful HTTP endpoints to start a
-  service execution, to check the status of running executions, to cancel executions, and to retrieve execution results.
+  Runs your current service code within a containerized environment, accessible through a local web server, mirroring the functionality of the PlanQK Platform. The local web server exposes the RESTful HTTP endpoints to start a service execution, to check the status of running executions, to cancel executions, and to retrieve execution results.
 
 EXAMPLES
   $ planqk serve -p <port>
