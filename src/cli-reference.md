@@ -258,7 +258,7 @@ FLAGS
   -p, --port=<value>  The port on which the local web server accepts requests
 
 DESCRIPTION
-  Runs your current service code within a containerized environment, accessible through a local web server, mirroring the functionality of the PlanQK Platform. The local web server exposes the RESTful HTTP endpoints to start a service execution, to check the status of running executions, to cancel executions, and to retrieve execution results.
+  Runs your current service code within a containerized environment, accessible through a local web server, mirroring the functionality of the PlanQK Platform. The local web server exposes the RESTful HTTP endpoints to start a service execution, to check the status of running executions, to cancel executions, and to retrieve execution results. If the port flag is not specified, then 8081 will be used as the default port.
 
 EXAMPLES
   $ planqk serve -p <port>
