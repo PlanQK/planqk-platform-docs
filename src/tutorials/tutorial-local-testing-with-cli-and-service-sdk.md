@@ -2,9 +2,21 @@
 
 This tutorial provides step-by-step guidance on how to create services, monitor their statuses, retrieve their results, and cancel their executions locally. To accomplish this objective, the tutorial utilizes the PlanQK Service SDK and PlanQK CLI.
 
+Prerequisites:
+Ensure that Docker is installed and running properly. For detailed documentation, please refer to the following link: [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
 ## Deploying the Services locally with the PlanQK CLI
 
-Begin by navigating to the directory where your project, containing the service, is located.
+To install the PlanQK CLI, you must install Node.js and the npm command line interface using either a
+[Node version manager](https://github.com/nvm-sh/nvm) or a [Node installer](https://nodejs.org/en/download).
+
+Then install the PlanQK CLI globally using npm:
+
+```bash
+npm install -g @anaqor/planqk
+```
+
+Once the installation is complete, start by navigating to the directory where your project, which includes the service, is located.
 
 ```bash
 cd my-project
