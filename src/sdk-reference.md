@@ -74,10 +74,11 @@ This section provides a brief overview of the most important classes and methods
 
 The `PlanqkQuantumProvider` class is an extension for the [Qiskit Provider](https://qiskit.org/documentation/stubs/qiskit.providers.ProviderV1.get_backend.html#qiskit.providers.ProviderV1.get_backend).
 
-| Method              | Description                                                                                                                            |
-|---------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `backends()`        | This method returns a list of backends supported by PlanQK. Please note that currently, backend filtering is not supported.            |
-| `get_backend(name)` | This method returns a single backend that matches the specified name. If the backend cannot be found, a `PlanqkClientError` is thrown. |
+| Method              | Description                                                                                                                             |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| `backends()`        | This method returns a list of backends supported by PlanQK. Please note that currently, backend filtering is not supported.             |
+| `get_backend(name)` | This method returns a single backend that matches the specified name. If the backend cannot be found, a `PlanqkClientError` is thrown.  |
+| `jobs()`            | This method retrieves a list of all jobs created by the user, sorted by their creation date with the newest jobs listed first.          |
 
 #### Backend
 
