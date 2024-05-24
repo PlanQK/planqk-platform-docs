@@ -10,7 +10,7 @@ If you don't have one yet, [create an account](https://platform.planqk.de/)
 
 ### 2. Install the PlanQK CLI
 
-To install the PlanQK CLI, you must install Node.js and the npm command line interface using either a
+To install the PlanQK CLI, you must install Node.js 18 or higher and the npm command line interface using either a
 [Node version manager](https://github.com/nvm-sh/nvm) or a [Node installer](https://nodejs.org/en/download).
 
 Then install the PlanQK CLI globally using npm:
