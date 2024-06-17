@@ -42,7 +42,7 @@ You will be prompted to provide some information about your project configuratio
 For this quickstart, select the following configuration:
 
 - **Name**: `my-project`
-- **Template**: `IonQ Starter (Cloud Simulator)`
+- **Template**: `IonQ Starter (Azure Quantum)`
 - **vCPU**: `0.5 vCPU`
 - **Memory**: `1GB`
 
