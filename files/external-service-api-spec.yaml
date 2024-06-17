@@ -1,0 +1,128 @@
+openapi: 3.0.0
+info:
+  version: "1.0"
+  title: Title of your On-premise Service API
+  description: |
+    Detailed description of your On-premise Service API.
+paths:
+  /job:
+    post:
+      tags:
+        - Service API
+      summary: Creates a new job and returns a job id.
+      description: |
+        Detailed description of the job creation endpoint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sense:
+                  type: string
+                  enum:
+                    - MAXIMIZE
+                    - MINIMIZE
+                matrix:
+                  type: object
+                  properties:
+                    n:
+                      type: number
+                      description: number of variables, i.e., number of rows in Q
+                    linear:
+                      type: array
+                      items:
+                        type: array
+                        items:
+                          type: number
+                      description: tuples (i, c) implying that Q_{i,i} = c
+                    quadratic:
+                      type: array
+                      items:
+                        type: array
+                        items:
+                          type: number
+                      description: tuples (i, j, c) implying that Q_{i,j} = Q_{j,i} = c
+            example: {"sense": "MAXIMIZE", "matrix": {"n": 5, "linear": [[0, 1], [2, 1], [4, 1]], "quadratic": [[0, 2, -1], [0, 4, -1], [2, 4, -1]]}}
+      responses:
+        "200":
+          description: Job created
+          content:
+            text/plain:
+              schema:
+                type: string
+                description: The id of the created job
+              example: 4f094f32-f66b-4e9c-9b2b-a72971caf8e0
+        "400":
+          description: Invalid input
+        "500":
+          description: Internal server error
+  /job/{id}/status:
+    get:
+      tags:
+        - Service API
+      summary: Returns the job status for a given job id.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The id of a certain job
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ok
+          content:
+            text/plain:
+              schema:
+                type: string
+                enum:
+                  - FINISHED
+                  - TERMINATED
+                  - ERROR
+                  - RUNNING
+                  - CREATED
+                  - TIMEOUT
+              example: CREATED
+        "403":
+          description: Forbidden
+        "404":
+          description: Not found
+        "500":
+          description: Internal server error
+  /job/{id}/results:
+    get:
+      tags:
+        - Service API
+      summary: Returns the result for a job after it has successfully finished.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: The id of a certain job
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  objective:
+                    type: number
+                  solution:
+                    type: array
+                    items:
+                      type: number
+              example:
+                objective: 1.0
+                solution: [ 1, 1, 0, 1, 1 ]
+        "403":
+          description: Forbidden
+        "404":
+          description: Not found
+        "500":
+          description: Internal server error
